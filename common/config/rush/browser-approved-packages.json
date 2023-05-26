@@ -223,6 +223,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "@jest/globals",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "@microsoft/api-documenter",
       "allowedCategories": [ "production", "tools" ]
     },
@@ -637,6 +641,10 @@
     {
       "name": "eslint-plugin-import",
       "allowedCategories": [ "examples", "production", "tools" ]
+    },
+    {
+      "name": "eslint-plugin-import-esm",
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "eslint-plugin-jest",
