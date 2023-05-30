@@ -1,7 +1,7 @@
 // (C) 2019-2022 GoodData Corporation
 import a, { AxiosInstance, AxiosRequestConfig } from "axios";
-import cloneDeep from "lodash/cloneDeep";
-import merge from "lodash/merge";
+import cloneDeep from "lodash/cloneDeep.js";
+import merge from "lodash/merge.js";
 import packageJson from "../package.json";
 
 /**
@@ -39,7 +39,7 @@ let _TOKEN: string | undefined;
 /**
  * Returns an instance of axios with default configuration.
  */
-export const axios: AxiosInstance = a.create(_CONFIG);
+export const axios: AxiosInstance = a.default.create(_CONFIG);
 
 /**
  * This function sets global API token to send in Authorization header on all API calls done by axios. If the token is
@@ -130,5 +130,5 @@ export function newAxiosRequestConfig(
 export function newAxios(baseUrl?: string, headers?: { [name: string]: string }): AxiosInstance {
     const config = newAxiosRequestConfig(baseUrl, headers);
 
-    return a.create(config);
+    return a.default.create(config);
 }
