@@ -1,17 +1,19 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import globalUserEvent from "@testing-library/user-event";
 import { dummyBackend, dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
-import { createDummyPromise } from "../../base/react/tests/toolkit";
-import { DataViewFacade } from "../../base/results/facade";
+import { createDummyPromise } from "../../base/react/tests/toolkit.js";
+import { DataViewFacade } from "../../base/results/facade.js";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
-import { Execute, IExecuteProps } from "../Execute";
+import { Execute, IExecuteProps } from "../Execute.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { newAttributeSort, newPositiveAttributeFilter, newTotal } from "@gooddata/sdk-model";
-import { createExecution, CreateExecutionOptions } from "../createExecution";
-import { LoadingComponent } from "../../base/react/LoadingComponent";
-import { IExecuteErrorComponent } from "../interfaces";
+import { createExecution, CreateExecutionOptions } from "../createExecution.js";
+import { LoadingComponent } from "../../base/react/LoadingComponent.js";
+import { IExecuteErrorComponent } from "../interfaces.js";
+
+const userEvent = globalUserEvent.default;
 
 const DummyBackendEmptyData = dummyBackendEmptyData();
 const makeChild = () => jest.fn((_) => <div />);

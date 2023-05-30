@@ -1,22 +1,24 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import globalUserEvent from "@testing-library/user-event";
 import { dummyBackend, dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAttribute, IFilter, IMeasure } from "@gooddata/sdk-model";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
 import { withEventing } from "@gooddata/sdk-backend-base";
 
-import { DataViewWindow, WithLoadingResult } from "../withExecutionLoading";
-import { IWithExecution, withExecution } from "../withExecution";
+import { DataViewWindow, WithLoadingResult } from "../withExecutionLoading.js";
+import { IWithExecution, withExecution } from "../withExecution.js";
 
-import { createDummyPromise } from "../../base/react/tests/toolkit";
+import { createDummyPromise } from "../../base/react/tests/toolkit.js";
 interface IDummyComponentProps {
     attributes?: IAttribute[];
     measures?: IMeasure[];
     filters?: IFilter[];
     window?: DataViewWindow;
 }
+
+const userEvent = globalUserEvent.default;
 
 const DummyBackendEmptyData = dummyBackendEmptyData();
 

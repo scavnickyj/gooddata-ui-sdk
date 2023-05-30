@@ -1,12 +1,12 @@
 // (C) 2007-2020 GoodData Corporation
-import * as headerPredicateFactory from "../HeaderPredicateFactory";
-import { context, measureDescriptors } from "./HeaderPredicateFactory.fixtures";
-import { IMappingHeader } from "../MappingHeader";
-import { IHeaderPredicate } from "../HeaderPredicate";
-import { convertDrillableItemsToPredicates, isSomeHeaderPredicateMatched } from "../../vis/drilling";
+import * as headerPredicateFactory from "../HeaderPredicateFactory.js";
+import { context, measureDescriptors } from "./HeaderPredicateFactory.fixtures.js";
+import { IMappingHeader } from "../MappingHeader.js";
+import { IHeaderPredicate } from "../HeaderPredicate.js";
+import { convertDrillableItemsToPredicates, isSomeHeaderPredicateMatched } from "../../vis/drilling.js";
 import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 import { newDefForBuckets } from "@gooddata/sdk-model";
-import { DataViewFacade } from "../../results/facade";
+import { DataViewFacade } from "../../results/facade.js";
 
 const emptyFacade = DataViewFacade.for(dummyDataView(newDefForBuckets("testWorkspace", [])));
 

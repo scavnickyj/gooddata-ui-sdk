@@ -1,6 +1,6 @@
 // (C) 2020 GoodData Corporation
 
-import { DataViewFacade } from "@gooddata/sdk-ui";
+import { DataViewFacade } from "../src/base/results/facade.js";
 import { ScenarioRecording, recordedDataView, DataViewAll } from "@gooddata/sdk-backend-mockingbird";
 
 export function recordedDataFacade(rec: ScenarioRecording, dataViewId: string = DataViewAll): DataViewFacade {

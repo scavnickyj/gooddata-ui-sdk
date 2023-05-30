@@ -1,9 +1,9 @@
 // (C) 2019-2022 GoodData Corporation
 import { DataValue } from "@gooddata/sdk-model";
 import { ISeparators, numberFormat, colors2Object, INumberObject } from "@gooddata/numberjs";
-import isEmpty from "lodash/isEmpty";
-import escape from "lodash/escape";
-import unescape from "lodash/unescape";
+import isEmpty from "lodash/isEmpty.js";
+import escape from "lodash/escape.js";
+import unescape from "lodash/unescape.js";
 
 const customEscape = (str: string) => str && escape(unescape(str));
 

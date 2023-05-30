@@ -1,6 +1,8 @@
 // (C) 2007-2023 GoodData Corporation
-import memoizeOne from "memoize-one";
+import memoize from "memoize-one";
 import { IWorkspaceSettings } from "@gooddata/sdk-backend-spi";
+
+const memoizeOne = memoize.default;
 
 const getNewKey = (key: string, stringToRemove: string) => key.replace(stringToRemove, "");
 

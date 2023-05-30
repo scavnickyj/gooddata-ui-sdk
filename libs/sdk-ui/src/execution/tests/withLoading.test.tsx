@@ -1,13 +1,15 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import globalUserEvent from "@testing-library/user-event";
 import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 import { emptyDef } from "@gooddata/sdk-model";
-import { withExecutionLoading, IWithExecutionLoading, WithLoadingResult } from "../withExecutionLoading";
+import { withExecutionLoading, IWithExecutionLoading, WithLoadingResult } from "../withExecutionLoading.js";
 
-import { IDummyPromise, createDummyPromise } from "../../base/react/tests/toolkit";
-import { DataViewFacade } from "../../base";
+import { IDummyPromise, createDummyPromise } from "../../base/react/tests/toolkit.js";
+import { DataViewFacade } from "../../base/index.js";
+
+const userEvent = globalUserEvent.default;
 
 const EmptyDataViewFacade = DataViewFacade.for(dummyDataView(emptyDef("testWorkspace")));
 

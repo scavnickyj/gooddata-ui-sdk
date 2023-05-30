@@ -3,9 +3,8 @@ import { dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { newMeasure } from "@gooddata/sdk-model";
 import { render, waitFor } from "@testing-library/react";
 import React from "react";
-// import { createDummyPromise } from "../../base/react/tests/toolkit";
-import { FormattedNumber } from "../FormattedNumber";
-import { Kpi } from "../Kpi";
+import { FormattedNumber } from "../FormattedNumber.js";
+import { Kpi } from "../Kpi.js";
 
 const testCustomFormat = "$#,#.##";
 const testMeasure = newMeasure("m1", (m) => m.localId("m1").format(testCustomFormat));
