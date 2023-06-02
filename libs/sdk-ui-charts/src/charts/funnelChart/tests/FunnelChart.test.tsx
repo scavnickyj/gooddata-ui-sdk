@@ -10,13 +10,13 @@ import { CoreFunnelChart } from "../CoreFunnelChart";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreFunnelChart", () => ({
-    CoreFunnelChart: jest.fn(() => null),
+vi.mock("../CoreFunnelChart", () => ({
+    CoreFunnelChart: vi.fn(() => null),
 }));
 
 describe("FunnelChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

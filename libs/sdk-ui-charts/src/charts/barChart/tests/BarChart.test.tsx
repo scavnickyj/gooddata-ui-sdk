@@ -1,8 +1,8 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import { BarChart } from "../BarChart";
-import { IChartConfig } from "../../../interfaces";
+import { BarChart } from "../BarChart.js";
+import { IChartConfig } from "../../../interfaces/index.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceMd, ReferenceMdExt } from "@gooddata/reference-workspace";
 import {
@@ -20,13 +20,13 @@ function renderChart(measures: IAttributeOrMeasure[], config?: IChartConfig) {
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreBarChart", () => ({
-    CoreBarChart: jest.fn(() => null),
+vi.mock("../CoreBarChart", () => ({
+    CoreBarChart: vi.fn(() => null),
 }));
 
 describe("BarChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

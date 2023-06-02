@@ -10,8 +10,8 @@ import { ReferenceMd } from "@gooddata/reference-workspace";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreDonutChart", () => ({
-    CoreDonutChart: jest.fn(() => null),
+vi.mock("../CoreDonutChart", () => ({
+    CoreDonutChart: vi.fn(() => null),
 }));
 
 describe("DonutChart", () => {

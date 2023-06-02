@@ -1,29 +1,29 @@
 // (C) 2007-2023 GoodData Corporation
-import isEqual from "lodash/isEqual";
-import noop from "lodash/noop";
+import isEqual from "lodash/isEqual.js";
+import noop from "lodash/noop.js";
 import React from "react";
-import { initChartPlugins } from "./chartPlugins";
-import Highcharts, { HighchartsOptions } from "../lib";
+import { initChartPlugins } from "./chartPlugins.js";
+import Highcharts, { HighchartsOptions } from "../lib/index.js";
 
-import HighchartsMore from "highcharts/highcharts-more";
-import drillmodule from "highcharts/modules/drilldown";
-import treemapModule from "highcharts/modules/treemap";
-import bulletModule from "highcharts/modules/bullet";
-import funnelModule from "highcharts/modules/funnel";
-import heatmap from "highcharts/modules/heatmap";
-import patternFill from "highcharts/modules/pattern-fill";
-import sankeyModule from "highcharts/modules/sankey";
-import dependencyWheelModule from "highcharts/modules/dependency-wheel";
+import HighchartsMore from "highcharts/highcharts-more.js";
+import drillmodule from "highcharts/modules/drilldown.js";
+import treemapModule from "highcharts/modules/treemap.js";
+import bulletModule from "highcharts/modules/bullet.js";
+import funnelModule from "highcharts/modules/funnel.js";
+import heatmap from "highcharts/modules/heatmap.js";
+import patternFill from "highcharts/modules/pattern-fill.js";
+import sankeyModule from "highcharts/modules/sankey.js";
+import dependencyWheelModule from "highcharts/modules/dependency-wheel.js";
 
-drillmodule(Highcharts);
-treemapModule(Highcharts);
-bulletModule(Highcharts);
-funnelModule(Highcharts);
-sankeyModule(Highcharts);
-dependencyWheelModule(Highcharts);
-heatmap(Highcharts);
-HighchartsMore(Highcharts);
-patternFill(Highcharts);
+drillmodule.factory(Highcharts);
+treemapModule.factory(Highcharts);
+bulletModule.factory(Highcharts);
+funnelModule.factory(Highcharts);
+sankeyModule.factory(Highcharts);
+dependencyWheelModule.factory(Highcharts);
+heatmap.factory(Highcharts);
+HighchartsMore.factory(Highcharts);
+patternFill.factory(Highcharts);
 initChartPlugins(Highcharts);
 
 /**

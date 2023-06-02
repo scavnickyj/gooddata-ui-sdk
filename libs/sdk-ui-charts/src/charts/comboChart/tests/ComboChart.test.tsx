@@ -2,7 +2,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { ComboChart } from "../ComboChart";
-import { IChartConfig } from "../../../interfaces";
+import { IChartConfig } from "../../../interfaces/index.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceMd, ReferenceMdExt } from "@gooddata/reference-workspace";
 import { CoreComboChart } from "../CoreComboChart";
@@ -11,8 +11,8 @@ import { IMeasure, measureLocalId, modifyMeasure, modifySimpleMeasure } from "@g
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreComboChart", () => ({
-    CoreComboChart: jest.fn(() => null),
+vi.mock("../CoreComboChart", () => ({
+    CoreComboChart: vi.fn(() => null),
 }));
 
 // need to turn off ratio in the ReferenceMdExt.AmountWithRatio

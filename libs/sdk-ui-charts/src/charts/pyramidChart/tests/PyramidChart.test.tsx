@@ -10,13 +10,13 @@ import { CorePyramidChart } from "../CorePyramidChart";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CorePyramidChart", () => ({
-    CorePyramidChart: jest.fn(() => null),
+vi.mock("../CorePyramidChart", () => ({
+    CorePyramidChart: vi.fn(() => null),
 }));
 
 describe("PyramidChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

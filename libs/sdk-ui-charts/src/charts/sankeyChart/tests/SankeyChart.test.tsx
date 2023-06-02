@@ -10,13 +10,13 @@ import { CoreSankeyChart } from "../CoreSankeyChart";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreSankeyChart", () => ({
-    CoreSankeyChart: jest.fn(() => null),
+vi.mock("../CoreSankeyChart", () => ({
+    CoreSankeyChart: vi.fn(() => null),
 }));
 
 describe("SankeyChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

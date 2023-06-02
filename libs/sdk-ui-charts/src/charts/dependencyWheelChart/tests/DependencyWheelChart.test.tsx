@@ -10,13 +10,13 @@ import { CoreDependencyWheelChart } from "../CoreDependencyWheelChart";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreDependencyWheelChart", () => ({
-    CoreDependencyWheelChart: jest.fn(() => null),
+vi.mock("../CoreDependencyWheelChart", () => ({
+    CoreDependencyWheelChart: vi.fn(() => null),
 }));
 
 describe("DependencyWheelChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

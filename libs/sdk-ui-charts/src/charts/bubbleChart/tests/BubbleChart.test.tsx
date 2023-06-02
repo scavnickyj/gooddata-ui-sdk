@@ -10,13 +10,13 @@ import { newAttributeSort, newTwoDimensional, MeasureGroupIdentifier } from "@go
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreBubbleChart", () => ({
-    CoreBubbleChart: jest.fn(() => null),
+vi.mock("../CoreBubbleChart", () => ({
+    CoreBubbleChart: vi.fn(() => null),
 }));
 
 describe("BubbleChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

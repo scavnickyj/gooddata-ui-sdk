@@ -9,8 +9,8 @@ import {
 } from "@gooddata/sdk-model";
 import { getColorByGuid, getRgbStringFromRGB } from "@gooddata/sdk-ui-vis-commons";
 
-import { IChartConfig } from "../../../interfaces";
-import { ISeriesItem } from "../../typings/unsafe";
+import { IChartConfig } from "../../../interfaces/index.js";
+import { ISeriesItem } from "../../typings/unsafe.js";
 
 export function buildWaterfallChartSeries(
     series: ISeriesItem[],

@@ -9,19 +9,19 @@ import {
     headlineWithOneMeasureWithIdentifier,
     headlineWithTwoMeasures,
     headlineWithTwoMeasuresWithIdentifier,
-} from "../../../../../__mocks__/fixtures";
+} from "../../../../../__mocks__/fixtures.js";
 import {
     DRILL_EVENT_DATA_BY_MEASURE_IDENTIFIER,
     DRILL_EVENT_DATA_BY_MEASURE_URI,
     DRILL_EVENT_DATA_FOR_SECONDARY_ITEM,
-} from "./HeadlineTransformation.fixtures";
-import noop from "lodash/noop";
+} from "./HeadlineTransformation.fixtures.js";
+import noop from "lodash/noop.js";
 
 describe("HeadlineTransformation", () => {
-    let Headline = jest.spyOn(headlineComponent, "default").mockImplementation(() => null);
+    let Headline = vi.spyOn(headlineComponent, "default").mockImplementation(() => null);
     afterEach(() => {
-        jest.restoreAllMocks();
-        Headline = jest.spyOn(headlineComponent, "default").mockImplementation(() => null);
+        vi.restoreAllMocks();
+        Headline = vi.spyOn(headlineComponent, "default").mockImplementation(() => null);
     });
 
     function createComponent(props: IHeadlineTransformationProps) {
@@ -49,7 +49,7 @@ describe("HeadlineTransformation", () => {
     });
 
     it("should pass all required props to Headline component and enable drilling identified by uri", () => {
-        const onAfterRender = jest.fn();
+        const onAfterRender = vi.fn();
         const drillableItems = [
             {
                 uri: "/gdc/md/d20eyb3wfs0xe5l0lfscdnrnyhq1t42q/obj/1283",
@@ -80,7 +80,7 @@ describe("HeadlineTransformation", () => {
     });
 
     it("should pass all required props to Headline component and enable drilling identified by identifier", () => {
-        const onAfterRender = jest.fn();
+        const onAfterRender = vi.fn();
         const drillableItems = [
             {
                 identifier: "af2Ewj9Re2vK",
@@ -192,12 +192,12 @@ describe("HeadlineTransformation", () => {
 
     describe("drill eventing", () => {
         beforeEach(() => {
-            jest.restoreAllMocks();
+            vi.restoreAllMocks();
         });
 
         describe("for primary value", () => {
             it("should dispatch drill event and post message", () => {
-                const drillEventFunction = jest.fn(() => true);
+                const drillEventFunction = vi.fn(() => true);
                 createComponent({
                     dataView: headlineWithOneMeasure.dataView,
                     drillableItems: [
@@ -209,7 +209,7 @@ describe("HeadlineTransformation", () => {
                     onDrill: drillEventFunction,
                 });
                 const item = screen.getByText("9,011,389.96");
-                const dispatchEventSpy = jest.spyOn(item, "dispatchEvent");
+                const dispatchEventSpy = vi.spyOn(item, "dispatchEvent");
 
                 fireEvent.click(item);
 
@@ -224,7 +224,7 @@ describe("HeadlineTransformation", () => {
             });
 
             it("should dispatch only drill event", () => {
-                const drillEventFunction = jest.fn(() => false);
+                const drillEventFunction = vi.fn(() => false);
                 createComponent({
                     dataView: headlineWithOneMeasure.dataView,
                     drillableItems: [
@@ -236,7 +236,7 @@ describe("HeadlineTransformation", () => {
                     onDrill: drillEventFunction,
                 });
                 const item = screen.getByText("9,011,389.96");
-                const dispatchEventSpy = jest.spyOn(item, "dispatchEvent");
+                const dispatchEventSpy = vi.spyOn(item, "dispatchEvent");
 
                 fireEvent.click(item);
 
@@ -246,7 +246,7 @@ describe("HeadlineTransformation", () => {
             });
 
             it("should dispatch drill event for adhoc measure by defined uri", () => {
-                const drillEventFunction = jest.fn(() => false);
+                const drillEventFunction = vi.fn(() => false);
                 createComponent({
                     dataView: headlineWithOneMeasure.dataView,
                     drillableItems: [
@@ -264,7 +264,7 @@ describe("HeadlineTransformation", () => {
             });
 
             it("should dispatch drill event for adhoc measure by defined identifier", () => {
-                const drillEventFunction = jest.fn(() => false);
+                const drillEventFunction = vi.fn(() => false);
                 createComponent({
                     dataView: headlineWithOneMeasureWithIdentifier.dataView,
                     drillableItems: [
@@ -284,7 +284,7 @@ describe("HeadlineTransformation", () => {
 
         describe("for secondary value", () => {
             it("should dispatch drill event and post message", () => {
-                const drillEventFunction = jest.fn(() => true);
+                const drillEventFunction = vi.fn(() => true);
                 createComponent({
                     dataView: headlineWithTwoMeasuresWithIdentifier.dataView,
                     drillableItems: [
@@ -299,7 +299,7 @@ describe("HeadlineTransformation", () => {
                 });
 
                 const item = screen.getByText("42,470,571.16");
-                const dispatchEventSpy = jest.spyOn(item, "dispatchEvent");
+                const dispatchEventSpy = vi.spyOn(item, "dispatchEvent");
 
                 fireEvent.click(item);
 

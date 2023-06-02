@@ -10,13 +10,13 @@ import { CoreBulletChart } from "../CoreBulletChart";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreBulletChart", () => ({
-    CoreBulletChart: jest.fn(() => null),
+vi.mock("../CoreBulletChart", () => ({
+    CoreBulletChart: vi.fn(() => null),
 }));
 
 describe("BulletChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render bullet chart and create correct stacking dimensions", () => {

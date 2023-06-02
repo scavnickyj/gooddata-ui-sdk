@@ -9,7 +9,7 @@ export interface IHighChartsMeasuredRendererProps {
 
 export function HighChartsMeasuredRenderer(props: IHighChartsMeasuredRendererProps): JSX.Element {
     return (
-        <Measure client={true}>
+        <Measure.default client={true}>
             {({ measureRef, contentRect }: MeasuredComponentProps) => {
                 return (
                     <div
@@ -21,6 +21,6 @@ export function HighChartsMeasuredRenderer(props: IHighChartsMeasuredRendererPro
                     </div>
                 );
             }}
-        </Measure>
+        </Measure.default>
     );
 }

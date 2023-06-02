@@ -1,18 +1,18 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 
 import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 
-import { HighChartsRenderer, FLUID_LEGEND_THRESHOLD } from "../HighChartsRenderer";
-import { getHighchartsOptions } from "../../chartTypes/_chartCreators/highChartsCreators";
-import * as chartModule from "../Chart";
+import { HighChartsRenderer, FLUID_LEGEND_THRESHOLD } from "../HighChartsRenderer.js";
+import { getHighchartsOptions } from "../../chartTypes/_chartCreators/highChartsCreators.js";
+import * as chartModule from "../Chart.js";
 import { VisualizationTypes, IDrillConfig } from "@gooddata/sdk-ui";
 import * as legendModule from "@gooddata/sdk-ui-vis-commons";
 
-import { BOTTOM, LEFT, RIGHT, TOP } from "../../typings/mess";
-import { IChartConfig } from "../../../interfaces";
+import { BOTTOM, LEFT, RIGHT, TOP } from "../../typings/mess.js";
+import { IChartConfig } from "../../../interfaces/index.js";
 
 function createComponent(customProps: any = {}, zoomable = false) {
     const chartOptions = {
@@ -58,7 +58,7 @@ function createComponent(customProps: any = {}, zoomable = false) {
 describe("HighChartsRenderer", () => {
     describe("onLegendReady", () => {
         it("should dispatch after mount", () => {
-            const onLegendReady = jest.fn();
+            const onLegendReady = vi.fn();
             render(
                 createComponent({
                     onLegendReady,
@@ -79,13 +79,13 @@ describe("HighChartsRenderer", () => {
     });
 
     it("should use custom Chart renderer", () => {
-        const chartRenderer = jest.fn().mockReturnValue(<div />);
+        const chartRenderer = vi.fn().mockReturnValue(<div />);
         render(createComponent({ chartRenderer }));
         expect(chartRenderer).toHaveBeenCalledTimes(1);
     });
 
     it("should use custom Legend renderer", () => {
-        const legendRenderer = jest.fn().mockReturnValue(<div />);
+        const legendRenderer = vi.fn().mockReturnValue(<div />);
         render(
             createComponent({
                 legend: {
@@ -106,15 +106,15 @@ describe("HighChartsRenderer", () => {
 
     describe("Inner components", () => {
         beforeEach(() => {
-            jest.clearAllMocks();
+            vi.clearAllMocks();
         });
 
         afterAll(() => {
-            jest.restoreAllMocks();
+            vi.restoreAllMocks();
         });
 
-        const chartSpy = jest.spyOn(chartModule, "Chart").mockImplementation(() => null);
-        const legendSpy = jest.spyOn(legendModule, "Legend").mockImplementation(() => null);
+        const chartSpy = vi.spyOn(chartModule, "Chart").mockImplementation((): any => null);
+        const legendSpy = vi.spyOn(legendModule, "Legend").mockImplementation((): any => null);
 
         it("should render chart without legend", () => {
             render(createComponent());
@@ -149,7 +149,7 @@ describe("HighChartsRenderer", () => {
             container: {
                 style: {},
             },
-            reflow: jest.fn(),
+            reflow: vi.fn(),
         };
         const mockRef = {
             getChart: () => chartMock,
@@ -161,14 +161,14 @@ describe("HighChartsRenderer", () => {
             return <div />;
         };
 
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         render(
             createComponent({
                 chartRenderer,
                 height: mockHeight,
             }),
         );
-        jest.runAllTimers();
+        vi.runAllTimers();
 
         expect(chartMock.reflow).toHaveBeenCalledTimes(1);
         expect(chartMock.container.style.height).toBe(String(mockHeight));
@@ -180,7 +180,7 @@ describe("HighChartsRenderer", () => {
             container: {
                 style: {},
             },
-            reflow: jest.fn(),
+            reflow: vi.fn(),
         };
         const mockRef = {
             getChart: () => chartMock,
@@ -191,13 +191,13 @@ describe("HighChartsRenderer", () => {
             return <div />;
         };
 
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         render(
             createComponent({
                 chartRenderer,
             }),
         );
-        jest.runAllTimers();
+        vi.runAllTimers();
 
         expect(chartMock.reflow).toHaveBeenCalledTimes(1);
         expect(chartMock.container.style.height).toBe("100%");
@@ -205,16 +205,16 @@ describe("HighChartsRenderer", () => {
     });
 
     it("should not throw if chartRef has not been set", () => {
-        const chartRenderer = jest.fn().mockReturnValue(<div />);
+        const chartRenderer = vi.fn().mockReturnValue(<div />);
 
         const doMount = () => {
-            jest.useFakeTimers();
+            vi.useFakeTimers();
             render(
                 createComponent({
                     chartRenderer,
                 }),
             );
-            jest.runAllTimers();
+            vi.runAllTimers();
         };
 
         expect(doMount).not.toThrow();
@@ -359,8 +359,8 @@ describe("HighChartsRenderer", () => {
 
     describe("Zoom Out Button", () => {
         it("should render the zoom out button with the Goodstrap tooltip", () => {
-            const chartRenderer = jest.fn().mockReturnValue(<div className="chart" />);
-            const legendRenderer = jest.fn().mockReturnValue(<div className="legend" />);
+            const chartRenderer = vi.fn().mockReturnValue(<div className="chart" />);
+            const legendRenderer = vi.fn().mockReturnValue(<div className="legend" />);
             render(
                 createComponent(
                     {

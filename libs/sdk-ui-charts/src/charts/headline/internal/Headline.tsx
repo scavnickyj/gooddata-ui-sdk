@@ -4,11 +4,11 @@ import Measure from "react-measure";
 import { ResponsiveText } from "@gooddata/sdk-ui-kit";
 import cx from "classnames";
 import { HeadlineElementType } from "@gooddata/sdk-ui";
-import { IChartConfig } from "../../../interfaces";
-import { IFormattedHeadlineDataItem, IHeadlineData, IHeadlineDataItem } from "../Headlines";
-import { formatItemValue, formatPercentageValue } from "./utils/HeadlineDataItemUtils";
+import { IChartConfig } from "../../../interfaces/index.js";
+import { IFormattedHeadlineDataItem, IHeadlineData, IHeadlineDataItem } from "../Headlines.js";
+import { formatItemValue, formatPercentageValue } from "./utils/HeadlineDataItemUtils.js";
 import { Identifier } from "@gooddata/sdk-model";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import {
     HeadlinePagination,
     calculateHeadlineHeightFontSize,
@@ -61,7 +61,7 @@ export default class Headline extends React.Component<IHeadlineVisualizationProp
 
     public render() {
         return (
-            <Measure client>
+            <Measure.default client>
                 {({ measureRef, contentRect }) => {
                     return (
                         <div className="headline" ref={measureRef}>
@@ -70,7 +70,7 @@ export default class Headline extends React.Component<IHeadlineVisualizationProp
                         </div>
                     );
                 }}
-            </Measure>
+            </Measure.default>
         );
     }
 

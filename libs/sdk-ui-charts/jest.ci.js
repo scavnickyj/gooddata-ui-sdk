@@ -1,11 +1,10 @@
 // (C) 2019 GoodData Corporation
-/* eslint-disable @typescript-eslint/no-var-requires */
+import base from "../../common/config/jest/jest.config.ci.base.mjs";
 process.env = Object.assign(process.env, { NODE_ICU_DATA: "node_modules/full-icu" });
-const ciBase = require("../../common/config/jest/jest.config.ci.base.js");
 
-module.exports = {
-    ...ciBase,
-    testPathIgnorePatterns: ["/node_modules/", "/dist/"],
+export default {
+    ...base,
+    testPathIgnorePatterns: ["/node_modules/", "/esm/"],
     testEnvironment: "jsdom",
     setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };

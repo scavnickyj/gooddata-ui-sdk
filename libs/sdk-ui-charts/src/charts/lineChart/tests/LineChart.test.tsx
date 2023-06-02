@@ -10,13 +10,13 @@ import { ReferenceMd } from "@gooddata/reference-workspace";
 /**
  * This mock enables us to test props as parameters of the called chart function
  */
-jest.mock("../CoreLineChart", () => ({
-    CoreLineChart: jest.fn(() => null),
+vi.mock("../CoreLineChart", () => ({
+    CoreLineChart: vi.fn(() => null),
 }));
 
 describe("LineChart", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render with custom SDK", () => {

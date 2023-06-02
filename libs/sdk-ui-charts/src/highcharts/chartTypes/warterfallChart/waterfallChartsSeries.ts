@@ -3,10 +3,10 @@ import { IMeasureGroupDescriptor } from "@gooddata/sdk-model";
 import { DataViewFacade } from "@gooddata/sdk-ui";
 import { IColorStrategy, valueWithEmptyHandling } from "@gooddata/sdk-ui-vis-commons";
 
-import { isOneOfTypes, parseValue, unwrap } from "../_util/common";
-import { multiMeasuresAlternatingTypes } from "../_chartOptions/chartCapabilities";
-import { IUnwrappedAttributeHeadersWithItems } from "../../typings/mess";
-import { IPointData } from "../../typings/unsafe";
+import { isOneOfTypes, parseValue, unwrap } from "../_util/common.js";
+import { multiMeasuresAlternatingTypes } from "../_chartOptions/chartCapabilities.js";
+import { IUnwrappedAttributeHeadersWithItems } from "../../typings/mess.js";
+import { IPointData } from "../../typings/unsafe.js";
 
 function getSeriesItemData(
     seriesItem: string[],
