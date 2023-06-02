@@ -2,7 +2,9 @@
 import memoize from "memoize-one";
 import { IWorkspaceSettings } from "@gooddata/sdk-backend-spi";
 
-const memoizeOne = memoize.default;
+// typing is wrong here and either tests or typescript are always complaining
+// this hack fixes the problem
+const memoizeOne = memoize.default || memoize;
 
 const getNewKey = (key: string, stringToRemove: string) => key.replace(stringToRemove, "");
 

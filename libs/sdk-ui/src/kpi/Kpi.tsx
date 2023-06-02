@@ -2,7 +2,7 @@
 import React from "react";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
 import { IMeasure, INullableFilter } from "@gooddata/sdk-model";
-import { ISeparators } from "@gooddata/numberjs";
+import NumberJs from "@gooddata/numberjs";
 import { IRawExecuteProps, IWithLoadingEvents, RawExecute } from "../execution/index.js";
 import { FormattedNumber } from "./FormattedNumber.js";
 import { KpiError } from "./KpiError.js";
@@ -155,7 +155,7 @@ export interface IKpiProps extends IWithLoadingEvents<IRawExecuteProps> {
     /**
      * Specify number separators to use when rendering (segment delimiters, decimal point character)
      */
-    separators?: ISeparators;
+    separators?: NumberJs.ISeparators;
 
     /**
      * Specify locale to use for strings that the Kpi component may render (for instance when encountering

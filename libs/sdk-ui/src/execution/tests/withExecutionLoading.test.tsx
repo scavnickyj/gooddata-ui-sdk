@@ -1,7 +1,6 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import globalUserEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { dummyBackend, dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAttribute, IFilter, IMeasure } from "@gooddata/sdk-model";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
@@ -9,16 +8,15 @@ import { withEventing } from "@gooddata/sdk-backend-base";
 
 import { DataViewWindow, WithLoadingResult } from "../withExecutionLoading.js";
 import { IWithExecution, withExecution } from "../withExecution.js";
-
 import { createDummyPromise } from "../../base/react/tests/toolkit.js";
+import { vi } from "vitest";
+
 interface IDummyComponentProps {
     attributes?: IAttribute[];
     measures?: IMeasure[];
     filters?: IFilter[];
     window?: DataViewWindow;
 }
-
-const userEvent = globalUserEvent.default;
 
 const DummyBackendEmptyData = dummyBackendEmptyData();
 
@@ -77,14 +75,14 @@ describe("withExecution", () => {
     it("should start loading again after invoking injected fetch function", async () => {
         renderEnhancedComponent();
 
-        userEvent.click(screen.getByText("Refetch"));
+        fireEvent.click(screen.getByText("Refetch"));
         expect(screen.queryByText("Loading")).toBeInTheDocument();
     });
 
     it("should invoke onLoadingStart, onLoadingChanged and onLoadingFinish events", async () => {
-        const onLoadingStart = jest.fn();
-        const onLoadingChanged = jest.fn();
-        const onLoadingFinish = jest.fn();
+        const onLoadingStart = vi.fn();
+        const onLoadingChanged = vi.fn();
+        const onLoadingFinish = vi.fn();
 
         renderEnhancedComponent({
             events: {
@@ -102,7 +100,7 @@ describe("withExecution", () => {
     });
 
     it("should invoke onError for NoDataErrors without a DataView", async () => {
-        const onError = jest.fn();
+        const onError = vi.fn();
 
         renderEnhancedComponent(
             {
@@ -119,7 +117,7 @@ describe("withExecution", () => {
     });
 
     it("should NOT invoke onError for NoDataErrors with a DataView", async () => {
-        const onError = jest.fn();
+        const onError = vi.fn();
 
         renderEnhancedComponent(
             {
@@ -136,8 +134,8 @@ describe("withExecution", () => {
     });
 
     it("should do readAll when no window specified", async () => {
-        const readAllCallback = jest.fn();
-        const readWindowCallback = jest.fn();
+        const readAllCallback = vi.fn();
+        const readWindowCallback = vi.fn();
         const backend = withEventing(DummyBackendEmptyData, {
             successfulResultReadAll: readAllCallback,
             successfulResultReadWindow: readWindowCallback,
@@ -151,8 +149,8 @@ describe("withExecution", () => {
     });
 
     it("should do readWindow when window specified", async () => {
-        const readAllCallback = jest.fn();
-        const readWindowCallback = jest.fn();
+        const readAllCallback = vi.fn();
+        const readWindowCallback = vi.fn();
         const backend = withEventing(DummyBackendEmptyData, {
             successfulResultReadAll: readAllCallback,
             successfulResultReadWindow: readWindowCallback,

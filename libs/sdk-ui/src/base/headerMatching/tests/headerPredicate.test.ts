@@ -7,13 +7,14 @@ import { convertDrillableItemsToPredicates, isSomeHeaderPredicateMatched } from 
 import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 import { newDefForBuckets } from "@gooddata/sdk-model";
 import { DataViewFacade } from "../../results/facade.js";
+import { vi } from "vitest";
 
 const emptyFacade = DataViewFacade.for(dummyDataView(newDefForBuckets("testWorkspace", [])));
 
 describe("isSomeHeaderPredicateMatched", () => {
     it("should return true when some of predicates match header", () => {
         const header: IMappingHeader = { attributeHeaderItem: { uri: "uri", name: "name" } };
-        const drillablePredicates: IHeaderPredicate[] = [jest.fn(() => false), jest.fn(() => true)];
+        const drillablePredicates: IHeaderPredicate[] = [vi.fn(() => false), vi.fn(() => true)];
 
         expect(isSomeHeaderPredicateMatched(drillablePredicates, header, emptyFacade)).toBe(true);
         expect(drillablePredicates[0]).toBeCalledWith(header, {
@@ -26,7 +27,7 @@ describe("isSomeHeaderPredicateMatched", () => {
 
     it("should return false when none of predicates match header", () => {
         const header: IMappingHeader = { attributeHeaderItem: { uri: "uri", name: "name" } };
-        const drillablePredicates: IHeaderPredicate[] = [jest.fn(() => false), jest.fn(() => false)];
+        const drillablePredicates: IHeaderPredicate[] = [vi.fn(() => false), vi.fn(() => false)];
 
         expect(isSomeHeaderPredicateMatched(drillablePredicates, header, emptyFacade)).toBe(false);
         expect(drillablePredicates[0]).toBeCalledWith(header, {

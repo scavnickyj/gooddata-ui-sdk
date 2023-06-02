@@ -1,15 +1,13 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
-import globalUserEvent from "@testing-library/user-event";
-import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { dummyDataView } from "@gooddata/sdk-backend-base";
 import { emptyDef } from "@gooddata/sdk-model";
 import { withExecutionLoading, IWithExecutionLoading, WithLoadingResult } from "../withExecutionLoading.js";
 
 import { IDummyPromise, createDummyPromise } from "../../base/react/tests/toolkit.js";
 import { DataViewFacade } from "../../base/index.js";
-
-const userEvent = globalUserEvent.default;
+import { vi } from "vitest";
 
 const EmptyDataViewFacade = DataViewFacade.for(dummyDataView(emptyDef("testWorkspace")));
 
@@ -79,16 +77,16 @@ describe("withLoading", () => {
     it("should start loading again after invoking injected fetch function", async () => {
         renderEnhancedComponent({ delay: 100 });
         await createDummyPromise({ delay: 150 });
-        await userEvent.click(screen.getByText("Refetch"));
+        fireEvent.click(screen.getByText("Refetch"));
         await waitFor(() => {
             expect(screen.getByText("Loading")).toBeInTheDocument();
         });
     });
 
     it("should invoke onLoadingStart, onLoadingChanged and onLoadingFinish events", async () => {
-        const onLoadingStart = jest.fn();
-        const onLoadingChanged = jest.fn();
-        const onLoadingFinish = jest.fn();
+        const onLoadingStart = vi.fn();
+        const onLoadingChanged = vi.fn();
+        const onLoadingFinish = vi.fn();
 
         renderEnhancedComponent(
             { delay: 100, result: EmptyDataViewFacade },
@@ -109,9 +107,9 @@ describe("withLoading", () => {
     });
 
     it("should invoke onLoadingStart, onLoadingChanged and onError events", async () => {
-        const onLoadingStart = jest.fn();
-        const onLoadingChanged = jest.fn();
-        const onError = jest.fn();
+        const onLoadingStart = vi.fn();
+        const onLoadingChanged = vi.fn();
+        const onError = vi.fn();
 
         renderEnhancedComponent(
             { willResolve: false, delay: 100 },

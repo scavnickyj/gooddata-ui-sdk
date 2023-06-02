@@ -5,6 +5,7 @@ import { render, waitFor } from "@testing-library/react";
 import React from "react";
 import { FormattedNumber } from "../FormattedNumber.js";
 import { Kpi } from "../Kpi.js";
+import { vi } from "vitest";
 
 const testCustomFormat = "$#,#.##";
 const testMeasure = newMeasure("m1", (m) => m.localId("m1").format(testCustomFormat));
@@ -13,13 +14,13 @@ const testWorkspace = "dummyWorkspace";
 /**
  * This mock enables us to test props as parameters of the called component
  */
-jest.mock("../FormattedNumber", () => ({
-    FormattedNumber: jest.fn(() => null),
+vi.mock("../FormattedNumber", () => ({
+    FormattedNumber: vi.fn(() => null),
 }));
 
 describe("Kpi", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("should render loading indicator", () => {
