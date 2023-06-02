@@ -3,16 +3,16 @@ import React, { useCallback } from "react";
 import cx from "classnames";
 import Measure from "react-measure";
 
-import { LoadingMask } from "../../LoadingMask";
-import { IRenderListItemProps } from "../List";
-import { AsyncList } from "../AsyncList";
-import { useInvertableSelect } from "./useInvertableSelect";
-import { InvertableSelectSearchBar } from "./InvertableSelectSearchBar";
-import { InvertableSelectAllCheckbox } from "./InvertableSelectAllCheckbox";
-import { InvertableSelectStatusBar } from "./InvertableSelectStatusBar";
-import { InvertableSelectNoResultsMatch } from "./InvertableSelectNoResultsMatch";
+import { LoadingMask } from "../../LoadingMask/index.js";
+import { IRenderListItemProps } from "../List.js";
+import { AsyncList } from "../AsyncList.js";
+import { useInvertableSelect } from "./useInvertableSelect.js";
+import { InvertableSelectSearchBar } from "./InvertableSelectSearchBar.js";
+import { InvertableSelectAllCheckbox } from "./InvertableSelectAllCheckbox.js";
+import { InvertableSelectStatusBar } from "./InvertableSelectStatusBar.js";
+import { InvertableSelectNoResultsMatch } from "./InvertableSelectNoResultsMatch.js";
 import { ErrorComponent } from "@gooddata/sdk-ui";
-import { InvertableSelectItem } from "./InvertableSelectItem";
+import { InvertableSelectItem } from "./InvertableSelectItem.js";
 
 /**
  * Properties of List item component implementation

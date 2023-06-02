@@ -1,8 +1,8 @@
 // (C) 2020-2023 GoodData Corporation
 import React from "react";
 import { v4 as uuid } from "uuid";
-import debounce from "lodash/debounce";
-import noop from "lodash/noop";
+import debounce from "lodash/debounce.js";
+import noop from "lodash/noop.js";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import isValid from "date-fns/isValid";
@@ -14,10 +14,10 @@ import { WeekStart } from "@gooddata/sdk-model";
 import { injectIntl, WrappedComponentProps } from "react-intl";
 import { ClassNames, DayPicker, DayPickerProps } from "react-day-picker";
 
-import { IAlignPoint } from "../typings/positioning";
-import { getOptimalAlignment } from "../utils/overlay";
-import { elementRegion } from "../utils/domUtilities";
-import { DEFAULT_DATE_FORMAT } from "../constants/platform";
+import { IAlignPoint } from "../typings/positioning.js";
+import { getOptimalAlignment } from "../utils/overlay.js";
+import { elementRegion } from "../utils/domUtilities.js";
+import { DEFAULT_DATE_FORMAT } from "../constants/platform.js";
 
 const DATEPICKER_OUTSIDE_DAY_SELECTOR = "rdp-day_outside";
 

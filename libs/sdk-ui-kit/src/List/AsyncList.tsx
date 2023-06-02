@@ -3,8 +3,8 @@ import React, { useCallback } from "react";
 import cx from "classnames";
 import ContentLoader from "react-content-loader";
 
-import { LoadingMask } from "../LoadingMask";
-import { IRenderListItemProps, List } from "./List";
+import { LoadingMask } from "../LoadingMask/index.js";
+import { IRenderListItemProps, List } from "./List.js";
 
 /**
  * @internal
@@ -104,11 +104,11 @@ export function AsyncList<T>(props: IAsyncListProps<T>) {
 function LoadingPlaceholder() {
     return (
         <div className="gd-list-item gd-list-item-not-loaded">
-            <ContentLoader viewBox="0 0 250 28">
+            <ContentLoader.default viewBox="0 0 250 28">
                 {/* Only SVG shapes */}
                 <rect x="0" y="7" rx="3" ry="3" width="13" height="13" />
                 <rect x="22" y="7" rx="3" ry="3" width="250" height="13" />
-            </ContentLoader>
+            </ContentLoader.default>
         </div>
     );
 }
