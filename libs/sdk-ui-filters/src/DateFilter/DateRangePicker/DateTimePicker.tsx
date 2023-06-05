@@ -7,11 +7,11 @@ import isValid from "date-fns/isValid";
 import parse from "date-fns/parse";
 import format from "date-fns/format";
 
-import { DateRangePickerInputFieldBody } from "./DateRangePickerInputFieldBody";
+import { DateRangePickerInputFieldBody } from "./DateRangePickerInputFieldBody.js";
 
-import { convertPlatformDateStringToDate } from "../utils/DateConversions";
-import { TIME_FORMAT } from "../constants/Platform";
-import { getPlatformStringFromDate, getTimeStringFromDate } from "./utils";
+import { convertPlatformDateStringToDate } from "../utils/DateConversions.js";
+import { TIME_FORMAT } from "../constants/Platform.js";
+import { getPlatformStringFromDate, getTimeStringFromDate } from "./utils.js";
 
 function formatDate(date: Date, dateFormat: string): string {
     return format(date, dateFormat);

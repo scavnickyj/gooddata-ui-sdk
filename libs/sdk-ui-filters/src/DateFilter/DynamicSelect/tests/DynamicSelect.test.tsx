@@ -1,11 +1,11 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import range from "lodash/range";
+import range from "lodash/range.js";
 import { DynamicSelect, IDynamicSelectProps } from "../DynamicSelect";
-import { getRelativeDateFilterItems, DAY, WEEK_US, MONTH, QUARTER, YEAR } from "../utils";
-import { IMessageTranslator } from "../../utils/Translations/Translators";
-import { DynamicSelectItem } from "../types";
+import { getRelativeDateFilterItems, DAY, WEEK_US, MONTH, QUARTER, YEAR } from "../utils.js";
+import { IMessageTranslator } from "../../utils/Translations/Translators.js";
+import { DynamicSelectItem } from "../types.js";
 import { DateFilterGranularity } from "@gooddata/sdk-model";
 
 const optionTranslator =

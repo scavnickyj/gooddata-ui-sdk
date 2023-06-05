@@ -1,7 +1,7 @@
 // (C) 2019-2022 GoodData Corporation
-import { newTestAttributeFilterHandler } from "./fixtures";
-import { waitForAsync } from "./testUtils";
-import * as elements from "../internal/redux/elements/loadElements";
+import { newTestAttributeFilterHandler } from "./fixtures.js";
+import { waitForAsync } from "./testUtils.js";
+import * as elements from "../internal/redux/elements/loadElements.js";
 import { BadRequestSdkError } from "@gooddata/sdk-ui";
 
 describe("AttributeFilterHandler", () => {

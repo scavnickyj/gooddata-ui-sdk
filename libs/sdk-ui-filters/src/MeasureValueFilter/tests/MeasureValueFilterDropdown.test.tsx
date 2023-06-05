@@ -1,13 +1,13 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { newMeasureValueFilter, IMeasureValueFilter, localIdRef } from "@gooddata/sdk-model";
 import { withIntl } from "@gooddata/sdk-ui";
 
 import MVFDropdownFragment from "./fragments/MeasureValueFilterDropdown";
 import { MeasureValueFilterDropdown, IMeasureValueFilterDropdownProps } from "../MeasureValueFilterDropdown";
-import { IWarningMessage } from "../typings";
+import { IWarningMessage } from "../typings.js";
 
 // we cannot use factory here, it does not allow creating empty filters
 const emptyFilter: IMeasureValueFilter = {

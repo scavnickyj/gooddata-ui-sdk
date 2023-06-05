@@ -2,17 +2,17 @@
 import React from "react";
 import Downshift, { ControllerStateAndHelpers } from "downshift";
 import cx from "classnames";
-import { getSelectableItems, itemToString } from "../Select/utils";
+import { getSelectableItems, itemToString } from "../Select/utils.js";
 import {
     defaultVisibleItemsRange,
     getMedianIndex,
     VirtualizedSelectMenu,
-} from "../Select/VirtualizedSelectMenu";
+} from "../Select/VirtualizedSelectMenu.js";
 
-import { findRelativeDateFilterOptionByValue } from "./utils";
-import { DynamicSelectItem, DynamicSelectOption } from "./types";
-import noop from "lodash/noop";
-import { ISelectItemOption } from "../Select/types";
+import { findRelativeDateFilterOptionByValue } from "./utils.js";
+import { DynamicSelectItem, DynamicSelectOption } from "./types.js";
+import noop from "lodash/noop.js";
+import { ISelectItemOption } from "../Select/types.js";
 
 export interface IDynamicSelectProps {
     getItems: (inputValue: string) => DynamicSelectItem[];

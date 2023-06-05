@@ -5,7 +5,7 @@ import MediaQuery from "react-responsive";
 
 import { CustomizableCheckmark } from "@gooddata/sdk-ui-kit";
 
-import { MediaQueries } from "../../constants";
+import { MediaQueries } from "../../constants/index.js";
 
 export const ListItem: React.FC<{ isSelected?: boolean } & React.HTMLProps<HTMLButtonElement>> = ({
     isSelected: isActive,

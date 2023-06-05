@@ -36,7 +36,7 @@ import {
     clickAbsoluteFormFilter,
 } from "./extendedDateFilters_helpers";
 import { AbsoluteForm } from "./AbsoluteForm";
-import { DEFAULT_DATE_FORMAT } from "../constants/Platform";
+import { DEFAULT_DATE_FORMAT } from "../constants/Platform.js";
 import { verifyDateFormat } from "../DateFilterCore";
 
 describe("DateFilter", () => {

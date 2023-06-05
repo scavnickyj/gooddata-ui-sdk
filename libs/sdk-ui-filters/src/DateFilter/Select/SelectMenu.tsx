@@ -5,8 +5,8 @@ import { ControllerStateAndHelpers } from "downshift";
 import { SelectOption } from "./SelectOption";
 import { SelectHeading } from "./SelectHeading";
 import { SelectSeparator } from "./SelectSeparator";
-import { ISelectItem, ISelectItemOption } from "./types";
-import { getSelectableItems } from "./utils";
+import { ISelectItem, ISelectItemOption } from "./types.js";
+import { getSelectableItems } from "./utils.js";
 
 export interface ISelectMenuProps<V> {
     items: Array<ISelectItem<V>>;

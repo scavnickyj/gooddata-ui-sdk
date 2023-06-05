@@ -1,7 +1,7 @@
 // (C) 2020-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { IMeasureValueFilter, newMeasureValueFilter, localIdRef } from "@gooddata/sdk-model";
 

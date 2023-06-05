@@ -1,10 +1,10 @@
 // (C) 2022-2023 GoodData Corporation
 import { Action, AnyAction, configureStore, Middleware } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
-import { actions, sliceReducer } from "./slice";
-import { rootSaga } from "./rootSaga";
-import { AttributeFilterState, initialState } from "./state";
-import { AttributeFilterHandlerStore, AttributeFilterHandlerStoreContext } from "./types";
+import { actions, sliceReducer } from "./slice.js";
+import { rootSaga } from "./rootSaga.js";
+import { AttributeFilterState, initialState } from "./state.js";
+import { AttributeFilterHandlerStore, AttributeFilterHandlerStoreContext } from "./types.js";
 import {
     filterAttributeElements,
     filterObjRef,

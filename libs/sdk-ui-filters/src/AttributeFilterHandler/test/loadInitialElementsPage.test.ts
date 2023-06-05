@@ -4,9 +4,9 @@ import {
     limitingDateFilters,
     limitingMeasures,
     newTestAttributeFilterHandler,
-} from "./fixtures";
-import { waitForAsync } from "./testUtils";
-import * as elements from "../internal/redux/elements/loadElements";
+} from "./fixtures.js";
+import { waitForAsync } from "./testUtils.js";
+import * as elements from "../internal/redux/elements/loadElements.js";
 import { BadRequestSdkError } from "@gooddata/sdk-ui";
 
 describe("AttributeFilterHandler", () => {

@@ -3,8 +3,8 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Select, ISelectProps } from "../Select";
 import { SelectMenu, ISelectMenuProps } from "../SelectMenu";
-import { ISelectItemOption, ISelectItemSeparator, ISelectItemHeading, ISelectItem } from "../types";
-import { getSelectableItems } from "../utils";
+import { ISelectItemOption, ISelectItemSeparator, ISelectItemHeading, ISelectItem } from "../types.js";
+import { getSelectableItems } from "../utils.js";
 
 describe("Select", () => {
     const optionFirst: ISelectItemOption<string> = { type: "option", value: "first", label: "First" };

@@ -13,12 +13,12 @@ import { enUS, de, es, fr, ja, nl, pt, ptBR, zhCN, ru } from "date-fns/locale";
 import { injectIntl, WrappedComponentProps } from "react-intl";
 import { WeekStart } from "@gooddata/sdk-model";
 
-import { mergeDayPickerProps } from "./utils";
-import { DateRangePickerError } from "./DateRangePickerError";
-import { IExtendedDateFilterErrors } from "../interfaces";
-import { DateTimePickerWithInt } from "./DateTimePicker";
+import { mergeDayPickerProps } from "./utils.js";
+import { DateRangePickerError } from "./DateRangePickerError.js";
+import { IExtendedDateFilterErrors } from "../interfaces/index.js";
+import { DateTimePickerWithInt } from "./DateTimePicker.js";
 
-import { DAY_END_TIME } from "../constants/Platform";
+import { DAY_END_TIME } from "../constants/Platform.js";
 
 const convertedLocales: Record<string, Locale> = {
     "en-US": enUS,

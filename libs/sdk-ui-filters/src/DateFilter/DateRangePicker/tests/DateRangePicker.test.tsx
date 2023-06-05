@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import { DateRangePicker, IDateRange, IDateRangePickerProps } from "../DateRangePicker";
 import { IntlDecorator } from "./IntlDecorators";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 
 const defaultDateFormat = "MM/dd/yyyy";
 const getDefaultRange = (): IDateRange => ({
