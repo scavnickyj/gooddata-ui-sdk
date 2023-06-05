@@ -1,5 +1,7 @@
 // (C) 2019-2023 GoodData Corporation
-import axios, { AxiosRequestConfig } from "axios";
+import globalAxios, { AxiosRequestConfig } from "axios";
+
+const axios = globalAxios.default;
 
 export class TigerCancellationConverter {
     constructor(private readonly signal: AbortSignal | null) {}

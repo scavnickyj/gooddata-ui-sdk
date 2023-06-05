@@ -3,7 +3,7 @@ import format from "date-fns/format";
 import { enUS, enGB, cs, de, es, fr, ja, nl, pt, ptBR, zhCN, ru } from "date-fns/locale";
 import { DateAttributeGranularity } from "@gooddata/sdk-model";
 import { UnexpectedError } from "@gooddata/sdk-backend-spi";
-import identity from "lodash/identity";
+import identity from "lodash/identity.js";
 
 const defaultLocaleCode = "en-US";
 
