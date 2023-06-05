@@ -1,7 +1,7 @@
 // (C) 2020-2022 GoodData Corporation
 import { IDrillEvent, IDrillEventIntersectionElement, VisType } from "@gooddata/sdk-ui";
 import { IAttribute, IInsight, IInsightDefinition, localIdRef, uriRef } from "@gooddata/sdk-model";
-import { IDrillDownDefinition } from "../../../interfaces/Visualization";
+import { IDrillDownDefinition } from "../../../interfaces/Visualization.js";
 import React from "react";
 
 export function createDrillDefinition(fromAttribute: IAttribute, targetUri: string): IDrillDownDefinition {

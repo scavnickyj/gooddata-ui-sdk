@@ -1,21 +1,21 @@
 // (C) 2019-2022 GoodData Corporation
 import { PluggableHeadline } from "../PluggableHeadline";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
-import * as testMocks from "../../../../tests/mocks/testMocks";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import {
     IBucketOfFun,
     IExtendedReferencePoint,
     IReferencePoint,
     IVisConstruct,
     IVisProps,
-} from "../../../../interfaces/Visualization";
+} from "../../../../interfaces/Visualization.js";
 
-import { getMeasureItems } from "../../../../utils/bucketHelper";
+import { getMeasureItems } from "../../../../utils/bucketHelper.js";
 import { IDrillableItem, OverTimeComparisonTypes, BucketNames } from "@gooddata/sdk-ui";
 import { CoreHeadline, ICoreChartProps } from "@gooddata/sdk-ui-charts";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import cloneDeep from "lodash/cloneDeep";
-import { getLastRenderEl } from "../../tests/testHelpers";
+import cloneDeep from "lodash/cloneDeep.js";
+import { getLastRenderEl } from "../../tests/testHelpers.js";
 
 describe("PluggableHeadline", () => {
     const mockElement = document.createElement("div");

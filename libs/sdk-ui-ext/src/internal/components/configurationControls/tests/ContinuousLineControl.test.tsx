@@ -2,10 +2,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
-import set from "lodash/set";
+import noop from "lodash/noop.js";
+import set from "lodash/set.js";
 
-import { InternalIntlWrapper } from "../../../utils/internalIntlProvider";
+import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 import ContinuousLineControl, { IContinuousLineControlProps } from "../ContinuousLineControl";
 
 describe("ContinuousLineControl", () => {

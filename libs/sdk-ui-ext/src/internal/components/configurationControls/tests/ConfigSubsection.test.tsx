@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ConfigSubsection, { IConfigSubsectionOwnProps } from "../ConfigSubsection";
-import { InternalIntlWrapper } from "../../../utils/internalIntlProvider";
+import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 
 describe("ConfigSubsection", () => {
     const defaultProps = {

@@ -2,9 +2,9 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { InputControl, IInputControlProps } from "../InputControl";
-import { createInternalIntl, InternalIntlWrapper } from "../../../utils/internalIntlProvider";
+import { createInternalIntl, InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 
 describe("InputControl", () => {
     const defaultProps = {

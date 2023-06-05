@@ -1,6 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
-import { IBucketOfFun, IVisConstruct, IVisProps } from "../../../../interfaces/Visualization";
+import { IBucketOfFun, IVisConstruct, IVisProps } from "../../../../interfaces/Visualization.js";
 import {
     BucketNames,
     DefaultLocale,
@@ -10,26 +10,26 @@ import {
 } from "@gooddata/sdk-ui";
 import { IBaseChartProps } from "@gooddata/sdk-ui-charts";
 import { PluggableBaseChart } from "../PluggableBaseChart";
-import * as testMocks from "../../../../tests/mocks/testMocks";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import BaseChartConfigurationPanel from "../../../configurationPanels/BaseChartConfigurationPanel";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { IInsight, IAttribute, IInsightDefinition, insightSetProperties } from "@gooddata/sdk-model";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { Region } from "@gooddata/reference-workspace/dist/md/full";
 import {
     createDrillEvent,
     insightDefinitionToInsight,
     createDrillDefinition,
     getLastRenderEl,
-} from "../../tests/testHelpers";
+} from "../../tests/testHelpers.js";
 import {
     sourceInsightDef,
     intersection,
     expectedInsightDefRegion,
     targetUri,
-} from "./getInsightWithDrillDownAppliedMock";
-import { DASHBOARDS_ENVIRONMENT } from "../../../../constants/properties";
+} from "./getInsightWithDrillDownAppliedMock.js";
+import { DASHBOARDS_ENVIRONMENT } from "../../../../constants/properties.js";
 
 describe("PluggableBaseChart", () => {
     const noneEnvironment: VisualizationEnvironment = "none";

@@ -1,9 +1,9 @@
 // (C) 2020-2022 GoodData Corporation
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAnalyticalBackend, IUserWorkspaceSettings } from "@gooddata/sdk-backend-spi";
 
-import { userWorkspaceSettingsDataLoaderFactory } from "../UserWorkspaceSettingsDataLoader";
+import { userWorkspaceSettingsDataLoaderFactory } from "../UserWorkspaceSettingsDataLoader.js";
 
 describe("UserWorkspaceSettingsDataLoader", () => {
     const workspace = "foo";

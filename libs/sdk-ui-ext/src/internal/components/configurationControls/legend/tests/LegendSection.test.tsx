@@ -2,10 +2,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import LegendSection, { ILegendSection } from "../LegendSection";
-import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
-import set from "lodash/set";
+import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import set from "lodash/set.js";
 
 const defaultProps: ILegendSection = {
     controlsDisabled: true,

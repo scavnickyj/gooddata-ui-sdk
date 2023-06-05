@@ -1,11 +1,11 @@
 // (C) 2019-2023 GoodData Corporation
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { PluggableDependencyWheelChart } from "../PluggableDependencyWheelChart";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
-import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualization";
-import * as testMocks from "../../../../tests/mocks/testMocks";
-import { getLastRenderEl } from "../../tests/testHelpers";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualization.js";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { getLastRenderEl } from "../../tests/testHelpers.js";
 
 describe("PluggableDependencyWheelChart", () => {
     const mockElement = document.createElement("div");

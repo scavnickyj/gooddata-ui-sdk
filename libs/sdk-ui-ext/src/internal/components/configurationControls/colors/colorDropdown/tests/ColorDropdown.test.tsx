@@ -2,13 +2,13 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
 import { IColor } from "@gooddata/sdk-model";
-import { colorPalette } from "../../../../../tests/mocks/testColorHelper";
-import { InternalIntlWrapper } from "../../../../../utils/internalIntlProvider";
-import ColorDropdown, { IColorDropdownOwnProps, IconPosition, ISelectableChild } from "../ColorDropdown";
-import { IColoredItemContentProps } from "../../coloredItemsList/ColoredItemContent";
+import { colorPalette } from "../../../../../tests/mocks/testColorHelper.js";
+import { InternalIntlWrapper } from "../../../../../utils/internalIntlProvider.js";
+import ColorDropdown, { IColorDropdownOwnProps, IconPosition, ISelectableChild } from "../ColorDropdown.js";
+import { IColoredItemContentProps } from "../../coloredItemsList/ColoredItemContent.js";
 
 export type IMockItemProps = IColoredItemContentProps & ISelectableChild;
 

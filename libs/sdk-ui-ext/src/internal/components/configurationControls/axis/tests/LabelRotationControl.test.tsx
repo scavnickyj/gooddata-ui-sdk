@@ -2,11 +2,11 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
-import set from "lodash/set";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import set from "lodash/set.js";
 
-import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider";
+import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 import LabelRotationControl, { ILabelRotationControl } from "../LabelRotationControl";
 
 const defaultProps: ILabelRotationControl = {

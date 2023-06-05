@@ -3,8 +3,8 @@ import { dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
 import { IInsight, idRef, ObjRef } from "@gooddata/sdk-model";
 
-import { insightDataLoaderFactory } from "../InsightDataLoader";
-import { noopWorkspaceInsightsService } from "./dataLoaders.mock";
+import { insightDataLoaderFactory } from "../InsightDataLoader.js";
+import { noopWorkspaceInsightsService } from "./dataLoaders.mock.js";
 
 describe("InsightDataLoader", () => {
     const workspace = "foo";

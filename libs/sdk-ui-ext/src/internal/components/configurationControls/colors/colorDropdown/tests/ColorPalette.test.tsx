@@ -2,14 +2,14 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
-import ColorPalette, { IColorPaletteProps } from "../ColorPalette";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import ColorPalette, { IColorPaletteProps } from "../ColorPalette.js";
 import {
     getLargePalette,
     colorPalette,
     colorPaletteWithOneColor,
-} from "../../../../../tests/mocks/testColorHelper";
+} from "../../../../../tests/mocks/testColorHelper.js";
 
 const defaultProps: IColorPaletteProps = {
     selectedColorGuid: undefined,

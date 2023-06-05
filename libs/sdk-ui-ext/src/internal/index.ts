@@ -1,16 +1,16 @@
 // (C) 2019-2022 GoodData Corporation
-import * as Axis from "./constants/axis";
-import * as DrillablePredicatesUtils from "./utils/drillablePredicates";
+import * as Axis from "./constants/axis.js";
+import * as DrillablePredicatesUtils from "./utils/drillablePredicates.js";
 export { Axis, DrillablePredicatesUtils };
 
-export { BaseVisualization } from "./components/BaseVisualization";
+export { BaseVisualization } from "./components/BaseVisualization.js";
 
 export {
     IVisualizationCatalog,
     DefaultVisualizationCatalog,
     FullVisualizationCatalog,
-} from "./components/VisualizationCatalog";
-export { translations } from "./utils/translations";
+} from "./components/VisualizationCatalog.js";
+export { translations } from "./utils/translations.js";
 
 export {
     IVisualization,
@@ -42,10 +42,15 @@ export {
     IDrillDownContext,
     IDrillDownDefinition,
     isDrillDownDefinition,
-} from "./interfaces/Visualization";
+} from "./interfaces/Visualization.js";
 
-export { isDateFilter, isMeasureValueFilter, isAttributeFilter, isRankingFilter } from "./utils/bucketHelper";
-export { createInternalIntl, InternalIntlWrapper } from "./utils/internalIntlProvider";
+export {
+    isDateFilter,
+    isMeasureValueFilter,
+    isAttributeFilter,
+    isRankingFilter,
+} from "./utils/bucketHelper.js";
+export { createInternalIntl, InternalIntlWrapper } from "./utils/internalIntlProvider.js";
 
 export {
     IVisualizationSizeInfo,
@@ -53,18 +58,18 @@ export {
     IVisualizationDefaultSizeInfo,
     ISizeInfoDefault,
     IVisualizationMeta,
-} from "./interfaces/VisualizationDescriptor";
-export { IFluidLayoutDescriptor, ILayoutDescriptor, LayoutType } from "./interfaces/LayoutDescriptor";
+} from "./interfaces/VisualizationDescriptor.js";
+export { IFluidLayoutDescriptor, ILayoutDescriptor, LayoutType } from "./interfaces/LayoutDescriptor.js";
 
-export { ISortConfig, IAvailableSortsGroup } from "./interfaces/SortConfig";
+export { ISortConfig, IAvailableSortsGroup } from "./interfaces/SortConfig.js";
 
-export { addIntersectionFiltersToInsight } from "./components/pluggableVisualizations/drillDownUtil";
-export * from "./components/pluggableVisualizations/constants";
+export { addIntersectionFiltersToInsight } from "./components/pluggableVisualizations/drillDownUtil.js";
+export * from "./components/pluggableVisualizations/constants.js";
 
-export * from "./FluidLayoutDescriptor";
+export * from "./FluidLayoutDescriptor.js";
 
-export { EmbedInsightDialog } from "./components/dialogs/embedInsightDialog/EmbedInsightDialog";
+export { EmbedInsightDialog } from "./components/dialogs/embedInsightDialog/EmbedInsightDialog.js";
 
-export type { IEmbedInsightDialogProps } from "./components/dialogs/embedInsightDialog/EmbedInsightDialog";
+export type { IEmbedInsightDialogProps } from "./components/dialogs/embedInsightDialog/EmbedInsightDialog.js";
 
-export type { IInsightTitleProps, IInsightViewProps } from "./interfaces/InsightView";
+export type { IInsightTitleProps, IInsightViewProps } from "./interfaces/InsightView.js";

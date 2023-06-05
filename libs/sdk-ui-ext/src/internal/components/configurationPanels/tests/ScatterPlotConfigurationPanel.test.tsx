@@ -8,7 +8,7 @@ import { DefaultLocale, VisualizationTypes } from "@gooddata/sdk-ui";
 import ScatterPlotConfigurationPanel from "../ScatterPlotConfigurationPanel";
 import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
 
-import { insightWithSingleAttribute } from "../../../tests/mocks/testMocks";
+import { insightWithSingleAttribute } from "../../../tests/mocks/testMocks.js";
 
 describe("ScatterPlotConfigurationPanel", () => {
     function createComponent(

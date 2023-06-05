@@ -1,23 +1,23 @@
 // (C) 2019-2022 GoodData Corporation
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
-import merge from "lodash/merge";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import merge from "lodash/merge.js";
 import { PluggableComboChart } from "../PluggableComboChart";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import {
     IBucketOfFun,
     IExtendedReferencePoint,
     IReferencePoint,
     IUiConfig,
     IVisConstruct,
-} from "../../../../interfaces/Visualization";
-import { AXIS } from "../../../../constants/axis";
-import { COMBO_CHART_UICONFIG } from "../../../../constants/uiConfig";
-import { COMBO_CHART_SUPPORTED_PROPERTIES } from "../../../../constants/supportedProperties";
+} from "../../../../interfaces/Visualization.js";
+import { AXIS } from "../../../../constants/axis.js";
+import { COMBO_CHART_UICONFIG } from "../../../../constants/uiConfig.js";
+import { COMBO_CHART_SUPPORTED_PROPERTIES } from "../../../../constants/supportedProperties.js";
 import { VisualizationTypes, OverTimeComparisonTypes } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { getLastRenderEl } from "../../tests/testHelpers";
-import * as testMocks from "../../../../tests/mocks/testMocks";
+import { getLastRenderEl } from "../../tests/testHelpers.js";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
 
 describe("PluggableComboChart", () => {
     const mockElement = document.createElement("div");

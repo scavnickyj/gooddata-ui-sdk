@@ -1,6 +1,6 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { render, screen, waitFor } from "@testing-library/react";
 import { IDrillableItem } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
@@ -9,21 +9,24 @@ import { IExecutionFactory, IPreparedExecution } from "@gooddata/sdk-backend-spi
 
 import { BaseVisualization, IBaseVisualizationProps } from "../BaseVisualization";
 import { AbstractPluggableVisualization } from "../pluggableVisualizations/AbstractPluggableVisualization";
-import { CatalogViaTypeToClassMap, IVisualizationCatalog } from "../VisualizationCatalog";
+import { CatalogViaTypeToClassMap, IVisualizationCatalog } from "../VisualizationCatalog.js";
 
-import { DummyVisConstruct } from "../pluggableVisualizations/tests/visConstruct.fixture";
-import { BaseChartDescriptor } from "../pluggableVisualizations/baseChart/BaseChartDescriptor";
+import { DummyVisConstruct } from "../pluggableVisualizations/tests/visConstruct.fixture.js";
+import { BaseChartDescriptor } from "../pluggableVisualizations/baseChart/BaseChartDescriptor.js";
 
-import { IVisualizationMeta, PluggableVisualizationFactory } from "../../interfaces/VisualizationDescriptor";
+import {
+    IVisualizationMeta,
+    PluggableVisualizationFactory,
+} from "../../interfaces/VisualizationDescriptor.js";
 import {
     IBucketItem,
     IReferencePoint,
     IVisConstruct,
     IVisProps,
     IDrillDownContext,
-} from "../../interfaces/Visualization";
-import * as testMocks from "../../tests/mocks/testMocks";
-import { emptyReferencePoint, justViewByReferencePoint } from "../../tests/mocks/referencePointMocks";
+} from "../../interfaces/Visualization.js";
+import * as testMocks from "../../tests/mocks/testMocks.js";
+import { emptyReferencePoint, justViewByReferencePoint } from "../../tests/mocks/referencePointMocks.js";
 
 const pluggableVisualizationGetExecutionMock = jest.fn(() => ({} as IPreparedExecution));
 

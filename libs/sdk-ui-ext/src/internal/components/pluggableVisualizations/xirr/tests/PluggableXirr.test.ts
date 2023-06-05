@@ -1,13 +1,13 @@
 // (C) 2019-2022 GoodData Corporation
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 
-import { PluggableXirr } from "../PluggableXirr";
-import { IVisConstruct, IVisProps } from "../../../../interfaces/Visualization";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
-import * as testMocks from "../../../../tests/mocks/testMocks";
+import { PluggableXirr } from "../PluggableXirr.js";
+import { IVisConstruct, IVisProps } from "../../../../interfaces/Visualization.js";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { IDrillableItem } from "@gooddata/sdk-ui";
 import { CoreXirr, ICoreChartProps } from "@gooddata/sdk-ui-charts";
-import { getLastRenderEl } from "../../tests/testHelpers";
+import { getLastRenderEl } from "../../tests/testHelpers.js";
 
 describe("PluggableXirr", () => {
     const mockElement = document.createElement("div");

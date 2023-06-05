@@ -1,5 +1,5 @@
 // (C) 2019-2022 GoodData Corporation
-import { unmountComponentsAtNodes } from "../domHelper";
+import { unmountComponentsAtNodes } from "../domHelper.js";
 
 describe("domHelpers", () => {
     describe("unmountComponentsAtNodes", () => {

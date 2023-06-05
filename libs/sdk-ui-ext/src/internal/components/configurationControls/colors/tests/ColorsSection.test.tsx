@@ -4,12 +4,12 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { IColor } from "@gooddata/sdk-model";
 import { DefaultColorPalette } from "@gooddata/sdk-ui";
-import { IColorConfiguration } from "../../../../interfaces/Colors";
-import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider";
+import { IColorConfiguration } from "../../../../interfaces/Colors.js";
+import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 
 import ColorsSection, { COLOR_MAPPING_CHANGED, IColorsSectionProps } from "../ColorsSection";
-import cloneDeep from "lodash/cloneDeep";
-import noop from "lodash/noop";
+import cloneDeep from "lodash/cloneDeep.js";
+import noop from "lodash/noop.js";
 
 const colors: IColorConfiguration = {
     colorPalette: DefaultColorPalette,

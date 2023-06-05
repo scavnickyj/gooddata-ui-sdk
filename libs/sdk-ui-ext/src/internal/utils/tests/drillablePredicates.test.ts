@@ -1,5 +1,5 @@
 // (C) 2019-2020 GoodData Corporation
-import { convertPostMessageToDrillablePredicates } from "../drillablePredicates";
+import { convertPostMessageToDrillablePredicates } from "../drillablePredicates.js";
 import SpyInstance = jest.SpyInstance;
 import { IHeaderPredicate, HeaderPredicates } from "@gooddata/sdk-ui";
 import { IDrillableItemsCommandBody } from "@gooddata/sdk-embedding";

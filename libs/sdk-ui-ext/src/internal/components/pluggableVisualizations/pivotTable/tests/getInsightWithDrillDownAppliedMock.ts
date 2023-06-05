@@ -21,7 +21,7 @@ import { Department, Region, Status, Won } from "@gooddata/reference-workspace/d
 import { newWidthForAllMeasureColumns, newWidthForAttributeColumn } from "@gooddata/sdk-ui-pivot";
 import { IDrillEventIntersectionElement, IDrillIntersectionAttributeItem } from "@gooddata/sdk-ui";
 import { ReferenceData } from "@gooddata/reference-workspace";
-import { IVisualizationProperties, IDrillDownDefinition } from "../../../../interfaces/Visualization";
+import { IVisualizationProperties, IDrillDownDefinition } from "../../../../interfaces/Visualization.js";
 
 const properties: IVisualizationProperties = {
     controls: {

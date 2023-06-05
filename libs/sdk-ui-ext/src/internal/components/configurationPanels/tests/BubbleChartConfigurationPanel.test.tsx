@@ -8,7 +8,7 @@ import { DefaultLocale, VisualizationTypes } from "@gooddata/sdk-ui";
 import BubbleChartConfigurationPanel from "../BubbleChartConfigurationPanel";
 import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
 
-import { insightWithSingleAttribute, insightWithSingleMeasure } from "../../../tests/mocks/testMocks";
+import { insightWithSingleAttribute, insightWithSingleMeasure } from "../../../tests/mocks/testMocks.js";
 
 describe("BubbleChartConfigurationPanel", () => {
     function createComponent(props: IConfigurationPanelContentProps) {

@@ -2,9 +2,9 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
-import ColorPaletteItem, { IColorPaletteItemProps } from "../ColorPaletteItem";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
+import ColorPaletteItem, { IColorPaletteItemProps } from "../ColorPaletteItem.js";
 
 const defaultProps: IColorPaletteItemProps = {
     selected: false,

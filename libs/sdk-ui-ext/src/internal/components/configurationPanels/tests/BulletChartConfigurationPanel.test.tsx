@@ -8,8 +8,8 @@ import { IBucket, IInsightDefinition } from "@gooddata/sdk-model";
 import BulletChartConfigurationPanel from "../BulletChartConfigurationPanel";
 import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
 
-import { attributeItemA1, attributeItemA2 } from "../../../tests/mocks/visualizationObjectMocks";
-import { emptyInsight } from "../../../tests/mocks/testMocks";
+import { attributeItemA1, attributeItemA2 } from "../../../tests/mocks/visualizationObjectMocks.js";
+import { emptyInsight } from "../../../tests/mocks/testMocks.js";
 
 function testInsight(buckets: IBucket[]): IInsightDefinition {
     return {

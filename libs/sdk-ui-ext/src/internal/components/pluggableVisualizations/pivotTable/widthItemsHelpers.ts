@@ -1,5 +1,5 @@
 // (C) 2020-2022 GoodData Corporation
-import includes from "lodash/includes";
+import includes from "lodash/includes.js";
 import {
     ColumnWidthItem,
     IMeasureColumnWidthItem,
@@ -11,7 +11,7 @@ import {
     IWeakMeasureColumnWidthItem,
 } from "@gooddata/sdk-ui-pivot";
 
-import { IAttributeFilter, IBucketFilter, IBucketItem } from "../../../interfaces/Visualization";
+import { IAttributeFilter, IBucketFilter, IBucketItem } from "../../../interfaces/Visualization.js";
 import {
     areObjRefsEqual,
     attributeLocalId,
@@ -23,7 +23,7 @@ import {
     measureLocalId,
     isAttributeLocator,
 } from "@gooddata/sdk-model";
-import { isAttributeFilter } from "../../../utils/bucketHelper";
+import { isAttributeFilter } from "../../../utils/bucketHelper.js";
 import { BucketNames } from "@gooddata/sdk-ui";
 
 const isMeasureWidthItemMatchedByFilter = (

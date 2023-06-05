@@ -3,7 +3,7 @@
 import { Department, Region, Won } from "@gooddata/reference-workspace/dist/md/full";
 import { ReferenceData } from "@gooddata/reference-workspace";
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
-import { IDrillDownDefinition } from "../../../interfaces/Visualization";
+import { IDrillDownDefinition } from "../../../interfaces/Visualization.js";
 import { localIdRef } from "@gooddata/sdk-model";
 
 const drillConfigRegion: IDrillDownDefinition = {

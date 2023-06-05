@@ -1,11 +1,11 @@
 // (C) 2019-2023 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import noop from "lodash/noop";
-import cloneDeep from "lodash/cloneDeep";
+import noop from "lodash/noop.js";
+import cloneDeep from "lodash/cloneDeep.js";
 import * as uiKit from "@gooddata/sdk-ui-kit";
 
-import ColorOverlay, { IColorOverlayProps, DropdownVersionType } from "../ColorOverlay";
+import ColorOverlay, { IColorOverlayProps, DropdownVersionType } from "../ColorOverlay.js";
 
 const defaultProps: IColorOverlayProps = {
     alignTo: "#somestyle",

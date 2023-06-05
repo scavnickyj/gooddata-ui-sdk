@@ -1,5 +1,5 @@
 // (C) 2019 GoodData Corporation
-import { maxInputValidateAndPushData, minInputValidateAndPushData } from "../controlsHelper";
+import { maxInputValidateAndPushData, minInputValidateAndPushData } from "../controlsHelper.js";
 
 describe("controlsHelper", () => {
     describe("max/min input validation", () => {

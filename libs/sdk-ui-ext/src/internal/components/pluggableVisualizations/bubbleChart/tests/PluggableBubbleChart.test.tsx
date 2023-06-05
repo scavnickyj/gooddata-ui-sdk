@@ -1,12 +1,12 @@
 // (C) 2019-2022 GoodData Corporation
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { PluggableBubbleChart } from "../PluggableBubbleChart";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 
-import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualization";
+import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualization.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import * as testMocks from "../../../../tests/mocks/testMocks";
-import { getLastRenderEl } from "../../tests/testHelpers";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { getLastRenderEl } from "../../tests/testHelpers.js";
 
 describe("PluggableBubbleChart", () => {
     const mockElement = document.createElement("div");

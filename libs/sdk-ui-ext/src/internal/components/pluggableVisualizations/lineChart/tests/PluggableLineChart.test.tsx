@@ -1,15 +1,15 @@
 // (C) 2019-2022 GoodData Corporation
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import {
     IBucketOfFun,
     IExtendedReferencePoint,
     IReferencePoint,
     IVisConstruct,
-} from "../../../../interfaces/Visualization";
+} from "../../../../interfaces/Visualization.js";
 import { PluggableLineChart } from "../PluggableLineChart";
-import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks";
-import { AXIS } from "../../../../constants/axis";
-import { LINE_CHART_SUPPORTED_PROPERTIES } from "../../../../constants/supportedProperties";
+import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import { AXIS } from "../../../../constants/axis.js";
+import { LINE_CHART_SUPPORTED_PROPERTIES } from "../../../../constants/supportedProperties.js";
 import { IDrillEventIntersectionElement, OverTimeComparisonTypes } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import {
@@ -18,7 +18,7 @@ import {
     intersection,
     sourceInsightDef,
     targetUri,
-} from "../../treeMap/tests/getInsightWithDrillDownAppliedMock";
+} from "../../treeMap/tests/getInsightWithDrillDownAppliedMock.js";
 import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
 import { IAttribute, IInsight, IInsightDefinition } from "@gooddata/sdk-model";
 import {
@@ -26,8 +26,8 @@ import {
     createDrillEvent,
     getLastRenderEl,
     insightDefinitionToInsight,
-} from "../../tests/testHelpers";
-import * as testMocks from "../../../../tests/mocks/testMocks";
+} from "../../tests/testHelpers.js";
+import * as testMocks from "../../../../tests/mocks/testMocks.js";
 
 describe("PluggableLineChart", () => {
     const mockElement = document.createElement("div");

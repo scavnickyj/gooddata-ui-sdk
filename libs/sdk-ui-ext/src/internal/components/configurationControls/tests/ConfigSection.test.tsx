@@ -3,9 +3,9 @@ import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DefaultLocale } from "@gooddata/sdk-ui";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { ConfigSection, IConfigSectionOwnProps } from "../ConfigSection";
-import { createInternalIntl, InternalIntlWrapper } from "../../../utils/internalIntlProvider";
+import { createInternalIntl, InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 
 describe("ConfigSection", () => {
     const defaultProps = {

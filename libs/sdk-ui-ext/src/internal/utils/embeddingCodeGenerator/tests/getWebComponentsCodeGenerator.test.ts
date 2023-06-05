@@ -1,7 +1,7 @@
 // (C) 2022-2023 GoodData Corporation
 import { IInsight, newInsightDefinition } from "@gooddata/sdk-model";
 import { IWebComponentsOptions, getHeightWithUnitsForEmbedCode } from "@gooddata/sdk-ui-kit";
-import { getWebComponentsCodeGenerator } from "../getWebComponentsCodeGenerator";
+import { getWebComponentsCodeGenerator } from "../getWebComponentsCodeGenerator.js";
 
 describe("getWebComponentsCodeGenerator", () => {
     const generateWebComponentSnippet = (config: IWebComponentsOptions) => {

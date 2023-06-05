@@ -9,7 +9,7 @@ import { IInsightDefinition, modifyMeasure, newBucket, newInsightDefinition } fr
 import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
 import GeoPushpinConfigurationPanel from "../GeoPushpinConfigurationPanel";
 
-import { IColorConfiguration } from "../../../interfaces/Colors";
+import { IColorConfiguration } from "../../../interfaces/Colors.js";
 
 const Location = ExamplesMd.City.Location;
 const Size = ExamplesMd.Population.Sum;
