@@ -1,4 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cellRenderer > should escape value 1`] = `
+<div>
+  <span
+    class="s-value"
+  >
+    &lt;button&gt;xss&lt;/button&gt;
+  </span>
+</div>
+`;
 
 exports[`cellRenderer should escape value 1`] = `
 <div>

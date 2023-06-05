@@ -7,9 +7,9 @@ import {
     isSeriesCol,
     isRootCol,
     LeafDataCol,
-} from "./tableDescriptorTypes";
-import { ColumnLocator, isAttributeColumnLocator, isMeasureColumnLocator } from "../../columnWidths";
-import { colMeasureLocalId } from "./colAccessors";
+} from "./tableDescriptorTypes.js";
+import { ColumnLocator, isAttributeColumnLocator, isMeasureColumnLocator } from "../../columnWidths.js";
+import { colMeasureLocalId } from "./colAccessors.js";
 
 /**
  * Given data sheet columns, this function will traverse them in order to attempt to match the provided
