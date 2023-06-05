@@ -10,7 +10,10 @@
     },
     "license": "MIT",
     "type": "module",
-    "exports": "./esm/index.js",
+    "exports": {
+        ".": "./esm/index.js",
+        "./internal": "./esm/internal.js"
+    },
     "types": "./esm/index.d.ts",
     "sideEffects": false,
     "files": [
@@ -18,7 +21,7 @@
         "esm/**/*.json",
         "esm/**/*.d.ts",
         "esm/**/*.map"
-    ],   
+    ],
     "scripts": {
         "clean": "rm -rf ci dist esm coverage *.log && jest --clearCache",
         "dev": "tsc -p tsconfig.dev.json --watch",
@@ -44,7 +47,7 @@
         "spark-md5": "^3.0.0",
         "stringify-object": "^3.3.0",
         "ts-invariant": "^0.7.3",
-        "tslib": "^2.5.0"        
+        "tslib": "^2.5.0"
     },
     "devDependencies": {
         "@gooddata/eslint-config": "^4.1.0",
