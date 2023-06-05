@@ -1,13 +1,13 @@
 // (C) 2020-2022 GoodData Corporation
 import React from "react";
-import Measure, { ContentRect, MeasuredComponentProps } from "react-measure";
+import ReactMeasure, { ContentRect, MeasuredComponentProps } from "react-measure";
 import cx from "classnames";
 
-import { generateLegendColorData } from "./geoChartColor";
-import PushpinCategoryLegend, { HEIGHT_OF_SIZE_LEGEND } from "./legends/PushpinCategoryLegend";
-import PushpinSizeLegend from "./legends/PushpinSizeLegend";
-import { IAvailableLegends, IGeoData } from "../../GeoChart";
-import { getAvailableLegends } from "./helpers/geoChart/data";
+import { generateLegendColorData } from "./geoChartColor.js";
+import PushpinCategoryLegend, { HEIGHT_OF_SIZE_LEGEND } from "./legends/PushpinCategoryLegend.js";
+import PushpinSizeLegend from "./legends/PushpinSizeLegend.js";
+import { IAvailableLegends, IGeoData } from "../../GeoChart.js";
+import { getAvailableLegends } from "./helpers/geoChart/data.js";
 import { IPushpinCategoryLegendItem, PositionType, Paging, ColorLegend } from "@gooddata/sdk-ui-vis-commons";
 import {
     getPushpinColorLegendSize,
@@ -16,9 +16,10 @@ import {
     getPushpinSizeLegendTitle,
     shouldRenderCircleLegendInsidePopUp,
     shouldRenderMiddleCircle,
-} from "./helpers/geoChart/responsive";
+} from "./helpers/geoChart/responsive.js";
 
 const HEIGHT_OF_COLOR_LEGEND = 210;
+const Measure = ReactMeasure.default ?? ReactMeasure;
 
 /**
  * @internal
