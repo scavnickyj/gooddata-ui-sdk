@@ -1,12 +1,12 @@
 // (C) 2007-2023 GoodData Corporation
-import isPlainObject from "lodash/isPlainObject";
-import isFunction from "lodash/isFunction";
-import set from "lodash/set";
-import defaults from "lodash/defaults";
-import merge from "lodash/merge";
-import result from "lodash/result";
+import isPlainObject from "lodash/isPlainObject.js";
+import isFunction from "lodash/isFunction.js";
+import set from "lodash/set.js";
+import defaults from "lodash/defaults.js";
+import merge from "lodash/merge.js";
+import result from "lodash/result.js";
 import pkgInfo from "../package.json";
-import { stringify } from "./utils/queryString";
+import { stringify } from "./utils/queryString.js";
 
 const { name: pkgName, version: pkgVersion } = pkgInfo;
 /**

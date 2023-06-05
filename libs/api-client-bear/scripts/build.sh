@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 _clean() {
-    rm -rf dist
     rm -rf esm
-    rm -rf umd
 }
 
 _common-build() {
@@ -12,7 +10,7 @@ _common-build() {
 
 build() {
     _common-build
-    concurrently "npm run build-cjs" "npm run build-esm" "npm run build-umd"
+    npm run build-esm
 }
 
 build-dev() {
