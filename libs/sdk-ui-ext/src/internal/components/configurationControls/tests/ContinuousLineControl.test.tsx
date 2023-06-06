@@ -6,7 +6,8 @@ import noop from "lodash/noop.js";
 import set from "lodash/set.js";
 
 import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
-import ContinuousLineControl, { IContinuousLineControlProps } from "../ContinuousLineControl";
+import ContinuousLineControl, { IContinuousLineControlProps } from "../ContinuousLineControl.js";
+import { vi } from "vitest";
 
 describe("ContinuousLineControl", () => {
     const defaultProps = {
@@ -50,7 +51,7 @@ describe("ContinuousLineControl", () => {
     });
 
     it("should call pushData when checkbox value changes", async () => {
-        const pushData = jest.fn();
+        const pushData = vi.fn();
         createComponent({
             properties: {},
             pushData,
@@ -61,7 +62,7 @@ describe("ContinuousLineControl", () => {
     });
 
     it("should display the tooltip when hovering to the checkbox", async () => {
-        const pushData = jest.fn();
+        const pushData = vi.fn();
         createComponent({
             properties: {},
             pushData,

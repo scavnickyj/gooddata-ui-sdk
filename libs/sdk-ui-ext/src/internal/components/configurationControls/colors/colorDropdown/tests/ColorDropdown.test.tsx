@@ -9,6 +9,7 @@ import { colorPalette } from "../../../../../tests/mocks/testColorHelper.js";
 import { InternalIntlWrapper } from "../../../../../utils/internalIntlProvider.js";
 import ColorDropdown, { IColorDropdownOwnProps, IconPosition, ISelectableChild } from "../ColorDropdown.js";
 import { IColoredItemContentProps } from "../../coloredItemsList/ColoredItemContent.js";
+import { vi } from "vitest";
 
 export type IMockItemProps = IColoredItemContentProps & ISelectableChild;
 
@@ -130,7 +131,7 @@ describe("ColorDropdown", () => {
     );
 
     it("should call onColorSelected once when colorItem clicked and return type guid and given guid value", async () => {
-        const onColorSelected = jest.fn();
+        const onColorSelected = vi.fn();
         const { guid, fill } = colorPalette[2];
         createComponent({ onColorSelected });
 
@@ -228,7 +229,7 @@ describe("ColorDropdown", () => {
         "should call onColorSelected once when ColorPicker select color" +
             " and return type rgb and given rgb value",
         async () => {
-            const onColorSelected = jest.fn();
+            const onColorSelected = vi.fn();
             createComponent({
                 showCustomPicker: true,
                 onColorSelected,

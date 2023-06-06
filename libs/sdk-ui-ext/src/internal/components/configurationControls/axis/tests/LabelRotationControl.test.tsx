@@ -5,9 +5,10 @@ import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import set from "lodash/set.js";
+import { vi } from "vitest";
 
 import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
-import LabelRotationControl, { ILabelRotationControl } from "../LabelRotationControl";
+import LabelRotationControl, { ILabelRotationControl } from "../LabelRotationControl.js";
 
 const defaultProps: ILabelRotationControl = {
     disabled: true,
@@ -87,7 +88,7 @@ describe("LabelRotationControl render", () => {
     );
 
     it("should call pushData when click on list item", async () => {
-        const pushData = jest.fn();
+        const pushData = vi.fn();
         const xaxisVisible = set({}, "controls.xaxis.visible", true);
         const properties = set(xaxisVisible, "controls.xaxis.labelsEnabled", true);
 

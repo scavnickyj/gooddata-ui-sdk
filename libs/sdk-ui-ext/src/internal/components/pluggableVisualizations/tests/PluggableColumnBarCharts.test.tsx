@@ -15,7 +15,7 @@ import {
     OPTIONAL_STACKING_PROPERTIES,
 } from "../../../constants/supportedProperties.js";
 import { AXIS } from "../../../constants/axis.js";
-import { PluggableColumnChart } from "../columnChart/PluggableColumnChart";
+import { PluggableColumnChart } from "../columnChart/PluggableColumnChart.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { insightSetProperties, IInsight, IInsightDefinition, IAttribute } from "@gooddata/sdk-model";
 import {
@@ -29,7 +29,10 @@ import {
 } from "./getInsightWithDrillDownAppliedMock.js";
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { createDrillEvent, createDrillDefinition, insightDefinitionToInsight } from "./testHelpers.js";
-import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
+import { vi } from "vitest";
+
+const { Department, Region } = ReferenceMd;
 
 describe("PluggableColumnBarCharts", () => {
     const defaultProps: IVisConstruct = {
@@ -109,7 +112,7 @@ describe("PluggableColumnBarCharts", () => {
         it("should update supported properties list base on axis type", async () => {
             const mockProps = {
                 ...defaultProps,
-                pushData: jest.fn(),
+                pushData: vi.fn(),
             };
             const chart = createComponent(mockProps);
 

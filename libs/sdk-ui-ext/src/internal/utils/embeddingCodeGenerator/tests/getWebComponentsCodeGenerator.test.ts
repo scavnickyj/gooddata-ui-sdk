@@ -21,12 +21,13 @@ describe("getWebComponentsCodeGenerator", () => {
             height,
         } as IWebComponentsOptions);
     };
+
     beforeAll(() => {
-        delete window.location;
         Object.defineProperty(window, "location", {
             value: new URL("https://localhost"),
         });
     });
+
     it("without any configuration", () => {
         const code = generateWebComponentSnippet({
             type: "webComponents",

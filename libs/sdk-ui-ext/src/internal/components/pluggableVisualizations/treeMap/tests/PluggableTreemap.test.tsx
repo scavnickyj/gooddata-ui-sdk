@@ -1,6 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import noop from "lodash/noop.js";
-import { PluggableTreemap } from "../PluggableTreemap";
+import { PluggableTreemap } from "../PluggableTreemap.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 
 import {
@@ -10,7 +10,7 @@ import {
 } from "../../../../interfaces/Visualization.js";
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
 import { IInsight, IInsightDefinition, IAttribute } from "@gooddata/sdk-model";
 import {
     createDrillEvent,
@@ -26,11 +26,14 @@ import {
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { vi } from "vitest";
+
+const { Department, Region } = ReferenceMd;
 
 describe("PluggableTreemap", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",

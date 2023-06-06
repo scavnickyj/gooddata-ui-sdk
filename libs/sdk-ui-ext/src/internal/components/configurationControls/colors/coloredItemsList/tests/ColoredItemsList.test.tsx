@@ -4,8 +4,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
-import ColoredItemsList, { IColoredItemsListProps } from "../ColoredItemsList";
-import { colorPalette } from "../../../../../tests/mocks/testColorHelper";
+import ColoredItemsList, { IColoredItemsListProps } from "../ColoredItemsList.js";
+import { colorPalette } from "../../../../../tests/mocks/testColorHelper.js";
 import { InternalIntlWrapper, createInternalIntl } from "../../../../../utils/internalIntlProvider.js";
 import { inputItemsMock } from "./mock.js";
 

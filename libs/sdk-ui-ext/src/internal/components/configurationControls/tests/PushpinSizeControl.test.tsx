@@ -3,7 +3,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 
-import PushpinSizeControl, { IPushpinSizeControl } from "../PushpinSizeControl";
+import PushpinSizeControl, { IPushpinSizeControl } from '../PushpinSizeControl.js';
 import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 
 describe("PushpinSizeControl", () => {

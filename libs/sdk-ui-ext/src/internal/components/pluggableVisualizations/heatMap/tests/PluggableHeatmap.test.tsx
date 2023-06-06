@@ -3,7 +3,7 @@ import noop from "lodash/noop.js";
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { IAttribute, IInsight, IInsightDefinition } from "@gooddata/sdk-model";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
 
 import {
     expectedInsightDefDepartment,
@@ -12,7 +12,7 @@ import {
     sourceInsightDef,
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
-import { PluggableHeatmap } from "../PluggableHeatmap";
+import { PluggableHeatmap } from "../PluggableHeatmap.js";
 import {
     createDrillDefinition,
     createDrillEvent,
@@ -22,11 +22,14 @@ import {
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import { IBucketOfFun, IReferencePoint, IVisConstruct } from "../../../../interfaces/Visualization.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { vi } from "vitest";
+
+const { Department, Region } = ReferenceMd;
 
 describe("PluggableHeatmap", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",

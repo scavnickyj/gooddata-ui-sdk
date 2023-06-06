@@ -5,8 +5,9 @@ import userEvent from "@testing-library/user-event";
 import cloneDeep from "lodash/cloneDeep.js";
 import set from "lodash/set.js";
 import noop from "lodash/noop.js";
+import { vi } from "vitest";
 
-import NameSubsection from "../NameSubsection";
+import NameSubsection from "../NameSubsection.js";
 
 import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 import { IConfigItemSubsection } from "../../../../interfaces/ConfigurationPanel.js";
@@ -73,7 +74,7 @@ describe("LegendSection render", () => {
 
 describe("Toggle switch", () => {
     it("should call pushData when click on toggle switch with valuePath set", async () => {
-        const pushData = jest.fn();
+        const pushData = vi.fn();
         const xaxisVisible = set({}, "controls.xaxis.visible", true);
         const axisLabelsEnabled = set(xaxisVisible, "controls.xaxis.labelsEnabled", false);
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import noop from "lodash/noop.js";
-import DataLabelsControl, { IDataLabelsControlProps } from "../DataLabelsControl";
+import DataLabelsControl, { IDataLabelsControlProps } from '../DataLabelsControl.js';
 import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
 import { IDataLabelsVisible } from "@gooddata/sdk-ui-charts";
 

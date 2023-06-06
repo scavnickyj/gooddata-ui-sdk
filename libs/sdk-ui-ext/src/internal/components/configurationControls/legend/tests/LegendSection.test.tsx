@@ -1,7 +1,7 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import LegendSection, { ILegendSection } from "../LegendSection";
+import LegendSection, { ILegendSection } from '../LegendSection.js';
 import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";

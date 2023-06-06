@@ -37,13 +37,14 @@ import {
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
 import { IAreaChartProps } from "@gooddata/sdk-ui-charts";
+import { vi } from "vitest";
 
 const { Department, Region } = ReferenceMd;
 
 describe("PluggableAreaChart", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",
         element: () => mockElement,

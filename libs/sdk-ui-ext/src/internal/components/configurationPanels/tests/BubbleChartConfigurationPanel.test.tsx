@@ -5,8 +5,8 @@ import userEvent from "@testing-library/user-event";
 import { IInsightDefinition, newMeasure } from "@gooddata/sdk-model";
 import { DefaultLocale, VisualizationTypes } from "@gooddata/sdk-ui";
 
-import BubbleChartConfigurationPanel from "../BubbleChartConfigurationPanel";
-import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
+import BubbleChartConfigurationPanel from '../BubbleChartConfigurationPanel.js';
+import { IConfigurationPanelContentProps } from '../ConfigurationPanelContent.js';
 
 import { insightWithSingleAttribute, insightWithSingleMeasure } from "../../../tests/mocks/testMocks.js";
 

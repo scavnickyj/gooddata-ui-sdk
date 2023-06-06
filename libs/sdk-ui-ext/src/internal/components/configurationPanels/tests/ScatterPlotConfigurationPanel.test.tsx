@@ -5,8 +5,8 @@ import userEvent from "@testing-library/user-event";
 import { IInsightDefinition, newMeasure } from "@gooddata/sdk-model";
 import { DefaultLocale, VisualizationTypes } from "@gooddata/sdk-ui";
 
-import ScatterPlotConfigurationPanel from "../ScatterPlotConfigurationPanel";
-import { IConfigurationPanelContentProps } from "../ConfigurationPanelContent";
+import ScatterPlotConfigurationPanel from '../ScatterPlotConfigurationPanel.js';
+import { IConfigurationPanelContentProps } from '../ConfigurationPanelContent.js';
 
 import { insightWithSingleAttribute } from "../../../tests/mocks/testMocks.js";
 

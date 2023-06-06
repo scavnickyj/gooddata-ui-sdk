@@ -3,6 +3,7 @@ import { IDrillEvent, IDrillEventIntersectionElement, VisType } from "@gooddata/
 import { IAttribute, IInsight, IInsightDefinition, localIdRef, uriRef } from "@gooddata/sdk-model";
 import { IDrillDownDefinition } from "../../../interfaces/Visualization.js";
 import React from "react";
+import { Mock } from "vitest";
 
 export function createDrillDefinition(fromAttribute: IAttribute, targetUri: string): IDrillDownDefinition {
     return {
@@ -46,7 +47,7 @@ export function createDrillEvent(type: VisType, intersection: IDrillEventInterse
  * @returns a React element passed to render function
  */
 export function getLastRenderEl<T = any>(
-    func: jest.Mock,
+    func: Mock,
     element: HTMLElement,
 ): React.ReactElement<T> | undefined {
     return [...func.mock.calls].reverse().find((call) => call[1] === element)?.[0];

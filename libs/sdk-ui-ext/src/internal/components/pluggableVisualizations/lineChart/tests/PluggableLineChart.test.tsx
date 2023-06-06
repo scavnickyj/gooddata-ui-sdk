@@ -6,7 +6,7 @@ import {
     IReferencePoint,
     IVisConstruct,
 } from "../../../../interfaces/Visualization.js";
-import { PluggableLineChart } from "../PluggableLineChart";
+import { PluggableLineChart } from "../PluggableLineChart.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import { AXIS } from "../../../../constants/axis.js";
 import { LINE_CHART_SUPPORTED_PROPERTIES } from "../../../../constants/supportedProperties.js";
@@ -19,7 +19,7 @@ import {
     sourceInsightDef,
     targetUri,
 } from "../../treeMap/tests/getInsightWithDrillDownAppliedMock.js";
-import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
 import { IAttribute, IInsight, IInsightDefinition } from "@gooddata/sdk-model";
 import {
     createDrillDefinition,
@@ -28,11 +28,14 @@ import {
     insightDefinitionToInsight,
 } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { vi } from "vitest";
+
+const { Department, Region } = ReferenceMd;
 
 describe("PluggableLineChart", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",
@@ -303,7 +306,7 @@ describe("PluggableLineChart", () => {
         it("should update supported properties list base on axis type", async () => {
             const mockProps = {
                 ...defaultProps,
-                pushData: jest.fn(),
+                pushData: vi.fn(),
             };
             const chart = createComponent(mockProps);
 

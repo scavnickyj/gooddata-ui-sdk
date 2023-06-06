@@ -1,17 +1,18 @@
 // (C) 2019-2023 GoodData Corporation
 import noop from "lodash/noop.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
-import { PluggableGeoPushpinChart } from "../PluggableGeoPushpinChart";
+import { PluggableGeoPushpinChart } from "../PluggableGeoPushpinChart.js";
 import { IExtendedReferencePoint, IVisConstruct } from "../../../../interfaces/Visualization.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { IInsightDefinition, newBucket, newInsightDefinition, newAttribute } from "@gooddata/sdk-model";
+import { vi } from "vitest";
 
 describe("PluggableGeoPushpinChart", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",

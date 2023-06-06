@@ -2,11 +2,13 @@
 
 import { localIdRef, newAttribute, newBucket, newInsightDefinition } from "@gooddata/sdk-model";
 import { reverseAndTrimIntersection, modifyBucketsAttributesForDrillDown } from "../drillDownUtil.js";
-import { Account, Department, Region, Status, Won } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
 import { insightDefinitionToInsight } from "./testHelpers.js";
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { reverseAndTrimIntersectionMock } from "./reverseAndTrimIntersectionMock.js";
 import { IDrillDownDefinition } from "../../../interfaces/Visualization.js";
+
+const { Account, Department, Region, Status, Won } = ReferenceMd;
 
 describe("drillDownUtil", () => {
     describe("modifyBucketsAttributesForDrillDown", () => {

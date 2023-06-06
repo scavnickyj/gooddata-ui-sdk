@@ -1,7 +1,7 @@
 // (C) 2020-2022 GoodData Corporation
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
-import { PluggableBulletChart } from "../PluggableBulletChart";
+import { PluggableBulletChart } from "../PluggableBulletChart.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import {
     IBucketOfFun,
@@ -12,7 +12,7 @@ import {
 import { OverTimeComparisonTypes, IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { IInsight, IInsightDefinition, IAttribute } from "@gooddata/sdk-model";
-import { Department, Region } from "@gooddata/reference-workspace/dist/md/full";
+import { ReferenceMd } from "@gooddata/reference-workspace";
 import {
     createDrillEvent,
     insightDefinitionToInsight,
@@ -27,11 +27,14 @@ import {
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { vi } from "vitest";
+
+const { Department, Region } = ReferenceMd;
 
 describe("PluggableBulletChart", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         backend: dummyBackend(),

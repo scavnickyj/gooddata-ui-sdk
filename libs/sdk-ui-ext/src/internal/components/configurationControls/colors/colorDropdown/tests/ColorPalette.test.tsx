@@ -10,6 +10,7 @@ import {
     colorPalette,
     colorPaletteWithOneColor,
 } from "../../../../../tests/mocks/testColorHelper.js";
+import { vi } from "vitest";
 
 const defaultProps: IColorPaletteProps = {
     selectedColorGuid: undefined,
@@ -61,7 +62,7 @@ describe("ColorPalette", () => {
     });
 
     it("should call onSelect when item clicked", async () => {
-        const onColorSelected = jest.fn();
+        const onColorSelected = vi.fn();
         const { fill, guid } = colorPalette[4];
         createComponent({ onColorSelected });
         await userEvent.click(screen.getByLabelText(`rgb(${fill.r},${fill.g},${fill.b})`));

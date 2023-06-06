@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import ColorPaletteItem, { IColorPaletteItemProps } from "../ColorPaletteItem.js";
+import { vi } from "vitest";
 
 const defaultProps: IColorPaletteItemProps = {
     selected: false,
@@ -50,7 +51,7 @@ describe("ColorPaletteItem", () => {
 
     it("should call onSelect when ColorPaletteItem clicked", async () => {
         const { fill, guid } = defaultProps.paletteItem;
-        const onColorSelected = jest.fn();
+        const onColorSelected = vi.fn();
 
         createComponent({ onColorSelected });
         await userEvent.click(screen.getByLabelText(`rgb(${fill.r},${fill.g},${fill.b})`));

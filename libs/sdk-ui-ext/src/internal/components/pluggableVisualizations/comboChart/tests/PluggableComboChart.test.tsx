@@ -2,7 +2,7 @@
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import merge from "lodash/merge.js";
-import { PluggableComboChart } from "../PluggableComboChart";
+import { PluggableComboChart } from "../PluggableComboChart.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import {
     IBucketOfFun,
@@ -18,11 +18,12 @@ import { VisualizationTypes, OverTimeComparisonTypes } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
+import { vi } from "vitest";
 
 describe("PluggableComboChart", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",
@@ -228,7 +229,7 @@ describe("PluggableComboChart", () => {
             async (axis: string, refPoint: IReferencePoint) => {
                 const mockProps = {
                     ...defaultProps,
-                    pushData: jest.fn(),
+                    pushData: vi.fn(),
                 };
                 const chart = createComponent(mockProps);
 
@@ -274,7 +275,7 @@ describe("PluggableComboChart", () => {
                             primaryChartType: chartType,
                         },
                     },
-                    pushData: jest.fn(),
+                    pushData: vi.fn(),
                 };
                 const comboChart = createComponent(mockProps);
 
@@ -330,7 +331,7 @@ describe("PluggableComboChart", () => {
                             primaryChartType: chartType,
                         },
                     },
-                    pushData: jest.fn(),
+                    pushData: vi.fn(),
                 };
 
                 const chart = createComponent(mockProps);

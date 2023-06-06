@@ -1,5 +1,5 @@
 // (C) 2019-2022 GoodData Corporation
-import { PluggableHeadline } from "../PluggableHeadline";
+import { PluggableHeadline } from "../PluggableHeadline.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import {
@@ -16,11 +16,12 @@ import { CoreHeadline, ICoreChartProps } from "@gooddata/sdk-ui-charts";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import cloneDeep from "lodash/cloneDeep.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
+import { vi } from "vitest";
 
 describe("PluggableHeadline", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const executionFactory = dummyBackend().workspace("PROJECTID").execution();
     const defaultProps: IVisConstruct = {
         projectId: "PROJECTID",
@@ -30,10 +31,10 @@ describe("PluggableHeadline", () => {
         visualizationProperties: {},
         renderFun: mockRenderFun,
         callbacks: {
-            afterRender: jest.fn(),
-            pushData: jest.fn(),
-            onLoadingChanged: jest.fn(),
-            onError: jest.fn(),
+            afterRender: vi.fn(),
+            pushData: vi.fn(),
+            onLoadingChanged: vi.fn(),
+            onError: vi.fn(),
         },
     };
 
@@ -66,7 +67,7 @@ describe("PluggableHeadline", () => {
 
     describe("init", () => {
         it("should not call pushData during init", () => {
-            const pushData = jest.fn();
+            const pushData = vi.fn();
 
             createComponent({
                 callbacks: {
@@ -95,7 +96,7 @@ describe("PluggableHeadline", () => {
         const emptyPropertiesMeta = {};
 
         it("should not render headline when insight is empty", () => {
-            const onError = jest.fn();
+            const onError = vi.fn();
             const headline = createComponent({
                 callbacks: {
                     ...defaultProps.callbacks,
@@ -113,7 +114,7 @@ describe("PluggableHeadline", () => {
         });
 
         it("should not render headline when insight does not have primary measures", () => {
-            const onError = jest.fn();
+            const onError = vi.fn();
             const headline = createComponent({
                 callbacks: {
                     ...defaultProps.callbacks,

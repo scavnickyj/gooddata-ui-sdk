@@ -4,7 +4,7 @@ import {
     getColumnAttributes,
     getRowAttributes,
     PluggablePivotTable,
-} from "../PluggablePivotTable";
+} from "../PluggablePivotTable.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import {
@@ -46,11 +46,12 @@ import {
 } from "./sortMocks.js";
 import { getInsightWithDrillDownApplied } from "./getInsightWithDrillDownAppliedMock.js";
 import { createDrillEvent, getLastRenderEl } from "../../tests/testHelpers.js";
+import { vi } from "vitest";
 
 describe("PluggablePivotTable", () => {
     const mockElement = document.createElement("div");
     const mockConfigElement = document.createElement("div");
-    const mockRenderFun = jest.fn();
+    const mockRenderFun = vi.fn();
     const backend = dummyBackend();
     const executionFactory = backend.workspace("PROJECTID").execution();
 
