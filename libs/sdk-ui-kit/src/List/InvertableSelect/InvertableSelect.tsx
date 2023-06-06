@@ -1,7 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React, { useCallback } from "react";
 import cx from "classnames";
-import Measure from "react-measure";
+import DefaultMeasure from "react-measure";
 
 import { LoadingMask } from "../../LoadingMask/index.js";
 import { IRenderListItemProps } from "../List.js";
@@ -13,6 +13,11 @@ import { InvertableSelectStatusBar } from "./InvertableSelectStatusBar.js";
 import { InvertableSelectNoResultsMatch } from "./InvertableSelectNoResultsMatch.js";
 import { ErrorComponent } from "@gooddata/sdk-ui";
 import { InvertableSelectItem } from "./InvertableSelectItem.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const Measure = DefaultMeasure as unknown as typeof DefaultMeasure.default;
 
 /**
  * Properties of List item component implementation
