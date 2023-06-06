@@ -6,7 +6,7 @@ import moment = require("moment");
 import addDate from "date-fns/add";
 import formatDate from "date-fns/format";
 import noop from "lodash/noop.js";
-import { IDateFilterProps, DateFilter } from "../DateFilter";
+import { IDateFilterProps, DateFilter } from "../DateFilter.js";
 import { DateFilterOption, IDateFilterOptionsByType } from "../interfaces/index.js";
 import { DateFilterGranularity } from "@gooddata/sdk-model";
 

@@ -4,7 +4,7 @@ import isNumber from "lodash/isNumber.js";
 import defaultTo from "lodash/defaultTo.js";
 import clamp from "lodash/clamp.js";
 
-import { ArrowButton } from "./ArrowButton";
+import { ArrowButton } from "./ArrowButton.js";
 import { unless } from "./utils.js";
 
 type NumericInputValue = number | "" | "-";

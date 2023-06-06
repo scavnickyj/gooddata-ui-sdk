@@ -4,8 +4,8 @@ import { waitForAsync } from "./testUtils.js";
 
 describe("AttributeFilterHandler", () => {
     it("scroll and search to reset offset", async () => {
-        const onLoadNextElementsPageStart = jest.fn();
-        const onLoadNextElementsPageSuccess = jest.fn();
+        const onLoadNextElementsPageStart = vi.fn();
+        const onLoadNextElementsPageSuccess = vi.fn();
 
         const attributeFilterHandler = newTestAttributeFilterHandler("negative");
 

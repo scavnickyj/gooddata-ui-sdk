@@ -4,7 +4,7 @@ import flow from "lodash/flow.js";
 import noop from "lodash/noop.js";
 import { DateFilterGranularity, WeekStart } from "@gooddata/sdk-model";
 import { Dropdown } from "@gooddata/sdk-ui-kit";
-import MediaQuery from "react-responsive";
+import DefaultMediaQuery from "react-responsive";
 import { IExtendedDateFilterErrors, IDateFilterOptionsByType, DateFilterOption } from "./interfaces/index.js";
 import { IntlWrapper } from "@gooddata/sdk-ui";
 import { MediaQueries } from "../constants/index.js";
@@ -14,6 +14,11 @@ import { applyExcludeCurrentPeriod } from "./utils/PeriodExclusion.js";
 import { DEFAULT_DATE_FORMAT, TIME_FORMAT_WITH_SEPARATOR } from "./constants/Platform.js";
 import { filterVisibleDateFilterOptions, sanitizePresetIntervals } from "./utils/OptionUtils.js";
 import format from "date-fns/format";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const MediaQuery = DefaultMediaQuery as unknown as typeof DefaultMediaQuery.default;
 
 export interface IDateFilterCoreProps {
     dateFormat: string;

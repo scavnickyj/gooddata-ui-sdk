@@ -31,8 +31,8 @@ describe("convertPlatformDateStringToDate", () => {
     });
 
     it("should convert platform date string to Date object", () => {
-        const dateNow = jest.spyOn(Date, "now").mockReturnValue(1575158400000);
-        const getTimezoneOffset = jest.spyOn(Date.prototype, "getTimezoneOffset").mockReturnValue(270);
+        const dateNow = vi.spyOn(Date, "now").mockReturnValue(1575158400000);
+        const getTimezoneOffset = vi.spyOn(Date.prototype, "getTimezoneOffset").mockReturnValue(270);
         const date = convertPlatformDateStringToDate("2019-12-01");
         expect(date.toISOString()).toBe(new Date(1575174600000).toISOString());
 

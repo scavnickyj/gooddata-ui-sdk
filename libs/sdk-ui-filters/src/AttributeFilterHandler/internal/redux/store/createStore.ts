@@ -1,6 +1,6 @@
 // (C) 2022-2023 GoodData Corporation
 import { Action, AnyAction, configureStore, Middleware } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
+import defaultReduxSaga from "redux-saga";
 import { actions, sliceReducer } from "./slice.js";
 import { rootSaga } from "./rootSaga.js";
 import { AttributeFilterState, initialState } from "./state.js";
@@ -19,6 +19,11 @@ const nonSerializableActions = [
     actions.loadCustomElementsError.type,
     actions.initError.type,
 ];
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const createSagaMiddleware = defaultReduxSaga as unknown as typeof defaultReduxSaga.default;
 
 // We cannot handle event listeners inside saga, as once the root saga is canceled,
 // take effects are not working anymore, but we may want to listen for actions,

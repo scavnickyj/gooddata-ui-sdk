@@ -4,8 +4,8 @@ import React from "react";
 import Downshift, { ControllerStateAndHelpers } from "downshift";
 import cx from "classnames";
 import noop from "lodash/noop.js";
-import { SelectButton } from "./SelectButton";
-import { SelectMenu } from "./SelectMenu";
+import { SelectButton } from "./SelectButton.js";
+import { SelectMenu } from "./SelectMenu.js";
 import { ISelectItem, ISelectItemOption } from "./types.js";
 import { getSelectableItems, itemToString } from "./utils.js";
 

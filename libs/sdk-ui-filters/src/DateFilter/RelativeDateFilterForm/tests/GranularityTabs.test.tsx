@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { DateFilterGranularity } from "@gooddata/sdk-model";
 
-import { GranularityTabs, IGranularityTabsProps } from "../GranularityTabs";
+import { GranularityTabs, IGranularityTabsProps } from "../GranularityTabs.js";
 import { withIntl } from "@gooddata/sdk-ui";
 
 const granularityTuple: Array<[DateFilterGranularity, string]> = [
@@ -38,7 +38,7 @@ describe("GranularityTabs", () => {
     });
 
     describe("should fire onSelectedGranularityChange", () => {
-        const onSelectedGranularityChange = jest.fn();
+        const onSelectedGranularityChange = vi.fn();
         it.each(granularityTuple)(
             "with parameter %s when tab %s is clicked",
             (value: string, name: string) => {

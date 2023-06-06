@@ -2,9 +2,9 @@
 import React from "react";
 import cx from "classnames";
 import { ControllerStateAndHelpers } from "downshift";
-import { SelectOption } from "./SelectOption";
-import { SelectHeading } from "./SelectHeading";
-import { SelectSeparator } from "./SelectSeparator";
+import { SelectOption } from "./SelectOption.js";
+import { SelectHeading } from "./SelectHeading.js";
+import { SelectSeparator } from "./SelectSeparator.js";
 import { ISelectItem, ISelectItemOption } from "./types.js";
 import { getSelectableItems } from "./utils.js";
 
