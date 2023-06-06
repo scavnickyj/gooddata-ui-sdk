@@ -11,7 +11,8 @@ import {
     newTwoDimensional,
     newAttributeSort,
 } from "@gooddata/sdk-model";
-import { CoreBarChart } from "../CoreBarChart";
+import { CoreBarChart } from "../CoreBarChart.js";
+import { vi } from "vitest";
 
 function renderChart(measures: IAttributeOrMeasure[], config?: IChartConfig) {
     return render(<BarChart config={config} workspace="foo" backend={dummyBackend()} measures={measures} />);

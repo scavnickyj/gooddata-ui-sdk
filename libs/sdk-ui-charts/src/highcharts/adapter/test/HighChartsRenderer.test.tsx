@@ -13,6 +13,7 @@ import * as legendModule from "@gooddata/sdk-ui-vis-commons";
 
 import { BOTTOM, LEFT, RIGHT, TOP } from "../../typings/mess.js";
 import { IChartConfig } from "../../../interfaces/index.js";
+import { vi } from "vitest";
 
 function createComponent(customProps: any = {}, zoomable = false) {
     const chartOptions = {

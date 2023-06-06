@@ -3,8 +3,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import noop from "lodash/noop.js";
 
-import { ChartTransformation } from "../ChartTransformation";
-import { HighChartsRenderer } from "../adapter/HighChartsRenderer";
+import { ChartTransformation } from "../ChartTransformation.js";
+import { HighChartsRenderer } from "../adapter/HighChartsRenderer.js";
 import { IChartConfig } from "../../interfaces/index.js";
 import { getRgbString } from "@gooddata/sdk-ui-vis-commons";
 import { IColorPaletteItem, measureLocalId } from "@gooddata/sdk-model";
@@ -13,6 +13,7 @@ import { TOP, BOTTOM, MIDDLE } from "../constants/alignments.js";
 import { ReferenceMd, ReferenceRecordings } from "@gooddata/reference-workspace";
 import * as fixtures from "../../../__mocks__/fixtures.js";
 import { recordedDataFacade } from "../../../__mocks__/recordings.js";
+import { vi } from "vitest";
 
 const BarChartNoAttributes = recordedDataFacade(ReferenceRecordings.Scenarios.BarChart.SingleMeasure);
 const BarChartView = recordedDataFacade(ReferenceRecordings.Scenarios.BarChart.SingleMeasureWithViewBy);

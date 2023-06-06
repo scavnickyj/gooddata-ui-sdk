@@ -1,7 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import { ColumnChart } from "../ColumnChart";
+import { ColumnChart } from "../ColumnChart.js";
 import { IChartConfig } from "../../../interfaces/index.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import {
@@ -10,8 +10,9 @@ import {
     newTwoDimensional,
     MeasureGroupIdentifier,
 } from "@gooddata/sdk-model";
-import { CoreColumnChart } from "../CoreColumnChart";
+import { CoreColumnChart } from "../CoreColumnChart.js";
 import { ReferenceMd, ReferenceMdExt } from "@gooddata/reference-workspace";
+import { vi } from "vitest";
 
 function renderChart(measures: IAttributeOrMeasure[], config?: IChartConfig) {
     return render(

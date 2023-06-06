@@ -1,15 +1,17 @@
 // (C) 2007-2018 GoodData Corporation
 import React from "react";
-import Measure, { MeasuredComponentProps, ContentRect } from "react-measure";
+import ReactMeasure, { MeasuredComponentProps, ContentRect } from "react-measure";
 
 const MEASURED_ELEMENT_STYLE = { width: "100%", height: "100%" };
 export interface IHighChartsMeasuredRendererProps {
     childrenRenderer: (contentRect: ContentRect) => JSX.Element;
 }
 
+const Measure = ReactMeasure as unknown as typeof ReactMeasure.default;
+
 export function HighChartsMeasuredRenderer(props: IHighChartsMeasuredRendererProps): JSX.Element {
     return (
-        <Measure.default client={true}>
+        <Measure client={true}>
             {({ measureRef, contentRect }: MeasuredComponentProps) => {
                 return (
                     <div
@@ -21,6 +23,6 @@ export function HighChartsMeasuredRenderer(props: IHighChartsMeasuredRendererPro
                     </div>
                 );
             }}
-        </Measure.default>
+        </Measure>
     );
 }

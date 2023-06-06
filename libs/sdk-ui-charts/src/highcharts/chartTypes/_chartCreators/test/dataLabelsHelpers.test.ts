@@ -14,6 +14,7 @@ import { IRectBySize, IAxisRange, IAxisRangeForAxes } from "../helpers.js";
 import { BLACK_LABEL, WHITE_LABEL, whiteDataLabelTypes } from "../../../constants/label.js";
 import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { StackingType } from "../../../constants/stacking.js";
+import { vi } from "vitest";
 
 describe("dataLabelsHelpers", () => {
     describe("getDataLabelAttributes", () => {

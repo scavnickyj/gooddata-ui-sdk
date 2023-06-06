@@ -1,6 +1,6 @@
 // (C) 2007-2022 GoodData Corporation
 import React, { createRef } from "react";
-import Measure from "react-measure";
+import ReactMeasure, { MeasuredComponentProps } from "react-measure";
 import { ResponsiveText } from "@gooddata/sdk-ui-kit";
 import cx from "classnames";
 import { HeadlineElementType } from "@gooddata/sdk-ui";
@@ -35,6 +35,8 @@ export interface IHeadlineVisualizationProps {
     disableDrillUnderline?: boolean;
 }
 
+const Measure = ReactMeasure as unknown as typeof ReactMeasure.default;
+
 /**
  * The React component that renders the Headline visualisation.
  */
@@ -61,8 +63,8 @@ export default class Headline extends React.Component<IHeadlineVisualizationProp
 
     public render() {
         return (
-            <Measure.default client>
-                {({ measureRef, contentRect }) => {
+            <Measure client>
+                {({ measureRef, contentRect }: MeasuredComponentProps) => {
                     return (
                         <div className="headline" ref={measureRef}>
                             {this.renderPrimaryItem(contentRect.client?.height)}
@@ -70,7 +72,7 @@ export default class Headline extends React.Component<IHeadlineVisualizationProp
                         </div>
                     );
                 }}
-            </Measure.default>
+            </Measure>
         );
     }
 

@@ -7,6 +7,7 @@ import { emptyDef } from "@gooddata/sdk-model";
 
 import { BaseChart } from "../../_base/BaseChart.js";
 import { CoreWaterfallChart } from "../CoreWaterfallChart.js";
+import { vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

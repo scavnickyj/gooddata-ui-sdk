@@ -5,7 +5,8 @@ import { PieChart } from "../PieChart.js";
 import { newAttributeSort, MeasureGroupIdentifier, newTwoDimensional } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { CorePieChart } from "../CorePieChart";
+import { CorePieChart } from "../CorePieChart.js";
+import { vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

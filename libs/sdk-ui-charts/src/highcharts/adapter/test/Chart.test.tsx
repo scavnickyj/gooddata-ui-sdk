@@ -1,6 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
+import { vi } from "vitest";
 
 import Highcharts from "../../lib/index.js";
 import { Chart } from "../Chart.js";
@@ -9,47 +10,49 @@ const destroyMock = vi.fn();
 
 vi.mock("highcharts", () => {
     return {
-        Chart: (_: any, callback: any) => ({
-            callback: callback(),
-            destroy: destroyMock,
-        }),
+        default: {
+            Chart: (_: any, callback: any) => ({
+                callback: callback(),
+                destroy: destroyMock,
+            }),
+        },
     };
 });
 
 vi.mock("highcharts/modules/drilldown", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/treemap", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/bullet", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/heatmap", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/funnel", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/sankey", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/dependency-wheel", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/highcharts-more", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("highcharts/modules/pattern-fill", () => {
-    return (H: any) => H;
+    return { default: vi.fn() };
 });
 
 vi.mock("../chartPlugins", () => {

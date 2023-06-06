@@ -1,11 +1,12 @@
 // (C) 2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import { DependencyWheelChart } from "../DependencyWheelChart";
+import { DependencyWheelChart } from "../DependencyWheelChart.js";
 import { newAttributeSort, newTwoDimensional, MeasureGroupIdentifier } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { CoreDependencyWheelChart } from "../CoreDependencyWheelChart";
+import { CoreDependencyWheelChart } from "../CoreDependencyWheelChart.js";
+import { vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

@@ -1,8 +1,8 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import HeadlineTransformation, { IHeadlineTransformationProps } from "../HeadlineTransformation";
-import * as headlineComponent from "../Headline";
+import HeadlineTransformation, { IHeadlineTransformationProps } from "../HeadlineTransformation.js";
+import * as headlineComponent from "../Headline.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import {
     headlineWithOneMeasure,
@@ -16,12 +16,13 @@ import {
     DRILL_EVENT_DATA_FOR_SECONDARY_ITEM,
 } from "./HeadlineTransformation.fixtures.js";
 import noop from "lodash/noop.js";
+import { vi } from "vitest";
 
 describe("HeadlineTransformation", () => {
-    let Headline = vi.spyOn(headlineComponent, "default").mockImplementation(() => null);
+    let Headline = vi.spyOn(headlineComponent, "default").mockImplementation((): null => null);
     afterEach(() => {
         vi.restoreAllMocks();
-        Headline = vi.spyOn(headlineComponent, "default").mockImplementation(() => null);
+        Headline = vi.spyOn(headlineComponent, "default").mockImplementation((): null => null);
     });
 
     function createComponent(props: IHeadlineTransformationProps) {

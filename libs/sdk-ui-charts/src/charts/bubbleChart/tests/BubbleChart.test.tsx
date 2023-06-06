@@ -1,11 +1,12 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import { BubbleChart } from "../BubbleChart";
+import { BubbleChart } from "../BubbleChart.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { CoreBubbleChart } from "../CoreBubbleChart";
+import { CoreBubbleChart } from "../CoreBubbleChart.js";
 import { newAttributeSort, newTwoDimensional, MeasureGroupIdentifier } from "@gooddata/sdk-model";
+import { vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

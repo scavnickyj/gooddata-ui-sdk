@@ -1,7 +1,8 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import Headline, { IHeadlineVisualizationProps } from "../Headline";
+import Headline, { IHeadlineVisualizationProps } from "../Headline.js";
+import { vi } from "vitest";
 
 describe("Headline", () => {
     function createComponent(props: IHeadlineVisualizationProps) {

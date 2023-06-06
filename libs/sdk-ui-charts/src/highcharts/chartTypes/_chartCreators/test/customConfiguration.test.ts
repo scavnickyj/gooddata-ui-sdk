@@ -23,6 +23,7 @@ import {
 } from "../../_chartOptions/chartCapabilities.js";
 import { IChartOptions, IPointData, ISeriesDataItem } from "../../../typings/unsafe.js";
 import { PlotBarDataLabelsOptions, PlotBubbleDataLabelsOptions } from "highcharts";
+import { vi } from "vitest";
 
 function getData(dataValues: Partial<ISeriesDataItem>[]) {
     return {
