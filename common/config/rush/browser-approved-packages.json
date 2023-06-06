@@ -224,7 +224,7 @@
     },
     {
       "name": "@jest/globals",
-      "allowedCategories": [ "production" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "@microsoft/api-documenter",
@@ -535,6 +535,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "browser-or-node",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "case-sensitive-paths-webpack-plugin",
       "allowedCategories": [ "tools" ]
     },
@@ -644,7 +648,7 @@
     },
     {
       "name": "eslint-plugin-import-esm",
-      "allowedCategories": [ "production" ]
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "eslint-plugin-jest",
@@ -717,6 +721,10 @@
     {
       "name": "full-icu",
       "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "happy-dom",
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "heroku",
@@ -1113,6 +1121,10 @@
     {
       "name": "uuid",
       "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "vitest",
+      "allowedCategories": [ "production", "tools" ]
     },
     {
       "name": "wait-on",
