@@ -1338,7 +1338,6 @@ importers:
       '@testing-library/jest-dom': ^5.12.0
       '@testing-library/react': ^14.0.0
       '@types/hoist-non-react-statics': ^3.3.1
-      '@types/jest': ^29.5.1
       '@types/lodash': ^4.14.158
       '@types/node': ^16.18.23
       '@types/raf': ^3.4.0
@@ -1366,11 +1365,8 @@ importers:
       eslint-plugin-sonarjs: ^0.16.0
       eslint-plugin-tsdoc: ^0.2.14
       full-icu: ^1.3.0
-      happy-dom: ^9.20.3
       highcharts: 9.3.0
       hoist-non-react-statics: ^3.3.0
-      jest: ^29.5.0
-      jest-junit: ^3.0.0
       lodash: ^4.17.19
       polished: ^3.6.7
       prettier: ~2.5.0
@@ -1384,7 +1380,6 @@ importers:
       stylelint-checkstyle-formatter: ^0.1.2
       stylelint-config-prettier: ^8.0.2
       ts-invariant: ^0.7.3
-      ts-jest: ^29.1.0
       tslib: ^2.5.0
       typescript: 5.0.2
       uuid: ^8.3.2
@@ -1419,7 +1414,6 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/jest': 29.5.1
       '@types/lodash': 4.14.194
       '@types/node': 16.18.23
       '@types/raf': 3.4.0
@@ -1436,7 +1430,7 @@ importers:
       eslint-plugin-header: 3.1.1_eslint@8.38.0
       eslint-plugin-import: 2.27.5_eslint@8.38.0
       eslint-plugin-import-esm: 1.2.1_eslint@8.38.0
-      eslint-plugin-jest: 27.2.1_dqn24hrnvdtdd4mxnskmahyyq4
+      eslint-plugin-jest: 27.2.1_aibbwtblh3szmfs3unchjrozni
       eslint-plugin-no-only-tests: 2.6.0
       eslint-plugin-prettier: 4.2.1_odtficzbtx3ydo73x7yvkhbrxu
       eslint-plugin-react: 7.32.2_eslint@8.38.0
@@ -1445,9 +1439,6 @@ importers:
       eslint-plugin-sonarjs: 0.16.0_eslint@8.38.0
       eslint-plugin-tsdoc: 0.2.17
       full-icu: 1.5.0
-      happy-dom: 9.20.3
-      jest: 29.5.0_@types+node@16.18.23
-      jest-junit: 3.7.0
       prettier: 2.5.1
       raf: 3.4.1
       react: 18.2.0
@@ -1456,9 +1447,8 @@ importers:
       stylelint: 13.13.1
       stylelint-checkstyle-formatter: 0.1.2
       stylelint-config-prettier: 8.0.2_stylelint@13.13.1
-      ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       typescript: 5.0.2
-      vitest: 0.31.3_dfspf7utt7dzcxcklwoug56p2q
+      vitest: 0.31.3_sass@1.62.0
 
   ../../libs/sdk-ui-dashboard:
     specifiers:
@@ -1535,7 +1525,7 @@ importers:
       react-select: ^5.7.3
       react-transition-group: ^4.4.2
       redux-batched-actions: ^0.5.0
-      redux-saga: ^1.1.3
+      redux-saga: ^1.2.3
       sass: ^1.52.3
       stylelint: ^13.8.0
       stylelint-checkstyle-formatter: ^0.1.2
@@ -1661,7 +1651,6 @@ importers:
       '@testing-library/jest-dom': ^5.12.0
       '@testing-library/react': ^14.0.0
       '@testing-library/user-event': ^14.4.2
-      '@types/jest': ^29.5.1
       '@types/lodash': ^4.14.158
       '@types/node': ^16.18.23
       '@types/raf': ^3.4.0
@@ -1693,8 +1682,6 @@ importers:
       eslint-plugin-tsdoc: ^0.2.14
       fixed-data-table-2: ^1.2.0
       full-icu: ^1.3.0
-      jest: ^29.5.0
-      jest-junit: ^3.0.0
       lodash: ^4.17.19
       lru-cache: ^9.1.1
       prettier: ~2.5.0
@@ -1712,10 +1699,10 @@ importers:
       stylelint-config-prettier: ^8.0.2
       svgo: ^2.8.0
       ts-invariant: ^0.7.3
-      ts-jest: ^29.1.0
       tslib: ^2.5.0
       typescript: 5.0.2
       uuid: ^8.3.2
+      vitest: ^0.31.3
     dependencies:
       '@gooddata/numberjs': 4.0.3
       '@gooddata/sdk-backend-base': link:../sdk-backend-base
@@ -1757,7 +1744,6 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
       '@testing-library/user-event': 14.4.3_@testing-library+dom@9.2.0
-      '@types/jest': 29.5.1
       '@types/lodash': 4.14.194
       '@types/node': 16.18.23
       '@types/raf': 3.4.0
@@ -1776,7 +1762,7 @@ importers:
       eslint-plugin-header: 3.1.1_eslint@8.38.0
       eslint-plugin-import: 2.27.5_eslint@8.38.0
       eslint-plugin-import-esm: 1.2.1_eslint@8.38.0
-      eslint-plugin-jest: 27.2.1_dqn24hrnvdtdd4mxnskmahyyq4
+      eslint-plugin-jest: 27.2.1_aibbwtblh3szmfs3unchjrozni
       eslint-plugin-jest-dom: 4.0.3_eslint@8.38.0
       eslint-plugin-no-only-tests: 2.6.0
       eslint-plugin-prettier: 4.2.1_odtficzbtx3ydo73x7yvkhbrxu
@@ -1786,8 +1772,6 @@ importers:
       eslint-plugin-sonarjs: 0.16.0_eslint@8.38.0
       eslint-plugin-tsdoc: 0.2.17
       full-icu: 1.5.0
-      jest: 29.5.0_@types+node@16.18.23
-      jest-junit: 3.7.0
       prettier: 2.5.1
       raf: 3.4.1
       react: 18.2.0
@@ -1797,8 +1781,8 @@ importers:
       stylelint-checkstyle-formatter: 0.1.2
       stylelint-config-prettier: 8.0.2_stylelint@13.13.1
       svgo: 2.8.0
-      ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       typescript: 5.0.2
+      vitest: 0.31.3_sass@1.62.0
 
   ../../libs/sdk-ui-filters:
     specifiers:
@@ -1862,7 +1846,7 @@ importers:
       react-intl: ^6.4.1
       react-responsive: ^8.2.0
       react-window: ^1.8.7
-      redux-saga: ^1.1.3
+      redux-saga: ^1.2.3
       sass: ^1.52.3
       stylelint: ^13.8.0
       stylelint-checkstyle-formatter: ^0.1.2
@@ -1872,6 +1856,7 @@ importers:
       tslib: ^2.5.0
       typescript: 5.0.2
       uuid: ^8.3.2
+      vitest: ^0.31.3
     dependencies:
       '@gooddata/numberjs': 4.0.3
       '@gooddata/sdk-backend-spi': link:../sdk-backend-spi
@@ -1944,6 +1929,7 @@ importers:
       stylelint-config-prettier: 8.0.2_stylelint@13.13.1
       ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       typescript: 5.0.2
+      vitest: 0.31.3_sass@1.62.0
 
   ../../libs/sdk-ui-geo:
     specifiers:
@@ -2356,7 +2342,6 @@ importers:
       '@microsoft/api-extractor': ^7.20.0
       '@testing-library/jest-dom': ^5.12.0
       '@testing-library/react': ^14.0.0
-      '@types/jest': ^29.5.1
       '@types/lodash': ^4.14.158
       '@types/node': ^16.18.23
       '@types/raf': ^3.4.0
@@ -2383,8 +2368,6 @@ importers:
       eslint-plugin-tsdoc: ^0.2.14
       fixed-data-table-2: ^1.2.0
       full-icu: ^1.3.0
-      jest: ^29.5.0
-      jest-junit: ^3.0.0
       lodash: ^4.17.19
       prettier: ~2.5.0
       raf: ^3.4.1
@@ -2396,7 +2379,6 @@ importers:
       stylelint-checkstyle-formatter: ^0.1.2
       stylelint-config-prettier: ^8.0.2
       ts-invariant: ^0.7.3
-      ts-jest: ^29.1.0
       tslib: ^2.5.0
       typescript: 5.0.2
       uuid: ^8.3.2
@@ -2428,7 +2410,6 @@ importers:
       '@microsoft/api-extractor': 7.34.4_@types+node@16.18.23
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
-      '@types/jest': 29.5.1
       '@types/lodash': 4.14.194
       '@types/node': 16.18.23
       '@types/raf': 3.4.0
@@ -2444,7 +2425,7 @@ importers:
       eslint-plugin-header: 3.1.1_eslint@8.38.0
       eslint-plugin-import: 2.27.5_eslint@8.38.0
       eslint-plugin-import-esm: 1.2.1_eslint@8.38.0
-      eslint-plugin-jest: 27.2.1_dqn24hrnvdtdd4mxnskmahyyq4
+      eslint-plugin-jest: 27.2.1_aibbwtblh3szmfs3unchjrozni
       eslint-plugin-no-only-tests: 2.6.0
       eslint-plugin-prettier: 4.2.1_odtficzbtx3ydo73x7yvkhbrxu
       eslint-plugin-react: 7.32.2_eslint@8.38.0
@@ -2453,8 +2434,6 @@ importers:
       eslint-plugin-sonarjs: 0.16.0_eslint@8.38.0
       eslint-plugin-tsdoc: 0.2.17
       full-icu: 1.5.0
-      jest: 29.5.0_@types+node@16.18.23
-      jest-junit: 3.7.0
       prettier: 2.5.1
       raf: 3.4.1
       react: 18.2.0
@@ -2463,7 +2442,6 @@ importers:
       stylelint: 13.13.1
       stylelint-checkstyle-formatter: 0.1.2
       stylelint-config-prettier: 8.0.2_stylelint@13.13.1
-      ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       typescript: 5.0.2
       vitest: 0.31.3_sass@1.62.0
 

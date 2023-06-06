@@ -9,13 +9,3 @@ exports[`cellRenderer > should escape value 1`] = `
   </span>
 </div>
 `;
-
-exports[`cellRenderer should escape value 1`] = `
-<div>
-  <span
-    class="s-value"
-  >
-    &lt;button&gt;xss&lt;/button&gt;
-  </span>
-</div>
-`;
