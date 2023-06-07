@@ -17,9 +17,12 @@
 import { Configuration } from "./configuration.js";
 // Some imports not used depending on template conditions
 // @ts-ignore
-import global, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
+import defaultAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
 
-const globalAxios = global.default;
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const globalAxios = defaultAxios as unknown as typeof defaultAxios.default;
 
 export const BASE_PATH = "http://localhost".replace(/\/+$/, "");
 

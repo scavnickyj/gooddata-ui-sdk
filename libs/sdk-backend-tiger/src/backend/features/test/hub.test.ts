@@ -6,7 +6,10 @@ import { getFeatureHubFeatures, FeatureHubResponse } from "../hub.js";
 import { FeatureDef } from "../feature.js";
 import { pickContext } from "../index.js";
 
-const axiosDefault = axios.default;
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const axiosDefault = axios as unknown as typeof axios.default;
 const axiosGetSpy = jest.spyOn(axiosDefault, "get");
 
 describe("live features", () => {

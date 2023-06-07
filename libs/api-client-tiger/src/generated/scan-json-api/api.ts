@@ -14,7 +14,7 @@
  */
 
 import { Configuration } from "./configuration.js";
-import global, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
+import defaultAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from "axios";
 // Some imports not used depending on template conditions, we also need prettier-ignore so that the import does not get split and ts-ignore still works
 // prettier-ignore
 // @ts-ignore
@@ -24,7 +24,10 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base.js';
 
-const globalAxios = global.default;
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const globalAxios = defaultAxios as unknown as typeof defaultAxios.default;
 
 /**
  * Warning related to single column.
