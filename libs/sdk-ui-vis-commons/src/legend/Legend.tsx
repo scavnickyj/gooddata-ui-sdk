@@ -15,7 +15,11 @@ import { TOP, BOTTOM } from "./PositionTypes.js";
 import { ButtonsOrientationType } from "./Paging.js";
 
 const HEATMAP_LEGEND_WIDTH_BREAKPOINT = 460;
-const Measure = ReactMeasure.default || ReactMeasure;
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const Measure = ReactMeasure as unknown as typeof ReactMeasure.default;
 
 /**
  * @internal

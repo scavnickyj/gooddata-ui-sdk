@@ -1,10 +1,15 @@
 // (C) 2007-2022 GoodData Corporation
 import React, { useCallback } from "react";
 import cx from "classnames";
-import ContentLoader from "react-content-loader";
+import ReactContentLoader from "react-content-loader";
 
 import { LoadingMask } from "../LoadingMask/index.js";
 import { IRenderListItemProps, List } from "./List.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const ContentLoader = ReactContentLoader as unknown as typeof ReactContentLoader.default;
 
 /**
  * @internal
@@ -104,11 +109,11 @@ export function AsyncList<T>(props: IAsyncListProps<T>) {
 function LoadingPlaceholder() {
     return (
         <div className="gd-list-item gd-list-item-not-loaded">
-            <ContentLoader.default viewBox="0 0 250 28">
+            <ContentLoader viewBox="0 0 250 28">
                 {/* Only SVG shapes */}
                 <rect x="0" y="7" rx="3" ry="3" width="13" height="13" />
                 <rect x="22" y="7" rx="3" ry="3" width="250" height="13" />
-            </ContentLoader.default>
+            </ContentLoader>
         </div>
     );
 }

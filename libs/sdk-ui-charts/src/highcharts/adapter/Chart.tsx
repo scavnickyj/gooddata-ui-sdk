@@ -5,26 +5,29 @@ import React from "react";
 import { initChartPlugins } from "./chartPlugins.js";
 import Highcharts, { HighchartsOptions } from "../lib/index.js";
 
-import HighchartsMoreHC from "highcharts/highcharts-more.js";
-import drillmoduleHC from "highcharts/modules/drilldown.js";
-import treemapModuleHC from "highcharts/modules/treemap.js";
-import bulletModuleHC from "highcharts/modules/bullet.js";
-import funnelModuleHC from "highcharts/modules/funnel.js";
-import heatmapHC from "highcharts/modules/heatmap.js";
-import patternFillHC from "highcharts/modules/pattern-fill.js";
-import sankeyModuleHC from "highcharts/modules/sankey.js";
-import dependencyWheelModuleHC from "highcharts/modules/dependency-wheel.js";
+import defaultHighchartsMore from "highcharts/highcharts-more.js";
+import defaultDrillmodule from "highcharts/modules/drilldown.js";
+import defaultTreemapModule from "highcharts/modules/treemap.js";
+import defaultBulletModule from "highcharts/modules/bullet.js";
+import defaultFunnelModule from "highcharts/modules/funnel.js";
+import defaultHeatmap from "highcharts/modules/heatmap.js";
+import defaultPatternFill from "highcharts/modules/pattern-fill.js";
+import defaultSankeyModule from "highcharts/modules/sankey.js";
+import defaultDependencyWheelModule from "highcharts/modules/dependency-wheel.js";
 
-export const drillmodule = drillmoduleHC as unknown as typeof drillmoduleHC.default;
-export const treemapModule = treemapModuleHC as unknown as typeof treemapModuleHC.default;
-export const bulletModule = bulletModuleHC as unknown as typeof bulletModuleHC.default;
-export const funnelModule = funnelModuleHC as unknown as typeof funnelModuleHC.default;
-export const sankeyModule = sankeyModuleHC as unknown as typeof sankeyModuleHC.default;
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+export const drillmodule = defaultDrillmodule as unknown as typeof defaultDrillmodule.default;
+export const treemapModule = defaultTreemapModule as unknown as typeof defaultTreemapModule.default;
+export const bulletModule = defaultBulletModule as unknown as typeof defaultBulletModule.default;
+export const funnelModule = defaultFunnelModule as unknown as typeof defaultFunnelModule.default;
+export const sankeyModule = defaultSankeyModule as unknown as typeof defaultSankeyModule.default;
 export const dependencyWheelModule =
-    dependencyWheelModuleHC as unknown as typeof dependencyWheelModuleHC.default;
-export const heatmap = heatmapHC as unknown as typeof heatmapHC.default;
-export const HighchartsMore = HighchartsMoreHC as unknown as typeof HighchartsMoreHC.default;
-export const patternFill = patternFillHC as unknown as typeof patternFillHC.default;
+    defaultDependencyWheelModule as unknown as typeof defaultDependencyWheelModule.default;
+export const heatmap = defaultHeatmap as unknown as typeof defaultHeatmap.default;
+export const HighchartsMore = defaultHighchartsMore as unknown as typeof defaultHighchartsMore.default;
+export const patternFill = defaultPatternFill as unknown as typeof defaultPatternFill.default;
 
 drillmodule(Highcharts);
 treemapModule(Highcharts);

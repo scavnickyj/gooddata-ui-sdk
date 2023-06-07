@@ -17,7 +17,10 @@ export interface IEditableLabelInnerProps extends IEditableLabelProps {
     innerRef: React.ForwardedRef<HTMLDivElement>;
 }
 
-const TextareaAutosize = ReactTextareaAutosize.default || (ReactTextareaAutosize as any);
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const TextareaAutosize = ReactTextareaAutosize as unknown as typeof ReactTextareaAutosize.default;
 
 /**
  * @internal

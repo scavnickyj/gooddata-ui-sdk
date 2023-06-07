@@ -37,7 +37,7 @@ import {
     pivotTableMenuForCapabilities,
 } from "@gooddata/sdk-ui-pivot";
 import React from "react";
-import ReactMeasure from "react-measure";
+import Measure from "react-measure";
 
 import { ATTRIBUTE, DATE, METRIC } from "../../../constants/bucket.js";
 import { DASHBOARDS_ENVIRONMENT, ANALYTICAL_ENVIRONMENT } from "../../../constants/properties.js";
@@ -87,6 +87,11 @@ import {
     sanitizePivotTableSorts,
 } from "./sortItemsHelpers.js";
 import { removeInvalidTotals } from "./totalsHelpers.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const ReactMeasure = Measure as unknown as typeof Measure.default;
 
 export const getColumnAttributes = (buckets: IBucketOfFun[]): IBucketItem[] => {
     return getItemsFromBuckets(
@@ -377,7 +382,7 @@ export class PluggablePivotTable extends AbstractPluggableVisualization {
 
         if (this.environment === DASHBOARDS_ENVIRONMENT) {
             this.renderFun(
-                <ReactMeasure.default client={true}>
+                <ReactMeasure client={true}>
                     {({ measureRef, contentRect }: any) => {
                         const clientHeight = contentRect.client.height;
 
@@ -405,7 +410,7 @@ export class PluggablePivotTable extends AbstractPluggableVisualization {
                             </div>
                         );
                     }}
-                </ReactMeasure.default>,
+                </ReactMeasure>,
                 this.getElement(),
             );
         } else {

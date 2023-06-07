@@ -2,9 +2,10 @@
 import memoize from "memoize-one";
 import { IWorkspaceSettings } from "@gooddata/sdk-backend-spi";
 
-// typing is wrong here and either tests or typescript are always complaining
-// this hack fixes the problem
-const memoizeOne = memoize.default || memoize;
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const memoizeOne = memoize as unknown as typeof memoize.default;
 
 const getNewKey = (key: string, stringToRemove: string) => key.replace(stringToRemove, "");
 
