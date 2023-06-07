@@ -1,7 +1,7 @@
 // (C) 2007-2022 GoodData Corporation
 import { DistinctQuestion, prompt } from "inquirer";
-import { applicationNameValidator } from "../inputHandling/validators";
-import { TargetAppLanguage, AppTemplate } from "../types";
+import { applicationNameValidator } from "../inputHandling/validators.js";
+import { TargetAppLanguage, AppTemplate } from "../types.js";
 
 export type WorkspaceChoices = {
     name: string;

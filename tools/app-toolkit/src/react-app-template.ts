@@ -1,5 +1,5 @@
 // (C) 2021-2022 GoodData Corporation
-import { TargetAppLanguage } from "./_base/types";
+import { TargetAppLanguage } from "./_base/types.js";
 import * as path from "path";
 
 /*

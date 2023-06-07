@@ -4,9 +4,7 @@ import * as process from "process";
 import fs from "fs";
 import * as path from "path";
 
-import {    
-    readJsonSync,
-} from "../src/_base/utils";
+import * as utils from "../src/_base/utils.js";
 
 /*
  * This script is used during build to clean up the contents of package.json that will be shipped with
@@ -82,15 +80,15 @@ function replaceItems(search: { [key: string]: null | string }, targets: { [key:
     }
 }
 
-function resolveCurrentPackageVersion(){
+function resolveCurrentPackageVersion() {
     //we need current version of app-toolkit
     const parenPackagePath = path.resolve("./", "package.json");
-    const parentPackage = readJsonSync(parenPackagePath);
+    const parentPackage = utils.readJsonSync(parenPackagePath);
     return parentPackage.version;
 }
 
-function updateGDPackageVersion(version:string, targets: { [key: string]: string }) {
-    //replace workspace version definition 
+function updateGDPackageVersion(version: string, targets: { [key: string]: string }) {
+    //replace workspace version definition
     for (let [searchKey, searchValue] of Object.entries(targets)) {
         if (searchValue === "workspace:*") {
             targets[searchKey] = version;
@@ -113,8 +111,8 @@ function removeGdStuff(packageJson: Record<string, any>) {
 
     const packageVersion = resolveCurrentPackageVersion();
 
-    updateGDPackageVersion(packageVersion,devDependencies);
-    updateGDPackageVersion(packageVersion,dependencies);
+    updateGDPackageVersion(packageVersion, devDependencies);
+    updateGDPackageVersion(packageVersion, dependencies);
 
     delete packageJson.repository;
     delete packageJson.sideEffects;
