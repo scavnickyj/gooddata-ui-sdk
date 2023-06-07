@@ -1,9 +1,14 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestStash } from "../../../tests/fixtures/Dashboard.fixtures";
-import { addLayoutSection, addSectionItem, removeLayoutSection, replaceSectionItem } from "../../../commands";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
-import { removeSectionItem } from "../../../commands/layout";
+import {
+    addLayoutSection,
+    addSectionItem,
+    removeLayoutSection,
+    replaceSectionItem,
+} from "../../../commands/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
+import { removeSectionItem } from "../../../commands/layout.js";
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardWithReferences,

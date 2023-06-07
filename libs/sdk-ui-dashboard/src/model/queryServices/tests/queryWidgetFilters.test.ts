@@ -1,6 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester";
-import { queryWidgetFilters } from "../../queries";
+import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
+import { queryWidgetFilters } from "../../queries/index.js";
 import { idRef, IFilter, IWidget } from "@gooddata/sdk-model";
 import {
     AdvancedFilterTestingDashboardIdentifier,

@@ -2,18 +2,18 @@
 import React from "react";
 import { render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { uriRef } from "@gooddata/sdk-model";
 import { newInsightWidget } from "@gooddata/sdk-backend-base";
 
 import {
     ScheduledMailDialogRenderer,
     IScheduledMailDialogRendererOwnProps,
-} from "../ScheduledMailDialogRenderer";
+} from "../ScheduledMailDialogRenderer.js";
 
-import { getUserTimezone, ITimezone } from "../../utils/timezone";
-import { useWorkspaceUsers } from "../../useWorkspaceUsers";
-import { IntlWrapper } from "../../../../localization/IntlWrapper";
+import { getUserTimezone, ITimezone } from "../../utils/timezone.js";
+import { useWorkspaceUsers } from "../../useWorkspaceUsers.js";
+import { IntlWrapper } from "../../../../localization/IntlWrapper.js";
 
 jest.mock("../../useWorkspaceUsers", () => ({
     useWorkspaceUsers: (): ReturnType<typeof useWorkspaceUsers> => ({

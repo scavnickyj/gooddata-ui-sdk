@@ -1,10 +1,10 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { ChangeKpiWidgetHeader, changeKpiWidgetHeader } from "../../../commands";
-import { DashboardCommandFailed, DashboardKpiWidgetHeaderChanged } from "../../../events";
-import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors";
+import { ChangeKpiWidgetHeader, changeKpiWidgetHeader } from "../../../commands/index.js";
+import { DashboardCommandFailed, DashboardKpiWidgetHeaderChanged } from "../../../events/index.js";
+import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors.js";
 import { idRef, uriRef } from "@gooddata/sdk-model";
 import {
     ComplexDashboardIdentifier,

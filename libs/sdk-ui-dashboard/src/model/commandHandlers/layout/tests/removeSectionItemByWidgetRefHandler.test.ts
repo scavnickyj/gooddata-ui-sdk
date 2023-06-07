@@ -1,19 +1,19 @@
 // (C) 2021-2022 GoodData Corporation
 import { idRef, ObjRef } from "@gooddata/sdk-model";
-import { RemoveSectionItemByWidgetRef } from "../../../../../esm/model/commands/layout";
+import { RemoveSectionItemByWidgetRef } from "../../../../../esm/model/commands/layout.js";
 import {
     removeSectionItemByWidgetRef,
     undoLayoutChanges,
     eagerRemoveSectionItemByWidgetRef,
-} from "../../../commands/layout";
+} from "../../../commands/layout.js";
 import {
     DashboardCommandFailed,
     DashboardLayoutChanged,
     DashboardLayoutSectionItemRemoved,
     DashboardLayoutSectionRemoved,
-} from "../../../events";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+} from "../../../events/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardLayout,

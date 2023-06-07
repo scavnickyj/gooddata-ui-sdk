@@ -1,14 +1,18 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import {
     DashboardCommandFailed,
     DashboardLayoutChanged,
     DashboardLayoutSectionHeaderChanged,
-} from "../../../events";
-import { ChangeLayoutSectionHeader, changeLayoutSectionHeader, undoLayoutChanges } from "../../../commands";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
+} from "../../../events/index.js";
+import {
+    ChangeLayoutSectionHeader,
+    changeLayoutSectionHeader,
+    undoLayoutChanges,
+} from "../../../commands/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
 
 const FullHeader = { title: "My Section", description: "My Section Description" };

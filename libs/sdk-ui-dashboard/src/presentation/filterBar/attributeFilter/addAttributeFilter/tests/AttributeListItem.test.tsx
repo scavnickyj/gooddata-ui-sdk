@@ -2,8 +2,8 @@
 
 import React from "react";
 import { render } from "@testing-library/react";
-import AttributeListItem from "../AttributeListItem";
-import * as Tooltip from "../attributeListItemTooltip/AttributeListItemTooltip";
+import AttributeListItem from "../AttributeListItem.js";
+import * as Tooltip from "../attributeListItemTooltip/AttributeListItemTooltip.js";
 
 describe("AttributeListItem", () => {
     const renderAttributeListItem = (attribute: any, isLocationIconEnabled: boolean) => {

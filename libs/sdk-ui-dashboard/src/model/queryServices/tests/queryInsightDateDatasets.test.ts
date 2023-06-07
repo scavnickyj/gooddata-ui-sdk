@@ -1,8 +1,8 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
 import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures";
-import { addLayoutSection, initializeDashboard } from "../../commands";
-import { InsightDateDatasets, queryDateDatasetsForInsight } from "../../queries";
+import { addLayoutSection, initializeDashboard } from "../../commands/index.js";
+import { InsightDateDatasets, queryDateDatasetsForInsight } from "../../queries/index.js";
 import { IInsight, insightRef, ICatalogDateDataset } from "@gooddata/sdk-model";
 import {
     MockAvailabilityWithDifferentRelevance,

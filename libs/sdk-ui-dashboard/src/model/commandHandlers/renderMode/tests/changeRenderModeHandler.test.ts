@@ -1,14 +1,14 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { SimpleDashboardNoDrillsIdentifier } from "../../../tests/fixtures/SimpleDashboardNoDrills.fixtures";
-import { selectRenderMode } from "../../../store";
+import { selectRenderMode } from "../../../store/index.js";
 import {
     changeRenderMode,
     initializeDashboard,
     cancelEditRenderMode,
     switchToEditRenderMode,
-} from "../../../commands";
+} from "../../../commands/index.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 
 describe("changeRenderModeHandler", () => {

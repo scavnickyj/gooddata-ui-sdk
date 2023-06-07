@@ -1,9 +1,13 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { MoveLayoutSection, moveLayoutSection, undoLayoutChanges } from "../../../commands";
-import { DashboardCommandFailed, DashboardLayoutChanged, DashboardLayoutSectionMoved } from "../../../events";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
+import { MoveLayoutSection, moveLayoutSection, undoLayoutChanges } from "../../../commands/index.js";
+import {
+    DashboardCommandFailed,
+    DashboardLayoutChanged,
+    DashboardLayoutSectionMoved,
+} from "../../../events/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
 import {
     ComplexDashboardIdentifier,

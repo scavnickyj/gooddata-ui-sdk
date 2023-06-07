@@ -1,15 +1,15 @@
 // (C) 2021-2022 GoodData Corporation
 
-import cloneDeep from "lodash/cloneDeep";
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import cloneDeep from "lodash/cloneDeep.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import {
     addDrillTargets,
     ModifyDrillsForInsightWidget,
     modifyDrillsForInsightWidget,
-} from "../../../commands";
-import { DashboardCommandFailed, DashboardInsightWidgetDrillsModified } from "../../../events";
-import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors";
+} from "../../../commands/index.js";
+import { DashboardCommandFailed, DashboardInsightWidgetDrillsModified } from "../../../events/index.js";
+import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors.js";
 import { idRef, uriRef, DrillOrigin } from "@gooddata/sdk-model";
 import {
     DrillToAttributeUrlFromMeasureDefinition,

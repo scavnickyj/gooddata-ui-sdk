@@ -1,13 +1,13 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation, TestStash } from "../../../tests/fixtures/Dashboard.fixtures";
 import {
     DashboardCommandFailed,
     DashboardLayoutChanged,
     DashboardLayoutSectionItemReplaced,
-} from "../../../events";
-import { ReplaceSectionItem, replaceSectionItem, undoLayoutChanges } from "../../../commands";
-import { selectLayout, selectStash } from "../../../store/layout/layoutSelectors";
+} from "../../../events/index.js";
+import { ReplaceSectionItem, replaceSectionItem, undoLayoutChanges } from "../../../commands/index.js";
+import { selectLayout, selectStash } from "../../../store/layout/layoutSelectors.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
 import {
     ComplexDashboardIdentifier,
@@ -20,7 +20,7 @@ import {
     TestKpiPlaceholderItem,
 } from "../../../tests/fixtures/Layout.fixtures";
 import { uriRef } from "@gooddata/sdk-model";
-import { selectInsightByRef } from "../../../store/insights/insightsSelectors";
+import { selectInsightByRef } from "../../../store/insights/insightsSelectors.js";
 
 describe("replace section item handler", () => {
     describe("for any dashboard", () => {

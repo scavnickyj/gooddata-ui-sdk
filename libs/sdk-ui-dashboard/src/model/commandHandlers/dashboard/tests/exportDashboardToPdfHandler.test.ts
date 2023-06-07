@@ -1,7 +1,7 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardExportToPdfResolved } from "../../../events";
-import { exportDashboardToPdf } from "../../../commands";
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardExportToPdfResolved } from "../../../events/index.js";
+import { exportDashboardToPdf } from "../../../commands/index.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
 
 describe("export dashboard to PDF handler", () => {

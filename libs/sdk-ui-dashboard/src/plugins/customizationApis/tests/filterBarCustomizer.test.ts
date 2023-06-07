@@ -1,7 +1,7 @@
 // (C) 2022 GoodData Corporation
-import { HiddenFilterBar } from "../../../presentation";
-import { DefaultFilterBarCustomizer } from "../filterBarCustomizer";
-import { TestingDashboardCustomizationLogger } from "./fixtures/TestingDashboardCustomizationLogger";
+import { HiddenFilterBar } from "../../../presentation/index.js";
+import { DefaultFilterBarCustomizer } from "../filterBarCustomizer.js";
+import { TestingDashboardCustomizationLogger } from "./fixtures/TestingDashboardCustomizationLogger.js";
 
 describe("filter bar customizer", () => {
     let Customizer: DefaultFilterBarCustomizer;

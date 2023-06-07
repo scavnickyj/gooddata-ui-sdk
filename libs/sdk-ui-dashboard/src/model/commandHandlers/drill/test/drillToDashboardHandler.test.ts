@@ -2,11 +2,11 @@
 
 import { IDrillToDashboard } from "@gooddata/sdk-model";
 import { TestCorrelation } from "./../../../tests/fixtures/Dashboard.fixtures";
-import { IDashboardDrillEvent } from "./../../../../types";
-import { DashboardDrillToDashboardResolved } from "./../../../events/drill";
+import { IDashboardDrillEvent } from "../../../../types.js";
+import { DashboardDrillToDashboardResolved } from "../../../events/drill.js";
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { drillToDashboard } from "../../../commands";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { drillToDashboard } from "../../../commands/index.js";
 import {
     DrillToDashboardFromWonMeasureDefinition,
     SimpleDashboardIdentifier,

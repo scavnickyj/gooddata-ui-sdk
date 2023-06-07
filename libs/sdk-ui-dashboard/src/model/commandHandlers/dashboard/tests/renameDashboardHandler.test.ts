@@ -1,9 +1,9 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { renameDashboard } from "../../../commands";
-import { DashboardRenamed } from "../../../events";
-import { selectDashboardTitle, selectPersistedDashboard } from "../../../store/meta/metaSelectors";
+import { renameDashboard } from "../../../commands/index.js";
+import { DashboardRenamed } from "../../../events/index.js";
+import { selectDashboardTitle, selectPersistedDashboard } from "../../../store/meta/metaSelectors.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 
 describe("rename dashboard handler", () => {

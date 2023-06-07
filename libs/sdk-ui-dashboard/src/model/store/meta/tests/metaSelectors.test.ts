@@ -6,7 +6,7 @@ import {
 } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardFilters,
@@ -36,9 +36,9 @@ import {
     changeInsightWidgetVisProperties,
     removeDrillsForInsightWidget,
     addAttributeFilter,
-} from "../../../commands";
-import { selectIsDashboardDirty } from "../metaSelectors";
-import { ExtendedDashboardItem } from "../../../types/layoutTypes";
+} from "../../../commands/index.js";
+import { selectIsDashboardDirty } from "../metaSelectors.js";
+import { ExtendedDashboardItem } from "../../../types/layoutTypes.js";
 
 describe("selectIsDashboardDirty", () => {
     let Tester: DashboardTester;

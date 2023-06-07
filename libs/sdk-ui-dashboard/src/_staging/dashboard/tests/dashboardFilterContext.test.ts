@@ -1,9 +1,12 @@
 // (C) 2021 GoodData Corporation
 
-import { dashboardFilterContextDefinition, dashboardFilterContextSanitize } from "../dashboardFilterContext";
+import {
+    dashboardFilterContextDefinition,
+    dashboardFilterContextSanitize,
+} from "../dashboardFilterContext.js";
 // TODO RAIL-3383 move the fixtures?
 import { EmptyDashboardWithReferences } from "../../../model/tests/fixtures/Dashboard.fixtures";
-import { defaultDateFilterConfig } from "../../dateFilterConfig/defaultConfig";
+import { defaultDateFilterConfig } from "../../dateFilterConfig/defaultConfig.js";
 import { TestFilterContext, TestFilterContextWithInvalidParents } from "./dashboardFilterContext.fixture";
 import { uriRef } from "@gooddata/sdk-model";
 import { SimpleDashboardWithReferences } from "../../../model/tests/fixtures/SimpleDashboard.fixtures";

@@ -1,11 +1,11 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 
-import { Textarea, ITextareaProps } from "../Textarea";
+import { Textarea, ITextareaProps } from "../Textarea.js";
 
-import { IntlWrapper } from "../../../../localization/IntlWrapper";
+import { IntlWrapper } from "../../../../localization/IntlWrapper.js";
 
 describe("Textarea", () => {
     function renderComponent(customProps: Partial<ITextareaProps> = {}) {

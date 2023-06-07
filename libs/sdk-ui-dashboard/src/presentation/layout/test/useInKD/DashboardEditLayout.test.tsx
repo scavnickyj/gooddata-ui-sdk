@@ -2,11 +2,11 @@
 import { idRef } from "@gooddata/sdk-model";
 import React from "react";
 
-import * as Mocks from "./DashboardEditLayout/DashboardEditLayoutMocks";
+import * as Mocks from "./DashboardEditLayout/DashboardEditLayoutMocks.js";
 import {
     RenderDashboardEditLayout,
     IDashboardEditLayoutProps,
-} from "./DashboardEditLayout/DashboardEditLayout";
+} from "./DashboardEditLayout/DashboardEditLayout.js";
 import { IntlWrapper } from "@gooddata/sdk-ui";
 import { render } from "@testing-library/react";
 

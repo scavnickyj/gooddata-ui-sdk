@@ -1,18 +1,18 @@
 // (C) 2021-2022 GoodData Corporation
-import { initializeDashboard } from "../../../../commands";
-import { DashboardTester, preloadedTesterFactory } from "../../../../tests/DashboardTester";
-import { DashboardInitialized } from "../../../../events";
-import { selectConfig } from "../../../../store/config/configSelectors";
-import { selectPermissions } from "../../../../store/permissions/permissionsSelectors";
+import { initializeDashboard } from "../../../../commands/index.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../../tests/DashboardTester.js";
+import { DashboardInitialized } from "../../../../events/index.js";
+import { selectConfig } from "../../../../store/config/configSelectors.js";
+import { selectPermissions } from "../../../../store/permissions/permissionsSelectors.js";
 import { EmptyDashboardIdentifier, TestCorrelation } from "../../../../tests/fixtures/Dashboard.fixtures";
-import { selectLayout } from "../../../../store/layout/layoutSelectors";
+import { selectLayout } from "../../../../store/layout/layoutSelectors.js";
 import {
     selectAttributeFilterDisplayForms,
     selectFilterContextDefinition,
     selectFilterContextIdentity,
-} from "../../../../store/filterContext/filterContextSelectors";
+} from "../../../../store/filterContext/filterContextSelectors.js";
 import { SimpleDashboardIdentifier } from "../../../../tests/fixtures/SimpleDashboard.fixtures";
-import { selectPersistedDashboard } from "../../../../store/meta/metaSelectors";
+import { selectPersistedDashboard } from "../../../../store/meta/metaSelectors.js";
 
 describe("initialize dashboard handler", () => {
     it("should emit event when dashboard successfully loaded", async () => {

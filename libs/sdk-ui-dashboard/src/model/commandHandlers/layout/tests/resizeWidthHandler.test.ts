@@ -1,12 +1,12 @@
 // (C) 2021-2022 GoodData Corporation
-import { resizeWidth, ResizeWidth } from "../../../commands/layout";
-import { DashboardCommandFailed } from "../../../events";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { resizeWidth, ResizeWidth } from "../../../commands/layout.js";
+import { DashboardCommandFailed } from "../../../events/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { DashboardLayoutSectionItemWidthResized } from "../../../events/layout";
+import { DashboardLayoutSectionItemWidthResized } from "../../../events/layout.js";
 
 describe("resize section items width handler", () => {
     let Tester: DashboardTester;

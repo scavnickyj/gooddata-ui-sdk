@@ -2,11 +2,11 @@
 import React from "react";
 import { configure, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { DefaultLocale, withIntl } from "@gooddata/sdk-ui";
 
-import KpiAlertDialog, { IKpiAlertDialogProps } from "../KpiAlertDialog";
-import { translations } from "../../../../../../localization";
+import KpiAlertDialog, { IKpiAlertDialogProps } from "../KpiAlertDialog.js";
+import { translations } from "../../../../../../localization/index.js";
 
 const DEFAULT_DATE_FORMAT = "MM/dd/yyyy";
 

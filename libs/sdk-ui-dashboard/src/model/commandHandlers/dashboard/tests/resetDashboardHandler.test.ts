@@ -1,21 +1,26 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     SimpleDashboardFilterContext,
     SimpleDashboardIdentifier,
     SimpleDashboardLayout,
 } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { DashboardWasReset } from "../../../events";
-import { addAttributeFilter, addLayoutSection, renameDashboard, resetDashboard } from "../../../commands";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
+import { DashboardWasReset } from "../../../events/index.js";
+import {
+    addAttributeFilter,
+    addLayoutSection,
+    renameDashboard,
+    resetDashboard,
+} from "../../../commands/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { attributeDisplayFormRef } from "@gooddata/sdk-model";
-import { selectDashboardTitle } from "../../../store/meta/metaSelectors";
+import { selectDashboardTitle } from "../../../store/meta/metaSelectors.js";
 import {
     selectFilterContextAttributeFilters,
     selectFilterContextDefinition,
-} from "../../../store/filterContext/filterContextSelectors";
+} from "../../../store/filterContext/filterContextSelectors.js";
 
 const TestTitle = "Renamed Dashboard";
 

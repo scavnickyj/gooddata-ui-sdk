@@ -1,11 +1,11 @@
 // (C) 2021-2023 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { changeSharing, ChangeSharing } from "../../../commands";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { changeSharing, ChangeSharing } from "../../../commands/index.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { DashboardCommandFailed, DashboardSharingChanged } from "../../../events";
-import { selectDashboardPermissions, selectDashboardShareStatus } from "../../../store";
-import { dashboardPermissionsActions } from "../../../store/dashboardPermissions";
+import { DashboardCommandFailed, DashboardSharingChanged } from "../../../events/index.js";
+import { selectDashboardPermissions, selectDashboardShareStatus } from "../../../store/index.js";
+import { dashboardPermissionsActions } from "../../../store/dashboardPermissions/index.js";
 
 describe("change dashboard sharing handler", () => {
     describe("for a existing dashboard", () => {

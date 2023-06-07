@@ -1,16 +1,16 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { idRef, uriRef } from "@gooddata/sdk-model";
-import { RemoveAlerts, removeAlerts } from "../../../commands/alerts";
+import { RemoveAlerts, removeAlerts } from "../../../commands/alerts.js";
 import {
     BrokenFilterAlertsDashboardIdentifier,
     AlertForRemovedFiltersKpi,
     TestCorrelation,
 } from "../../../tests/fixtures/BrokenFilterAlerts.fixtures";
-import { DashboardAlertsRemoved } from "../../../events/alerts";
-import { selectAlertByRef } from "../../../store/alerts/alertsSelectors";
-import { DashboardCommandFailed } from "../../../events";
+import { DashboardAlertsRemoved } from "../../../events/alerts.js";
+import { selectAlertByRef } from "../../../store/alerts/alertsSelectors.js";
+import { DashboardCommandFailed } from "../../../events/index.js";
 
 describe("removeDrillsForInsightWidgetHandler", () => {
     const alertRef = AlertForRemovedFiltersKpi.ref!;

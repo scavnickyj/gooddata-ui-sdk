@@ -1,11 +1,11 @@
 // (C) 2022 GoodData Corporation
 
-import { ChangeInsightWidgetInsight, changeInsightWidgetInsight } from "../../../commands";
-import { DashboardCommandFailed, DashboardInsightWidgetInsightSwitched } from "../../../events";
+import { ChangeInsightWidgetInsight, changeInsightWidgetInsight } from "../../../commands/index.js";
+import { DashboardCommandFailed, DashboardInsightWidgetInsightSwitched } from "../../../events/index.js";
 import { PivotTableWithRowAndColumnAttributes } from "../../../tests/fixtures/Insights.fixtures";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors.js";
 import {
     SimpleDashboardIdentifier,
     SimpleSortedTableWidgetRef,

@@ -1,8 +1,8 @@
 // (C) 2021 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
 import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures";
-import { addLayoutSection } from "../../commands";
-import { InsightAttributesMeta, queryInsightAttributesMeta } from "../../queries";
+import { addLayoutSection } from "../../commands/index.js";
+import { InsightAttributesMeta, queryInsightAttributesMeta } from "../../queries/index.js";
 import { insightRef } from "@gooddata/sdk-model";
 import {
     PivotTableWithRowAndColumnAttributes,

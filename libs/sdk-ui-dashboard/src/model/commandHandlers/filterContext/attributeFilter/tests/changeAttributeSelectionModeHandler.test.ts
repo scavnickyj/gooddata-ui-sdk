@@ -1,8 +1,8 @@
 // (C) 2023 GoodData Corporation
-import { setAttributeFilterSelectionMode } from "../../../../commands";
-import { DashboardTester, preloadedTesterFactory } from "../../../../tests/DashboardTester";
+import { setAttributeFilterSelectionMode } from "../../../../commands/index.js";
+import { DashboardTester, preloadedTesterFactory } from "../../../../tests/DashboardTester.js";
 import { SimpleDashboardIdentifier } from "../../../../tests/fixtures/SimpleDashboard.fixtures";
-import { selectFilterContextAttributeFilters } from "../../../../store/filterContext/filterContextSelectors";
+import { selectFilterContextAttributeFilters } from "../../../../store/filterContext/filterContextSelectors.js";
 
 describe("changeAttributeSelectionModeHandler", () => {
     let Tester: DashboardTester;

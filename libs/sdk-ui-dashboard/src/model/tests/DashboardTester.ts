@@ -2,7 +2,7 @@
 
 import { PayloadAction } from "@reduxjs/toolkit";
 import { Identifier, idRef, ObjRef, uriRef } from "@gooddata/sdk-model";
-import { DashboardContext, DashboardModelCustomizationFns } from "../types/commonTypes";
+import { DashboardContext, DashboardModelCustomizationFns } from "../types/commonTypes.js";
 import {
     recordedBackend,
     RecordedBackendConfig,
@@ -10,19 +10,22 @@ import {
     objRefsToStringKey,
 } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
-import { DashboardCommandType, InitializeDashboard, initializeDashboard } from "../commands";
-import { IDashboardQueryService } from "../store/_infra/queryService";
+import { DashboardCommandType, InitializeDashboard, initializeDashboard } from "../commands/index.js";
+import { IDashboardQueryService } from "../store/_infra/queryService.js";
 import { IBackendCapabilities } from "@gooddata/sdk-backend-spi";
-import { HeadlessDashboard, HeadlessDashboardConfig } from "../headlessDashboard";
-import { newRenderingWorker, RenderingWorkerConfiguration } from "../commandHandlers/render/renderingWorker";
+import { HeadlessDashboard, HeadlessDashboardConfig } from "../headlessDashboard/index.js";
+import {
+    newRenderingWorker,
+    RenderingWorkerConfiguration,
+} from "../commandHandlers/render/renderingWorker.js";
 import {
     DashboardEvents,
     DashboardEventType,
     isDashboardCommandStarted,
     isDashboardQueryCompleted,
     isDashboardQueryStarted,
-} from "../events";
-import { DashboardState } from "../store";
+} from "../events/index.js";
+import { DashboardState } from "../store/index.js";
 
 type DashboardTesterConfig = {
     queryServices?: IDashboardQueryService<any, any>[];

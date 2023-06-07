@@ -3,15 +3,15 @@ import React from "react";
 import { IntlShape } from "react-intl";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 
-import { TEXT_INDEX } from "./testUtils";
-import { RepeatSelect, IRepeatSelectData, IRepeatSelectProps } from "../RepeatSelect";
+import { TEXT_INDEX } from "./testUtils.js";
+import { RepeatSelect, IRepeatSelectData, IRepeatSelectProps } from "../RepeatSelect.js";
 
-import { REPEAT_EXECUTE_ON, REPEAT_FREQUENCIES, REPEAT_TYPES } from "../../../constants";
-import { getDate, getIntlDayName, getWeek } from "../../../utils/datetime";
-import { IntlWrapper } from "../../../../../localization/IntlWrapper";
-import { createInternalIntl } from "../../../../../localization/createInternalIntl";
+import { REPEAT_EXECUTE_ON, REPEAT_FREQUENCIES, REPEAT_TYPES } from "../../../constants.js";
+import { getDate, getIntlDayName, getWeek } from "../../../utils/datetime.js";
+import { IntlWrapper } from "../../../../../localization/IntlWrapper.js";
+import { createInternalIntl } from "../../../../../localization/createInternalIntl.js";
 
 describe("RepeatSelect", () => {
     const now = new Date();

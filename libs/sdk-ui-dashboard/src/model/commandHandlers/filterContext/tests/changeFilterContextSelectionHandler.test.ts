@@ -1,7 +1,11 @@
 // (C) 2023 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { addAttributeFilter, changeFilterContextSelection, removeAttributeFilter } from "../../../commands";
-import { selectFilterContextAttributeFilters } from "../../../store";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import {
+    addAttributeFilter,
+    changeFilterContextSelection,
+    removeAttributeFilter,
+} from "../../../commands/index.js";
+import { selectFilterContextAttributeFilters } from "../../../store/index.js";
 import { EmptyDashboardIdentifier } from "../../../tests/fixtures/Dashboard.fixtures";
 import { IAttributeElementsByRef } from "@gooddata/sdk-model";
 

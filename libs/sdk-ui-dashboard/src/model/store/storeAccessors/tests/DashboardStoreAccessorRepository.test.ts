@@ -1,7 +1,7 @@
 // (C) 2022 GoodData Corporation
 
-import { DashboardStoreAccessorRepository } from "../DashboardStoreAccessorRepository";
-import { DashboardState } from "../../types";
+import { DashboardStoreAccessorRepository } from "../DashboardStoreAccessorRepository.js";
+import { DashboardState } from "../../types.js";
 const DASHBOARD_ID = "dashboard_id";
 const DASHBOARD_ID2 = "dashboard_id2";
 

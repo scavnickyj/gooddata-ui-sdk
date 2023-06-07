@@ -1,7 +1,7 @@
 // (C) 2022 GoodData Corporation
 
-import { SingleDashboardStoreAccessor } from "../SingleDashboardStoreAccessor";
-import { DashboardState } from "../../types";
+import { SingleDashboardStoreAccessor } from "../SingleDashboardStoreAccessor.js";
+import { DashboardState } from "../../types.js";
 
 describe("SingleDashboardStoreAccessor tests", () => {
     afterEach(() => {

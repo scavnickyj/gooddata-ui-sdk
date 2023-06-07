@@ -1,14 +1,14 @@
 // (C) 2021-2023 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { AddDrillTargets, addDrillTargets } from "../../../commands/drillTargets";
-import { DrillTargetsAdded } from "../../../events/drillTargets";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { AddDrillTargets, addDrillTargets } from "../../../commands/drillTargets.js";
+import { DrillTargetsAdded } from "../../../events/drillTargets.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import { IAvailableDrillTargets } from "@gooddata/sdk-ui";
-import { selectDrillTargetsByWidgetRef } from "../../../store/drillTargets/drillTargetsSelectors";
+import { selectDrillTargetsByWidgetRef } from "../../../store/drillTargets/drillTargetsSelectors.js";
 import { uriRef } from "@gooddata/sdk-model";
-import { DashboardCommandFailed } from "../../../events";
-import { changeRenderMode } from "../../../commands/renderMode";
-import { selectInvalidDrillWidgetRefs } from "../../../store/ui/uiSelectors";
+import { DashboardCommandFailed } from "../../../events/index.js";
+import { changeRenderMode } from "../../../commands/renderMode.js";
+import { selectInvalidDrillWidgetRefs } from "../../../store/ui/uiSelectors.js";
 
 import {
     KpiWidgetRef,

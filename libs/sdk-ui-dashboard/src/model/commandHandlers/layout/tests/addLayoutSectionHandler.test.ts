@@ -1,15 +1,19 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     EmptyDashboardIdentifier,
     TestCorrelation,
     TestStash,
 } from "../../../tests/fixtures/Dashboard.fixtures";
-import { AddLayoutSection, addLayoutSection, undoLayoutChanges } from "../../../commands";
-import { DashboardCommandFailed, DashboardLayoutChanged, DashboardLayoutSectionAdded } from "../../../events";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
-import { selectInsightByRef } from "../../../store/insights/insightsSelectors";
+import { AddLayoutSection, addLayoutSection, undoLayoutChanges } from "../../../commands/index.js";
+import {
+    DashboardCommandFailed,
+    DashboardLayoutChanged,
+    DashboardLayoutSectionAdded,
+} from "../../../events/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
+import { selectInsightByRef } from "../../../store/insights/insightsSelectors.js";
 import { uriRef, IAnalyticalWidget } from "@gooddata/sdk-model";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
 import {

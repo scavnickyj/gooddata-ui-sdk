@@ -1,17 +1,17 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation, BeforeTestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import {
     addDrillTargets,
     modifyDrillsForInsightWidget,
     RemoveDrillsForInsightWidget,
     removeDrillsForInsightWidget,
-} from "../../../commands";
+} from "../../../commands/index.js";
 import { localIdRef, uriRef } from "@gooddata/sdk-model";
-import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors";
-import { DashboardInsightWidgetDrillsRemoved } from "../../../events/insight";
-import { DashboardCommandFailed } from "../../../events";
+import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelectors.js";
+import { DashboardInsightWidgetDrillsRemoved } from "../../../events/insight.js";
+import { DashboardCommandFailed } from "../../../events/index.js";
 import {
     DrillToDashboardFromProductAttributeDefinition,
     DrillToToInsightFromWonMeasureDefinition,

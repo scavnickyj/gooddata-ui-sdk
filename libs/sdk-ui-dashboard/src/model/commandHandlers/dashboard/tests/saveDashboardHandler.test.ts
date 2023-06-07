@@ -1,14 +1,14 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { addLayoutSection, saveDashboard } from "../../../commands";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { addLayoutSection, saveDashboard } from "../../../commands/index.js";
 import { TestInsightItem } from "../../../tests/fixtures/Layout.fixtures";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { DashboardSaved } from "../../../events";
-import { selectBasicLayout } from "../../../store/layout/layoutSelectors";
-import { isTemporaryIdentity } from "../../../utils/dashboardItemUtils";
-import { selectFilterContextIdentity } from "../../../store/filterContext/filterContextSelectors";
-import { selectPersistedDashboard } from "../../../store/meta/metaSelectors";
-import { getDashboardWithSharing } from "../saveDashboardHandler";
+import { DashboardSaved } from "../../../events/index.js";
+import { selectBasicLayout } from "../../../store/layout/layoutSelectors.js";
+import { isTemporaryIdentity } from "../../../utils/dashboardItemUtils.js";
+import { selectFilterContextIdentity } from "../../../store/filterContext/filterContextSelectors.js";
+import { selectPersistedDashboard } from "../../../store/meta/metaSelectors.js";
+import { getDashboardWithSharing } from "../saveDashboardHandler.js";
 import {
     SimpleDashboardFilterContext,
     SimpleDashboardWithReferences,

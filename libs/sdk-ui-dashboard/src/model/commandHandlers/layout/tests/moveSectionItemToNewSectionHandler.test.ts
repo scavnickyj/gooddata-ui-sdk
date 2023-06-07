@@ -1,16 +1,20 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { MoveLayoutSection, moveSectionItemToNewSection, undoLayoutChanges } from "../../../commands";
+import {
+    MoveLayoutSection,
+    moveSectionItemToNewSection,
+    undoLayoutChanges,
+} from "../../../commands/index.js";
 import {
     DashboardCommandFailed,
     DashboardLayoutChanged,
     DashboardLayoutSectionItemMoved,
-} from "../../../events";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
+} from "../../../events/index.js";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { moveSectionItemToNewSectionAndRemoveOriginalSectionIfEmpty } from "../../../commands/layout";
+import { moveSectionItemToNewSectionAndRemoveOriginalSectionIfEmpty } from "../../../commands/layout.js";
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardWithReferences,

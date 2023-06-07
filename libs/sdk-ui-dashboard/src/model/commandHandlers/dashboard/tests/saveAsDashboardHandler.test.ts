@@ -1,17 +1,17 @@
 // (C) 2021-2023 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { addLayoutSection, saveDashboard, saveDashboardAs } from "../../../commands";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { addLayoutSection, saveDashboard, saveDashboardAs } from "../../../commands/index.js";
 import { TestInsightItem } from "../../../tests/fixtures/Layout.fixtures";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { DashboardCopySaved, DashboardSaved } from "../../../events";
-import { selectBasicLayout } from "../../../store/layout/layoutSelectors";
-import { isTemporaryIdentity } from "../../../utils/dashboardItemUtils";
-import { selectFilterContextIdentity } from "../../../store/filterContext/filterContextSelectors";
+import { DashboardCopySaved, DashboardSaved } from "../../../events/index.js";
+import { selectBasicLayout } from "../../../store/layout/layoutSelectors.js";
+import { isTemporaryIdentity } from "../../../utils/dashboardItemUtils.js";
+import { selectFilterContextIdentity } from "../../../store/filterContext/filterContextSelectors.js";
 import {
     selectDashboardDescriptor,
     selectDashboardTitle,
     selectPersistedDashboard,
-} from "../../../store/meta/metaSelectors";
+} from "../../../store/meta/metaSelectors.js";
 import {
     LockedDashboardIdentifier,
     TestCorrelation as TestCorrelationLocked,

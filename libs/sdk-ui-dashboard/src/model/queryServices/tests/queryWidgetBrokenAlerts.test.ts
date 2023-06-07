@@ -1,6 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
-import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester";
-import { queryWidgetBrokenAlerts } from "../../queries";
+import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
+import { queryWidgetBrokenAlerts } from "../../queries/index.js";
 import { idRef, ObjRef } from "@gooddata/sdk-model";
 import {
     AttributeFilterSelectionChangedRef,
@@ -13,7 +13,7 @@ import {
     RemovedFiltersKpiRef,
     TestCorrelation,
 } from "../../tests/fixtures/BrokenFilterAlerts.fixtures";
-import { IBrokenAlertFilterBasicInfo } from "../../types/alertTypes";
+import { IBrokenAlertFilterBasicInfo } from "../../types/alertTypes.js";
 
 describe("query widget broken alerts filters", () => {
     let Tester: DashboardTester;

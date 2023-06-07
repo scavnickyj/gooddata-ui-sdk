@@ -1,13 +1,13 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
-import noop from "lodash/noop";
+import noop from "lodash/noop.js";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { RepeatFrequencySelect, IRepeatFrequencySelectProps } from "../RepeatFrequencySelect";
+import { RepeatFrequencySelect, IRepeatFrequencySelectProps } from "../RepeatFrequencySelect.js";
 
-import { REPEAT_FREQUENCIES } from "../../../constants";
-import { IntlWrapper } from "../../../../../localization/IntlWrapper";
+import { REPEAT_FREQUENCIES } from "../../../constants.js";
+import { IntlWrapper } from "../../../../../localization/IntlWrapper.js";
 
 describe("RepeatFrequencySelect", () => {
     const titleFrequencyDay = "day";

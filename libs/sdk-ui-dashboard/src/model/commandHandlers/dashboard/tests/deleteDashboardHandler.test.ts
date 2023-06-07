@@ -1,16 +1,16 @@
 // (C) 2021-2022 GoodData Corporation
 
-import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester";
-import { deleteDashboard } from "../../../commands";
-import { DashboardCommandFailed, DashboardDeleted } from "../../../events";
+import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
+import { deleteDashboard } from "../../../commands/index.js";
+import { DashboardCommandFailed, DashboardDeleted } from "../../../events/index.js";
 import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
 import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { selectLayout } from "../../../store/layout/layoutSelectors";
-import { selectDashboardTitle, selectPersistedDashboard } from "../../../store/meta/metaSelectors";
-import { selectEffectiveDateFilterConfig } from "../../../store/dateFilterConfig/dateFilterConfigSelectors";
-import { selectDateFilterConfig } from "../../../store/config/configSelectors";
-import { selectFilterContextAttributeFilters } from "../../../store/filterContext/filterContextSelectors";
-import { selectInsights } from "../../../store/insights/insightsSelectors";
+import { selectLayout } from "../../../store/layout/layoutSelectors.js";
+import { selectDashboardTitle, selectPersistedDashboard } from "../../../store/meta/metaSelectors.js";
+import { selectEffectiveDateFilterConfig } from "../../../store/dateFilterConfig/dateFilterConfigSelectors.js";
+import { selectDateFilterConfig } from "../../../store/config/configSelectors.js";
+import { selectFilterContextAttributeFilters } from "../../../store/filterContext/filterContextSelectors.js";
+import { selectInsights } from "../../../store/insights/insightsSelectors.js";
 
 describe("delete dashboard handler", () => {
     describe("for unsaved dashboard", () => {
