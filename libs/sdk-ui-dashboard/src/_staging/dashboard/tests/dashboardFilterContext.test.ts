@@ -5,11 +5,11 @@ import {
     dashboardFilterContextSanitize,
 } from "../dashboardFilterContext.js";
 // TODO RAIL-3383 move the fixtures?
-import { EmptyDashboardWithReferences } from "../../../model/tests/fixtures/Dashboard.fixtures";
+import { EmptyDashboardWithReferences } from "../../../model/tests/fixtures/Dashboard.fixtures.js";
 import { defaultDateFilterConfig } from "../../dateFilterConfig/defaultConfig.js";
-import { TestFilterContext, TestFilterContextWithInvalidParents } from "./dashboardFilterContext.fixture";
+import { TestFilterContext, TestFilterContextWithInvalidParents } from "./dashboardFilterContext.fixture.js";
 import { uriRef } from "@gooddata/sdk-model";
-import { SimpleDashboardWithReferences } from "../../../model/tests/fixtures/SimpleDashboard.fixtures";
+import { SimpleDashboardWithReferences } from "../../../model/tests/fixtures/SimpleDashboard.fixtures.js";
 
 describe("dashboardFilterContextDefinition", () => {
     it("should return default filter context when dashboard does not have one", () => {

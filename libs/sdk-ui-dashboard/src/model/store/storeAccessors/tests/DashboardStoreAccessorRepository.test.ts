@@ -1,5 +1,5 @@
 // (C) 2022 GoodData Corporation
-
+import { vi } from "vitest";
 import { DashboardStoreAccessorRepository } from "../DashboardStoreAccessorRepository.js";
 import { DashboardState } from "../../types.js";
 const DASHBOARD_ID = "dashboard_id";
@@ -12,7 +12,8 @@ describe("dashboard store accessors repository", () => {
 
         expect(DashboardStoreAccessorRepository.isAccessorInitializedForDashboard(DASHBOARD_ID)).toBe(false);
 
-        onStateChangeCallback({} as DashboardState, jest.fn());
+        const dashboardDispatch = vi.fn();
+        onStateChangeCallback({} as DashboardState, dashboardDispatch);
 
         expect(DashboardStoreAccessorRepository.isAccessorInitializedForDashboard(DASHBOARD_ID)).toBe(true);
     });
@@ -21,7 +22,7 @@ describe("dashboard store accessors repository", () => {
         const onStateChangeCallback =
             DashboardStoreAccessorRepository.getOnChangeHandlerForDashboard(DASHBOARD_ID);
 
-        const dashboardDispatch = jest.fn();
+        const dashboardDispatch = vi.fn();
         onStateChangeCallback({} as DashboardState, dashboardDispatch);
 
         const accessors = DashboardStoreAccessorRepository.getAccessorsForDashboard(DASHBOARD_ID);
@@ -34,7 +35,7 @@ describe("dashboard store accessors repository", () => {
         const onStateChangeCallback =
             DashboardStoreAccessorRepository.getOnChangeHandlerForDashboard(DASHBOARD_ID);
 
-        onStateChangeCallback({} as DashboardState, jest.fn());
+        onStateChangeCallback({} as DashboardState, vi.fn());
 
         const accessors = DashboardStoreAccessorRepository.getAccessorsForDashboard(DASHBOARD_ID);
 
@@ -50,8 +51,8 @@ describe("dashboard store accessors repository", () => {
         const onStateChangeCallback2 =
             DashboardStoreAccessorRepository.getOnChangeHandlerForDashboard(DASHBOARD_ID2);
 
-        onStateChangeCallback({} as DashboardState, jest.fn());
-        onStateChangeCallback2({} as DashboardState, jest.fn());
+        onStateChangeCallback({} as DashboardState, vi.fn());
+        onStateChangeCallback2({} as DashboardState, vi.fn());
 
         expect(DashboardStoreAccessorRepository.getAccessorsForDashboard(DASHBOARD_ID)).toBeTruthy();
         expect(DashboardStoreAccessorRepository.getAccessorsForDashboard(DASHBOARD_ID2)).toBeTruthy();

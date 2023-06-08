@@ -1,7 +1,7 @@
 // (C) 2023 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { IDrillToDashboard } from "@gooddata/sdk-model";
-import { TestCorrelation } from "./../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "./../../../tests/fixtures/Dashboard.fixtures.js";
 import { IDashboardDrillEvent } from "../../../../types.js";
 import { DashboardDrillToDashboardResolved } from "../../../events/drill.js";
 
@@ -12,7 +12,7 @@ import {
     SimpleDashboardIdentifier,
     SimpleSortedTableWidgetRef,
     SimpleDashboardSimpleSortedTableWonMeasureLocalIdentifier,
-} from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
 const drills: IDrillToDashboard = DrillToDashboardFromWonMeasureDefinition;
 const eventData: IDashboardDrillEvent = {
@@ -39,12 +39,13 @@ const eventData: IDashboardDrillEvent = {
 
 // NOTE: other cases should be covered.
 describe("drill to dashboard handler", () => {
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester: DashboardTester) => {
+    let Tester: DashboardTester;   
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, SimpleDashboardIdentifier),
-    );
+        }, SimpleDashboardIdentifier);
+    });
 
     it("should emit the appropriate events for drill to dashboard", async () => {
         await Tester.dispatchAndWaitFor(

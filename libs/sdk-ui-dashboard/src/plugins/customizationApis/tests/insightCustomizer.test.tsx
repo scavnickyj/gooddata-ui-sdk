@@ -7,7 +7,7 @@ import { render } from "@testing-library/react";
 import { IInsight, insightTags, insightTitle, IInsightWidget } from "@gooddata/sdk-model";
 import { recordedInsight } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
-
+import { vi } from "vitest";
 import { DefaultInsightCustomizer } from "../insightCustomizer.js";
 import { DashboardCustomizationLogger } from "../customizationLogging.js";
 
@@ -185,7 +185,7 @@ describe("insight customizer", () => {
                 DefaultTestComponentProvider,
             );
 
-            const consoleSpy = jest.spyOn(logger, "warn");
+            const consoleSpy = vi.spyOn(logger, "warn");
 
             customizer.withTag("", createTestComponent("forTag1"));
 

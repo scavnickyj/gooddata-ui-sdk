@@ -3,7 +3,7 @@ import React from "react";
 import noop from "lodash/noop.js";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
+import { vi } from "vitest";
 import { RepeatFrequencySelect, IRepeatFrequencySelectProps } from "../RepeatFrequencySelect.js";
 
 import { REPEAT_FREQUENCIES } from "../../../constants.js";
@@ -58,7 +58,7 @@ describe("RepeatFrequencySelect", () => {
     });
 
     it("should trigger onChange", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         renderComponent({ onChange });
 
         await userEvent.click(screen.getByText(titleFrequencyDay));

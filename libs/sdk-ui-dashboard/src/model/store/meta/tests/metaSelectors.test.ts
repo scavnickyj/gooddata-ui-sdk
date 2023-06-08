@@ -1,4 +1,5 @@
 // (C) 2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import {
     IInsightWidgetDefinition,
     newAbsoluteDateFilter,
@@ -11,8 +12,8 @@ import {
     ComplexDashboardIdentifier,
     ComplexDashboardFilters,
     ComplexDashboardWidgets,
-} from "../../../tests/fixtures/ComplexDashboard.fixtures";
-import { TestCorrelation, TestStash } from "../../../tests/fixtures/Dashboard.fixtures";
+} from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
+import { TestCorrelation, TestStash } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import {
     applyAttributeFilter,
     applyDateFilter,
@@ -41,12 +42,13 @@ import { selectIsDashboardDirty } from "../metaSelectors.js";
 import { ExtendedDashboardItem } from "../../../types/layoutTypes.js";
 
 describe("selectIsDashboardDirty", () => {
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester) => {
+    let Tester: DashboardTester;   
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, ComplexDashboardIdentifier),
-    );
+        }, ComplexDashboardIdentifier);
+    }); 
 
     it("should return false for dashboard just opened", () => {
         expect(Tester.select(selectIsDashboardDirty)).toBe(false);

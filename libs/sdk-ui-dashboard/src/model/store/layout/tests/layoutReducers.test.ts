@@ -11,7 +11,7 @@ import {
     DrillToDashboardFromWonMeasureDefinition,
     SimpleDashboardLayout,
     SimpleSortedTableWidgetRef,
-} from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 import { ExtendedDashboardWidget } from "../../../types/layoutTypes.js";
 
 describe("layout slice reducer", () => {

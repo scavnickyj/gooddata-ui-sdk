@@ -1,5 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
+import { vi, describe, it, expect } from "vitest";
 import { render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
@@ -15,7 +16,7 @@ import { getUserTimezone, ITimezone } from "../../utils/timezone.js";
 import { useWorkspaceUsers } from "../../useWorkspaceUsers.js";
 import { IntlWrapper } from "../../../../localization/IntlWrapper.js";
 
-jest.mock("../../useWorkspaceUsers", () => ({
+vi.mock("../../useWorkspaceUsers.js", () => ({
     useWorkspaceUsers: (): ReturnType<typeof useWorkspaceUsers> => ({
         status: "success",
         result: [],
@@ -65,7 +66,7 @@ describe("ScheduledMailDialogRenderer", () => {
     });
 
     it("should trigger onCancel on click Cancel", async () => {
-        const onCancel = jest.fn();
+        const onCancel = vi.fn();
         renderComponent({ onCancel });
         await userEvent.click(screen.getByText("Cancel"));
         await waitFor(() => {
@@ -73,12 +74,14 @@ describe("ScheduledMailDialogRenderer", () => {
         });
     });
 
-    it("should generate scheduled mail with default values", async () => {
+    it.only("should generate scheduled mail with default values", async () => {
+        vi.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
+
         const user = userEvent.setup({
-            advanceTimers: () => jest.runOnlyPendingTimers(),
+            advanceTimers: () => vi.runOnlyPendingTimers(),
         });
-        const onSubmit = jest.fn();
-        jest.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
+
+        const onSubmit = vi.fn();        
 
         renderComponent({ onSubmit });
 
@@ -106,15 +109,17 @@ describe("ScheduledMailDialogRenderer", () => {
             });
         });
 
-        jest.useRealTimers();
+        vi.useRealTimers();
     });
 
     it("should generate scheduled mail with changed values", async () => {
+        vi.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
+
         const user = userEvent.setup({
-            advanceTimers: () => jest.runOnlyPendingTimers(),
+            advanceTimers: () => vi.runOnlyPendingTimers(),
         });
-        jest.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
-        const onSubmit = jest.fn();
+        
+        const onSubmit = vi.fn();
         renderComponent({ onSubmit });
 
         await user.click(screen.getByText("12:30 PM"));
@@ -143,11 +148,11 @@ describe("ScheduledMailDialogRenderer", () => {
                 },
             ],
         });
-        jest.useRealTimers();
+        vi.useRealTimers();
     });
 
     it("should render subject in schedule email dialog", () => {
-        const onSubmit = jest.fn();
+        const onSubmit = vi.fn();
         renderComponent({ onSubmit, dashboardTitle: "test" });
         expect(screen.getByPlaceholderText("test")).toBeInTheDocument();
     });

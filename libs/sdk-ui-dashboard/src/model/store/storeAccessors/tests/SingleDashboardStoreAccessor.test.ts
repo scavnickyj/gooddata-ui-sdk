@@ -1,5 +1,6 @@
 // (C) 2022 GoodData Corporation
 
+import { vi } from "vitest";
 import { SingleDashboardStoreAccessor } from "../SingleDashboardStoreAccessor.js";
 import { DashboardState } from "../../types.js";
 
@@ -11,7 +12,7 @@ describe("SingleDashboardStoreAccessor tests", () => {
     it("getters", () => {
         const onStateChangeHandler = SingleDashboardStoreAccessor.getOnChangeHandler();
 
-        const dashboardDispatch = jest.fn();
+        const dashboardDispatch = vi.fn();
         onStateChangeHandler({} as DashboardState, dashboardDispatch);
 
         expect(SingleDashboardStoreAccessor.getDashboardSelect()).toBeTruthy();
@@ -23,7 +24,8 @@ describe("SingleDashboardStoreAccessor tests", () => {
 
         expect(SingleDashboardStoreAccessor.isAccessorInitialized()).toBe(false);
 
-        onStateChangeHandler({} as DashboardState, jest.fn());
+        const dashboardDispatch = vi.fn();
+        onStateChangeHandler({} as DashboardState, dashboardDispatch);
 
         expect(SingleDashboardStoreAccessor.isAccessorInitialized()).toBe(true);
     });

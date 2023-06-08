@@ -1,5 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { beforeEach, describe, it, expect } from "vitest";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     ChangeKpiWidgetMeasure,
@@ -13,22 +14,23 @@ import { selectAnalyticalWidgetByRef } from "../../../store/layout/layoutSelecto
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardWidgets,
-} from "../../../tests/fixtures/ComplexDashboard.fixtures";
+} from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
 import {
     MockAvailabilityWithDifferentRelevance,
     TimelineDateDatasetRef,
-} from "../../../tests/fixtures/CatalogAvailability.fixtures";
+} from "../../../tests/fixtures/CatalogAvailability.fixtures.js";
 
 describe("change KPI widget measure handler", () => {
     describe("for any KPI", () => {
         const WidgetWithNoFilters = ComplexDashboardWidgets.FirstSection.ThirdKpi;
 
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, ComplexDashboardIdentifier),
-        );
+            }, ComplexDashboardIdentifier);
+        });
 
         it("should replace measure and keep existing header", async () => {
             const event: DashboardKpiWidgetMeasureChanged = await Tester.dispatchAndWaitFor(

@@ -1,19 +1,20 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
-import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures";
+import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures.js";
 import { addLayoutSection, initializeDashboard } from "../../commands/index.js";
 import { InsightDateDatasets, queryDateDatasetsForInsight } from "../../queries/index.js";
 import { IInsight, insightRef, ICatalogDateDataset } from "@gooddata/sdk-model";
 import {
     MockAvailabilityWithDifferentRelevance,
     MockAvailabilityWithSameRelevance,
-} from "../../tests/fixtures/CatalogAvailability.fixtures";
+} from "../../tests/fixtures/CatalogAvailability.fixtures.js";
 import {
     PivotTableWithDateFilter,
     PivotTableWithRowAndColumnAttributes,
     TreemapWithOneMeasureAndViewByDateAndSegmentByDate,
-} from "../../tests/fixtures/Insights.fixtures";
-import { createTestInsightItem, TestSectionHeader } from "../../tests/fixtures/Layout.fixtures";
+} from "../../tests/fixtures/Insights.fixtures.js";
+import { createTestInsightItem, TestSectionHeader } from "../../tests/fixtures/Layout.fixtures.js";
 
 function datasetsDigest(
     datasets: ReadonlyArray<ICatalogDateDataset | undefined>,
@@ -31,12 +32,13 @@ describe("query insight date datasets", () => {
     }
 
     describe("for insights that reference dates", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;       
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, EmptyDashboardIdentifier),
-        );
+            }, EmptyDashboardIdentifier);
+        });
 
         it("should return date datasets for insight with date attributes in buckets", async () => {
             await addTestSection(Tester, TreemapWithOneMeasureAndViewByDateAndSegmentByDate);

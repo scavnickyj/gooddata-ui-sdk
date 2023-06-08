@@ -1,11 +1,11 @@
 // (C) 2021-2022 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     EmptyDashboardIdentifier,
     TestCorrelation,
     TestStash,
-} from "../../../tests/fixtures/Dashboard.fixtures";
+} from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { AddLayoutSection, addLayoutSection, undoLayoutChanges } from "../../../commands/index.js";
 import {
     DashboardCommandFailed,
@@ -15,7 +15,7 @@ import {
 import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { selectInsightByRef } from "../../../store/insights/insightsSelectors.js";
 import { uriRef, IAnalyticalWidget } from "@gooddata/sdk-model";
-import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
+import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 import {
     createTestInsightItem,
     TestInsightItem,
@@ -23,25 +23,24 @@ import {
     testItemWithDateDataset,
     testItemWithFilterIgnoreList,
     TestKpiPlaceholderItem,
-} from "../../../tests/fixtures/Layout.fixtures";
-import { ActivityDateDatasetRef } from "../../../tests/fixtures/CatalogAvailability.fixtures";
+} from "../../../tests/fixtures/Layout.fixtures.js";
+import { ActivityDateDatasetRef } from "../../../tests/fixtures/CatalogAvailability.fixtures.js";
 
 describe("add layout section handler", () => {
     describe("for an empty dashboard", () => {
         let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory(
-                (tester) => {
-                    Tester = tester;
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {
+                Tester = tester;
+            },
+            EmptyDashboardIdentifier,
+            {
+                backendConfig: {
+                    useRefType: "id",
                 },
-                EmptyDashboardIdentifier,
-                {
-                    backendConfig: {
-                        useRefType: "id",
-                    },
-                },
-            ),
-        );
+            });
+        });
 
         it("should add a new empty section at relative index 0", async () => {
             const event: DashboardLayoutSectionAdded = await Tester.dispatchAndWaitFor(
@@ -225,11 +224,13 @@ describe("add layout section handler", () => {
     // Note: the SimpleDashboard contains a single two sections
     describe("for a dashboard with existing sections", () => {
         let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+                
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, SimpleDashboardIdentifier),
-        );
+            }, SimpleDashboardIdentifier);
+        });
+
 
         it("should add new last section by using relative index -1", async () => {
             const originalLayout = selectLayout(Tester.state());

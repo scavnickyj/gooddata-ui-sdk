@@ -1,7 +1,7 @@
 // (C) 2021-2022 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { RemoveDrillsForInsightWidget, removeDrillForKpiWidget } from "../../../commands/index.js";
 import { uriRef } from "@gooddata/sdk-model";
 import { DashboardCommandFailed } from "../../../events/index.js";
@@ -9,15 +9,15 @@ import {
     KpiWidgetRef,
     SimpleDashboardIdentifier,
     SimpleSortedTableWidgetRef,
-} from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
 describe("removeDrillForKpiWidgetHandler", () => {
     let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory(async (tester) => {
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, SimpleDashboardIdentifier),
-    );
+        }, SimpleDashboardIdentifier);
+    });
 
     describe("remove", () => {
         it("should emit the appropriate events for remove drill for Kpi Widget command", async () => {

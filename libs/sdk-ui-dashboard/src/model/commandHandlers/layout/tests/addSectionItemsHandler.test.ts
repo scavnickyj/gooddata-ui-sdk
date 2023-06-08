@@ -1,37 +1,36 @@
 // (C) 2021-2022 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { TestCorrelation, TestStash } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation, TestStash } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { DashboardCommandFailed, DashboardLayoutSectionItemsAdded } from "../../../events/index.js";
 import { addSectionItem, AddSectionItems, undoLayoutChanges } from "../../../commands/index.js";
 import { selectLayout } from "../../../store/layout/layoutSelectors.js";
 import { selectInsightByRef } from "../../../store/insights/insightsSelectors.js";
 import { uriRef } from "@gooddata/sdk-model";
-import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
-import { ComplexDashboardIdentifier } from "../../../tests/fixtures/ComplexDashboard.fixtures";
+import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
+import { ComplexDashboardIdentifier } from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
 import {
     createTestInsightItem,
     TestInsightItem,
     TestInsightPlaceholderItem,
     TestKpiPlaceholderItem,
-} from "../../../tests/fixtures/Layout.fixtures";
+} from "../../../tests/fixtures/Layout.fixtures.js";
 
 describe("add section items handler", () => {
     describe("for any dashboard", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory(
-                (tester) => {
-                    Tester = tester;
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {
+                Tester = tester;
+            },
+            SimpleDashboardIdentifier,
+            {
+                backendConfig: {
+                    useRefType: "id",
                 },
-                SimpleDashboardIdentifier,
-                {
-                    backendConfig: {
-                        useRefType: "id",
-                    },
-                },
-            ),
-        );
+            });
+        });
 
         it("should load and add insight when adding insight widget", async () => {
             await Tester.dispatchAndWaitFor(
@@ -104,12 +103,14 @@ describe("add section items handler", () => {
     });
 
     describe("for dashboard with existing sections", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;       
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, ComplexDashboardIdentifier),
-        );
+            }, ComplexDashboardIdentifier);
+        });
+
 
         // this section has two existing items
         const TestSectionIdx = 1;

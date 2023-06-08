@@ -1,10 +1,11 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     SimpleDashboardFilterContext,
     SimpleDashboardIdentifier,
     SimpleDashboardLayout,
-} from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 import { DashboardWasReset } from "../../../events/index.js";
 import {
     addAttributeFilter,
@@ -13,7 +14,7 @@ import {
     resetDashboard,
 } from "../../../commands/index.js";
 import { selectLayout } from "../../../store/layout/layoutSelectors.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { attributeDisplayFormRef } from "@gooddata/sdk-model";
 import { selectDashboardTitle } from "../../../store/meta/metaSelectors.js";
@@ -42,21 +43,20 @@ describe("reset dashboard handler", () => {
     describe("for a new dashboard", () => {
         let Tester: DashboardTester;
         // each test starts with a new dashboard & does a couple of things
-        beforeEach(
-            preloadedTesterFactory(
-                (tester) => {
-                    Tester = tester;
 
-                    return testDashboardModifications(tester);
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {
+                Tester = tester;
+
+                return testDashboardModifications(tester);
+            },
+            undefined,
+            {
+                backendConfig: {
+                    useRefType: "id",
                 },
-                undefined,
-                {
-                    backendConfig: {
-                        useRefType: "id",
-                    },
-                },
-            ),
-        );
+            });
+        });
 
         it("should reset back to empty state", async () => {
             const event: DashboardWasReset = await Tester.dispatchAndWaitFor(
@@ -79,23 +79,21 @@ describe("reset dashboard handler", () => {
     });
 
     describe("for an existing dashboard", () => {
-        let Tester: DashboardTester;
-        // each test starts with a new dashboard
-        beforeEach(
-            preloadedTesterFactory(
-                (tester) => {
-                    Tester = tester;
+        let Tester: DashboardTester;        
 
-                    return testDashboardModifications(tester);
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {
+                Tester = tester;
+
+                return testDashboardModifications(tester);
+            },
+            SimpleDashboardIdentifier,
+            {
+                backendConfig: {
+                    useRefType: "id",
                 },
-                SimpleDashboardIdentifier,
-                {
-                    backendConfig: {
-                        useRefType: "id",
-                    },
-                },
-            ),
-        );
+            });
+        });
 
         it("should reset to last persisted state", async () => {
             const event: DashboardWasReset = await Tester.dispatchAndWaitFor(

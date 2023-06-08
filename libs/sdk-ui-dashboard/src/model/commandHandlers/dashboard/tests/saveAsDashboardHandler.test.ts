@@ -1,8 +1,9 @@
 // (C) 2021-2023 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { addLayoutSection, saveDashboard, saveDashboardAs } from "../../../commands/index.js";
-import { TestInsightItem } from "../../../tests/fixtures/Layout.fixtures";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestInsightItem } from "../../../tests/fixtures/Layout.fixtures.js";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { DashboardCopySaved, DashboardSaved } from "../../../events/index.js";
 import { selectBasicLayout } from "../../../store/layout/layoutSelectors.js";
 import { isTemporaryIdentity } from "../../../utils/dashboardItemUtils.js";
@@ -15,25 +16,24 @@ import {
 import {
     LockedDashboardIdentifier,
     TestCorrelation as TestCorrelationLocked,
-} from "../../../tests/fixtures/LockedDashboard.fixtures";
+} from "../../../tests/fixtures/LockedDashboard.fixtures.js";
 
 describe("save as dashboard handler", () => {
     describe("for a new dashboard", () => {
         let Tester: DashboardTester;
-        // each test starts with a new dashboard
-        beforeEach(
-            preloadedTesterFactory(
-                (tester) => {
-                    Tester = tester;
+        // each test starts with a new dashboard        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {
+                Tester = tester;
+            },
+            undefined,
+            {
+                backendConfig: {
+                    useRefType: "id",
                 },
-                undefined,
-                {
-                    backendConfig: {
-                        useRefType: "id",
-                    },
-                },
-            ),
-        );
+            });
+        });
 
         const TestDashboardTitle = "My Dashboard Copy";
 
@@ -123,13 +123,13 @@ describe("save as dashboard handler", () => {
     });
 
     describe("for an existing dashboard", () => {
-        let Tester: DashboardTester;
-        // each test starts with a new dashboard
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, LockedDashboardIdentifier),
-        );
+            }, LockedDashboardIdentifier);
+        });
 
         const TestDashboardTitle = "My Dashboard Copy";
 

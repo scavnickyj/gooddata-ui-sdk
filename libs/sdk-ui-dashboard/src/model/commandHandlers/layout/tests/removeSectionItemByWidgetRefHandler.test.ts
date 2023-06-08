@@ -1,4 +1,5 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { idRef, ObjRef } from "@gooddata/sdk-model";
 import { RemoveSectionItemByWidgetRef } from "../../../../../esm/model/commands/layout.js";
 import {
@@ -18,18 +19,19 @@ import {
     ComplexDashboardIdentifier,
     ComplexDashboardLayout,
     ComplexDashboardWithReferences,
-} from "../../../tests/fixtures/ComplexDashboard.fixtures";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
-import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
+import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
 describe("remove layout section item handler", () => {
     describe("for any dashboard", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, SimpleDashboardIdentifier),
-        );
+            }, SimpleDashboardIdentifier);
+        });
 
         it("should fail if bad ref specified", async () => {
             const fail: DashboardCommandFailed<RemoveSectionItemByWidgetRef> =
@@ -44,12 +46,13 @@ describe("remove layout section item handler", () => {
     });
 
     describe("for dashboard with existing sections", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, ComplexDashboardIdentifier),
-        );
+            }, ComplexDashboardIdentifier);
+        });
 
         const [SecondSectionFirstItem, SecondSectionSecondItem] =
             ComplexDashboardWithReferences.dashboard.layout!.sections[1].items;

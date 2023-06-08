@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import noop from "lodash/noop.js";
-
+import { vi } from "vitest";
 import { Textarea, ITextareaProps } from "../Textarea.js";
 
 import { IntlWrapper } from "../../../../localization/IntlWrapper.js";
@@ -38,7 +38,7 @@ describe("Textarea", () => {
 
     it("should trigger onChange event", async () => {
         const value = "new value";
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         renderComponent({ onChange });
 
         fireEvent.change(screen.getByRole("textbox"), { target: { value } });

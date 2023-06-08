@@ -1,7 +1,7 @@
 // (C) 2021-2022 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import {
     DashboardCommandFailed,
     DashboardLayoutChanged,
@@ -13,7 +13,7 @@ import {
     undoLayoutChanges,
 } from "../../../commands/index.js";
 import { selectLayout } from "../../../store/layout/layoutSelectors.js";
-import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
+import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
 const FullHeader = { title: "My Section", description: "My Section Description" };
 const HeaderWithJustTitle = { title: "My Section" };
@@ -22,12 +22,13 @@ const HeaderWithJustDescription = { description: "My Section Description" };
 describe("change layout section header handler", () => {
     // Note: the simple dashboard has one section and this section does not have any header specified
     describe("for any dashboard", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;       
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, SimpleDashboardIdentifier),
-        );
+            }, SimpleDashboardIdentifier);
+        });
 
         it("should replace header with a new one", async () => {
             const event: DashboardLayoutSectionHeaderChanged = await Tester.dispatchAndWaitFor(

@@ -1,16 +1,19 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardExportToPdfResolved } from "../../../events/index.js";
 import { exportDashboardToPdf } from "../../../commands/index.js";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures";
+import { SimpleDashboardIdentifier } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
-describe("export dashboard to PDF handler", () => {
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester) => {
+describe("export dashboard to PDF handler", () => {    
+
+    let Tester: DashboardTester;       
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, SimpleDashboardIdentifier),
-    );
+        },SimpleDashboardIdentifier);
+    });
 
     it("should emit event when dashboard successfully exported", async () => {
         Tester.dispatch(exportDashboardToPdf());

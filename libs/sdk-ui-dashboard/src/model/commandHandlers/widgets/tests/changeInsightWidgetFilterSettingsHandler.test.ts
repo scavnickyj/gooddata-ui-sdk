@@ -1,6 +1,7 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import {
     ChangeInsightWidgetFilterSettings,
     disableInsightWidgetDateFilter,
@@ -27,7 +28,7 @@ import {
     ComplexDashboardFilters,
     ComplexDashboardIdentifier,
     ComplexDashboardWidgets,
-} from "../../../tests/fixtures/ComplexDashboard.fixtures";
+} from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
 
 function ignoredWidgetFilterRefs(tester: DashboardTester, ref: ObjRef) {
     const widget = selectAnalyticalWidgetByRef(ref)(tester.state());
@@ -45,12 +46,13 @@ describe("change insight widget filter settings handler", () => {
     const WidgetWithNoFilters = ComplexDashboardWidgets.SecondSection.FirstTable;
     const WidgetWithAllFilters = ComplexDashboardWidgets.ThirdSection.Heatmap;
 
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester) => {
+    let Tester: DashboardTester;   
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, ComplexDashboardIdentifier),
-    );
+        }, ComplexDashboardIdentifier);
+    });
 
     describe("for replace settings operation", () => {
         const TestWidgetRef = WidgetWithNoFilters.ref;

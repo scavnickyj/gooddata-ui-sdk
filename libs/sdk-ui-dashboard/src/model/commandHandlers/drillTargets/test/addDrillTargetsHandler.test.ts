@@ -1,8 +1,9 @@
 // (C) 2021-2023 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import { AddDrillTargets, addDrillTargets } from "../../../commands/drillTargets.js";
 import { DrillTargetsAdded } from "../../../events/drillTargets.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { IAvailableDrillTargets } from "@gooddata/sdk-ui";
 import { selectDrillTargetsByWidgetRef } from "../../../store/drillTargets/drillTargetsSelectors.js";
 import { uriRef } from "@gooddata/sdk-model";
@@ -15,17 +16,19 @@ import {
     SimpleDashboardIdentifier,
     SimpleDashboardSimpleSortedTableWidgetDrillTargets,
     SimpleSortedTableWidgetRef,
-} from "../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 
 describe("addDrillTargetsHandler", () => {
     const availableDrillTargetsMock: IAvailableDrillTargets = {};
 
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester: DashboardTester) => {
+    let Tester: DashboardTester;   
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, SimpleDashboardIdentifier),
-    );
+        }, SimpleDashboardIdentifier);
+    });
+
 
     it("should not have invalid drills when drill targets are not set", async () => {
         // switch to edit mode run drill validation
@@ -83,21 +86,20 @@ describe("addDrillTargetsHandler", () => {
 
 describe("addDrillTargetsHandler with enableKPIDashboardDrillFromAttribute set to false", () => {
     let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory(
-            (tester: DashboardTester) => {
-                Tester = tester;
-            },
-            SimpleDashboardIdentifier,
-            {
-                backendConfig: {
-                    globalSettings: {
-                        enableKPIDashboardDrillFromAttribute: false,
-                    },
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester: DashboardTester) => {
+            Tester = tester;
+        },
+        SimpleDashboardIdentifier,
+        {
+            backendConfig: {
+                globalSettings: {
+                    enableKPIDashboardDrillFromAttribute: false,
                 },
             },
-        ),
-    );
+        });
+    });
 
     it("should fail when trying to add drill targets with attributes and enableKPIDashboardDrillFromAttribute is false", async () => {
         const event: DashboardCommandFailed<AddDrillTargets> = await Tester.dispatchAndWaitFor(

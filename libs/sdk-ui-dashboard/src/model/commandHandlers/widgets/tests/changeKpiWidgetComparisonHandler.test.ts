@@ -1,7 +1,7 @@
 // (C) 2021-2022 GoodData Corporation
-
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
-import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures";
+import { TestCorrelation } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import {
     ChangeKpiWidgetComparison,
     changeKpiWidgetComparison,
@@ -13,16 +13,17 @@ import { uriRef, IKpiWidget } from "@gooddata/sdk-model";
 import {
     ComplexDashboardIdentifier,
     ComplexDashboardWidgets,
-} from "../../../tests/fixtures/ComplexDashboard.fixtures";
+} from "../../../tests/fixtures/ComplexDashboard.fixtures.js";
 
 describe("change KPI widget comparison handler", () => {
     describe("for dashboard with KPIs and insights", () => {
-        let Tester: DashboardTester;
-        beforeEach(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;        
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, ComplexDashboardIdentifier),
-        );
+            }, ComplexDashboardIdentifier);
+        });
 
         const TestComparisonWithDirection: KpiWidgetComparison = {
             comparisonType: "previousPeriod",

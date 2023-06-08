@@ -1,6 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
 import { DashboardTester } from "../../tests/DashboardTester.js";
-import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures";
+import { EmptyDashboardIdentifier } from "../../tests/fixtures/Dashboard.fixtures.js";
 import { MeasureDateDatasets, queryDateDatasetsForMeasure } from "../../queries/index.js";
 import { measureItem, ICatalogDateDataset } from "@gooddata/sdk-model";
 import { initializeDashboard } from "../../commands/index.js";
@@ -8,7 +8,7 @@ import { ReferenceMd } from "@gooddata/reference-workspace";
 import {
     MockAvailabilityWithDifferentRelevance,
     MockAvailabilityWithSameRelevance,
-} from "../../tests/fixtures/CatalogAvailability.fixtures";
+} from "../../tests/fixtures/CatalogAvailability.fixtures.js";
 
 function datasetsDigest(
     datasets: ReadonlyArray<ICatalogDateDataset | undefined>,

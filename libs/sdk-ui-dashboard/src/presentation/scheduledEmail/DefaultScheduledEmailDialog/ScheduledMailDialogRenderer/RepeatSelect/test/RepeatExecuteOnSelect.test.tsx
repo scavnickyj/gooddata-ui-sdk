@@ -1,5 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
+import { vi } from "vitest";
 import { IntlShape } from "react-intl";
 import noop from "lodash/noop.js";
 import { render, screen, waitFor } from "@testing-library/react";
@@ -52,7 +53,7 @@ describe("RepeatExecuteOnSelect", () => {
     });
 
     it("should trigger onChange", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         renderComponent({ onChange });
         await userEvent.click(screen.getByText(titleDayOfMonth));
         await userEvent.click(screen.getByText(titleDayOfWeek));

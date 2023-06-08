@@ -1,4 +1,5 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../tests/DashboardTester.js";
 import { queryWidgetBrokenAlerts } from "../../queries/index.js";
 import { idRef, ObjRef } from "@gooddata/sdk-model";
@@ -12,16 +13,17 @@ import {
     RemovedFiltersKpiIdentifier,
     RemovedFiltersKpiRef,
     TestCorrelation,
-} from "../../tests/fixtures/BrokenFilterAlerts.fixtures";
+} from "../../tests/fixtures/BrokenFilterAlerts.fixtures.js";
 import { IBrokenAlertFilterBasicInfo } from "../../types/alertTypes.js";
 
 describe("query widget broken alerts filters", () => {
-    let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester) => {
+    let Tester: DashboardTester;    
+
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, BrokenFilterAlertsDashboardIdentifier),
-    );
+        }, BrokenFilterAlertsDashboardIdentifier);
+    });    
 
     it("should fail in case the widget does not exist", async () => {
         const expectedError = {

@@ -4,6 +4,7 @@ import { IntlShape } from "react-intl";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
+import { vi } from "vitest";
 
 import { TEXT_INDEX } from "./testUtils.js";
 import { RepeatSelect, IRepeatSelectData, IRepeatSelectProps } from "../RepeatSelect.js";
@@ -105,7 +106,7 @@ describe("RepeatSelect", () => {
         ])(
             "should trigger onChange with selected repeat type is %s",
             async (selected: string, current: string, title: string) => {
-                const onChange = jest.fn();
+                const onChange = vi.fn();
                 renderComponent({ repeatType: current, onChange });
                 await userEvent.click(screen.getByRole("button"));
                 await userEvent.click(screen.getByText(title));
@@ -122,7 +123,7 @@ describe("RepeatSelect", () => {
         );
 
         it("should trigger onChange with selected repeat period", async () => {
-            const onChange = jest.fn();
+            const onChange = vi.fn();
             renderComponent({
                 repeatType: REPEAT_TYPES.CUSTOM,
                 onChange,
@@ -150,7 +151,7 @@ describe("RepeatSelect", () => {
         ])(
             "should trigger onChange with selected repeat frequency is %s",
             async (selected: string, current: string) => {
-                const onChange = jest.fn();
+                const onChange = vi.fn();
                 renderComponent({
                     repeatFrequency: current,
                     repeatType: REPEAT_TYPES.CUSTOM,
@@ -171,7 +172,7 @@ describe("RepeatSelect", () => {
         );
 
         it("should reset repeatData when repeatType is changed", async () => {
-            const onChange = jest.fn();
+            const onChange = vi.fn();
             renderComponent({
                 repeatExecuteOn: REPEAT_EXECUTE_ON.DAY_OF_WEEK,
                 repeatFrequency: REPEAT_FREQUENCIES.MONTH,

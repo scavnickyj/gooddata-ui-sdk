@@ -9,6 +9,7 @@ import {
 } from "./DashboardEditLayout/DashboardEditLayout.js";
 import { IntlWrapper } from "@gooddata/sdk-ui";
 import { render } from "@testing-library/react";
+import { IDashboardEditLayout } from "./DashboardEditLayout/DashboardEditLayoutTypes.js";
 
 const dashboardEditLayout = Mocks.layoutMock([
     Mocks.rowMock([[Mocks.widgetKpiPlaceholderMock()]]),
@@ -17,10 +18,18 @@ const dashboardEditLayout = Mocks.layoutMock([
     Mocks.rowMock([[Mocks.widgetMock()]]),
 ]);
 
+const lay:IDashboardEditLayout = {
+    
+    type: "IDashboardLayout",
+
+    
+    sections: [],
+}
+
 function createComponent(customProps: Partial<IDashboardEditLayoutProps> = {}) {
     return render(
         <IntlWrapper>
-            <RenderDashboardEditLayout layout={dashboardEditLayout} {...customProps} />
+            <RenderDashboardEditLayout layout={lay} {...customProps} />
         </IntlWrapper>,
     );
 }

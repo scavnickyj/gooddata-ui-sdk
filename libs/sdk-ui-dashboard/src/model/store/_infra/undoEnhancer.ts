@@ -161,7 +161,8 @@ export const undoReducer = <TState extends UndoEnhancedState>(
     action: PayloadAction<UndoActionPayload>,
 ): TState => {
     const { undoDownTo } = action.payload;
-    const originalState = original(state) as TState;
+    const originalState = safeOriginal(state) as TState;
+
     const { _undo } = originalState;
 
     // if this happens then the issuer has incorrectly calculated point to which to rollback.

@@ -4,6 +4,7 @@ import { IntlShape } from "react-intl";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
+import { vi } from "vitest";
 
 import { RepeatTypeSelect, IRepeatTypeSelectProps } from "../RepeatTypeSelect.js";
 
@@ -57,7 +58,7 @@ describe("RepeatTypeSelect", () => {
     });
 
     it("should trigger onChange", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         renderComponent({ onChange });
 
         await userEvent.click(screen.getByText(titleTypeDaily));

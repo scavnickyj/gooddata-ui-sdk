@@ -1,4 +1,5 @@
 // (C) 2023 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { DashboardTester, preloadedTesterFactory } from "../../../tests/DashboardTester.js";
 import {
     addAttributeFilter,
@@ -6,17 +7,18 @@ import {
     removeAttributeFilter,
 } from "../../../commands/index.js";
 import { selectFilterContextAttributeFilters } from "../../../store/index.js";
-import { EmptyDashboardIdentifier } from "../../../tests/fixtures/Dashboard.fixtures";
+import { EmptyDashboardIdentifier } from "../../../tests/fixtures/Dashboard.fixtures.js";
 import { IAttributeElementsByRef } from "@gooddata/sdk-model";
 
 describe("change filter context selection handler", () => {
     describe("single select filter", () => {
-        let Tester: DashboardTester;
-        beforeAll(
-            preloadedTesterFactory((tester) => {
+        let Tester: DashboardTester;       
+
+        beforeEach(async ()=> {
+            await preloadedTesterFactory((tester) => {            
                 Tester = tester;
-            }, EmptyDashboardIdentifier),
-        );
+            }, EmptyDashboardIdentifier);
+        });
 
         const FILTER_ELEMENTS = ["element1", "element2", "element3"];
         const FIRST_ELEMENT = [FILTER_ELEMENTS[0]];

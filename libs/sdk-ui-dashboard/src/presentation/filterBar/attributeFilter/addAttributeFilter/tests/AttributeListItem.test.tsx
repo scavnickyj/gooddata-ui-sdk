@@ -1,6 +1,7 @@
 // (C) 2023 GoodData Corporation
 
 import React from "react";
+import { vi } from "vitest";
 import { render } from "@testing-library/react";
 import AttributeListItem from "../AttributeListItem.js";
 import * as Tooltip from "../attributeListItemTooltip/AttributeListItemTooltip.js";
@@ -11,18 +12,18 @@ describe("AttributeListItem", () => {
             <AttributeListItem
                 item={attribute}
                 isLocationIconEnabled={isLocationIconEnabled}
-                onClick={jest.fn()}
+                onClick={vi.fn()}
             />,
         );
     };
 
     describe("Item icon", () => {
         beforeEach(() => {
-            jest.spyOn(Tooltip, "AttributeListItemTooltip").mockImplementation(() => null);
+            vi.spyOn(Tooltip, "AttributeListItemTooltip").mockImplementation(() => null);
         });
 
         afterEach(() => {
-            jest.clearAllMocks();
+            vi.clearAllMocks();
         });
 
         const mockAttribute = {

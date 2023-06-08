@@ -38,7 +38,7 @@ configure({ defaultHidden: true });
 
 describe("KpiAlertDialog", () => {
     it("should not try to save alert when input threshold empty", async () => {
-        const onAlertDialogSaveClick = jest.fn();
+        const onAlertDialogSaveClick = vi.fn();
         renderKpiAlertDialog({ onAlertDialogSaveClick });
 
         await userEvent.click(screen.getByText("Set alert"));
@@ -48,7 +48,7 @@ describe("KpiAlertDialog", () => {
     });
 
     it("should not try to save alert when threshold is invalid", async () => {
-        const onAlertDialogSaveClick = jest.fn();
+        const onAlertDialogSaveClick = vi.fn();
         renderKpiAlertDialog({ onAlertDialogSaveClick });
 
         await userEvent.type(screen.getByRole("textbox"), "foo!bar");
@@ -60,7 +60,7 @@ describe("KpiAlertDialog", () => {
     });
 
     // it("should try to save alert with threshold divided by 100", async () => {
-    //     const onAlertDialogSaveClick = jest.fn();
+    //     const onAlertDialogSaveClick = vi.fn();
     //     renderKpiAlertDialog({ onAlertDialogSaveClick });
     //     await userEvent.type(screen.getByRole("textbox"), "12.0045");
     //     await userEvent.click(screen.getByText("Set alert"));

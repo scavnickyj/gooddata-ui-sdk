@@ -10,11 +10,11 @@ import {
     SimpleDashboardListed,
     SimpleDashboardSimpleSortedTableWidgetDrillTargets,
     SimpleSortedTableWidgetInsight,
-} from "../../../../tests/fixtures/SimpleDashboard.fixtures";
+} from "../../../../tests/fixtures/SimpleDashboard.fixtures.js";
 import {
     ComplexDashboardListed,
     ComplexDashboardWithReferences,
-} from "../../../../tests/fixtures/ComplexDashboard.fixtures";
+} from "../../../../tests/fixtures/ComplexDashboard.fixtures.js";
 import {
     newDisplayFormMap,
     newInsightMap,

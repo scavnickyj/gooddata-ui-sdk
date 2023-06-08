@@ -1,4 +1,5 @@
 // (C) 2021-2022 GoodData Corporation
+import { beforeEach, describe, it, expect } from "vitest";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { addAttributeFilter } from "../../../../commands/index.js";
 import { DashboardTester, preloadedTesterFactory } from "../../../../tests/DashboardTester.js";
@@ -6,18 +7,18 @@ import {
     selectAttributeFilterDisplayFormsMap,
     selectFilterContextAttributeFilters,
 } from "../../../../store/filterContext/filterContextSelectors.js";
-import { SimpleDashboardIdentifier } from "../../../../tests/fixtures/SimpleDashboard.fixtures";
-import { TestCorrelation } from "../../../../tests/fixtures/Dashboard.fixtures";
+import { SimpleDashboardIdentifier } from "../../../../tests/fixtures/SimpleDashboard.fixtures.js";
+import { TestCorrelation } from "../../../../tests/fixtures/Dashboard.fixtures.js";
 import { uriRef } from "@gooddata/sdk-model";
 import { DashboardCommandFailed } from "../../../../events/index.js";
 
 describe("addAttributeFilterHandler", () => {
     let Tester: DashboardTester;
-    beforeEach(
-        preloadedTesterFactory((tester) => {
+    beforeEach(async ()=> {
+        await preloadedTesterFactory((tester) => {            
             Tester = tester;
-        }, SimpleDashboardIdentifier),
-    );
+        }, SimpleDashboardIdentifier);
+    });
 
     it("should emit the appropriate events for added attribute filter", async () => {
         await Tester.dispatchAndWaitFor(
