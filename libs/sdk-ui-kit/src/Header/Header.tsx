@@ -3,9 +3,9 @@ import React, { Component, createRef } from "react";
 import { WrappedComponentProps, injectIntl, FormattedMessage } from "react-intl";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import cx from "classnames";
-import differenceInMonths from "date-fns/differenceInMonths";
-import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
-import format from "date-fns/format";
+import differenceInMonths from "date-fns/differenceInMonths/index.js";
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays/index.js";
+import format from "date-fns/format/index.js";
 import { withTheme } from "@gooddata/sdk-ui-theme-provider";
 
 import { v4 as uuid } from "uuid";

@@ -1,5 +1,5 @@
 // (C) 2020 GoodData Corporation
-import format from "date-fns/format";
+import format from "date-fns/format/index.js";
 import { UnexpectedError } from "@gooddata/sdk-backend-spi";
 
 import { DateFormatter } from "./types.js";

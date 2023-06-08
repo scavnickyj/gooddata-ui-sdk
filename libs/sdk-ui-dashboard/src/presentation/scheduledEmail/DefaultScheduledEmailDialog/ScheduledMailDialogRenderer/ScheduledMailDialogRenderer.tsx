@@ -5,7 +5,7 @@ import differenceBy from "lodash/differenceBy.js";
 import isEqual from "lodash/isEqual.js";
 import omit from "lodash/omit.js";
 import { injectIntl, WrappedComponentProps, FormattedMessage } from "react-intl";
-import parse from "date-fns/parse";
+import parse from "date-fns/parse/index.js";
 import { normalizeTime, ConfirmDialogBase, Overlay, Alignment, Message } from "@gooddata/sdk-ui-kit";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
 import {

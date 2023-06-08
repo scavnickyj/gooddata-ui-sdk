@@ -1,6 +1,6 @@
 // (C) 2019-2023 GoodData Corporation
 import isDate from "lodash/isDate.js";
-import format from "date-fns/format";
+import format from "date-fns/format/index.js";
 
 import { PLATFORM_DATE_FORMAT } from "../constants.js";
 import { IntlShape } from "react-intl";

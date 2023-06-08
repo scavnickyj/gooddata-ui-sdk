@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { injectIntl, WrappedComponentProps } from "react-intl";
 import moment from "moment";
-import isValid from "date-fns/isValid";
-import parse from "date-fns/parse";
-import format from "date-fns/format";
+import isValid from "date-fns/isValid/index.js";
+import parse from "date-fns/parse/index.js";
+import format from "date-fns/format/index.js";
 
 import { DateRangePickerInputFieldBody } from "./DateRangePickerInputFieldBody.js";
 

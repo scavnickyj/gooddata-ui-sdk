@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { platformDateFormat } from "../constants/Platform.js";
-import moment = require("moment");
-import addDate from "date-fns/add";
-import formatDate from "date-fns/format";
+import moment from "moment";
+import addDate from "date-fns/add/index.js";
+import formatDate from "date-fns/format/index.js";
 import noop from "lodash/noop.js";
 import { IDateFilterProps, DateFilter } from "../DateFilter.js";
 import { DateFilterOption, IDateFilterOptionsByType } from "../interfaces/index.js";

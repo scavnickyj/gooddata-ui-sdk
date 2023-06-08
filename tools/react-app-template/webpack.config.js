@@ -16,7 +16,7 @@ module.exports = (_env, argv) => {
     const protocol = new URL(BACKEND_URL).protocol;
     const proxy = [
         {
-            context: pathname => /^\/(api\/|gdc\/|account\.html|truste\.html|account\/)/.test(pathname),
+            context: (pathname) => /^\/(api\/|gdc\/|account\.html|truste\.html|account\/)/.test(pathname),
             changeOrigin: true,
             cookieDomainRewrite: "127.0.0.1",
             secure: false,
@@ -59,6 +59,7 @@ module.exports = (_env, argv) => {
                     "@gooddata/sdk-ui-pivot": path.resolve("./node_modules/@gooddata/sdk-ui-pivot"),
                     "@gooddata/sdk-ui-kit": path.resolve("./node_modules/@gooddata/sdk-ui-kit"),
                     "@gooddata/sdk-ui-ext": path.resolve("./node_modules/@gooddata/sdk-ui-ext"),
+                    "@gooddata/sdk-ui-geo": path.resolve("./node_modules/@gooddata/sdk-ui-geo"),
                     "@gooddata/sdk-ui-dashboard": path.resolve("./node_modules/@gooddata/sdk-ui-dashboard"),
                 },
 

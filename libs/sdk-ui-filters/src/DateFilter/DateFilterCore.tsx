@@ -13,7 +13,7 @@ import { DateFilterBody } from "./DateFilterBody/DateFilterBody.js";
 import { applyExcludeCurrentPeriod } from "./utils/PeriodExclusion.js";
 import { DEFAULT_DATE_FORMAT, TIME_FORMAT_WITH_SEPARATOR } from "./constants/Platform.js";
 import { filterVisibleDateFilterOptions, sanitizePresetIntervals } from "./utils/OptionUtils.js";
-import format from "date-fns/format";
+import format from "date-fns/format/index.js";
 
 // There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
 // In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.

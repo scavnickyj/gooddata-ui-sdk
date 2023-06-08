@@ -2,7 +2,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { formatTime } from "@gooddata/sdk-ui-kit";
-import format from "date-fns/format";
+import format from "date-fns/format/index.js";
 import noop from "lodash/noop.js";
 
 import { DateTime, IDateTimeProps } from "../DateTime.js";
