@@ -18,9 +18,9 @@ import {
     AccessGranteeDetail,
     IAvailableAccessGrantee,
 } from "@gooddata/sdk-model";
-import { ShareDialog } from "../ShareDialog";
+import { ShareDialog } from "../ShareDialog.js";
 import { defaultUser } from "../ShareDialogBase/test/GranteeMock.js";
-import { IBackendCapabilities } from "@gooddata/sdk-backend-spi/src";
+import { IBackendCapabilities } from "@gooddata/sdk-backend-spi";
 
 export const labels: IShareDialogLabels = {
     accessTypeLabel: "lockControl label",

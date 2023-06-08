@@ -10,7 +10,7 @@ import { createMemoizedSelector } from "../_infra/selectors.js";
 import { IDashboardWidgetOverlay } from "../../types/commonTypes.js";
 import { ObjRefMap } from "../../../_staging/metadata/objRefMap.js";
 import { ILayoutCoordinates, IMenuButtonItemsVisibility } from "../../../types.js";
-import { DraggableLayoutItem } from "../../../presentation/index.js";
+import { DraggableLayoutItem } from "../../../presentation/dragAndDrop/types.js";
 import { InvalidCustomUrlDrillParameterInfo } from "./uiState.js";
 
 const selectSelf = createSelector(
