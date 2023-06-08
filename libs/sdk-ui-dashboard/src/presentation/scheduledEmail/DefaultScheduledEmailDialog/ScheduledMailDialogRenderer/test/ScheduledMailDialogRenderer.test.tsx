@@ -1,11 +1,10 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
-import { vi, describe, it, expect } from "vitest";
-import { render, screen, within, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { uriRef } from "@gooddata/sdk-model";
 import { newInsightWidget } from "@gooddata/sdk-backend-base";
+import { vi, describe, it, expect } from "vitest";
 
 import {
     ScheduledMailDialogRenderer,
@@ -65,69 +64,59 @@ describe("ScheduledMailDialogRenderer", () => {
         expect(screen.getByText(timezone.title)).toBeInTheDocument();
     });
 
-    it("should trigger onCancel on click Cancel", async () => {
+    it("should trigger onCancel on click Cancel", () => {
         const onCancel = vi.fn();
         renderComponent({ onCancel });
-        await userEvent.click(screen.getByText("Cancel"));
-        await waitFor(() => {
-            expect(onCancel).toHaveBeenCalledTimes(1);
-        });
+        fireEvent.click(screen.getByText("Cancel"));
+        expect(onCancel).toHaveBeenCalledTimes(1);
     });
 
-    it.only("should generate scheduled mail with default values", async () => {
+    it("should generate scheduled mail with default values", () => {
         vi.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
 
-        const user = userEvent.setup({
-            advanceTimers: () => vi.runOnlyPendingTimers(),
-        });
-
-        const onSubmit = vi.fn();        
+        const onSubmit = vi.fn();
 
         renderComponent({ onSubmit });
 
-        await user.click(screen.getByText("Schedule"));
+        fireEvent.click(screen.getByText("Schedule"));
 
-        await waitFor(() => {
-            expect(onSubmit.mock.calls[0][0]).toMatchObject({
-                bcc: [],
-                body: "Hello,\n\nYour scheduled email is ready. You can download the dashboard in attachments.",
-                description: "Daily at 12:30 PM",
-                subject: "Dashboard title",
-                title: "Dashboard title",
-                to: ["user@gooddata.com"],
-                unlisted: true,
-                when: {
-                    recurrence: "0:0:0:1*12:30:0",
-                    startDate: "2022-01-02",
+        expect(onSubmit.mock.calls[0][0]).toMatchObject({
+            bcc: [],
+            body: "Hello,\n\nYour scheduled email is ready. You can download the dashboard in attachments.",
+            description: "Daily at 12:30 PM",
+            subject: "Dashboard title",
+            title: "Dashboard title",
+            to: ["user@gooddata.com"],
+            unlisted: true,
+            when: {
+                recurrence: "0:0:0:1*12:30:0",
+                startDate: "2022-01-02",
+            },
+            attachments: [
+                {
+                    format: "pdf",
+                    dashboard,
                 },
-                attachments: [
-                    {
-                        format: "pdf",
-                        dashboard,
-                    },
-                ],
-            });
+            ],
         });
 
         vi.useRealTimers();
     });
 
-    it("should generate scheduled mail with changed values", async () => {
+    it("should generate scheduled mail with changed values", () => {
         vi.useFakeTimers().setSystemTime(new Date("2022-01-02 12:13").getTime());
 
-        const user = userEvent.setup({
-            advanceTimers: () => vi.runOnlyPendingTimers(),
-        });
-        
         const onSubmit = vi.fn();
         renderComponent({ onSubmit });
 
-        await user.click(screen.getByText("12:30 PM"));
-        await user.click(screen.getByText("02:00 AM"));
-        await user.click(screen.getByText("Daily"));
-        await user.click(screen.getByText("Weekly on Sunday"));
-        await user.type(screen.getByPlaceholderText("Dashboard title"), "new subject");
-        await user.click(screen.getByText("Schedule"));
+        fireEvent.click(screen.getByText("12:30 PM"));
+        fireEvent.click(screen.getByText("02:00 AM"));
+        fireEvent.click(screen.getByText("Daily"));
+        fireEvent.click(screen.getByText("Weekly on Sunday"));
+        fireEvent.change(screen.getByPlaceholderText("Dashboard title"), {
+            target: { value: "new subject" },
+        });
+        fireEvent.click(screen.getByText("Schedule"));
 
         expect(onSubmit.mock.calls[0][0]).toMatchObject({
             bcc: [],
@@ -148,6 +137,7 @@ describe("ScheduledMailDialogRenderer", () => {
                 },
             ],
         });
+
         vi.useRealTimers();
     });
 
