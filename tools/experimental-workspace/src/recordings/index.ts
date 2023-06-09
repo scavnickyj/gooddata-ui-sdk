@@ -1,8 +1,12 @@
 // (C) 2020 GoodData Corporation
 
+import { createRequire } from "module";
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable header/header */
 /* THIS FILE WAS AUTO-GENERATED USING MOCK HANDLING TOOL; YOU SHOULD NOT EDIT THIS FILE; GENERATE TIME: 2020-09-22T14:20:01.002Z; */
+
+const require = createRequire(import.meta.url);
 
 const fp_3cbc8e95c440e3630a1199a1eb7ab8ff = {
     definition: require("./uiTestScenarios/executions/3cbc8e95c440e3630a1199a1eb7ab8ff/definition.json"),
