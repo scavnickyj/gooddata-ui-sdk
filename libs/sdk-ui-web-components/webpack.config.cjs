@@ -33,10 +33,16 @@ module.exports = (env, argv) => ({
         // Allow omitting extensions when requiring these files
         extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
 
+        // Alias for ESM imports with .js suffix because
+        // `import { abc } from "../abc.js"` may be in fact importing from `abc.tsx` file
+        extensionAlias: {
+            ".js": [".ts", ".tsx", ".js", ".jsx"],
+        },
+
         alias: {
             react: path.resolve("./node_modules/react"),
-            "react-dom":  path.resolve("./node_modules/react-dom"),
-            
+            "react-dom": path.resolve("./node_modules/react-dom"),
+
             // fixes tilde imports in CSS from sdk-ui-* packages
             "@gooddata/sdk-ui-filters": path.resolve("./node_modules/@gooddata/sdk-ui-filters"),
             "@gooddata/sdk-ui-charts": path.resolve("./node_modules/@gooddata/sdk-ui-charts"),
@@ -52,6 +58,7 @@ module.exports = (env, argv) => ({
     },
     module: {
         rules: [
+            { test: /\.m?js/, type: "javascript/auto" },
             {
                 test: /\.tsx?$/,
                 use: [
@@ -89,6 +96,10 @@ module.exports = (env, argv) => ({
                 enforce: "pre",
                 include: path.resolve(__dirname, "src"),
                 use: ["source-map-loader"],
+            },
+            {
+                test: /\.json$/,
+                loader: "json-loader",
             },
         ],
         parser: {
