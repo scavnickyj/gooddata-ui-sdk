@@ -14,7 +14,8 @@
     "browser": "./esm/gooddata-browser.js",
     "exports": {
         "import": "./esm/gooddata-browser.js",
-        "node":"./esm/gooddata-node.js"
+        "node": "./esm/gooddata-node.js",
+        "default": "./esm/gooddata-browser.js"
     },
     "types": "./esm/gooddata-browser.d.ts",
     "sideEffects": false,
