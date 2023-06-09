@@ -10,8 +10,13 @@
     },
     "license": "MIT",
     "type": "module",
-    "exports": "./esm/index.js",
-    "types": "./esm/index.d.ts",
+    "main": "./esm/gooddata-node.js",
+    "browser": "./esm/gooddata-browser.js",
+    "exports": {
+        "import": "./esm/gooddata-browser.js",
+        "node":"./esm/gooddata-node.js"
+    },
+    "types": "./esm/gooddata-browser.d.ts",
     "sideEffects": false,
     "files": [
         "esm/**/*.js",
@@ -40,15 +45,14 @@
     },
     "dependencies": {
         "@gooddata/api-model-bear": "workspace:*",
-        "fetch-cookie": "^0.7.0",
+        "fetch-cookie": "^2.1.0",
         "isomorphic-fetch": "^3.0.0",
         "lodash": "^4.17.19",
-        "node-fetch": "^2.6.1",
+        "node-fetch": "^3.3.1",
         "qs": "^6.8.0",
         "spark-md5": "^3.0.0",
         "ts-invariant": "^0.7.3",
-        "tslib": "^2.5.0",
-        "browser-or-node": "^2.1.1"
+        "tslib": "^2.5.0"
     },
     "devDependencies": {
         "@gooddata/eslint-config": "^4.1.0",
@@ -57,7 +61,7 @@
         "@types/jest": "^29.5.1",
         "@types/lodash": "^4.14.158",
         "@types/node": "^16.18.23",
-        "@types/node-fetch": "^1.6.7",
+        "@types/node-fetch": "^2.6.4",
         "@types/qs": "^6.5.1",
         "@types/spark-md5": "^3.0.1",
         "@typescript-eslint/eslint-plugin": "^5.57.1",

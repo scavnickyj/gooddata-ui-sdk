@@ -6981,65 +6981,39 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
     commandCreator: (...args: TCommandCreatorArgs) => TCommand;
     successEvent: TSuccessEventType;
     errorEvent: TErrorEventType;
-    onSuccess?: ((event: Extract<DashboardDrillResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillDownResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToInsightResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToDashboardResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToAttributeUrlResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToCustomUrlResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToLegacyDashboardResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardInitialized_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDeinitialized_2, {
-        type: TSuccessEventType;
-    }> | Extract<DateFilterValidationFailed_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardSaved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardCopySaved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardRenderRequested_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardAsyncRenderRequested_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardAsyncRenderResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardRenderResolved_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardSharingChanged_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardRenderModeChanged_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardCommandStarted_2<any>, {
+    onSuccess?: ((event: Extract<DashboardCommandStarted_2<any>, {
         type: TSuccessEventType;
     }> | Extract<DashboardCommandFailed_2<any>, {
         type: TSuccessEventType;
     }> | Extract<DashboardCommandRejected_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardQueryFailed_2, {
-        type: TSuccessEventType;
     }> | Extract<DashboardQueryRejected_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardQueryFailed_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardQueryStarted_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardQueryCompleted_2<any, any>, {
         type: TSuccessEventType;
+    }> | Extract<DashboardInitialized_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDeinitialized_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardSaved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardCopySaved_2, {
+        type: TSuccessEventType;
     }> | Extract<DashboardRenamed_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardWasReset_2, {
+        type: TSuccessEventType;
+    }> | Extract<DateFilterValidationFailed_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardExportToPdfRequested_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardExportToPdfResolved_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardUserInteractionTriggered_2, {
+    }> | Extract<DashboardSharingChanged_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardDateFilterSelectionChanged_2, {
         type: TSuccessEventType;
@@ -7051,11 +7025,11 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TSuccessEventType;
     }> | Extract<DashboardAttributeFilterSelectionChanged_2, {
         type: TSuccessEventType;
+    }> | Extract<DashboardAttributeFilterParentChanged_2, {
+        type: TSuccessEventType;
     }> | Extract<DashboardAttributeTitleChanged_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardAttributeSelectionModeChanged_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardAttributeFilterParentChanged_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardFilterContextChanged_2, {
         type: TSuccessEventType;
@@ -7121,9 +7095,9 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TSuccessEventType;
     }> | Extract<DashboardWidgetExecutionStarted_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardWidgetExecutionSucceeded_2, {
-        type: TSuccessEventType;
     }> | Extract<DashboardWidgetExecutionFailed_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardWidgetExecutionSucceeded_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardAlertCreated_2, {
         type: TSuccessEventType;
@@ -7135,84 +7109,84 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TSuccessEventType;
     }> | Extract<DashboardScheduledEmailSaved_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardDrillDownRequested_2, {
+    }> | Extract<DashboardUserInteractionTriggered_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardDrillToAttributeUrlRequested_2, {
+    }> | Extract<DashboardRenderRequested_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardDrillToCustomUrlRequested_2, {
+    }> | Extract<DashboardAsyncRenderRequested_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardDrillToDashboardRequested_2, {
+    }> | Extract<DashboardAsyncRenderResolved_2, {
         type: TSuccessEventType;
-    }> | Extract<DashboardDrillToInsightRequested_2, {
-        type: TSuccessEventType;
-    }> | Extract<DashboardDrillToLegacyDashboardRequested_2, {
+    }> | Extract<DashboardRenderResolved_2, {
         type: TSuccessEventType;
     }> | Extract<DashboardDrillRequested_2, {
         type: TSuccessEventType;
+    }> | Extract<DashboardDrillResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillDownRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillDownResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToInsightRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToInsightResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToDashboardRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToDashboardResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToCustomUrlRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToCustomUrlResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToAttributeUrlRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToAttributeUrlResolved_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToLegacyDashboardRequested_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardDrillToLegacyDashboardResolved_2, {
+        type: TSuccessEventType;
     }> | Extract<DashboardDrillableItemsChanged_2, {
+        type: TSuccessEventType;
+    }> | Extract<DashboardRenderModeChanged_2, {
         type: TSuccessEventType;
     }> | Extract<CreateInsightRequested_2, {
         type: TSuccessEventType;
     }>) => void) | undefined;
-    onError?: ((event: Extract<DashboardDrillResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillDownResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToInsightResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToDashboardResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToAttributeUrlResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToCustomUrlResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToLegacyDashboardResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardInitialized_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDeinitialized_2, {
-        type: TErrorEventType;
-    }> | Extract<DateFilterValidationFailed_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardSaved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardCopySaved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardRenderRequested_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardAsyncRenderRequested_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardAsyncRenderResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardRenderResolved_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardSharingChanged_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardRenderModeChanged_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardCommandStarted_2<any>, {
+    onError?: ((event: Extract<DashboardCommandStarted_2<any>, {
         type: TErrorEventType;
     }> | Extract<DashboardCommandFailed_2<any>, {
         type: TErrorEventType;
     }> | Extract<DashboardCommandRejected_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardQueryFailed_2, {
-        type: TErrorEventType;
     }> | Extract<DashboardQueryRejected_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardQueryFailed_2, {
         type: TErrorEventType;
     }> | Extract<DashboardQueryStarted_2, {
         type: TErrorEventType;
     }> | Extract<DashboardQueryCompleted_2<any, any>, {
         type: TErrorEventType;
+    }> | Extract<DashboardInitialized_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDeinitialized_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardSaved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardCopySaved_2, {
+        type: TErrorEventType;
     }> | Extract<DashboardRenamed_2, {
         type: TErrorEventType;
     }> | Extract<DashboardWasReset_2, {
+        type: TErrorEventType;
+    }> | Extract<DateFilterValidationFailed_2, {
         type: TErrorEventType;
     }> | Extract<DashboardExportToPdfRequested_2, {
         type: TErrorEventType;
     }> | Extract<DashboardExportToPdfResolved_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardUserInteractionTriggered_2, {
+    }> | Extract<DashboardSharingChanged_2, {
         type: TErrorEventType;
     }> | Extract<DashboardDateFilterSelectionChanged_2, {
         type: TErrorEventType;
@@ -7224,11 +7198,11 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TErrorEventType;
     }> | Extract<DashboardAttributeFilterSelectionChanged_2, {
         type: TErrorEventType;
+    }> | Extract<DashboardAttributeFilterParentChanged_2, {
+        type: TErrorEventType;
     }> | Extract<DashboardAttributeTitleChanged_2, {
         type: TErrorEventType;
     }> | Extract<DashboardAttributeSelectionModeChanged_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardAttributeFilterParentChanged_2, {
         type: TErrorEventType;
     }> | Extract<DashboardFilterContextChanged_2, {
         type: TErrorEventType;
@@ -7294,9 +7268,9 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TErrorEventType;
     }> | Extract<DashboardWidgetExecutionStarted_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardWidgetExecutionSucceeded_2, {
-        type: TErrorEventType;
     }> | Extract<DashboardWidgetExecutionFailed_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardWidgetExecutionSucceeded_2, {
         type: TErrorEventType;
     }> | Extract<DashboardAlertCreated_2, {
         type: TErrorEventType;
@@ -7308,21 +7282,47 @@ export const useDashboardCommandProcessing: <TCommand extends DashboardCommands,
         type: TErrorEventType;
     }> | Extract<DashboardScheduledEmailSaved_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardDrillDownRequested_2, {
+    }> | Extract<DashboardUserInteractionTriggered_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardDrillToAttributeUrlRequested_2, {
+    }> | Extract<DashboardRenderRequested_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardDrillToCustomUrlRequested_2, {
+    }> | Extract<DashboardAsyncRenderRequested_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardDrillToDashboardRequested_2, {
+    }> | Extract<DashboardAsyncRenderResolved_2, {
         type: TErrorEventType;
-    }> | Extract<DashboardDrillToInsightRequested_2, {
-        type: TErrorEventType;
-    }> | Extract<DashboardDrillToLegacyDashboardRequested_2, {
+    }> | Extract<DashboardRenderResolved_2, {
         type: TErrorEventType;
     }> | Extract<DashboardDrillRequested_2, {
         type: TErrorEventType;
+    }> | Extract<DashboardDrillResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillDownRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillDownResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToInsightRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToInsightResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToDashboardRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToDashboardResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToCustomUrlRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToCustomUrlResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToAttributeUrlRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToAttributeUrlResolved_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToLegacyDashboardRequested_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardDrillToLegacyDashboardResolved_2, {
+        type: TErrorEventType;
     }> | Extract<DashboardDrillableItemsChanged_2, {
+        type: TErrorEventType;
+    }> | Extract<DashboardRenderModeChanged_2, {
         type: TErrorEventType;
     }> | Extract<CreateInsightRequested_2, {
         type: TErrorEventType;

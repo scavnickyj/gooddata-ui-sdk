@@ -8,6 +8,7 @@
         "directory": "libs/api-model-bear"
     },
     "type": "module",
+    "browser": "./esm/index.js",
     "exports": "./esm/index.js",
     "types": "./esm/index.d.ts",
     "sideEffects": false,
