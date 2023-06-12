@@ -79,7 +79,7 @@ class RelativeRangePickerComponent extends React.Component<
              */
             isTouchDevice
                 ? setTimeout(() => {
-                      this.toFieldRef.current.focus();
+                      this.toFieldRef.current?.focus();
                   }, 0)
                 : this.toFieldRef.current.focus();
         }
@@ -90,7 +90,7 @@ class RelativeRangePickerComponent extends React.Component<
         if (this.toFieldRef.current) {
             isTouchDevice
                 ? setTimeout(() => {
-                      this.toFieldRef.current.blur();
+                      this.toFieldRef.current?.blur();
                   }, 0)
                 : this.toFieldRef.current.blur();
         }
