@@ -2,9 +2,10 @@
 import React, { useMemo } from "react";
 import flow from "lodash/flow.js";
 import noop from "lodash/noop.js";
+import DefaultMediaQuery from "react-responsive";
+import { defaultImport } from "default-import";
 import { DateFilterGranularity, WeekStart } from "@gooddata/sdk-model";
 import { Dropdown } from "@gooddata/sdk-ui-kit";
-import DefaultMediaQuery from "react-responsive";
 import { IExtendedDateFilterErrors, IDateFilterOptionsByType, DateFilterOption } from "./interfaces/index.js";
 import { IntlWrapper } from "@gooddata/sdk-ui";
 import { MediaQueries } from "../constants/index.js";
@@ -17,8 +18,8 @@ import format from "date-fns/format/index.js";
 
 // There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
 // In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
-// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
-const MediaQuery = DefaultMediaQuery as unknown as typeof DefaultMediaQuery.default;
+// https://github.com/microsoft/TypeScript/issues/49189#issuecomment-1137802865
+const MediaQuery = defaultImport(DefaultMediaQuery);
 
 export interface IDateFilterCoreProps {
     dateFormat: string;
