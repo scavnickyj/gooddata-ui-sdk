@@ -11,7 +11,10 @@
     "license": "MIT",
     "type": "module",
     "browser": "./esm/index.js",
-    "exports": "./esm/index.js",
+    "exports": {
+        ".": "./esm/index.js",
+        "./internal-tests/GeoChartOptionsWrapper": "./esm/core/geoChart/GeoChartOptionsWrapper.js"
+    },
     "types": "./esm/index.d.ts",
     "sideEffects": [
         "*.css",
