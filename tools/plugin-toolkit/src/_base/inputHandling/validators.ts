@@ -3,7 +3,7 @@ import isEmpty from "lodash/isEmpty.js";
 import url from "url";
 import includes from "lodash/includes.js";
 import { InputValidationError, TargetBackendType } from "../types.js";
-import defaultAxios, { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import {
     IAnalyticalBackend,
     isUnexpectedResponseError,
@@ -16,7 +16,6 @@ import { idRef, IDashboardPlugin } from "@gooddata/sdk-model";
 export type InputValidator<T = string> = (value: T) => boolean | string;
 export type AsyncInputValidator = (value: string) => Promise<boolean | string>;
 
-const axios = defaultAxios as unknown as typeof defaultAxios.default;
 
 //
 // Simple validators compatible with inquirer API
