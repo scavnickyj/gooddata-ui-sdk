@@ -2,11 +2,6 @@
 /* eslint-disable header/header */
 /* THIS FILE WAS AUTO-GENERATED USING MOCK HANDLING TOOL; YOU SHOULD NOT EDIT THIS FILE; GENERATE TIME: 2023-05-17T08:38:25.263Z; */
 
-// TODO: add this code to catalog-export lib
-// https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
 const fp_00ab8c432637030b305313405b3f4efc = {
     definition: require("./uiTestScenarios/executions/00ab8c432637030b305313405b3f4efc/definition.json"),
     executionResult: require("./uiTestScenarios/executions/00ab8c432637030b305313405b3f4efc/executionResult.json"),

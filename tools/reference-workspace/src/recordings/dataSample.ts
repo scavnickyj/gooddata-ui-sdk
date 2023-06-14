@@ -2,11 +2,6 @@
 /* eslint-disable header/header */
 /* THIS FILE WAS AUTO-GENERATED USING MOCK HANDLING TOOL; YOU SHOULD NOT EDIT THIS FILE; GENERATE TIME: 2023-05-17T08:38:25.263Z; */
 
-// TODO: add this code to catalog-export lib
-// https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
 const df_label_activity_id_subject = require("./metadata/displayForms/label.activity.id.subject/elements.json");
 const df_label_product_id_name = require("./metadata/displayForms/label.product.id.name/elements.json");
 const df_label_owner_department = require("./metadata/displayForms/label.owner.department/elements.json");
