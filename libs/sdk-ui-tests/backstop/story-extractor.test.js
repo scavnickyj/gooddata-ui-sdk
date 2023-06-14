@@ -5,7 +5,7 @@ import { existsSync, writeFileSync } from "fs";
 
 import { toBackstopJson } from "../stories/_infra/storyRepository";
 
-import "./generated.stories";
+import "./generated.stories.js";
 
 const targetFile = path.resolve(__dirname, "stories.json");
 
@@ -18,7 +18,7 @@ const targetFile = path.resolve(__dirname, "stories.json");
 describe("story-extractor", () => {
     it("dumps stories into a file", () => {
         const fileContents = toBackstopJson();
-
+        console.log("test");
         writeFileSync(targetFile, fileContents, { encoding: "utf8" });
         expect(existsSync(targetFile)).toBe(true);
     });

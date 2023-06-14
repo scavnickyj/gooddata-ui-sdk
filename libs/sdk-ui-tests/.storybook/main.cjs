@@ -20,11 +20,18 @@ module.exports = {
     },
     webpackFinal: async (config) => ({
         ...config,
+        externals: { module: "module" },
         resolve: {
             ...config.resolve,
+            extensionAlias: {
+                ".js": [".ts", ".tsx", ".js", ".jsx"],
+            },
             alias: {
                 ...config.resolve.alias,
                 // fixes tilde imports in CSS from sdk-ui-ext
+                "@gooddata/sdk-ui-ext/internal": path.resolve(
+                    "./node_modules/@gooddata/sdk-ui-ext/esm/internal",
+                ),
                 "@gooddata/sdk-ui-ext": path.resolve("./node_modules/@gooddata/sdk-ui-ext"),
                 "@gooddata/sdk-ui-kit": path.resolve("./node_modules/@gooddata/sdk-ui-kit"),
                 "@gooddata/sdk-ui-dashboard": path.resolve("./node_modules/@gooddata/sdk-ui-dashboard"),

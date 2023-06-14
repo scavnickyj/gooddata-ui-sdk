@@ -2,7 +2,7 @@
 const fg = require("fast-glob");
 const path = require("path");
 const { writeFile } = require("fs/promises");
-const storybookMain = require("../.storybook/main");
+const storybookMain = require("../.storybook/main.cjs");
 
 const targetFile = path.resolve(__dirname, "generated.stories.js");
 const storiesGlob = storybookMain.stories;
