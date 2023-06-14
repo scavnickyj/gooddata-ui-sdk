@@ -1,16 +1,12 @@
 // (C) 2020-2023 GoodData Corporation
 
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { ILiveFeatures } from "@gooddata/api-client-tiger";
 import { getFeatureHubFeatures, FeatureHubResponse } from "../hub.js";
 import { FeatureDef } from "../feature.js";
 import { pickContext } from "../index.js";
 
-// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
-// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
-// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
-const axiosDefault = axios as unknown as typeof axios.default;
-const axiosGetSpy = jest.spyOn(axiosDefault, "get");
+const axiosGetSpy = jest.spyOn(axios, "get");
 
 describe("live features", () => {
     function createFeatures(earlyAccess = ""): ILiveFeatures["live"] {
@@ -39,7 +35,7 @@ describe("live features", () => {
             status,
             statusText: "",
             config: {},
-        } as AxiosResponse<FeatureHubResponse>);
+        } as any);
     }
 
     it("call axios", async () => {

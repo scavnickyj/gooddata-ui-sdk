@@ -1,5 +1,5 @@
 // (C) 2019-2022 GoodData Corporation
-import defaultAxios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import globalAxios, { AxiosInstance, CreateAxiosDefaults } from "axios";
 import cloneDeep from "lodash/cloneDeep.js";
 import merge from "lodash/merge.js";
 import packageJson from "../package.json";
@@ -16,7 +16,7 @@ import packageJson from "../package.json";
  * Setting default Content-Type to application/json;charset=utf - will be sent regardless of data as the
  * backend can only accept JSON anyway.
  */
-const _CONFIG: AxiosRequestConfig = {
+const _CONFIG: CreateAxiosDefaults = {
     maxContentLength: -1,
     withCredentials: true,
     headers: {
@@ -35,11 +35,6 @@ const _CONFIG: AxiosRequestConfig = {
 };
 
 let _TOKEN: string | undefined;
-
-// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
-// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
-// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
-const globalAxios = defaultAxios as unknown as typeof defaultAxios.default;
 
 /**
  * Returns an instance of axios with default configuration.
@@ -75,21 +70,9 @@ export function setGlobalAuthorizationToken(token: string | undefined) {
  */
 export function setAxiosAuthorizationToken(axios: AxiosInstance, token: string | undefined) {
     if (!token) {
-        const commonHeaders = axios.defaults.headers?.common ?? {};
-
-        delete commonHeaders.Authorization;
+        delete axios.defaults.headers.common['Authorization'];
     } else {
-        const commonAuthHeader = {
-            common: {
-                Authorization: `Bearer ${token}`,
-            },
-        };
-
-        if (axios.defaults.headers) {
-            merge(axios.defaults.headers, commonAuthHeader);
-        } else {
-            axios.defaults.headers = commonAuthHeader;
-        }
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
 }
 
@@ -104,15 +87,15 @@ export function setAxiosAuthorizationToken(axios: AxiosInstance, token: string |
 export function newAxiosRequestConfig(
     baseUrl?: string,
     headers?: { [name: string]: string },
-): AxiosRequestConfig {
-    const config: AxiosRequestConfig = cloneDeep(_CONFIG);
+): CreateAxiosDefaults {
+    const config: CreateAxiosDefaults = cloneDeep(_CONFIG);
 
     if (baseUrl) {
         config.baseURL = baseUrl;
     }
 
     if (_TOKEN) {
-        config.headers.common = {
+        config.headers!.common = {
             Authorization: `Bearer ${_TOKEN}`,
         };
     }
@@ -135,5 +118,5 @@ export function newAxiosRequestConfig(
 export function newAxios(baseUrl?: string, headers?: { [name: string]: string }): AxiosInstance {
     const config = newAxiosRequestConfig(baseUrl, headers);
 
-    return defaultAxios.default.create(config);
+    return globalAxios.create(config);
 }

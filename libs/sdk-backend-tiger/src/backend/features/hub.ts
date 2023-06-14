@@ -1,14 +1,9 @@
 // (C) 2020-2023 GoodData Corporation
 import { ILiveFeatures, FeatureContext } from "@gooddata/api-client-tiger";
-import globalAxios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 
 import { ITigerFeatureFlags } from "../uiFeatures.js";
 import { FeatureDef, FeaturesMap, mapFeatures } from "./feature.js";
-
-// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
-// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
-// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
-const axios = globalAxios as unknown as typeof globalAxios.default;
 
 type HubServiceState = Record<
     string,
