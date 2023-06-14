@@ -623,6 +623,10 @@
       "allowedCategories": [ "production" ]
     },
     {
+      "name": "default-import",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "dependency-cruiser",
       "allowedCategories": [ "production", "tools" ]
     },

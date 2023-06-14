@@ -77,8 +77,6 @@
         "babel-plugin-require-context-hook": "^1.0.0",
         "copy-webpack-plugin": "~11.0.0",
         "core-js": "^2.6.10",
-        "jest": "^29.5.0",
-        "jest-junit": "^3.0.0",
         "json-stable-stringify": "^1.0.1",
         "lodash": "^4.17.19",
         "moment": "^2.29.4",
@@ -121,7 +119,6 @@
         "@testing-library/dom": "~9.2.0",
         "@testing-library/jest-dom": "^5.12.0",
         "@testing-library/react": "^14.0.0",
-        "@types/jest": "^29.5.1",
         "@types/json-stable-stringify": "^1.0.32",
         "@types/lodash": "^4.14.158",
         "@types/node": "^16.18.23",
@@ -147,6 +144,7 @@
         "eslint-plugin-sonarjs": "^0.16.0",
         "eslint-plugin-tsdoc": "^0.2.14",
         "fast-glob": "^3.2.7",
+        "happy-dom": "^9.20.3",
         "mapbox-gl": "^2.6.1",
         "prettier": "~2.5.0",
         "react": "^18.2.0",
@@ -159,8 +157,6 @@
         "ts-node": "^10.4.0",
         "typescript": "5.0.2",
         "eslint-plugin-import-esm": "^1.2.1",
-        "vitest": "^0.31.3",
-        "happy-dom": "^9.20.3",
-        "jest-environment-jsdom": "^29.5.0"
+        "vitest": "^0.31.3"
     }
 }
