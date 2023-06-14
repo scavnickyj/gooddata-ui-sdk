@@ -1,7 +1,7 @@
 // (C) 2007-2022 GoodData Corporation
 
 import fetchCookie from "fetch-cookie";
-import  nodeFetch from "node-fetch/index.js";
+import  nodeFetch from "node-fetch";
 
 import { factory, SDK } from "./gooddata.js";
 

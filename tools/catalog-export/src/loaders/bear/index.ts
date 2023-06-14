@@ -7,7 +7,7 @@ import {
     WorkspaceMetadata,
 } from "../../base/types.js";
 import { DEFAULT_HOSTNAME } from "../../base/constants.js";
-import pkg from "../../../package.json";
+import pkg from "../../../package.json" assert { type: 'json' }; 
 import ora from "ora";
 import { log, logError } from "../../cli/loggers.js";
 import { promptPassword, promptWorkspaceId, promptUsername } from "../../cli/prompts.js";

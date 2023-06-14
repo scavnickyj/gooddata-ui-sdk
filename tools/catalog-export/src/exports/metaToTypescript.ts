@@ -1,6 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import { transformToTypescript } from "../transform/toTypescript.js";
-import { format } from "prettier";
+import pkg from 'prettier';
+const { format } = pkg;
 import * as fs from "fs";
 import { WorkspaceMetadata } from "../base/types.js";
 

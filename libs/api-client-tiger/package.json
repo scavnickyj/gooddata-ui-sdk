@@ -22,9 +22,8 @@
     ],
     "scripts": {
         "clean": "rm -rf ci dist esm coverage *.log && jest --clearCache",
-        "dev": "tsc -p tsconfig.dev.json --watch",
-        "build": "npm run build-esm && npm run api-extractor",
-        "build-esm": "tsc -p tsconfig.build.json",
+        "dev": "bash scripts/build.sh --dev-watch",
+        "build": "bash scripts/build.sh && npm run api-extractor",                
         "openapi-generate": "./scripts/generate.js",
         "generate-client": "rm -rf src/generated/* && npm run openapi-generate && npm run prettier-write",
         "api-extractor": "mkdir -p api && [ -z \"${CI}\" ] && (api-extractor run -l) || (api-extractor run)",

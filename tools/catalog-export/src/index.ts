@@ -5,7 +5,7 @@ import chalk from "chalk";
 import * as path from "path";
 import fs from "fs";
 import * as dotenv from "dotenv";
-import pkg from "../package.json";
+import pkg from "../package.json" assert { type: 'json' }; 
 import { logBox, logError, logSuccess, printHeader } from "./cli/loggers.js";
 import { clearTerminal } from "./cli/clear.js";
 import { requestFilePath } from "./cli/prompts.js";

@@ -2,7 +2,7 @@
 import globalAxios, { AxiosInstance, CreateAxiosDefaults } from "axios";
 import cloneDeep from "lodash/cloneDeep.js";
 import merge from "lodash/merge.js";
-import packageJson from "../package.json";
+import { LIB_VERSION, LIB_NAME } from "./__version.js";
 
 /**
  * Default config from axios sets request headers:
@@ -22,8 +22,8 @@ const _CONFIG: CreateAxiosDefaults = {
     headers: {
         common: {
             "X-Requested-With": "XMLHttpRequest",
-            "X-GDC-JS-PACKAGE": packageJson.name,
-            "X-GDC-JS-PACKAGE-VERSION": packageJson.version,
+            "X-GDC-JS-PACKAGE": LIB_NAME,
+            "X-GDC-JS-PACKAGE-VERSION": LIB_VERSION,
         },
         post: {
             "Content-Type": "application/json;charset=utf8",

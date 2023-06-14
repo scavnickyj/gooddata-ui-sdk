@@ -5,10 +5,10 @@ import set from "lodash/set.js";
 import defaults from "lodash/defaults.js";
 import merge from "lodash/merge.js";
 import result from "lodash/result.js";
-import pkgInfo from "../package.json";
 import { stringify } from "./utils/queryString.js";
 
-const { name: pkgName, version: pkgVersion } = pkgInfo;
+import { LIB_VERSION, LIB_NAME } from "./__version.js";
+
 /**
  * Ajax wrapper around GDC authentication mechanisms, SST and TT token handling and polling.
  * Interface is the same as original jQuery.ajax.
@@ -31,7 +31,7 @@ const LATEST_REST_API_VERSION = 5;
  * Gooddata-js package signature
  * @internal
  */
-export const thisPackage = { name: pkgName, version: pkgVersion };
+export const thisPackage = { name: LIB_VERSION, version: LIB_NAME };
 
 function simulateBeforeSend(url: string, settings: any) {
     const xhrMockInBeforeSend = {
