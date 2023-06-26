@@ -3381,6 +3381,7 @@ importers:
       ts-node: ^10.4.0
       tslib: ^2.5.0
       typescript: 5.0.2
+      vitest: ^0.31.3
     dependencies:
       blessed: 0.1.81
       chokidar: 3.5.3
@@ -3416,6 +3417,7 @@ importers:
       ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       ts-node: 10.9.1_2qbue3w6kzejc37b4l5oa2ak4u
       typescript: 5.0.2
+      vitest: 0.31.3
 
   ../../tools/catalog-export:
     specifiers:
@@ -3726,6 +3728,7 @@ importers:
       tslib: ^2.5.0
       typescript: 5.0.2
       util: ^0.12.3
+      vitest: ^0.31.3
     dependencies:
       '@formatjs/cli-lib': 6.1.1_ts-jest@29.1.0
       '@formatjs/icu-messageformat-parser': 2.3.1
@@ -3762,6 +3765,7 @@ importers:
       prettier: 2.5.1
       ts-jest: 29.1.0_44ttdtjaknnkcgzh5px4h2qxl4
       typescript: 5.0.2
+      vitest: 0.31.3
 
   ../../tools/live-examples-workspace:
     specifiers:

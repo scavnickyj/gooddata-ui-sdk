@@ -1,12 +1,13 @@
 // (C) 2020-2022 GoodData Corporation
 
+import { vi } from "vitest";
 import { getInsightToReportCheck } from "../insightToReport";
 import { LocalesStructure } from "../../schema/localization";
 
 type Scenario = [string, LocalesStructure, string | null];
 
 let returnValue: LocalesStructure;
-jest.mock("../../utils", () => ({
+vi.mock("../../utils", () => ({
     readFile: () => Promise.resolve(Buffer.from(JSON.stringify(returnValue))),
 }));
 
