@@ -12,7 +12,7 @@ import {
     newAttributeSort,
 } from "@gooddata/sdk-model";
 import { CoreBarChart } from "../CoreBarChart.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 function renderChart(measures: IAttributeOrMeasure[], config?: IChartConfig) {
     return render(<BarChart config={config} workspace="foo" backend={dummyBackend()} measures={measures} />);

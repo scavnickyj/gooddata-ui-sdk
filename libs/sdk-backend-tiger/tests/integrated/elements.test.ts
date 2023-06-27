@@ -10,6 +10,7 @@ import omit from "lodash/omit.js";
 
 import * as Md from "../../src/fixtures/full.js";
 import * as ReferenceRecords from "../../src/fixtures/referenceObjects.js";
+import { describe, expect, it, beforeAll } from "vitest";
 
 const backend = testBackend();
 

@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import * as uiKit from "@gooddata/sdk-ui-kit";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import ColorOverlay, { IColorOverlayProps, DropdownVersionType } from "../ColorOverlay.js";
 

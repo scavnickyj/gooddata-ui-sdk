@@ -1,6 +1,7 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 
 import { ResizeOverlayProps, ResizeOverlay } from "../ResizeOverlay.js";
 import { IntlWrapper } from "../../../localization/index.js";

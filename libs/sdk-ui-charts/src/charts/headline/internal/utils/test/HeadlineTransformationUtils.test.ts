@@ -20,6 +20,7 @@ import {
     headlineWithTwoMeasuresWithIdentifier,
 } from "../../../../../../__mocks__/fixtures.js";
 import { IHeadlineData } from "../../../Headlines.js";
+import { describe, it, expect } from "vitest";
 
 describe("HeadlineTransformationUtils", () => {
     describe("getData", () => {

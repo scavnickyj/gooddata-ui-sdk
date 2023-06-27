@@ -1,6 +1,7 @@
 // (C) 2019-2020 GoodData Corporation
 import cloneDeep from "lodash/cloneDeep.js";
 import set from "lodash/set.js";
+import { describe, it, expect } from "vitest";
 
 import { IBucketItem, IBucketOfFun, IFilters } from "../../interfaces/Visualization.js";
 import * as bucketRules from "../bucketRules.js";

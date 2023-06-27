@@ -7,7 +7,7 @@ import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualizatio
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableBubbleChart", () => {
     const mockElement = document.createElement("div");

@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { ColorFormats } from "tinycolor2";
 
 import { ColorPickerMatrix, IColorPickerMatrixProps } from "../ColorPickerMatrix.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const initColor: ColorFormats.HSL = {
     h: 3,

@@ -1,7 +1,7 @@
 // (C) 2019-2022 GoodData Corporation
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import defaultUserEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import { IColor } from "@gooddata/sdk-model";
@@ -9,9 +9,14 @@ import { colorPalette } from "../../../../../tests/mocks/testColorHelper.js";
 import { InternalIntlWrapper } from "../../../../../utils/internalIntlProvider.js";
 import ColorDropdown, { IColorDropdownOwnProps, IconPosition, ISelectableChild } from "../ColorDropdown.js";
 import { IColoredItemContentProps } from "../../coloredItemsList/ColoredItemContent.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 export type IMockItemProps = IColoredItemContentProps & ISelectableChild;
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 const defaultProps: IColorDropdownOwnProps = {
     selectedColorItem: {

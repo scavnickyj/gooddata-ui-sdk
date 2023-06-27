@@ -1,5 +1,6 @@
 // (C) 2019-2021 GoodData Corporation
 import cloneDeep from "lodash/cloneDeep.js";
+import { describe, it, expect } from "vitest";
 
 import { DATE, GRANULARITY } from "../../constants/bucket.js";
 import { DEFAULT_BASE_CHART_UICONFIG, DEFAULT_TABLE_UICONFIG } from "../../constants/uiConfig.js";

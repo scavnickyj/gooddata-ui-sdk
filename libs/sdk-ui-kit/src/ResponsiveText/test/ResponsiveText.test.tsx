@@ -1,6 +1,7 @@
 // (C) 2007-2022 GoodData Corporation
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 
 import { ResponsiveText, IResponsiveTextProps } from "../ResponsiveText.js";
 

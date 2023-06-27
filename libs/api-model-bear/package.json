@@ -27,18 +27,15 @@
         "test": "vitest watch",
         "test-once": "vitest run",
         "test-ci": "vitest run --reporter=junit --outputFile=./ci/results/test-results.xml",
-        "eslint": "eslint -c .eslintrc.cjs --ext ts src/",
-        "eslint-fix": "eslint -c .eslintrc.cjs --ext ts src/ --fix",
-        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs --ext ts src/",
+        "eslint": "eslint -c .eslintrc.cjs src/",
+        "eslint-fix": "eslint -c .eslintrc.cjs src/ --fix",
+        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs src/",
         "prettier-check": "prettier --check 'src/**/*.ts'",
         "prettier-write": "prettier --write 'src/**/*.ts'",
         "dep-cruiser": "depcruise --validate .dependency-cruiser.cjs --output-type err-long src/",
         "dep-cruiser-ci": "depcruise --validate .dependency-cruiser.cjs --output-type err-long src/",
         "validate": "npm run dep-cruiser && npm run eslint && npm run prettier-check",
         "validate-ci": "npm run dep-cruiser-ci && npm run eslint-ci && npm run prettier-check"
-    },
-    "config": {
-        "eslint": "-c .eslintrc.js --ext ts src/"
     },
     "keywords": [
         "typescript",
@@ -55,7 +52,6 @@
         "@gooddata/eslint-config": "^4.1.0",
         "@microsoft/api-documenter": "^7.17.0",
         "@microsoft/api-extractor": "^7.36.0",
-        
         "@types/lodash": "^4.14.158",
         "@typescript-eslint/eslint-plugin": "^5.57.1",
         "@typescript-eslint/parser": "^5.57.1",
@@ -73,6 +69,6 @@
         "eslint-plugin-tsdoc": "^0.2.14",
         "prettier": "~2.5.0",
         "typescript": "5.0.2",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4"
     }
 }

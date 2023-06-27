@@ -1,5 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import { newTestAttributeFilterHandler } from "./fixtures.js";
+import { describe, it, expect, vi } from "vitest";
 
 const changedSelection = {
     isInverted: true,

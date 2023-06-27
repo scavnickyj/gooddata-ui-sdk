@@ -6,7 +6,7 @@ import { newAttributeSort, newTwoDimensional, MeasureGroupIdentifier } from "@go
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { CoreDependencyWheelChart } from "../CoreDependencyWheelChart.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

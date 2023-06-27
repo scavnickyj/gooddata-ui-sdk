@@ -1,6 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 
 import { BubbleHoverTrigger, IBubbleHoverTriggerProps } from "../BubbleHoverTrigger.js";
 import { BubbleFocusTrigger, BubbleFocusTriggerProps } from "../BubbleFocusTrigger.js";

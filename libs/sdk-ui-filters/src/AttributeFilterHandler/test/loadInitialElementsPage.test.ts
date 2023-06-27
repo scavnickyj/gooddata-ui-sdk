@@ -8,6 +8,7 @@ import {
 import { waitForAsync } from "./testUtils.js";
 import * as elements from "../internal/redux/elements/loadElements.js";
 import { BadRequestSdkError } from "@gooddata/sdk-ui";
+import { describe, it, expect, vi } from "vitest";
 
 describe("AttributeFilterHandler", () => {
     it("loadInitialElementsPage() should trigger onLoadInitialElementsPageStart() callback", async () => {

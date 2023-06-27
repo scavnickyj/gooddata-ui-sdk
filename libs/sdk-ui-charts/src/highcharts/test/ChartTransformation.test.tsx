@@ -13,7 +13,7 @@ import { TOP, BOTTOM, MIDDLE } from "../constants/alignments.js";
 import { ReferenceMd, ReferenceRecordings } from "@gooddata/reference-workspace";
 import * as fixtures from "../../../__mocks__/fixtures.js";
 import { recordedDataFacade } from "../../../__mocks__/recordings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const BarChartNoAttributes = recordedDataFacade(ReferenceRecordings.Scenarios.BarChart.SingleMeasure);
 const BarChartView = recordedDataFacade(ReferenceRecordings.Scenarios.BarChart.SingleMeasureWithViewBy);

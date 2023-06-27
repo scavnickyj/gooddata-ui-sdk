@@ -14,6 +14,7 @@ import {
 import { DashboardLayoutBuilder } from "../layout.js";
 import { DashboardLayoutSectionBuilder } from "../section.js";
 import { DashboardLayoutItemBuilder } from "../item.js";
+import { describe, it, expect } from "vitest";
 
 describe("DashboardLayoutItemBuilder", () => {
     describe("constructors", () => {

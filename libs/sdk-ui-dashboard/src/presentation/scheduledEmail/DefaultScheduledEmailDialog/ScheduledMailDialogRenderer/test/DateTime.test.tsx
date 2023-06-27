@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { formatTime } from "@gooddata/sdk-ui-kit";
 import format from "date-fns/format/index.js";
 import noop from "lodash/noop.js";
+import { describe, it, expect } from "vitest";
 
 import { DateTime, IDateTimeProps } from "../DateTime.js";
 

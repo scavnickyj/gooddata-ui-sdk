@@ -9,6 +9,7 @@ import {
     UnexpectedResponseError,
 } from "@gooddata/sdk-backend-spi";
 import { convertError } from "../errorHandling.js";
+import { describe, expect, it } from "vitest";
 
 describe("convertErrors", () => {
     const Scenarios: Array<[string, any, string]> = [

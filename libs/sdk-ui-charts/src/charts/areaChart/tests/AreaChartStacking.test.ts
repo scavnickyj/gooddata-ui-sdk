@@ -4,6 +4,7 @@ import { IChartConfig } from "../../../interfaces/index.js";
 import { IAttributeOrMeasure, IAttribute } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
+import { describe, it, expect } from "vitest";
 
 describe("getPropsForArea", () => {
     function getPropsForArea(props: IAreaChartProps): {

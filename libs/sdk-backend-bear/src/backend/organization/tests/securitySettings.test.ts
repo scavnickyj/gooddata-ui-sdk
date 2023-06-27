@@ -1,5 +1,6 @@
 // (C) 2021 GoodData Corporation
 
+import { describe, expect, it } from "vitest";
 import { validateAgainstList } from "../securitySettings.js";
 
 describe("validateAgainstList", () => {

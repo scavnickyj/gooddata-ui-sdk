@@ -5,6 +5,7 @@ import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { getMVSForViewByTwoAttributes } from "../../_util/test/helper.js";
 import { DEFAULT_TOOLTIP_CONTENT_WIDTH } from "./sankeyChart.fixture.js";
 import cloneDeep from "lodash/cloneDeep.js";
+import { describe, it, expect } from "vitest";
 
 describe("SankeyChart tooltip", () => {
     it("should render tooltip for node correctly", () => {

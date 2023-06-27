@@ -8,6 +8,7 @@ import {
     attributeDescriptor,
 } from "./HeaderPredicateFactory.fixtures.js";
 import { attributeDisplayFormRef, measureItem, newAttribute, newMeasure, uriRef } from "@gooddata/sdk-model";
+import { describe, expect, it } from "vitest";
 
 describe("uriMatch", () => {
     describe("measure headers", () => {

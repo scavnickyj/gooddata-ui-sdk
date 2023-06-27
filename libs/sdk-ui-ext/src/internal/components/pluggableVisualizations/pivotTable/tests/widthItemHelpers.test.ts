@@ -16,6 +16,7 @@ import {
 import { adaptReferencePointWidthItemsToPivotTable } from "../widthItemsHelpers.js";
 import { ColumnWidthItem } from "@gooddata/sdk-ui-pivot";
 import { uriRef } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 describe("adaptReferencePointWidthItemsToPivotTable", () => {
     const sourceReferencePoint = referencePointMocks.simpleStackedReferencePoint;

@@ -5,6 +5,7 @@ import noop from "lodash/noop.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { newRankingFilter } from "@gooddata/sdk-model";
 import { RankingFilterDropdownFragment } from "./fragments/RankingFilterDropdown.js";
+import { describe, it, expect, vi } from "vitest";
 
 import {
     IRankingFilterDropdownProps,

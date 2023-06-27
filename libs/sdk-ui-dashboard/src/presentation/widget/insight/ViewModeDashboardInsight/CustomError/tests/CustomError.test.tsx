@@ -10,6 +10,7 @@ import {
     ProtectedReportSdkError,
     UnexpectedSdkError,
 } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 import { CustomError } from "../CustomError.js";
 import { DataTooLargeError } from "../DataTooLargeError.js";

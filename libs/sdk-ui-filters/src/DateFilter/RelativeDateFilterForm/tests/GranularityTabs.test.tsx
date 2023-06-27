@@ -3,6 +3,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { DateFilterGranularity } from "@gooddata/sdk-model";
+import { describe, it, expect, vi } from "vitest";
 
 import { GranularityTabs, IGranularityTabsProps } from "../GranularityTabs.js";
 import { withIntl } from "@gooddata/sdk-ui";

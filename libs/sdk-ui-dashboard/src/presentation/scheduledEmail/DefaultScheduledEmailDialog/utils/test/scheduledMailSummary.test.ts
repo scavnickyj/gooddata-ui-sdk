@@ -4,6 +4,7 @@ import { createInternalIntl } from "../../../../localization/createInternalIntl.
 import { getScheduledEmailSummaryString } from "../scheduledMailSummary.js";
 import { IScheduleEmailRepeat } from "../../interfaces.js";
 import { REPEAT_TYPES } from "../../constants.js";
+import { describe, it, expect } from "vitest";
 
 interface ICustomRepeatOptions {
     year?: number;

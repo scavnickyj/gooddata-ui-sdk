@@ -6,7 +6,7 @@ import { IDrillConfig, IDrillEventIntersectionElement, VisualizationTypes } from
 import Highcharts from "../../../lib/index.js";
 import { chartClick, getClickableElementNameByChartType } from "../drilldownEventing.js";
 import { IHighchartsPointObject } from "../isGroupHighchartsDrillEvent.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const SeriesChartTypes = {
     COLUMN: "column",

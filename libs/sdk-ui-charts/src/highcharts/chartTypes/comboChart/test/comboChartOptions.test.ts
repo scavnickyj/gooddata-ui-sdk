@@ -5,6 +5,7 @@ import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { StackingType } from "../../../constants/stacking.js";
 import { ISeriesItem } from "../../../typings/unsafe.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 const { COLUMN, LINE, AREA, BAR } = VisualizationTypes;
 

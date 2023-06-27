@@ -7,7 +7,7 @@ import { withExecutionLoading, IWithExecutionLoading, WithLoadingResult } from "
 
 import { IDummyPromise, createDummyPromise } from "../../base/react/tests/toolkit.js";
 import { DataViewFacade } from "../../base/index.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 const EmptyDataViewFacade = DataViewFacade.for(dummyDataView(emptyDef("testWorkspace")));
 

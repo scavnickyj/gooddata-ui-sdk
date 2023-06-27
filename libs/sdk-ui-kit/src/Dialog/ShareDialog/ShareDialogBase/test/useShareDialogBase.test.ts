@@ -17,7 +17,7 @@ import { useShareDialogBase } from "../useShareDialogBase.js";
 import { IGranularGranteeUser, IShareDialogBaseProps } from "../types.js";
 import { recordedBackend, RecordedBackendConfig } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 const recordedBackendConfig: RecordedBackendConfig = {
     userManagement: {

@@ -8,7 +8,7 @@ import { IGeoConfig } from "../../../GeoChart.js";
 import { createIntlMock, DefaultColorPalette } from "@gooddata/sdk-ui";
 import { getColorStrategy } from "../colorStrategy/geoChart.js";
 import { createCategoryLegendItems } from "../GeoChartOptionsWrapper.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const { dv, geoData } = RecShortcuts.AllAndSmall;
 

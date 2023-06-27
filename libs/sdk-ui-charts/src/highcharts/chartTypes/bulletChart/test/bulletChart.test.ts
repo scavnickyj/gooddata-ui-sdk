@@ -8,6 +8,7 @@ import { IColorMapping } from "../../../../interfaces/index.js";
 import { ReferenceMd, ReferenceMdExt, ReferenceRecordings } from "@gooddata/reference-workspace";
 import { IColorStrategy } from "@gooddata/sdk-ui-vis-commons";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 const defaultColorMapping: IColorMapping[] = [
     {

@@ -13,6 +13,7 @@ import {
 import { IGeoData } from "../../../GeoChart.js";
 import { DEFAULT_COLORS } from "../constants/geoChart.js";
 import { RecShortcuts } from "../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 interface ILegendFlags {
     hasSizeLegend?: boolean;

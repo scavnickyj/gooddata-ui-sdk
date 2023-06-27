@@ -28,7 +28,7 @@ import {
     insightDefinitionToInsight,
 } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 const { Department, Region } = ReferenceMd;
 

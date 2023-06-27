@@ -7,6 +7,7 @@ import {
     drillToDashboardWithDrillFromMeasure,
     drillToDashboardWithDrillFromAttribute,
 } from "./DrillConverter.fixtures.js";
+import { describe, expect, it } from "vitest";
 
 describe("convert drill", () => {
     describe("origin", () => {

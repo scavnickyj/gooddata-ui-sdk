@@ -8,7 +8,7 @@ import {
 import { IGroupingProvider } from "../data/rowGroupingProvider.js";
 import { GridApi } from "@ag-grid-community/all-modules";
 import { ROW_ATTRIBUTE_COLUMN } from "../base/constants.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("stickyRowHandler", () => {
     const fakeRow = {

@@ -31,6 +31,7 @@ import {
     mapAccessGranteeDetailToGrantee,
     mapSharedObjectToAffectedSharedObject,
 } from "../shareDialogMappers.js";
+import { describe, it, expect } from "vitest";
 
 const SimpleDashboardWithReferences = ReferenceRecordings.Recordings.metadata.dashboards.dash_aaRaEZRWdRpQ
     .obj as IDashboardWithReferences;

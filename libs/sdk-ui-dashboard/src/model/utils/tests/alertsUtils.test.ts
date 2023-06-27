@@ -15,6 +15,7 @@ import { IBrokenAlertFilterBasicInfo } from "../../types/alertTypes.js";
 import { getBrokenAlertFiltersBasicInfo } from "../alertsUtils.js";
 import { ReferenceMd, ReferenceRecordings } from "@gooddata/reference-workspace";
 import { newDisplayFormMap } from "../../../_staging/metadata/objRefMap.js";
+import { describe, it, expect } from "vitest";
 
 describe("getBrokenAlertFiltersBasicInfo", () => {
     const kpiBase: IWidgetDefinition = {

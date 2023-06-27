@@ -3,6 +3,7 @@
 import { ITheme } from "@gooddata/sdk-model";
 import { getColorsPreviewFromTheme } from "../StylingSettingWidget/index.js";
 import { customItemsMock, fullyDefinedThemeMock } from "./mocks.js";
+import { describe, it, expect } from "vitest";
 
 describe("getColorsPreviewFromTheme", () => {
     it("should return default array of colors when theme is empty", () => {

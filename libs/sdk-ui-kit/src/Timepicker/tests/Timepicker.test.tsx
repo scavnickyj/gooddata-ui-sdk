@@ -3,9 +3,9 @@ import React from "react";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import moment from "moment";
 import { createIntlMock, withIntl } from "@gooddata/sdk-ui";
+import { describe, it, expect, vi } from "vitest";
 
 import { TimePickerProps, WrappedTimepicker } from "../Timepicker.js";
-import { vi } from "vitest";
 
 describe("TimePicker", () => {
     const TEST_TIME = new Date();

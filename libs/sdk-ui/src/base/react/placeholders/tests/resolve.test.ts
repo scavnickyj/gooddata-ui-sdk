@@ -10,6 +10,7 @@ import { newPlaceholder, newComposedPlaceholder } from "../factory.js";
 import { newMeasure, newAttribute, newPositiveAttributeFilter, newAttributeSort } from "@gooddata/sdk-model";
 import { PlaceholdersState } from "../context.js";
 import flow from "lodash/flow.js";
+import { describe, expect, it } from "vitest";
 
 export const emptyState: PlaceholdersState = { placeholders: {} };
 

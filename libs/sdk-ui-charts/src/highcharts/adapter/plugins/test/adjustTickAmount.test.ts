@@ -17,6 +17,7 @@ import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { UnsafeInternals } from "../../../typings/unsafe.js";
 import Highcharts from "../../../lib/index.js";
 import { IHighchartsAxisExtend } from "../../../typings/extend.js";
+import { describe, it, expect, beforeAll } from "vitest";
 
 const mockAxis = ({
     tickInterval,

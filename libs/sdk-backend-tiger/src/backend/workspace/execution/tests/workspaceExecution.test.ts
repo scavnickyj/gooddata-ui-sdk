@@ -7,6 +7,7 @@ import {
     setDerivedMetrics,
 } from "../utils.js";
 import { IDimensionDescriptor, IExecutionDefinition } from "@gooddata/sdk-model";
+import { describe, expect, test } from "vitest";
 
 describe("Export payload", () => {
     const dimensions: IDimensionDescriptor[] = [

@@ -1,5 +1,6 @@
 // (C) 2019-2022 GoodData Corporation
 import { idRef, IDateFilterConfig, IDashboardDateFilterConfig } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 import { mergeDateFilterConfigs } from "../merge.js";
 

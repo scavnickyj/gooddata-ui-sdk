@@ -7,6 +7,7 @@ import {
 } from "../generateHeaderMenuItemsGroups.js";
 import { activateHeaderMenuItems } from "../activateHeaderMenuItems.js";
 import { IHeaderMenuItem } from "../typings.js";
+import { describe, it, expect, beforeAll } from "vitest";
 
 describe("activateHeaderMenuItems", () => {
     let items: IHeaderMenuItem[][];

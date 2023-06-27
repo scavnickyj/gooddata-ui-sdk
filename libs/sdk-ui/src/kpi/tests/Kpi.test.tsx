@@ -5,7 +5,7 @@ import { render, waitFor } from "@testing-library/react";
 import React from "react";
 import { FormattedNumber } from "../FormattedNumber.js";
 import { Kpi } from "../Kpi.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
 
 const testCustomFormat = "$#,#.##";
 const testMeasure = newMeasure("m1", (m) => m.localId("m1").format(testCustomFormat));

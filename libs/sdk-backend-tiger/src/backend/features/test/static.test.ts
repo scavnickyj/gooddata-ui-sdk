@@ -3,6 +3,7 @@
 import { IStaticFeatures } from "@gooddata/api-client-tiger";
 import { TigerFeaturesNames } from "../../uiFeatures.js";
 import { getStaticFeatures } from "../static.js";
+import { describe, expect, it } from "vitest";
 
 describe("static features", () => {
     function createFeatures(items = {}, earlyAccess = ""): IStaticFeatures["static"] {

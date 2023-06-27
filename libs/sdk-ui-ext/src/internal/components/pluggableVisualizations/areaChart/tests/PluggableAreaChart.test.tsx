@@ -37,7 +37,7 @@ import {
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
 import { IAreaChartProps } from "@gooddata/sdk-ui-charts";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 const { Department, Region } = ReferenceMd;
 

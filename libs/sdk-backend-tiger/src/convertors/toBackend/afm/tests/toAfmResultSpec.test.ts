@@ -13,6 +13,7 @@ import {
     newNegativeAttributeFilter,
     defWithFilters,
 } from "@gooddata/sdk-model";
+import { describe, expect, it } from "vitest";
 
 const workspace = "test workspace";
 

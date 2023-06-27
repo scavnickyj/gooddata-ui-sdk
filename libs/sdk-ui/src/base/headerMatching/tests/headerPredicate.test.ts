@@ -7,7 +7,7 @@ import { convertDrillableItemsToPredicates, isSomeHeaderPredicateMatched } from 
 import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 import { newDefForBuckets } from "@gooddata/sdk-model";
 import { DataViewFacade } from "../../results/facade.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 const emptyFacade = DataViewFacade.for(dummyDataView(newDefForBuckets("testWorkspace", [])));
 

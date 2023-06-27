@@ -5,7 +5,7 @@ import { ILiveFeatures } from "@gooddata/api-client-tiger";
 import { getFeatureHubFeatures, FeatureHubResponse } from "../hub.js";
 import { FeatureDef } from "../feature.js";
 import { pickContext } from "../index.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 const axiosGetSpy = vi.spyOn(axios, "get");
 

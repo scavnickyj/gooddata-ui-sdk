@@ -4,7 +4,7 @@ import ReactDOM, { unmountComponentAtNode } from "react-dom";
 import { render, screen } from "@testing-library/react";
 
 import { Overlay } from "../Overlay.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 /**
  * @internal

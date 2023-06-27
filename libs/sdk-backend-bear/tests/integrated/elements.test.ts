@@ -8,6 +8,7 @@ import {
     newPositiveAttributeFilter,
     IAttributeElement,
 } from "@gooddata/sdk-model";
+import { describe, expect, it, beforeAll } from "vitest";
 const backend = testBackend();
 
 beforeAll(async () => {

@@ -1,5 +1,5 @@
 // (C) 2022 GoodData Corporation
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { DashboardStoreAccessorRepository } from "../DashboardStoreAccessorRepository.js";
 import { DashboardState } from "../../types.js";
 const DASHBOARD_ID = "dashboard_id";

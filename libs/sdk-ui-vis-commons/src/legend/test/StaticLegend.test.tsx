@@ -5,6 +5,7 @@ import noop from "lodash/noop.js";
 import { getPagingValues, IStaticLegendProps, StaticLegend } from "../StaticLegend.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { IPushpinCategoryLegendItem } from "../types.js";
+import { describe, it, expect } from "vitest";
 
 describe("StaticLegend", () => {
     function renderComponent(customProps: Partial<IStaticLegendProps> = {}) {

@@ -2,6 +2,7 @@
 import mapboxgl from "mapbox-gl";
 import { getLngLatBounds, getViewportOptions } from "../viewport.js";
 import { IGeoConfig, IGeoConfigViewportArea, IGeoLngLat } from "../../../../../GeoChart.js";
+import { describe, it, expect } from "vitest";
 
 describe("viewport", () => {
     describe("getViewportOptions", () => {

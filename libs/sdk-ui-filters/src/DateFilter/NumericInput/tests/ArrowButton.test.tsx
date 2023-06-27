@@ -2,6 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
+import { describe, it, expect, vi } from "vitest";
 
 import { ArrowButton } from "../ArrowButton.js";
 

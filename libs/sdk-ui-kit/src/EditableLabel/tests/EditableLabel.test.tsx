@@ -2,13 +2,14 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { EditableLabel } from "../EditableLabel.js";
+import defaultUserEvent from "@testing-library/user-event";
 import { IEditableLabelProps } from "../typings.js";
-import { vi, Mock } from "vitest";
-import { createRequire } from "module";
+import { describe, it, expect, vi, Mock } from "vitest";
 
-const require = createRequire(import.meta.url);
-
-const { default: userEvent } = require("@testing-library/user-event");
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 function renderEditableLabel(options: IEditableLabelProps) {
     return render(<EditableLabel {...options} />);

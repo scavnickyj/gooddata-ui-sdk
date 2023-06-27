@@ -8,6 +8,7 @@ import { SingleMeasureWithRowAndColumnAttributes } from "../../structure/tests/t
 import { createTestTableFacade } from "../../tests/tableFacade.fixture.js";
 import { ThemeProvider } from "@gooddata/sdk-ui-theme-provider";
 import { ITheme } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 async function createTestRenderer() {
     const [TestFacade, TestProps] = await createTestTableFacade(SingleMeasureWithRowAndColumnAttributes);

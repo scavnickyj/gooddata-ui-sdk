@@ -13,6 +13,7 @@ import { IGeoData, IGeoPointsConfig } from "../../../../../GeoChart.js";
 import { IColorAssignment } from "@gooddata/sdk-ui";
 import { RecShortcuts } from "../../../../../../__mocks__/recordings.js";
 import { IBucket } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 describe("common", () => {
     describe("isDataOfReasonableSize", () => {

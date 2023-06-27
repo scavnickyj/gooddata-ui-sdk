@@ -7,6 +7,7 @@ import {
     createUnclusterPoints,
 } from "../geoChartDataLayers.js";
 import { IGeoConfig, IGeoData } from "../../../GeoChart.js";
+import { describe, it, expect } from "vitest";
 
 const TEST_LOCATION = [
     {

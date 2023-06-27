@@ -6,6 +6,7 @@ import {
     newTestAttributeFilterHandler,
 } from "./fixtures.js";
 import { waitForAsync } from "./testUtils.js";
+import { describe, it, expect } from "vitest";
 
 describe("AttributeFilterHandler", () => {
     it("staticElements option should replace loaded elements on init", async () => {

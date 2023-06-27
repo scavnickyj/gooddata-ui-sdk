@@ -12,7 +12,7 @@ import {
 } from "@gooddata/sdk-model";
 import { CoreColumnChart } from "../CoreColumnChart.js";
 import { ReferenceMd, ReferenceMdExt } from "@gooddata/reference-workspace";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 function renderChart(measures: IAttributeOrMeasure[], config?: IChartConfig) {
     return render(

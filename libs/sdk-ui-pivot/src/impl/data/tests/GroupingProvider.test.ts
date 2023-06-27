@@ -10,6 +10,7 @@ import {
     twoAttributesTwoMeasuresEvenGroupsSecondPage,
     noAttributesTwoMeasures,
 } from "./GroupingProvider.fixtures.js";
+import { describe, it, expect } from "vitest";
 
 function expectBoundaries(groupingProvider: IGroupingProvider, expectedBoundaries: boolean[]) {
     const boundaries = new Array(expectedBoundaries.length)

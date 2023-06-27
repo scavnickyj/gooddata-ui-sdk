@@ -16,6 +16,7 @@ import {
 } from "./columnSizing.fixture.js";
 import { MANUALLY_SIZED_MAX_WIDTH, updateColumnDefinitionsWithWidths } from "../columnSizing.js";
 import { ReferenceData, ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 // NOTE: the function under test mutate inputs (by design). each test must use its own instance of TableDescriptor
 //  as the ColDefs has will be updated during test runs.

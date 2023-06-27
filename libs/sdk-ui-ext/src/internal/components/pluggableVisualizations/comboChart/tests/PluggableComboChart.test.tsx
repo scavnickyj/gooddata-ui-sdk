@@ -18,7 +18,7 @@ import { VisualizationTypes, OverTimeComparisonTypes } from "@gooddata/sdk-ui";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableComboChart", () => {
     const mockElement = document.createElement("div");

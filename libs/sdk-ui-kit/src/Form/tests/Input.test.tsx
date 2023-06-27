@@ -1,8 +1,9 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { Input } from "../Input";
+import { Input } from "../Input.js";
 import { InputPureProps } from "../InputPure.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("Input", () => {
     function renderInput(options: Partial<InputPureProps> = {}) {

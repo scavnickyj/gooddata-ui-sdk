@@ -16,7 +16,7 @@ import { CoreHeadline, ICoreChartProps } from "@gooddata/sdk-ui-charts";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import cloneDeep from "lodash/cloneDeep.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableHeadline", () => {
     const mockElement = document.createElement("div");

@@ -2,6 +2,7 @@
 import { idRef, KpiDrillDefinition, ObjRef, uriRef } from "@gooddata/sdk-model";
 import { ILegacyDashboard } from "../../../../../types.js";
 import { validateKpiDrillTarget } from "../kpiDrillValidationUtils.js";
+import { describe, it, expect } from "vitest";
 
 describe("validateKpiDrillTarget", () => {
     const mockDashboard: ILegacyDashboard = {

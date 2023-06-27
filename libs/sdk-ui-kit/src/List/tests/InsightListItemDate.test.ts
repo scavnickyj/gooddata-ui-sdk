@@ -1,5 +1,6 @@
 // (C) 2007-2021 GoodData Corporation
 import moment from "moment-timezone/index.js";
+import { describe, it, expect } from "vitest";
 
 import { getDateTimeConfig, META_DATA_TIMEZONE } from "../InsightListItemDate.js";
 

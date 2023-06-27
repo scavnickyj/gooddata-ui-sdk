@@ -8,6 +8,7 @@ import { CUSTOM_COLOR_PALETTE } from "../../_util/test/colorPalette.fixture.js";
 import { BubbleChartColorStrategy } from "../bubbleChartColoring.js";
 import { ReferenceRecordings, ReferenceMd, ReferenceData } from "@gooddata/reference-workspace";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 describe("BubbleChartStrategy", () => {
     it("should create palette with color from first measure", () => {

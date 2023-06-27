@@ -2,12 +2,17 @@
 import React from "react";
 import noop from "lodash/noop.js";
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { vi } from "vitest";
+import defaultUserEvent from "@testing-library/user-event";
+import { describe, it, expect, vi } from "vitest";
 import { RepeatFrequencySelect, IRepeatFrequencySelectProps } from "../RepeatFrequencySelect.js";
 
 import { REPEAT_FREQUENCIES } from "../../../constants.js";
 import { IntlWrapper } from "../../../../../localization/IntlWrapper.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 describe("RepeatFrequencySelect", () => {
     const titleFrequencyDay = "day";

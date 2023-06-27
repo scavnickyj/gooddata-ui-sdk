@@ -2,6 +2,7 @@
 
 import { IChartOptions } from "../../../typings/unsafe.js";
 import { getContinuousLineConfiguration } from "../getContinuousLineConfiguration.js";
+import { describe, it, expect } from "vitest";
 
 describe("getContinuousLineConfiguration: ", () => {
     const chartOptions: Partial<IChartOptions> = { stacking: "normal", type: "area" };

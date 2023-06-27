@@ -2,6 +2,7 @@
 import { IInsight, newInsightDefinition } from "@gooddata/sdk-model";
 import { IWebComponentsOptions, getHeightWithUnitsForEmbedCode } from "@gooddata/sdk-ui-kit";
 import { getWebComponentsCodeGenerator } from "../getWebComponentsCodeGenerator.js";
+import { describe, it, expect, beforeAll } from "vitest";
 
 describe("getWebComponentsCodeGenerator", () => {
     const generateWebComponentSnippet = (config: IWebComponentsOptions) => {

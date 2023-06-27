@@ -12,6 +12,7 @@ import { PlaceholdersProvider, IPlaceholdersProviderProps } from "../context.js"
 import { newComposedPlaceholder, newPlaceholder } from "../factory.js";
 import { IComposedPlaceholder } from "../base.js";
 import { useComposedPlaceholder } from "../hooks.js";
+import { describe, expect, it } from "vitest";
 
 const createComponent = (
     componentProps: IComponentWithUsePlaceholderHookProps,

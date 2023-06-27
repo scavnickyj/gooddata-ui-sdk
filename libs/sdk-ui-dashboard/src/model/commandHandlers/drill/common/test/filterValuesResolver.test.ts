@@ -19,6 +19,7 @@ import {
     IWorkspaceAttributesService,
     IElementsQueryFactory,
 } from "@gooddata/sdk-backend-spi";
+import { describe, it, expect } from "vitest";
 
 describe("resolveFilterValues", () => {
     it("should return resolved absolute date limits", async () => {

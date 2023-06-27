@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import noop from "lodash/noop.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { Textarea, ITextareaProps } from "../Textarea.js";
 
 import { IntlWrapper } from "../../../../localization/IntlWrapper.js";

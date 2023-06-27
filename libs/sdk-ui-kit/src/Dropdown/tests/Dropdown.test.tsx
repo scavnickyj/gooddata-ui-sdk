@@ -1,9 +1,20 @@
 // (C) 2007-2022 GoodData Corporation
 import React from "react";
 import { render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Dropdown, IDropdownButtonRenderProps, IDropdownBodyRenderProps, IDropdownProps } from "../Dropdown";
-import { componentMock } from "./testUtils";
+import defaultUserEvent from "@testing-library/user-event";
+import {
+    Dropdown,
+    IDropdownButtonRenderProps,
+    IDropdownBodyRenderProps,
+    IDropdownProps,
+} from "../Dropdown.js";
+import { componentMock } from "./testUtils.js";
+import { describe, it, expect, vi } from "vitest";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 const bodyMock = componentMock<IDropdownBodyRenderProps>();
 const buttonMock = componentMock<IDropdownButtonRenderProps>();

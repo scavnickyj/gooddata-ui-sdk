@@ -13,6 +13,7 @@ import {
     SimpleSortedTableWidgetRef,
 } from "../../../tests/fixtures/SimpleDashboard.fixtures.js";
 import { ExtendedDashboardWidget } from "../../../types/layoutTypes.js";
+import { describe, it, expect } from "vitest";
 
 describe("layout slice reducer", () => {
     function createLayoutSliceInitialState(layout?: IDashboardLayout): LayoutState {

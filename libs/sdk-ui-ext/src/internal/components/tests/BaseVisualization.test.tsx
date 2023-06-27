@@ -27,7 +27,7 @@ import {
 } from "../../interfaces/Visualization.js";
 import * as testMocks from "../../tests/mocks/testMocks.js";
 import { emptyReferencePoint, justViewByReferencePoint } from "../../tests/mocks/referencePointMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach, afterAll, beforeAll, beforeEach } from "vitest";
 
 const pluggableVisualizationGetExecutionMock = vi.fn(() => ({} as IPreparedExecution));
 

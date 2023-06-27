@@ -4,6 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { IMeasureValueFilter, newMeasureValueFilter, localIdRef } from "@gooddata/sdk-model";
+import { describe, it, expect, vi } from "vitest";
 
 import { MeasureValueFilter, IMeasureValueFilterProps } from "../MeasureValueFilter.js";
 

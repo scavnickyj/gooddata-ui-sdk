@@ -1,5 +1,6 @@
 // (C) 2019-2020 GoodData Corporation
 import { newAbsoluteDateFilter, newAllTimeFilter, newRelativeDateFilter } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 import { createInternalIntl } from "../../../../../../localization/index.js";
 import { getKpiPopLabel } from "../translations.js";

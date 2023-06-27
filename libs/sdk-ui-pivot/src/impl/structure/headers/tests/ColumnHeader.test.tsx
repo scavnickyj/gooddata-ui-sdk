@@ -9,7 +9,7 @@ import { TableDescriptor } from "../../tableDescriptor.js";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { DataViewFirstPage } from "@gooddata/sdk-backend-mockingbird";
 import { SingleColumn } from "../../tests/table.fixture.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const fixture = recordedDataFacade(
     ReferenceRecordings.Scenarios.PivotTable.SingleMeasureWithTwoRowAndOneColumnAttributes,

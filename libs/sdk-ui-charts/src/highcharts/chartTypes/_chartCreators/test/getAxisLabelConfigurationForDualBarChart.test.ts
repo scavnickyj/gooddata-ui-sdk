@@ -2,6 +2,7 @@
 import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { getAxisLabelConfigurationForDualBarChart } from "../getAxisLabelConfigurationForDualBarChart.js";
 import { IChartOptions } from "../../../typings/unsafe.js";
+import { describe, it, expect } from "vitest";
 
 describe("getAxisLabelConfigurationForDualBarChart", () => {
     it("should return empty axis label config on single bar chart", () => {

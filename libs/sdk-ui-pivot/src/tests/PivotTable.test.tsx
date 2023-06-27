@@ -6,6 +6,7 @@ import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { IMeasure } from "@gooddata/sdk-model";
 import { IBackendCapabilities } from "@gooddata/sdk-backend-spi";
 import { IMenu } from "../publicTypes.js";
+import { describe, it, expect } from "vitest";
 
 describe("PivotTable", () => {
     const measure: IMeasure = {

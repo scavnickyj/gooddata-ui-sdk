@@ -2,6 +2,7 @@
 import { IInsight, insightMeasures, idMatchMeasure } from "@gooddata/sdk-model";
 import { ignoreTitlesForSimpleMeasures } from "../ignoreTitlesForSimpleMeasures.js";
 import { insightWithComplexArithmeticMeasureTree } from "../../../../__mocks__/fixtures.js";
+import { describe, expect, it } from "vitest";
 
 describe("measureTitleHelper", () => {
     describe("ignoreTitlesForSimpleMeasures", () => {

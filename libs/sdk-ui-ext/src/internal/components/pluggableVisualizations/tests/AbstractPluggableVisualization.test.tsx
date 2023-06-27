@@ -6,6 +6,7 @@ import * as referencePointMocks from "../../../tests/mocks/referencePointMocks.j
 import { IInsight, IInsightDefinition } from "@gooddata/sdk-model";
 import { IExecutionFactory } from "@gooddata/sdk-backend-spi";
 import { DummyVisConstruct } from "./visConstruct.fixture.js";
+import { describe, it, expect } from "vitest";
 
 describe("AbstractPluggableVisualization", () => {
     class DummyPluggableVisualization extends AbstractPluggableVisualization {

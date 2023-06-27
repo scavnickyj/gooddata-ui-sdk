@@ -106,7 +106,7 @@ On top of Rush built-in commands, we have added our own custom commands (see [co
 | --------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `rush audit`          | Performs security audit of all packages listed in global lock file                                          |
 | `rush purge`          | Delete all installed npm modules, clean temp and node_modules directories                                            |
-| `rush clean`          | Cleans up artifacts created by build and tests. Cleans Jest caches. Full 'rebuild' required after cleaning. |
+| `rush clean`          | Cleans up artifacts created by build and tests. Full 'rebuild' required after cleaning. |
 | `rush validate`       | Validates code in all projects.                                                                             |
 | `rush validate-ci`    | Validates code in all projects in CI mode.                                                                  |
 | `rush test-once`      | Tests code in all projects.                                                                                 |

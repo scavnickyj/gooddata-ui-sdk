@@ -27,6 +27,7 @@ import {
 } from "../../interfaces/Visualization.js";
 import { ColumnWidthItem } from "@gooddata/sdk-ui-pivot";
 import { newAttributeSort } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 describe("propertiesHelper", () => {
     describe("getSupportedPropertiesControls", () => {

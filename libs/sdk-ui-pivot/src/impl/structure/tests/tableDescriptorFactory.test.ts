@@ -14,6 +14,7 @@ import {
 } from "./table.fixture.js";
 import { createHeadersAndColDefs } from "../tableDescriptorFactory.js";
 import { ColDef, ColGroupDef } from "@ag-grid-community/all-modules";
+import { describe, it, expect } from "vitest";
 
 describe("createTableDescriptor", () => {
     const Scenarios: Array<[string, DataViewFacade]> = [

@@ -1,6 +1,7 @@
 // (C) 2007-2022 GoodData Corporation
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 
 import { LegacyListItem } from "../LegacyListItem.js";
 

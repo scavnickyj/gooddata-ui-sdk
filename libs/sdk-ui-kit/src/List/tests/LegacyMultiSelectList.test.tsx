@@ -3,11 +3,17 @@ import React from "react";
 import includes from "lodash/includes.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import defaultUserEvent from "@testing-library/user-event";
+import { describe, it, expect, vi } from "vitest";
 
 import { customMessages } from "./customDictionary.js";
 
-import LegacyMultiSelectList, { ILegacyMultiSelectListProps } from "../LegacyMultiSelectList";
+import LegacyMultiSelectList, { ILegacyMultiSelectListProps } from "../LegacyMultiSelectList.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 describe("LegacyMultiSelectList", () => {
     const firstItem: any = {

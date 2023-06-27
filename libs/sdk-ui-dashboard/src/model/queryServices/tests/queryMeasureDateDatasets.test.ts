@@ -9,6 +9,7 @@ import {
     MockAvailabilityWithDifferentRelevance,
     MockAvailabilityWithSameRelevance,
 } from "../../tests/fixtures/CatalogAvailability.fixtures.js";
+import { describe, it, expect } from "vitest";
 
 function datasetsDigest(
     datasets: ReadonlyArray<ICatalogDateDataset | undefined>,

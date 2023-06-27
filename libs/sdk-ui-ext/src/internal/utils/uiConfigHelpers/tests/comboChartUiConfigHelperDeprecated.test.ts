@@ -4,6 +4,7 @@ import * as referencePointMock from "../../../tests/mocks/referencePointMocks.js
 import { setComboChartUiConfigDeprecated } from "../comboChartUiConfigHelperDeprecated.js";
 import { createInternalIntl } from "../../internalIntlProvider.js";
 import { COMBO_CHART_UICONFIG_DEPRECATED } from "../../../constants/uiConfig.js";
+import { describe, it, expect } from "vitest";
 
 describe("comboChartUiConfigHelper", () => {
     describe("setComboChartUiConfigDeprecated", () => {

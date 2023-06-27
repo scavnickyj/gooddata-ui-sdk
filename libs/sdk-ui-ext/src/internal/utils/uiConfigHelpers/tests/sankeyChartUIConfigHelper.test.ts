@@ -4,6 +4,7 @@ import { configBuckets } from "../sankeyChartUiConfigHelper.js";
 import { IExtendedReferencePoint } from "../../../interfaces/Visualization.js";
 import { ATTRIBUTE, DATE, METRIC } from "../../../constants/bucket.js";
 import { BucketNames } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 describe("SankeyChartUIHelper", () => {
     describe("configBuckets", () => {

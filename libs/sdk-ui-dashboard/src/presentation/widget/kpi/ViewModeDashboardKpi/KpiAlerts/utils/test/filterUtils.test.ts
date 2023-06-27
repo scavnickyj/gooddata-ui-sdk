@@ -8,6 +8,7 @@ import {
     IWidgetDefinition,
 } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 import { isAlertingTemporarilyDisabledForGivenFilter } from "../filterUtils.js";
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import LegendItem from "../LegendItem.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("LegendItem", () => {
     const item = {

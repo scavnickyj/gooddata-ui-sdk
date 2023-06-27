@@ -3,6 +3,7 @@
 import { ISettings } from "@gooddata/sdk-model";
 import { IChartConfig } from "../../../../interfaces/index.js";
 import { updateConfigWithSettings } from "../chartOptionsForSettings.js";
+import { describe, it, expect } from "vitest";
 
 describe("updateConfigWithSettings", () => {
     describe("disableKpiDashboardHeadlineUnderline", () => {

@@ -15,6 +15,7 @@ import { IChartConfig } from "../../../../interfaces/index.js";
 import { BLACK_LABEL, WHITE_LABEL } from "../../../constants/label.js";
 import { StackingType } from "../../../constants/stacking.js";
 import { IChartOptions, ISeriesItem, IStackMeasuresConfig } from "../../../typings/unsafe.js";
+import { describe, it, expect } from "vitest";
 
 describe("getOptionalStackingConfiguration", () => {
     it("should return empty configuration to not supported chart type", () => {

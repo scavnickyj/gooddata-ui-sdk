@@ -91,6 +91,6 @@
         "eslint-plugin-tsdoc": "^0.2.14",
         "prettier": "~2.5.0",
         "typescript": "5.0.2",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4"
     }
 }

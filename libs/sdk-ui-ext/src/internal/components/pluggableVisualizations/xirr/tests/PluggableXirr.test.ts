@@ -8,7 +8,7 @@ import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { IDrillableItem } from "@gooddata/sdk-ui";
 import { CoreXirr, ICoreChartProps } from "@gooddata/sdk-ui-charts";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableXirr", () => {
     const mockElement = document.createElement("div");

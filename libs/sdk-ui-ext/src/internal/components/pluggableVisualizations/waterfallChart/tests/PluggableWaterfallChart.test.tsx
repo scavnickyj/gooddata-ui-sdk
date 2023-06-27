@@ -1,7 +1,7 @@
 // (C) 2023 GoodData Corporation
 import noop from "lodash/noop.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 import { PluggableWaterfallChart } from "../PluggableWaterfallChart.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";

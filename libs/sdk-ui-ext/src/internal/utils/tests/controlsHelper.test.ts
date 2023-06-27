@@ -1,6 +1,6 @@
 // (C) 2019 GoodData Corporation
 import { maxInputValidateAndPushData, minInputValidateAndPushData } from "../controlsHelper.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 describe("controlsHelper", () => {
     describe("max/min input validation", () => {

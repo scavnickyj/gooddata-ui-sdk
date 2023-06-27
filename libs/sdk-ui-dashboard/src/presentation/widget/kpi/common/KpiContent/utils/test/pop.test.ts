@@ -2,6 +2,7 @@
 
 import { HYPHEN } from "../format.js";
 import { getPopInfo, IPopInfo, LIMIT } from "../pop.js";
+import { describe, it, expect } from "vitest";
 
 describe("getPopInfo", () => {
     type TestCase = [

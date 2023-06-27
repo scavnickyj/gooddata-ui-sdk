@@ -1,6 +1,6 @@
 // (C) 2007-2019 GoodData Corporation
 
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { withPropsExtractor } from "../../_infra/withProps.js";
 import { defSetSorts } from "@gooddata/sdk-model";
 import { IPieChartProps } from "@gooddata/sdk-ui-charts";

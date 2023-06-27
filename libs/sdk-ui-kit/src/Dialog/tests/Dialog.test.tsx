@@ -3,7 +3,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Dialog } from "../Dialog.js";
 import { IDialogBaseProps } from "../typings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 function renderDialog(options: Partial<IDialogBaseProps>) {
     return render(<Dialog {...options}>DialogTest content</Dialog>);

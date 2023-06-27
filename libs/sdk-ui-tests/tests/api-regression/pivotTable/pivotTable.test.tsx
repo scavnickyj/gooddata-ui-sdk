@@ -1,6 +1,6 @@
 // (C) 2007-2019 GoodData Corporation
 
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { withPropsExtractor } from "../../_infra/withProps.js";
 import pivotTableScenarios from "../../../scenarios/pivotTable/index.js";
 import { ScenarioAndDescription } from "../../../src/index.js";

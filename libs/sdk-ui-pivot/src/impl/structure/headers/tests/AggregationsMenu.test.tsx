@@ -19,7 +19,7 @@ import { DataViewFirstPage } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { TableDescriptor } from "../../tableDescriptor.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

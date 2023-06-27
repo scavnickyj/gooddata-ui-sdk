@@ -3,7 +3,7 @@ import React from "react";
 import { waitFor, render, screen, fireEvent } from "@testing-library/react";
 import { Button } from "../Button.js";
 import { IButtonProps } from "../typings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 function renderButton(options: Partial<IButtonProps>) {
     return render(<Button {...options} />);

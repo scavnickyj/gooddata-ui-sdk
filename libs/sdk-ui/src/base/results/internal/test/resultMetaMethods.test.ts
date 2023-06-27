@@ -5,6 +5,7 @@ import { ReferenceRecordings, ReferenceMd, ReferenceData } from "@gooddata/refer
 import { DataViewFirstPage, recordedDataView, ScenarioRecording } from "@gooddata/sdk-backend-mockingbird";
 import cloneDeep from "lodash/cloneDeep.js";
 import { DataViewFacade } from "../../facade.js";
+import { describe, it, expect } from "vitest";
 
 function dataViewWithModifiedSorts(
     scenario: ScenarioRecording,

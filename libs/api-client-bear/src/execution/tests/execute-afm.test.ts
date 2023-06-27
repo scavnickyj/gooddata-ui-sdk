@@ -811,7 +811,7 @@ describe("executeAfm", () => {
 
         fetchMock.mock(
             "glob:/gdc/app/projects/myFakeProjectId/executionResults/123?dimensions=1&limit=*&offset=*",
-            (url) => {
+            (url: string) => {
                 const offset = url.replace(/.*offset=/, "");
                 return { status: 200, body: JSON.stringify(pagesByOffset[offset]) };
             },

@@ -9,7 +9,7 @@ import * as referencePointMocks from "../../../../tests/mocks/referencePointMock
 import { IBucketOfFun } from "../../../../interfaces/Visualization.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggablePieChart", () => {
     const mockElement = document.createElement("div");

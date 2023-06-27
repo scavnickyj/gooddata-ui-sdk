@@ -10,7 +10,7 @@ import cloneDeep from "lodash/cloneDeep.js";
 
 import { isDarkTheme, ThemeModifier, ThemeProvider } from "../ThemeProvider.js";
 import { withTheme } from "../Context.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const renderComponent = async (component: React.ReactElement): Promise<RenderResult> => {
     let wrappedComponent;

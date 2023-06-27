@@ -1,6 +1,7 @@
 // (C) 2022 GoodData Corporation
 import { newTestAttributeFilterHandler } from "./fixtures.js";
 import { waitForAsync } from "./testUtils.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("AttributeFilterHandler", () => {
     it("scroll and search to reset offset", async () => {

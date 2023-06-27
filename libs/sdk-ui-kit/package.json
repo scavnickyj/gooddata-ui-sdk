@@ -40,9 +40,9 @@
         "test": "vitest watch",
         "test-once": "vitest run",
         "test-ci": "vitest run --reporter=junit --outputFile=./ci/results/test-results.xml",
-        "eslint": "eslint -c .eslintrc.cjs --ext ts src/",
-        "eslint-fix": "eslint -c .eslintrc.cjs --ext ts src/ --fix",
-        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs --ext ts src/",
+        "eslint": "eslint -c .eslintrc.cjs src/",
+        "eslint-fix": "eslint -c .eslintrc.cjs src/ --fix",
+        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs src/",
         "prettier-check": "prettier --check '{src,styles,__mocks__}/**/*.{ts,tsx,json,scss,md,yaml,html}'",
         "prettier-write": "prettier --write '{src,styles,__mocks__}/**/*.{ts,tsx,json,scss,md,yaml,html}'",
         "dep-cruiser": "depcruise --validate .dependency-cruiser.cjs --output-type err-long src/",
@@ -101,7 +101,6 @@
         "@microsoft/api-documenter": "^7.17.0",
         "@microsoft/api-extractor": "^7.36.0",
         "@testing-library/dom": "~9.2.0",
-        "@testing-library/jest-dom": "^5.12.0",
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.2",
         "@types/codemirror": "^5.60.7",
@@ -117,7 +116,6 @@
         "@types/react-portal": "^4.0.2",
         "@types/react-responsive": "^8.0.2",
         "@types/react-transition-group": "^4.4.4",
-        "@types/testing-library__jest-dom": "^5.14.5",
         "@types/tinycolor2": "^1.4.2",
         "@types/uuid": "^8.3.4",
         "@typescript-eslint/eslint-plugin": "^5.57.1",
@@ -129,7 +127,6 @@
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-import-esm": "^1.2.1",
         "eslint-plugin-jest": "^27.1.1",
-        "eslint-plugin-jest-dom": "^4.0.2",
         "eslint-plugin-no-only-tests": "^2.4.0",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.31.10",
@@ -148,6 +145,7 @@
         "stylelint-config-prettier": "^8.0.2",
         "svgo": "^2.8.0",
         "typescript": "5.0.2",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4",
+        "vitest-dom": "0.1.0"
     }
 }

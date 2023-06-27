@@ -7,7 +7,8 @@ import times from "lodash/times.js";
 import assign from "lodash/assign.js";
 import noop from "lodash/noop.js";
 import { customMessages } from "./customDictionary.js";
-import { LegacyInvertableList, ILegacyInvertableListProps } from "../LegacyInvertableList";
+import { LegacyInvertableList, ILegacyInvertableListProps } from "../LegacyInvertableList.js";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 interface IItem {
     title: string;

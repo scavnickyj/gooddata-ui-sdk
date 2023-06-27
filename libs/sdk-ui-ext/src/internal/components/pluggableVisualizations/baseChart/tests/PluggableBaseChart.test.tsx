@@ -30,7 +30,7 @@ import {
     targetUri,
 } from "./getInsightWithDrillDownAppliedMock.js";
 import { DASHBOARDS_ENVIRONMENT } from "../../../../constants/properties.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 const { Region } = ReferenceMd;
 

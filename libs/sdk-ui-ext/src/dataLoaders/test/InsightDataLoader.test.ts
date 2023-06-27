@@ -2,7 +2,7 @@
 import { dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
 import { IInsight, idRef, ObjRef } from "@gooddata/sdk-model";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import { insightDataLoaderFactory } from "../InsightDataLoader.js";
 import { noopWorkspaceInsightsService } from "./dataLoaders.mock.js";

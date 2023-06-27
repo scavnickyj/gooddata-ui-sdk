@@ -2,6 +2,7 @@
 import { canExcludeCurrentPeriod, applyExcludeCurrentPeriod } from "../PeriodExclusion.js";
 import { DateFilterOption } from "../../interfaces/index.js";
 import { IRelativeDateFilterPreset } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 describe("canExcludeCurrentPeriod", () => {
     it.each([

@@ -44,10 +44,8 @@ const UnnecessaryDependencies = [
     "dependency-cruiser",
     "eslint-plugin-sonarjs",
     /^eslint/i,
-    /^jest/i,
     "prettier",
     "vitest",
-    "@types/jest",
     /^@typescript-eslint\//,
 ];
 
@@ -55,7 +53,6 @@ const TypeScriptDependencies = [
     /^@types\//,
     "@typescript-eslint/eslint-plugin",
     "@typescript-eslint/parser",
-    "ts-jest",
     "ts-loader",
     "typescript",
     "tslib",

@@ -6,7 +6,7 @@ import HeadlineTransformation from "../internal/HeadlineTransformation.js";
 import { ICoreChartProps } from "../../../interfaces/chartProps.js";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { recordedDataFacade } from "../../../../__mocks__/recordings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

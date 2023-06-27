@@ -5,6 +5,7 @@ import { DefaultWidgetCustomizer } from "../widgetCustomizer.js";
 import React from "react";
 import { ICustomWidget } from "../../../model/index.js";
 import { idRef } from "@gooddata/sdk-model";
+import { describe, it, expect, beforeEach } from "vitest";
 
 const TestWidget1: React.FC = () => {
     return <div>Test Widget 1</div>;

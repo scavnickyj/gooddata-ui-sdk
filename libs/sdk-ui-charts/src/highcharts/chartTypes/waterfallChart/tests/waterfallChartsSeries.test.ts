@@ -1,6 +1,7 @@
 // (C) 2023 GoodData Corporation
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { DefaultColorPalette } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { getMVS } from "../../_util/test/helper.js";

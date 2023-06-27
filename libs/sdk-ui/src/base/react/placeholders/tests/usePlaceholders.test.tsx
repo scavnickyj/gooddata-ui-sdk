@@ -2,6 +2,7 @@
 import React, { useCallback } from "react";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { IMeasure, IMeasureDefinition, newMeasure } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 import { PlaceholdersProvider, IPlaceholdersProviderProps } from "../context.js";
 import { newPlaceholder } from "../factory.js";

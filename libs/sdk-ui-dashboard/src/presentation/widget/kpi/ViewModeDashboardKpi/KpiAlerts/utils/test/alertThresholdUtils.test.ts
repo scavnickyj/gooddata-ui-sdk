@@ -1,5 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
 import { IWidgetAlertBase } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 import {
     evaluateAlertTriggered,

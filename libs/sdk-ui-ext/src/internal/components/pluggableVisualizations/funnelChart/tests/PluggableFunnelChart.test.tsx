@@ -6,7 +6,7 @@ import * as referencePointMocks from "../../../../tests/mocks/referencePointMock
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { IVisConstruct } from "../../../../interfaces/Visualization.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableFunnelChart", () => {
     const execution = dummyBackend().workspace("PROJECTID").execution();

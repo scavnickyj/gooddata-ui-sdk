@@ -7,7 +7,7 @@ import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceMd, ReferenceMdExt } from "@gooddata/reference-workspace";
 import { CoreComboChart } from "../CoreComboChart.js";
 import { IMeasure, measureLocalId, modifyMeasure, modifySimpleMeasure } from "@gooddata/sdk-model";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

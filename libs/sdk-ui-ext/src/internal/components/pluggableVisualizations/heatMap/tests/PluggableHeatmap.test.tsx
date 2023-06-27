@@ -22,7 +22,7 @@ import {
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
 import { IBucketOfFun, IReferencePoint, IVisConstruct } from "../../../../interfaces/Visualization.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 const { Department, Region } = ReferenceMd;
 

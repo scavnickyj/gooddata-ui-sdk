@@ -8,6 +8,7 @@ import {
 import { IntlWrapper } from "@gooddata/sdk-ui";
 import { render } from "@testing-library/react";
 import { IDashboardEditLayout } from "./DashboardEditLayout/DashboardEditLayoutTypes.js";
+import { describe, it, expect } from "vitest";
 
 const lay: IDashboardEditLayout = {
     type: "IDashboardLayout",

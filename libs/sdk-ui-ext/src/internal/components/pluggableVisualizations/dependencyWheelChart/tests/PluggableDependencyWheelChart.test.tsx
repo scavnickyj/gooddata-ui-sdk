@@ -6,7 +6,7 @@ import * as referencePointMocks from "../../../../tests/mocks/referencePointMock
 import { IBucketOfFun, IVisConstruct } from "../../../../interfaces/Visualization.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableDependencyWheelChart", () => {
     const mockElement = document.createElement("div");

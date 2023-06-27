@@ -3,6 +3,7 @@ import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { ExcludeCurrentPeriodToggle } from "../ExcludeCurrentPeriodToggle.js";
 import { withIntl } from "@gooddata/sdk-ui";
+import { describe, it, expect, vi } from "vitest";
 
 describe("ExcludeCurrentPeriodToggle", () => {
     const renderWithDisabledValue = (disabled: boolean | undefined) => {

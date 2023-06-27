@@ -5,6 +5,7 @@ import { IDashboardLayout, IDashboardLayoutSection, IDashboardLayoutItem } from 
 import { ExtendedDashboardWidget, ICustomWidget, newCustomWidget } from "../../../model/index.js";
 import { DashboardCustomizationLogger } from "../customizationLogging.js";
 import { createCustomizerMutationsContext, CustomizerMutationsContext } from "../types.js";
+import { describe, it, expect, beforeEach } from "vitest";
 
 const EmptyLayout: IDashboardLayout<ExtendedDashboardWidget> = {
     type: "IDashboardLayout",

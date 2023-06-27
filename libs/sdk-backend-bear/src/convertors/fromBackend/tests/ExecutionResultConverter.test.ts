@@ -2,6 +2,7 @@
 
 import { convertDimensions } from "../ExecutionResultConverter.js";
 import { dimensions } from "./ExecutionResultConverter.fixtures.js";
+import { describe, expect, it } from "vitest";
 
 describe("convertDimensions", () => {
     it("should add ref properties as uriRefs", () => {

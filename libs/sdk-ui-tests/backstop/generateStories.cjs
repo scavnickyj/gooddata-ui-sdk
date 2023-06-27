@@ -9,7 +9,7 @@ const storiesGlob = storybookMain.stories;
 
 /**
  * Generate a barrel file with imports of all the story files.
- * This has to be done ahead of time to help jest avoiding need for async imports that cause problems on CI.
+ * This has to be done ahead of time to help vitest avoiding need for async imports that cause problems on CI.
  */
 async function main() {
     const files = await fg(storiesGlob, { cwd: path.resolve(__dirname) });

@@ -7,7 +7,7 @@ import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 
 import { WaterfallChart } from "../WaterfallChart.js";
 import { CoreWaterfallChart } from "../CoreWaterfallChart.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

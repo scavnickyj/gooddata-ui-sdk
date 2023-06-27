@@ -4,6 +4,7 @@ import { removeInvalidTotals } from "../totalsHelpers.js";
 import { IBucketFilter } from "../../../../interfaces/Visualization.js";
 import { ITotal } from "@gooddata/sdk-model";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import { describe, it, expect } from "vitest";
 
 describe("removeInvalidTotals", () => {
     describe("remove native totals", () => {

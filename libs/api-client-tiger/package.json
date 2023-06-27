@@ -23,16 +23,16 @@
     "scripts": {
         "clean": "rm -rf ci dist esm coverage *.log",
         "dev": "bash scripts/build.sh --dev-watch",
-        "build": "bash scripts/build.sh && npm run api-extractor",                
+        "build": "bash scripts/build.sh && npm run api-extractor",
         "openapi-generate": "./scripts/generate.js",
         "generate-client": "rm -rf src/generated/* && npm run openapi-generate && fix-esm-import-path ./src && npm run prettier-write",
         "api-extractor": "mkdir -p api && [ -z \"${CI}\" ] && (api-extractor run -l) || (api-extractor run)",
         "test": "vitest watch",
         "test-once": "vitest run",
         "test-ci": "vitest run --reporter=junit --outputFile=./ci/results/test-results.xml",
-        "eslint": "eslint -c .eslintrc.cjs --ext ts src/",
-        "eslint-fix": "eslint -c .eslintrc.cjs --ext ts src/ --fix",
-        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs --ext ts src/",
+        "eslint": "eslint -c .eslintrc.cjs src/",
+        "eslint-fix": "eslint -c .eslintrc.cjs src/ --fix",
+        "eslint-ci": "mkdir -p ./ci/results && eslint -f checkstyle -o ci/results/eslint-results.xml -c .eslintrc.cjs src/",
         "prettier-check": "prettier --check '{src,test}/**/*.{ts,tsx,json,scss,md,yaml,html}'",
         "prettier-write": "prettier --write '{src,test}/**/*.{ts,tsx,json,scss,md,yaml,html}'",
         "dep-cruiser": "depcruise --validate .dependency-cruiser.cjs --output-type err-long src/",
@@ -51,7 +51,7 @@
         "@gooddata/reference-workspace": "workspace:*",
         "@microsoft/api-documenter": "^7.17.0",
         "@microsoft/api-extractor": "^7.36.0",
-        "@openapitools/openapi-generator-cli": "^2.6.0",        
+        "@openapitools/openapi-generator-cli": "^2.6.0",
         "@types/lodash": "^4.14.158",
         "@typescript-eslint/eslint-plugin": "^5.57.1",
         "@typescript-eslint/parser": "^5.57.1",
@@ -73,6 +73,6 @@
         "mkdirp": "^1.0.4",
         "prettier": "~2.5.0",
         "typescript": "5.0.2",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4"
     }
 }

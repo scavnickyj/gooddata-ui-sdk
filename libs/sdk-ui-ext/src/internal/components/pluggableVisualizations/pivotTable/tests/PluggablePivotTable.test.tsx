@@ -46,7 +46,7 @@ import {
 } from "./sortMocks.js";
 import { getInsightWithDrillDownApplied } from "./getInsightWithDrillDownAppliedMock.js";
 import { createDrillEvent, getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggablePivotTable", () => {
     const mockElement = document.createElement("div");

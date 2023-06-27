@@ -2,7 +2,7 @@
 
 import { DefaultDashboardEventHandling } from "../dashboardEventHandling.js";
 import { DashboardEventHandler, singleEventTypeHandler } from "../../../model/index.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 function assertCorrectHandler(handler: DashboardEventHandler, expectedEvtType: string, handlerFn: any): void {
     // handler function should be kept as is

@@ -8,6 +8,7 @@ import { ReferenceData, ReferenceRecordings } from "@gooddata/reference-workspac
 import { recordedDataFacade } from "../../../__mocks__/recordings.js";
 import { getColorsFromStrategy } from "./helper.js";
 import { IColorMapping } from "../types.js";
+import { describe, it, expect } from "vitest";
 
 const RgbPalette: IColorPalette = [
     {

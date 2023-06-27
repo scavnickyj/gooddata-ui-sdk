@@ -2,6 +2,7 @@
 
 import { ColumnApi, Column } from "@ag-grid-community/all-modules";
 import { setColumnMaxWidthIf, setColumnMaxWidth } from "../agColumnWrapper.js";
+import { describe, it, expect } from "vitest";
 
 describe("agColumnWrapper", () => {
     function getFakeColumnApi(columnsMaps: { [id: string]: Column }): ColumnApi {

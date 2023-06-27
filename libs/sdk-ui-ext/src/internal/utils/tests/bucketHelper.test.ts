@@ -53,6 +53,7 @@ import {
     isComparisonAvailable,
 } from "../bucketHelper.js";
 import { createInternalIntl } from "../internalIntlProvider.js";
+import { describe, it, expect } from "vitest";
 
 const simpleMeasure1 = { localIdentifier: "m1" };
 const simpleMeasure2 = { localIdentifier: "m2" };

@@ -8,6 +8,7 @@ import { recordedInsight } from "@gooddata/sdk-backend-mockingbird";
 import { newAttributeSort } from "@gooddata/sdk-model";
 import { withCaching, RecommendedCachingConfiguration } from "@gooddata/sdk-backend-base";
 import bearFactory from "../../../../index.js";
+import { describe, expect, it } from "vitest";
 
 const UnsupportedAuthCall: BearAuthenticatedCallGuard = () => {
     throw new NotSupported("you got too far");

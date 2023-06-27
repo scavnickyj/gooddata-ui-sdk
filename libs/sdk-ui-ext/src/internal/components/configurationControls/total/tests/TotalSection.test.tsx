@@ -1,12 +1,17 @@
 // (C) 2023 GoodData Corporation
 import React from "react";
 import { render, screen, fireEvent, act, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import defaultUserEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 import TotalSection, { ITotalSectionProps } from "../TotalSection.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 describe("TotalSection", () => {
     const defaultProps: ITotalSectionProps = {

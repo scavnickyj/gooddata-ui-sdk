@@ -2,6 +2,7 @@
 import { getChartAlignmentConfiguration } from "../getChartAlignmentConfiguration.js";
 import { TOP } from "../../../constants/alignments.js";
 import { IChartConfig } from "../../../../interfaces/index.js";
+import { describe, it, expect } from "vitest";
 
 describe("getChartAlignmentConfiguration", () => {
     it("should return chart alignment", () => {

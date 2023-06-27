@@ -17,6 +17,7 @@ import {
 } from "../../../../../_staging/dashboard/fluidLayout/index.js";
 import { idRef, newInsightDefinition, IDashboardLayoutSize, ScreenSize } from "@gooddata/sdk-model";
 import { ALL_SCREENS } from "../../../../constants/index.js";
+import { describe, it, expect } from "vitest";
 
 export const allVisTypes: VisType[] = [
     "area",

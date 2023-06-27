@@ -6,7 +6,7 @@ import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { IVisConstruct } from "../../../../interfaces/Visualization.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableComboChartDeprecated", () => {
     const mockElement = document.createElement("div");

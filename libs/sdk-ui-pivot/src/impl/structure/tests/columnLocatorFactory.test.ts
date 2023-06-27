@@ -7,6 +7,7 @@ import {
 import { TableDescriptor } from "../tableDescriptor.js";
 import { createColumnLocator } from "../colLocatorFactory.js";
 import { ScopeCol } from "../tableDescriptorTypes.js";
+import { describe, it, expect } from "vitest";
 
 describe("createColumnLocator", () => {
     it("creates valid leaf column locator in table without column attributes", () => {

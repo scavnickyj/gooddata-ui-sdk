@@ -7,6 +7,7 @@ import {
 } from "./table.fixture.js";
 import { TableDescriptor } from "../tableDescriptor.js";
 import { createSortItemForCol } from "../colSortItemFactory.js";
+import { describe, it, expect } from "vitest";
 
 describe("createSortItem", () => {
     it("creates valid attribute sort", () => {

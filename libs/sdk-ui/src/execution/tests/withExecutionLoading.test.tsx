@@ -9,7 +9,7 @@ import { withEventing } from "@gooddata/sdk-backend-base";
 import { DataViewWindow, WithLoadingResult } from "../withExecutionLoading.js";
 import { IWithExecution, withExecution } from "../withExecution.js";
 import { createDummyPromise } from "../../base/react/tests/toolkit.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 interface IDummyComponentProps {
     attributes?: IAttribute[];

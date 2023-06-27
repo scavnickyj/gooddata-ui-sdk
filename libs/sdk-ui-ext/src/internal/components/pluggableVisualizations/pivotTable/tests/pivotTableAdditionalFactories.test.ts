@@ -13,6 +13,7 @@ import {
     factoryNotationForMeasureColumnWidthItem,
     factoryNotationForWeakMeasureColumnWidthItem,
 } from "../pivotTableAdditionalFactories.js";
+import { describe, it, expect } from "vitest";
 
 describe("pivotTableAdditionalFactories", () => {
     describe("factoryNotationForAttributeColumnWidthItem", () => {

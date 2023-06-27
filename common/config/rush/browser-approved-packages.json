@@ -695,6 +695,14 @@
       "allowedCategories": [ "examples", "production", "tools" ]
     },
     {
+      "name": "eslint-plugin-vitest",
+      "allowedCategories": [ "production" ]
+    },
+    {
+      "name": "eslint-plugin-vitest-globals",
+      "allowedCategories": [ "production" ]
+    },
+    {
       "name": "fast-glob",
       "allowedCategories": [ "production", "tools" ]
     },
@@ -1145,6 +1153,10 @@
     {
       "name": "vitest",
       "allowedCategories": [ "production", "tools" ]
+    },
+    {
+      "name": "vitest-dom",
+      "allowedCategories": [ "production" ]
     },
     {
       "name": "wait-on",

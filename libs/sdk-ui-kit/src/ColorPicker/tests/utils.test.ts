@@ -1,5 +1,6 @@
 // (C) 2007-2020 GoodData Corporation
 import { ColorFormats } from "tinycolor2";
+import { describe, it, expect } from "vitest";
 
 import {
     getHexFromHslColor,

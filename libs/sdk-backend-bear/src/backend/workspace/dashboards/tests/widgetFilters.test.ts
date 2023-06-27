@@ -9,6 +9,7 @@ import {
     uriRef,
 } from "@gooddata/sdk-model";
 import { resolveWidgetFilters } from "../widgetFilters.js";
+import { describe, expect, it } from "vitest";
 
 describe("resolveWidgetFilters", () => {
     const objRefsToUrisMock: Parameters<typeof resolveWidgetFilters>[3] = (refs) =>

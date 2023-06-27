@@ -13,6 +13,7 @@ import { invariant } from "ts-invariant";
 import { DefaultKpiCustomizer } from "../kpiCustomizer.js";
 import { DashboardCustomizationLogger } from "../customizationLogging.js";
 import { createCustomizerMutationsContext, CustomizerMutationsContext } from "../types.js";
+import { describe, it, expect, beforeEach } from "vitest";
 
 //
 //

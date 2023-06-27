@@ -7,6 +7,7 @@ import {
     StylingEditorDialog,
     IStylingPickerItem,
 } from "../StylingEditorDialog/index.js";
+import { describe, it, expect } from "vitest";
 
 describe("Styling editor dialog", () => {
     const theme = (color: string): IStylingPickerItem<ITheme> => {

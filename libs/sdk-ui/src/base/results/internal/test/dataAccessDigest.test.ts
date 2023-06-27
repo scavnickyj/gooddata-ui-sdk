@@ -6,6 +6,7 @@ import { dummyDataView, recordedDataViews, ScenarioRecording } from "@gooddata/s
 import flatMap from "lodash/flatMap.js";
 import { createDataAccessDigest, DataAccessDigest } from "../dataAccessDigest.js";
 import values from "lodash/values.js";
+import { describe, it, expect } from "vitest";
 
 function digestSnapshot(digest: DataAccessDigest) {
     return {

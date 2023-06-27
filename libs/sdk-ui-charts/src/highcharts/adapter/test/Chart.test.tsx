@@ -1,7 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { render } from "@testing-library/react";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import Highcharts from "../../lib/index.js";
 import { Chart } from "../Chart.js";

@@ -5,6 +5,7 @@ import {
     getGeoPushpinWidgetStyle,
     isFullWidthGeoPushpin,
 } from "../legacy.js";
+import { describe, it, expect } from "vitest";
 
 describe("legacy", () => {
     describe("calculateGeoPushpinWidgetHeight", () => {

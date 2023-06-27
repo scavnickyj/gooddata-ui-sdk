@@ -6,7 +6,7 @@ import { IRawExecuteProps, RawExecute } from "../RawExecute.js";
 import { createDummyPromise } from "../../base/react/tests/toolkit.js";
 import { DataViewFacade } from "../../base/results/facade.js";
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
-import { Mock, vi } from "vitest";
+import { describe, expect, it, Mock, vi } from "vitest";
 
 const DummyBackendEmptyData = dummyBackendEmptyData();
 const makeChild = () => vi.fn((_) => <div />);

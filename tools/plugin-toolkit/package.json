@@ -25,7 +25,7 @@
         "esm/**/*.tgz"
     ],
     "scripts": {
-        "clean": "rm -rf ci dist esm coverage *.log",
+        "clean": "rm -rf ci dist esm build coverage *.log",
         "dev": "tsc -p tsconfig.dev.json --watch",
         "prepublishOnly": "npm run build",
         "build": "bash scripts/build.sh",
@@ -93,6 +93,6 @@
         "prettier": "~2.5.0",
         "ts-node": "^10.4.0",
         "typescript": "5.0.2",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4"
     }
 }

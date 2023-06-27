@@ -5,6 +5,7 @@ import { ILegendListProps, LegendList } from "../LegendList.js";
 import noop from "lodash/noop.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { LEGEND_AXIS_INDICATOR, LEGEND_SEPARATOR } from "../helpers.js";
+import { describe, it, expect } from "vitest";
 
 describe("LegendList", () => {
     function renderComponent(customProps: Partial<ILegendListProps> = {}) {

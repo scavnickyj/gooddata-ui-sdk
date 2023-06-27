@@ -3,6 +3,7 @@ import aggregationsMenuHelper, { getUpdatedColumnOrRowTotals } from "../aggregat
 import { ITotal } from "@gooddata/sdk-model";
 import { IColumnTotal, IRowTotal } from "../aggregationsMenuTypes.js";
 import { IMenuAggregationClickConfig } from "../../../privateTypes.js";
+import { describe, it, expect } from "vitest";
 
 describe("aggregationsMenuHelper", () => {
     describe("getTotalsForMeasureHeader", () => {

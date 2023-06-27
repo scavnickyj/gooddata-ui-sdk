@@ -15,7 +15,7 @@ import {
 } from "./GranteeMock.js";
 import { mapWorkspaceUserToGrantee } from "../../shareDialogMappers.js";
 import { uriRef, IAvailableAccessGrantee } from "@gooddata/sdk-model";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const defaultProps: IAddGranteeSelectProps = {
     onSelectGrantee: noop,

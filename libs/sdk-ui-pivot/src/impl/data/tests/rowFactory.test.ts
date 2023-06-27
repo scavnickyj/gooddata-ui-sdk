@@ -6,6 +6,7 @@ import { DataViewFirstPage } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { recordedDataFacade } from "../../../../__mocks__/recordings.js";
 import { TableDescriptor } from "../../structure/tableDescriptor.js";
+import { describe, it, expect } from "vitest";
 
 const intl = createIntlMock();
 

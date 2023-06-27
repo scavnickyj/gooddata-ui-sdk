@@ -3,6 +3,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ILegendAxisIndicatorProps, LegendAxisIndicator } from "../LegendAxisIndicator.js";
 import { withIntl } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 describe("LegendAxisIndicator", () => {
     function createComponent(props: ILegendAxisIndicatorProps) {

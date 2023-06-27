@@ -6,7 +6,7 @@ import { IGeoChartInnerProps, GeoChartInner } from "../GeoChartInner.js";
 import { RecShortcuts } from "../../../../__mocks__/recordings.js";
 import { createIntlMock, DefaultColorPalette } from "@gooddata/sdk-ui";
 import { IGeoConfig } from "../../../GeoChart.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

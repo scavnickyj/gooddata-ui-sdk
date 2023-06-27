@@ -18,6 +18,7 @@ import {
     IColorStrategy,
     AttributeColorStrategy,
 } from "@gooddata/sdk-ui-vis-commons";
+import { describe, it, expect } from "vitest";
 
 import { IChartConfig } from "../../../../interfaces/index.js";
 import { emptyDef, IColorPaletteItem, idRef, IMeasureDescriptor } from "@gooddata/sdk-model";

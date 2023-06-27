@@ -7,6 +7,7 @@ import {
 } from "@gooddata/sdk-model";
 import { createIntlMock } from "@gooddata/sdk-ui";
 import { ReferenceMd, ReferenceRecordings } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 import { enrichBrokenAlertsInfo, IAttributeFilterMetaCollection } from "../brokenFilterUtils.js";
 import { IBrokenAlertFilter } from "../../types.js";

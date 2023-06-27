@@ -1,6 +1,6 @@
 // (C) 2022 GoodData Corporation
 
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { SingleDashboardStoreAccessor } from "../SingleDashboardStoreAccessor.js";
 import { DashboardState } from "../../types.js";
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Headline, { IHeadlineVisualizationProps } from "../Headline.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("Headline", () => {
     function createComponent(props: IHeadlineVisualizationProps) {

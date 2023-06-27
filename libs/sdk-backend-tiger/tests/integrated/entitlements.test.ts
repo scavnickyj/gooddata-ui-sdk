@@ -10,7 +10,7 @@ beforeAll(async () => {
 
 describe("tiger entitlements", () => {
     it("should load all entitlements", async () => {
-        const result = await backend.entitlements();
+        const result = backend.entitlements();
         const entitlements = await result.resolveEntitlements();
 
         expect(entitlements).toContainEqual({ name: "UnlimitedWorkspaces" });

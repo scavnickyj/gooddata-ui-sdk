@@ -12,6 +12,7 @@ import {
 } from "../legendHelpers.js";
 import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { ISeriesItem } from "../../typings/unsafe.js";
+import { describe, it, expect } from "vitest";
 
 describe("helpers", () => {
     describe("calculateFluidLegend", () => {

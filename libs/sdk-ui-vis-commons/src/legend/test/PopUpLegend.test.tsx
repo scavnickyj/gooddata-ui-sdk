@@ -5,6 +5,7 @@ import noop from "lodash/noop.js";
 import { IPopUpLegendProps, PopUpLegend } from "../PopUpLegend/PopUpLegend.js";
 import { withIntl } from "@gooddata/sdk-ui";
 import { IPushpinCategoryLegendItem } from "../types.js";
+import { describe, it, expect } from "vitest";
 
 describe("PopUpLegend", () => {
     function renderComponent(customProps: Partial<IPopUpLegendProps> = {}) {

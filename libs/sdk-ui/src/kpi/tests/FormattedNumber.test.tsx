@@ -2,6 +2,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { FormattedNumber } from "../FormattedNumber.js";
+import { describe, expect, it } from "vitest";
 
 describe("FormattedNumber", () => {
     it("should format number with default format", () => {

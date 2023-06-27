@@ -30,7 +30,8 @@ import {
     clickBack,
     clickGranularPermissionsDropdownButton,
     clickGranularPermissionsDropdownItem,
-} from "./testHelpers";
+} from "./testHelpers.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("ShareDialog", () => {
     describe("Share with users and groups page", () => {

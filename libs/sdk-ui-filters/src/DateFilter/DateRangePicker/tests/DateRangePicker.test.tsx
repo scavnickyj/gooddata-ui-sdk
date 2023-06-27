@@ -1,6 +1,7 @@
 // (C) 2007-2023 GoodData Corporation
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import { DateRangePicker, IDateRange, IDateRangePickerProps } from "../DateRangePicker.js";
 import { IntlDecorator } from "./IntlDecorators.js";

@@ -5,6 +5,7 @@ import { getAxisNameConfiguration } from "../getAxisNameConfiguration.js";
 import { IChartOptions } from "../../../typings/unsafe.js";
 import { ROTATE_NEGATIVE_90_DEGREES, ALIGN_LEFT, ALIGN_RIGHT } from "../../../constants/axisLabel.js";
 import { IAxisConfig } from "../../../../interfaces/index.js";
+import { describe, it, expect } from "vitest";
 
 describe("getAxisNameConfiguration", () => {
     it("should return highchart axis config", () => {

@@ -2,6 +2,7 @@
 import { HeaderPredicates } from "@gooddata/sdk-ui";
 import { IColorPalette, ITheme } from "@gooddata/sdk-model";
 import { ReferenceRecordings, ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 import { getMVS } from "../../_util/test/helper.js";
 import { ColorFactory } from "../../_chartOptions/colorFactory.js";

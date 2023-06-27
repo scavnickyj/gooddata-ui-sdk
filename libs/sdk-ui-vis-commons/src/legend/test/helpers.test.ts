@@ -13,6 +13,7 @@ import {
     heatmapSmallLegendConfigMatrix,
     verticalHeatmapConfig,
 } from "../helpers.js";
+import { describe, it, expect } from "vitest";
 
 describe("helpers", () => {
     describe("calculateFluidLegend", () => {

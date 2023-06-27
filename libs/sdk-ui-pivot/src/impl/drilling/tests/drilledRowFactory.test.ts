@@ -2,6 +2,7 @@
 import { createTestRow, TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor } from "./drilling.fixture.js";
 import { ReferenceData } from "@gooddata/reference-workspace";
 import { createDrilledRow } from "../drilledRowFactory.js";
+import { describe, it, expect } from "vitest";
 
 describe("createDrilledRow", () => {
     const TestTable = TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor;

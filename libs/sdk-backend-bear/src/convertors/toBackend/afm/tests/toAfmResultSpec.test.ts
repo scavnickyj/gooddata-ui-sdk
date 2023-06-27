@@ -2,6 +2,7 @@
 import { toAfmExecution } from "../ExecutionConverter.js";
 import { defWithAlias, defWithoutFilters } from "./InvalidInputs.fixture.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, expect, it } from "vitest";
 
 import {
     emptyDef,

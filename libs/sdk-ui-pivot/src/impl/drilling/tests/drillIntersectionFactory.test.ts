@@ -4,6 +4,7 @@ import { createTestRow, TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor } 
 import { createDrillIntersection } from "../drillIntersectionFactory.js";
 import { IGridRow } from "../../data/resultTypes.js";
 import { AnyCol } from "../../structure/tableDescriptorTypes.js";
+import { describe, it, expect } from "vitest";
 
 describe("createDrillIntersection", () => {
     const TestTable = TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor;

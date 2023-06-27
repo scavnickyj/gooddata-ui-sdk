@@ -7,7 +7,7 @@ import { DataViewFirstPage } from "@gooddata/sdk-backend-mockingbird";
 import HeaderCell from "../HeaderCell.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { TableDescriptor } from "../../tableDescriptor.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("HeaderCell renderer", () => {
     const fixture = recordedDataFacade(

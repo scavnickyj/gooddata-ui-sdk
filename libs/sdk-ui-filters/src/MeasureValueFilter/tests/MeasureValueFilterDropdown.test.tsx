@@ -4,6 +4,7 @@ import { render } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { newMeasureValueFilter, IMeasureValueFilter, localIdRef } from "@gooddata/sdk-model";
 import { withIntl } from "@gooddata/sdk-ui";
+import { describe, it, expect, vi } from "vitest";
 
 import MVFDropdownFragment from "./fragments/MeasureValueFilterDropdown.js";
 import {

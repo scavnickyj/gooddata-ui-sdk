@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import PushpinViewportControl, { IPushpinViewportControl } from "../PushpinViewportControl.js";
 import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";
+import { describe, it, expect } from "vitest";
 
 describe("PushpinViewportControl", () => {
     const defaultProps = {

@@ -11,6 +11,7 @@ import { getColorsFromStrategy } from "../../_chartColoring/test/helper.js";
 import { TwoColorPalette } from "../../_chartColoring/test/color.fixture.js";
 import { ReferenceMd, ReferenceRecordings } from "@gooddata/reference-workspace";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 describe("TreemapColorStrategy", () => {
     it("should return TreemapColorStrategy strategy with two colors from default color palette", () => {

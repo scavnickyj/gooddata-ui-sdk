@@ -3,6 +3,7 @@ import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import { DefaultColorPalette, IColorAssignment, localIdentifierMatch } from "@gooddata/sdk-ui";
 import { ScenarioRecording } from "@gooddata/sdk-backend-mockingbird";
 import { IColorDescriptor } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { WaterfallChartColorStrategy } from "../waterfallChartColoring.js";

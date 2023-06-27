@@ -8,6 +8,7 @@ import {
     IDashboardDateFilter,
 } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 import { translations } from "../../../../../../localization/index.js";
 import { getKpiAlertTranslationData, KpiAlertTranslationData } from "../translationUtils.js";

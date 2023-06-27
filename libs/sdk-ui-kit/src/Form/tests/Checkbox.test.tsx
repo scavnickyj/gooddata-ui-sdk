@@ -1,9 +1,15 @@
 // (C) 2020-2022 GoodData Corporation
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import defaultUserEvent from "@testing-library/user-event";
+import { describe, it, expect, vi } from "vitest";
 
-import { Checkbox } from "../Checkbox";
+import { Checkbox } from "../Checkbox.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 describe("ReactCheckbox", () => {
     function renderCheckbox(options = {}) {

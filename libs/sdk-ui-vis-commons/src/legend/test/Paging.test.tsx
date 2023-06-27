@@ -5,7 +5,7 @@ import noop from "lodash/noop.js";
 
 import { Paging, IPagingProps } from "../Paging.js";
 import { withIntl } from "@gooddata/sdk-ui";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("Paging", () => {
     function renderComponent(customProps: Partial<IPagingProps> = {}) {

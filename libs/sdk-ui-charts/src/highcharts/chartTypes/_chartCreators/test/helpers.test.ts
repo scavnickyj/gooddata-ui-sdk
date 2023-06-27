@@ -15,7 +15,7 @@ import {
 import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { ChartAlignTypes, IChartConfig } from "../../../../interfaces/index.js";
 import { BOTTOM, TOP } from "../../../constants/alignments.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 describe("helpers", () => {
     describe("getChartProperties", () => {

@@ -2,6 +2,7 @@
 import { PositionType } from "../../types.js";
 import { ILegendDetails, getLegendDetails, ILegendDetailOptions } from "../helpers.js";
 import { ContentRect } from "react-measure";
+import { describe, it, expect } from "vitest";
 
 describe("helpers", () => {
     const NULLABLE_VALUE: any = null;

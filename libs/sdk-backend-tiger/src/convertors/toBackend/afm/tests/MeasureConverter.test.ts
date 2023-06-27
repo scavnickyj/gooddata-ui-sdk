@@ -12,6 +12,7 @@ import {
     newRelativeDateFilter,
 } from "@gooddata/sdk-model";
 import { invalidMeasureDefinition, invalidObjQualifier } from "./InvalidInputs.fixture.js";
+import { describe, expect, it } from "vitest";
 
 describe("measure converter", () => {
     const Scenarios: Array<[string, any]> = [

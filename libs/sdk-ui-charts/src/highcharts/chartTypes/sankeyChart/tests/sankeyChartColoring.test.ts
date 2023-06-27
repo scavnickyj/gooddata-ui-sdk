@@ -6,6 +6,7 @@ import { SankeyChartColorStrategy } from "../sankeyChartColoring.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { CUSTOM_COLOR_PALETTE } from "../../_util/test/colorPalette.fixture.js";
 import { CHART_TYPE, COLOR_MAPPINGS, RECORDS_WITHOUT_EMPTY_ATTRIBUTE } from "./sankeyChart.fixture.js";
+import { describe, it, expect } from "vitest";
 
 describe("SankeyChartColorStrategy", () => {
     it.each(RECORDS_WITHOUT_EMPTY_ATTRIBUTE)(

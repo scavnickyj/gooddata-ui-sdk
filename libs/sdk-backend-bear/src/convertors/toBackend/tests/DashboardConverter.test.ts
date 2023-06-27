@@ -23,6 +23,7 @@ import {
     drillToDashboardWithDrillFromMeasure,
     drillToDashboardWithDrillFromAttribute,
 } from "./DashboardConverter.fixtures.js";
+import { describe, expect, it } from "vitest";
 
 describe("dashboard converter", () => {
     describe("convert dashboard", () => {

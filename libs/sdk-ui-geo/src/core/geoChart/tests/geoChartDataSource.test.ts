@@ -7,6 +7,7 @@ import { emptyDef } from "@gooddata/sdk-model";
 import { getGeoData } from "../helpers/geoChart/data.js";
 import { getColorStrategy } from "../colorStrategy/geoChart.js";
 import { RecShortcuts } from "../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 const commonDataSourceProps: Partial<IGeoDataSourceProps> = {
     config: { mapboxToken: "" },

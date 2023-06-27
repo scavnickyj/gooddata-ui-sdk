@@ -4,6 +4,7 @@ import noop from "lodash/noop.js";
 import { render, screen } from "@testing-library/react";
 import { withIntl } from "@gooddata/sdk-ui";
 import { ILegendProps, Legend } from "../Legend.js";
+import { describe, it, expect } from "vitest";
 
 describe("Legend", () => {
     const series = [

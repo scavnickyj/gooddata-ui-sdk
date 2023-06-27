@@ -4,6 +4,7 @@ import { BarChartDescriptor } from "../pluggableVisualizations/barChart/BarChart
 import { CatalogViaTypeToClassMap, FullVisualizationCatalog } from "../VisualizationCatalog.js";
 import { recordedInsights } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 describe("CatalogViaTypeToClassMap", () => {
     const TestCatalog = new CatalogViaTypeToClassMap({ someType: BarChartDescriptor });

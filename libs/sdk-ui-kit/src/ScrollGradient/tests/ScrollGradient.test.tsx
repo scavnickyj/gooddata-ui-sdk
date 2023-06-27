@@ -8,7 +8,7 @@ import { useRightInScrollable } from "../hooks/useRightInScrollable.js";
 import { useScrollEvent } from "../hooks/useScrollEvent.js";
 import { useGradientColor } from "../hooks/useGradientColor.js";
 import { useContentHeight } from "../hooks/useContentHeight.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 function renderScrollGradient(height: number, options: Partial<IScrollGradientProps>) {
     return render(

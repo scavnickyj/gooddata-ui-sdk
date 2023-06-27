@@ -10,6 +10,7 @@ import { IColorStrategy } from "@gooddata/sdk-ui-vis-commons";
 import { DEFAULT_COLORS } from "../constants/geoChart.js";
 import { RecShortcuts } from "../../../../__mocks__/recordings.js";
 import { getColorStrategy } from "../colorStrategy/geoChart.js";
+import { describe, it, expect } from "vitest";
 
 describe("getPushpinColors", () => {
     it("should return pushpin RGB colors", () => {

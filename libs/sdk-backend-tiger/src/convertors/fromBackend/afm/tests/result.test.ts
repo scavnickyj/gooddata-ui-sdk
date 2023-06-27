@@ -9,6 +9,7 @@ import {
     mockDimensionsWithTotals,
 } from "./result.fixture.js";
 import { getTransformDimensionHeaders } from "../DimensionHeaderConverter.js";
+import { describe, expect, it } from "vitest";
 
 describe("transformExecutionResult", () => {
     it("should format date dimensions values", () => {

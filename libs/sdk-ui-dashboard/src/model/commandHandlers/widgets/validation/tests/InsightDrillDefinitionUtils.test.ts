@@ -25,6 +25,7 @@ import {
     validateDrillDefinitionOrigin,
     validateInsightDrillDefinition,
 } from "../insightDrillDefinitionUtils.js";
+import { describe, it, expect } from "vitest";
 
 describe("validateDrillDefinitionOrigin", () => {
     const drillTargets: IAvailableDrillTargets = SimpleDashboardSimpleSortedTableWidgetDrillTargets;

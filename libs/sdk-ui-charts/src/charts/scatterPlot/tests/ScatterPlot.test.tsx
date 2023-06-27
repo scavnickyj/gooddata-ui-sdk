@@ -5,7 +5,7 @@ import { ScatterPlot } from "../ScatterPlot.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { CoreScatterPlot } from "../CoreScatterPlot.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function

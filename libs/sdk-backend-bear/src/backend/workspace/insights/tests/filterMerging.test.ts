@@ -10,6 +10,7 @@ import {
     uriRef,
     newRankingFilter,
 } from "@gooddata/sdk-model";
+import { describe, expect, it } from "vitest";
 
 describe("appendFilters", () => {
     const uriResolver: Parameters<typeof appendFilters>[2] = (refs) =>

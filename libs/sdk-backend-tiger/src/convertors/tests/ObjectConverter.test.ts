@@ -3,6 +3,7 @@ import { TigerObjectType } from "../../types/index.js";
 import { TigerCompatibleObjectType } from "../../types/refTypeMapping.js";
 import { toObjectType } from "../fromBackend/ObjRefConverter.js";
 import { toTigerType } from "../toBackend/ObjRefConverter.js";
+import { describe, expect, test } from "vitest";
 
 const mapping: [TigerCompatibleObjectType, TigerObjectType][] = [
     ["attribute", "attribute"],

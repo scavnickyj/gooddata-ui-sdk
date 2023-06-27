@@ -4,6 +4,7 @@ import * as referencePointMock from "../../../tests/mocks/referencePointMocks.js
 import { setComboChartUiConfig } from "../comboChartUiConfigHelper.js";
 import { createInternalIntl } from "../../internalIntlProvider.js";
 import { COMBO_CHART_UICONFIG } from "../../../constants/uiConfig.js";
+import { describe, it, expect } from "vitest";
 
 describe("comboChartUiConfigHelper", () => {
     describe("setComboChartUiConfig", () => {

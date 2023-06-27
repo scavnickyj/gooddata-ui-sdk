@@ -2,7 +2,7 @@
 import noop from "lodash/noop.js";
 import { dummyBackendEmptyData } from "@gooddata/sdk-backend-mockingbird";
 import { IAnalyticalBackend, IUserWorkspaceSettings } from "@gooddata/sdk-backend-spi";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 import { userWorkspaceSettingsDataLoaderFactory } from "../UserWorkspaceSettingsDataLoader.js";
 

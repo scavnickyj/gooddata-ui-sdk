@@ -5,7 +5,7 @@ import { render } from "@testing-library/react";
 import GeoChartRenderer, { IGeoChartRendererProps } from "../GeoChartRenderer.js";
 import { IGeoData } from "../../../GeoChart.js";
 import { createIntlMock } from "@gooddata/sdk-ui";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const intl = createIntlMock();
 

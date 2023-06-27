@@ -10,6 +10,7 @@ import {
     newMeasure,
     newPositiveAttributeFilter,
 } from "@gooddata/sdk-model";
+import { describe, expect, it } from "vitest";
 
 describe("measure converter", () => {
     const Scenarios: Array<[string, any]> = [

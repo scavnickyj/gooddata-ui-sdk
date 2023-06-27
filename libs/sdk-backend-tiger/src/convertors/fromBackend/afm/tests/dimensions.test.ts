@@ -12,6 +12,7 @@ import {
     newMeasure,
     newTotal,
 } from "@gooddata/sdk-model";
+import { describe, expect, it } from "vitest";
 
 describe("transformResultDimensions", () => {
     it("should fill in uris and refs for attribute descriptors", () => {

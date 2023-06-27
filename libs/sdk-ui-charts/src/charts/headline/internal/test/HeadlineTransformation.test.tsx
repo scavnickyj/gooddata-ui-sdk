@@ -16,7 +16,7 @@ import {
     DRILL_EVENT_DATA_FOR_SECONDARY_ITEM,
 } from "./HeadlineTransformation.fixtures.js";
 import noop from "lodash/noop.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach, beforeEach } from "vitest";
 
 describe("HeadlineTransformation", () => {
     let Headline = vi.spyOn(headlineComponent, "default").mockImplementation((): null => null);

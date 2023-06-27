@@ -6,6 +6,7 @@ import { ReferenceRecordings } from "@gooddata/reference-workspace";
 import cloneDeep from "lodash/cloneDeep.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { DataViewFacade } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 const getColorStrategy = (colorPalette: IColorPalette, dv: DataViewFacade) =>
     new BulletChartColorStrategy(colorPalette, undefined, undefined, undefined, dv);

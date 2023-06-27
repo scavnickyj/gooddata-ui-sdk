@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { DialogBase } from "../DialogBase.js";
 import { Input } from "../../Form/Input.js";
 import { IDialogBaseProps } from "../typings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 function renderDialog(options: Partial<IDialogBaseProps>, children?: ReactNode) {
     return render(<DialogBase {...options}>{children ?? "Dialog content"}</DialogBase>);

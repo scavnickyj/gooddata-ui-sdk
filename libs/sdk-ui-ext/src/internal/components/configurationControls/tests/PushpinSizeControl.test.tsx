@@ -2,6 +2,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
+import { describe, it, expect } from "vitest";
 
 import PushpinSizeControl, { IPushpinSizeControl } from "../PushpinSizeControl.js";
 import { InternalIntlWrapper } from "../../../utils/internalIntlProvider.js";

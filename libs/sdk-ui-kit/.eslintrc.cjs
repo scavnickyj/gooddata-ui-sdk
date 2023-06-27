@@ -10,7 +10,6 @@ module.exports = {
         "plugin:regexp/recommended",
         "plugin:react-hooks/recommended",
         "../../.eslintrc.react.js",
-        "plugin:jest-dom/recommended",
     ],
     rules: {
         "react-hooks/rules-of-hooks": "error",

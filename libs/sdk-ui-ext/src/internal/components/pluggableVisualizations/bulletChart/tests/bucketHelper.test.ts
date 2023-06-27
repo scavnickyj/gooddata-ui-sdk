@@ -4,6 +4,7 @@ import { BucketNames } from "@gooddata/sdk-ui";
 import { transformBuckets } from "../bucketHelper.js";
 import { IBucketItem } from "../../../../interfaces/Visualization.js";
 import * as referencePointMocks from "../../../../tests/mocks/referencePointMocks.js";
+import { describe, it, expect } from "vitest";
 
 describe("bullet chart bucket helper", () => {
     const getBucket = (localIdentifier: string, items: IBucketItem[]) => ({

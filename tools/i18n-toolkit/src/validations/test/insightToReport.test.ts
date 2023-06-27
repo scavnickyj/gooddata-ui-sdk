@@ -1,8 +1,8 @@
 // (C) 2020-2022 GoodData Corporation
 
-import { vi } from "vitest";
 import { getInsightToReportCheck } from "../insightToReport";
 import { LocalesStructure } from "../../schema/localization";
+import { describe, it, expect, vi } from "vitest";
 
 type Scenario = [string, LocalesStructure, string | null];
 
@@ -95,7 +95,7 @@ describe("validate insight to report", () => {
         ],
     ];
 
-    it.each(scenarios)("validate %s", async (_, locales, err) => {
+    it.each(scenarios)("validate %s", async (_: any, locales: any, err: any) => {
         returnValue = locales;
         if (err) {
             await expect(getInsightToReportCheck([["en-US.json", locales]])).rejects.toThrowError(err);

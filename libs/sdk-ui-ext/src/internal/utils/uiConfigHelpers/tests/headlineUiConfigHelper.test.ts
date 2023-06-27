@@ -3,6 +3,7 @@ import { DefaultLocale } from "@gooddata/sdk-ui";
 import { createInternalIntl } from "../../internalIntlProvider.js";
 import { getHeadlineUiConfig } from "../headlineUiConfigHelper.js";
 import * as referencePointMocks from "../../../tests/mocks/referencePointMocks.js";
+import { describe, it, expect } from "vitest";
 
 describe("headlineUiConfigHelper", () => {
     describe("getHeadlineUiConfig", () => {

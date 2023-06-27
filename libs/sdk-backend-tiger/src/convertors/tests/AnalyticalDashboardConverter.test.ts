@@ -2,6 +2,7 @@
 
 import { IDashboardLayout } from "@gooddata/sdk-model";
 import { getDrillToCustomUrlPaths } from "../toBackend/AnalyticalDashboardConverter.js";
+import { describe, expect, test } from "vitest";
 
 const layout: IDashboardLayout = {
     type: "IDashboardLayout",

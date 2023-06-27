@@ -10,6 +10,7 @@ import { ScatterPlotColorStrategy } from "../scatterPlotColoring.js";
 import { ReferenceRecordings, ReferenceMd } from "@gooddata/reference-workspace";
 import range from "lodash/range.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
+import { describe, it, expect } from "vitest";
 
 describe("ScatterPlotColorStrategy", () => {
     it("should create palette with same color from first measure for all attribute elements", () => {

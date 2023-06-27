@@ -6,7 +6,7 @@ import * as referencePointMocks from "../../../../tests/mocks/referencePointMock
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import * as testMocks from "../../../../tests/mocks/testMocks.js";
 import { getLastRenderEl } from "../../tests/testHelpers.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 
 describe("PluggableScatterPlot", () => {
     const mockElement = document.createElement("div");

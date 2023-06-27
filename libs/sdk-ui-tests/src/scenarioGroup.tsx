@@ -54,7 +54,7 @@ export interface IScenarioGroup<T extends VisProps> {
 /**
  * This class supports concept of grouping multiple related test scenarios. To that end it provides functions
  * to add one scenario, add scenarios in bulk & accessing the scenarios either in their normal shape or as
- * input to jest parameterized tests.
+ * input to vitest parameterized tests.
  */
 export class ScenarioGroup<T extends VisProps> implements IScenarioGroup<T> {
     public groupNames: string[] = [];
@@ -238,7 +238,7 @@ export class ScenarioGroup<T extends VisProps> implements IScenarioGroup<T> {
     };
 
     /**
-     * Transform scenarios for this component to an inputs for parameterized Jest tests.
+     * Transform scenarios for this component to an inputs for parameterized vitest tests.
      */
     public asTestInput = (): Array<ScenarioTestInput<T>> => {
         return this.scenarioList.map((scenario) => scenario.asTestInput());

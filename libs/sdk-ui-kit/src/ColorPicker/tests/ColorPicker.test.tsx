@@ -6,7 +6,7 @@ import { withIntl } from "@gooddata/sdk-ui";
 import { ColorPicker } from "../ColorPicker.js";
 import { ColorFormats } from "tinycolor2";
 import { IColorPickerProps } from "../typings.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const initialRgbColor: ColorFormats.RGB = {
     r: 255,

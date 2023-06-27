@@ -2,6 +2,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { DefaultLocale } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 import ConfigurationPanelContent, { IConfigurationPanelContentProps } from "../ConfigurationPanelContent.js";
 

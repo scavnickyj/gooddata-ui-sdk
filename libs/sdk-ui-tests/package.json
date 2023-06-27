@@ -117,7 +117,6 @@
         "@gooddata/sdk-ui-web-components": "workspace:*",
         "@gooddata/stylelint-config": "^5.0.0",
         "@testing-library/dom": "~9.2.0",
-        "@testing-library/jest-dom": "^5.12.0",
         "@testing-library/react": "^14.0.0",
         "@types/json-stable-stringify": "^1.0.32",
         "@types/lodash": "^4.14.158",
@@ -126,7 +125,6 @@
         "@types/react-dom": "^18.2.1",
         "@types/react-responsive": "^8.0.2",
         "@types/spark-md5": "^3.0.1",
-        "@types/testing-library__jest-dom": "^5.14.5",
         "@types/uuid": "^8.3.4",
         "@typescript-eslint/eslint-plugin": "^5.57.1",
         "@typescript-eslint/parser": "^5.57.1",
@@ -157,6 +155,6 @@
         "ts-node": "^10.4.0",
         "typescript": "5.0.2",
         "eslint-plugin-import-esm": "^1.2.1",
-        "vitest": "^0.31.3"
+        "vitest": "0.31.4"
     }
 }

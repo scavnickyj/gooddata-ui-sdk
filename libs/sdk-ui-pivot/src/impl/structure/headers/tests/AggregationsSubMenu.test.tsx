@@ -5,7 +5,7 @@ import { createIntlMock } from "@gooddata/sdk-ui";
 import AggregationsSubMenu, { IAggregationsSubMenuProps } from "../AggregationsSubMenu.js";
 import { IColumnTotal } from "../aggregationsMenuTypes.js";
 import { uriRef } from "@gooddata/sdk-model";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const intlMock = createIntlMock();
 

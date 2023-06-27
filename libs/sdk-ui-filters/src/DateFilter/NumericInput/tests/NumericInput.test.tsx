@@ -3,6 +3,7 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import noop from "lodash/noop.js";
 import { NumericInput } from "../NumericInput.js";
+import { describe, it, expect, vi } from "vitest";
 
 const UP_ARROW_CODE = 38;
 const DOWN_ARROW_CODE = 40;

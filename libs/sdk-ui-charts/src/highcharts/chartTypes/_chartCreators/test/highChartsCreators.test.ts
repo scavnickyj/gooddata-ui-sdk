@@ -3,6 +3,7 @@ import { dummyDataView } from "@gooddata/sdk-backend-mockingbird";
 import { getHighchartsOptions } from "../highChartsCreators.js";
 import { VisualizationTypes, IDrillConfig } from "@gooddata/sdk-ui";
 import { supportedDualAxesChartTypes } from "../../_chartOptions/chartCapabilities.js";
+import { describe, it, expect } from "vitest";
 
 const dataView = dummyDataView({
     attributes: [],

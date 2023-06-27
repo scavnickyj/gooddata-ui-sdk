@@ -3,6 +3,7 @@ import Highcharts from "../../../../lib/index.js";
 import * as autohideColumnLabels from "../autohideColumnLabels.js";
 import { VisualizationTypes } from "@gooddata/sdk-ui";
 import { ISeriesDataItem, IUnsafeDataLabels, UnsafeInternals } from "../../../../typings/unsafe.js";
+import { describe, it, expect } from "vitest";
 
 describe("getStackLabelPointsForDualAxis", () => {
     it("should return points for column0 and column", () => {

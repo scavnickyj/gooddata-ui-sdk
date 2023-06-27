@@ -2,6 +2,7 @@
 import { ReferenceMd } from "@gooddata/reference-workspace";
 import { newInsightDefinition } from "@gooddata/sdk-model";
 import { getReactEmbeddingCodeGenerator } from "../index.js";
+import { describe, it, expect } from "vitest";
 
 describe("getReactEmbeddingCodeGenerator", () => {
     const mockInsight = newInsightDefinition("foo");

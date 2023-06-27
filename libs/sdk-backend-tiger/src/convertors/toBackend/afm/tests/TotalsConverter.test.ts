@@ -14,6 +14,7 @@ import {
     newTwoDimensional,
 } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, expect, it } from "vitest";
 
 import { convertTotals } from "../TotalsConverter.js";
 

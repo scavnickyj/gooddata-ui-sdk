@@ -30,7 +30,7 @@ import {
 import { IDrillEventIntersectionElement } from "@gooddata/sdk-ui";
 import { createDrillEvent, createDrillDefinition, insightDefinitionToInsight } from "./testHelpers.js";
 import { ReferenceMd } from "@gooddata/reference-workspace";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 const { Department, Region } = ReferenceMd;
 

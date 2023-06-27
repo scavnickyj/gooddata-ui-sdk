@@ -5,6 +5,7 @@ import { IGridRow } from "../../data/resultTypes.js";
 import { createTestRow, TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor } from "./drilling.fixture.js";
 import { ReferenceData } from "@gooddata/reference-workspace";
 import { createDrillHeaders } from "../colDrillHeadersFactory.js";
+import { describe, it, expect } from "vitest";
 
 describe("createDrillHeaders", () => {
     const TestTable = TwoMeasuresWithTwoRowAndTwoColumnAttributesDescriptor;

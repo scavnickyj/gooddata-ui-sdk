@@ -17,6 +17,7 @@ import {
     attributeHeaderItemWithFormattedName,
     measureDescriptors,
 } from "./HeaderPredicateFactory.fixtures.js";
+import { describe, expect, it } from "vitest";
 
 describe("getMappingHeaderLocalIdentifier", () => {
     it("should return localIdentifier from attributeHeader", () => {

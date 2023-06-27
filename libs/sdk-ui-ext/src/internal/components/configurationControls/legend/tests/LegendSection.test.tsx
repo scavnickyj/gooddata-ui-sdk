@@ -6,6 +6,7 @@ import { InternalIntlWrapper } from "../../../../utils/internalIntlProvider.js";
 import noop from "lodash/noop.js";
 import cloneDeep from "lodash/cloneDeep.js";
 import set from "lodash/set.js";
+import { describe, it, expect } from "vitest";
 
 const defaultProps: ILegendSection = {
     controlsDisabled: true,

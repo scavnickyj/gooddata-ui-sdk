@@ -10,6 +10,7 @@ import {
 } from "../columnWidths.js";
 import { IAttribute, IMeasure } from "@gooddata/sdk-model";
 import { ReferenceMd } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 describe("newWidthForAllMeasureColumns", () => {
     it("should create width item without grow to fit prop if not specified on factory call", () => {

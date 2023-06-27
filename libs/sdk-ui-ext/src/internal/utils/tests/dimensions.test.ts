@@ -22,6 +22,7 @@ import {
     newAttribute,
 } from "@gooddata/sdk-model";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 const singleMeasureInsight = ReferenceRecordings.Insights.Headline.SingleMeasure.obj as IInsightDefinition;
 const singleAttributeInsight = ReferenceRecordings.Insights.PivotTable.SingleAttribute

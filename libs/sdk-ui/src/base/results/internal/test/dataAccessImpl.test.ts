@@ -5,6 +5,7 @@ import { DataViewFirstPage, dummyDataView, recordedDataView } from "@gooddata/sd
 import { newDataAccessMethods } from "../dataAccessMethods.js";
 import { emptyDef, measureLocalId } from "@gooddata/sdk-model";
 import { DataAccessConfig, DefaultDataAccessConfig } from "../../dataAccessConfig.js";
+import { describe, it, expect } from "vitest";
 
 describe("DataAccessMethods", () => {
     it("should handle empty data view", () => {

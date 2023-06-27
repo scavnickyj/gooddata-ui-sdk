@@ -245,7 +245,7 @@ export interface PreloadedTesterOptions {
 }
 
 /**
- * This factory will return a function that can be integrated into jest's `beforeAll` or `beforeEach` statements. That returned
+ * This factory will return a function that can be integrated into vitest's `beforeAll` or `beforeEach` statements. That returned
  * function will drive initialization of the dashboard tester and will tell vitest it's `done` or it will `fail`.
  *
  * When successfully loaded, the returned function will call the `onLoaded` callback

@@ -30,6 +30,7 @@ import {
     newMeasureSort,
 } from "@gooddata/sdk-model";
 import { newAvailableSortsGroup } from "../../interfaces/SortConfig.js";
+import { describe, it, expect } from "vitest";
 
 const attributeSort: IAttributeSortItem = {
     attributeSortItem: {

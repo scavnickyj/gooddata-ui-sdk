@@ -1,5 +1,5 @@
 // (C) 2023 GoodData Corporation
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 vi.mock(
     "@gooddata/api-client-bear",

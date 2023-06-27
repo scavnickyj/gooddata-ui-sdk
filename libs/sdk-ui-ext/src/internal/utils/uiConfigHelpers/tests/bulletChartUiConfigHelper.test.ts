@@ -4,6 +4,7 @@ import { getBulletChartUiConfig } from "../bulletChartUiConfigHelper.js";
 import { createInternalIntl } from "../../internalIntlProvider.js";
 import { DEFAULT_BULLET_CHART_CONFIG } from "../../../constants/uiConfig.js";
 import { DefaultLocale, VisualizationTypes } from "@gooddata/sdk-ui";
+import { describe, it, expect } from "vitest";
 
 describe("bulletChartUiConfigHelper", () => {
     describe("getBulletChartUiConfig", () => {

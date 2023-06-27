@@ -1,7 +1,6 @@
 // (C) 2019-2020 GoodData Corporation
 import { convertPostMessageToDrillablePredicates } from "../drillablePredicates.js";
-import { vi } from "vitest";
-import SpyInstance = vi.SpyInstance;
+import { describe, it, expect, vi, SpyInstance, beforeEach, afterEach } from "vitest";
 import { IHeaderPredicate, HeaderPredicates } from "@gooddata/sdk-ui";
 import { IDrillableItemsCommandBody } from "@gooddata/sdk-embedding";
 

@@ -2,6 +2,7 @@
 
 import { IRgbColorValue } from "@gooddata/sdk-model";
 import { normalizeColorToRGB, parseRGBString } from "../color.js";
+import { describe, it, expect } from "vitest";
 
 describe("parseRGBString", () => {
     const Scenarios: Array<[string, IRgbColorValue | null]> = [

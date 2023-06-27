@@ -1,7 +1,7 @@
 // (C) 2007-2020 GoodData Corporation
 import { fireDrillEvent } from "../drilling.js";
 import { IDrillEvent } from "../DrillEvents.js";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 describe("fireDrillEvent", () => {
     it("should dispatch expected drill post message", () => {

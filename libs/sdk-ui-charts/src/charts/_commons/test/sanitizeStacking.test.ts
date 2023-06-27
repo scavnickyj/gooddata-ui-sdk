@@ -4,6 +4,7 @@ import { getSanitizedStackingConfig, sanitizeConfig } from "../sanitizeStacking.
 import { IMeasure, newMeasure } from "@gooddata/sdk-model";
 import { recordedDataView } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceRecordings } from "@gooddata/reference-workspace";
+import { describe, it, expect } from "vitest";
 
 const [M1, M2]: IMeasure[] = ["m1", "m2"].map((name: string) => {
     return newMeasure(name, (m) => m.localId(name));

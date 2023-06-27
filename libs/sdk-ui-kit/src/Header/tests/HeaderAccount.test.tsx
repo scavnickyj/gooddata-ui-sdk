@@ -1,12 +1,18 @@
 // (C) 2007-2022 GoodData Corporation
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import defaultUserEvent from "@testing-library/user-event";
 import noop from "lodash/noop.js";
 import { withIntl, ITranslations } from "@gooddata/sdk-ui";
+import { describe, it, expect, vi } from "vitest";
 
-import { HeaderAccount } from "../HeaderAccount";
+import { HeaderAccount } from "../HeaderAccount.js";
 import { IHeaderMenuItem } from "../typings.js";
+
+// There are known compatibility issues between CommonJS (CJS) and ECMAScript modules (ESM).
+// In ESM, default exports of CJS modules are wrapped in default properties instead of being exposed directly.
+// https://github.com/microsoft/TypeScript/issues/52086#issuecomment-1385978414
+const userEvent = defaultUserEvent as unknown as typeof defaultUserEvent.default;
 
 const menuItems: IHeaderMenuItem[] = [
     { isActive: true, key: "gs.header.account", href: "https://example.com" },

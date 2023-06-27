@@ -6,6 +6,7 @@ import {
     SelectionStatusType,
     useInvertableSelect,
 } from "../useInvertableSelect.js";
+import { describe, it, expect } from "vitest";
 
 const defaultProps: IUseInvertableSelectProps<number> = {
     items: [],

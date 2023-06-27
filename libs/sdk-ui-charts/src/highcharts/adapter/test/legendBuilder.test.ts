@@ -7,6 +7,7 @@ import { ReferenceRecordings, ReferenceMd } from "@gooddata/reference-workspace"
 import { measureLocalId } from "@gooddata/sdk-model";
 import { recordedDataFacade } from "../../../../__mocks__/recordings.js";
 import { DEFAULT_LEGEND_CONFIG } from "@gooddata/sdk-ui-vis-commons";
+import { describe, it, expect } from "vitest";
 
 const rec = recordedDataFacade;
 

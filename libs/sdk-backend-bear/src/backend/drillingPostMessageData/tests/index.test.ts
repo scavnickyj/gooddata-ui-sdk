@@ -1,4 +1,5 @@
 // (C) 2020 GoodData Corporation
+import { describe, expect, it } from "vitest";
 import { IUriIdentifierPair } from "@gooddata/api-client-bear";
 import { sanitizeDrillingActivationPostMessageData } from "../index.js";
 import { IDrillableItemsCommandBody } from "@gooddata/sdk-embedding";

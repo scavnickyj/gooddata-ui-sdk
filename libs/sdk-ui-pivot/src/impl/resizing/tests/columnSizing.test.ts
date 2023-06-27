@@ -32,7 +32,7 @@ import { ReferenceData, ReferenceMd } from "@gooddata/reference-workspace";
 import { COLUMN_ATTRIBUTE_COLUMN, MEASURE_COLUMN, ROW_ATTRIBUTE_COLUMN } from "../../base/constants.js";
 import { measureLocalId } from "@gooddata/sdk-model";
 import { pick } from "lodash";
-import { vi } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 
 // This cannot be created using factory functions & it's very awkward case for which
 export const ColumnOnlyWidth: IMeasureColumnWidthItem = {

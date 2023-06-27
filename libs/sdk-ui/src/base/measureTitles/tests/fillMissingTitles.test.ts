@@ -15,6 +15,7 @@ import {
     insightWithComplexArithmeticMeasureTree,
     insightWithMultipleMeasureBuckets,
 } from "../../../../__mocks__/fixtures.js";
+import { describe, it, expect } from "vitest";
 
 describe("measureTitleHelper", () => {
     describe("fillMissingTitles", () => {

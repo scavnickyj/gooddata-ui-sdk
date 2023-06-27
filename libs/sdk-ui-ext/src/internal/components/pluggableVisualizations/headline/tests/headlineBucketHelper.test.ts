@@ -8,6 +8,7 @@ import {
     setHeadlineRefPointBuckets,
     tryToMapForeignBuckets,
 } from "../headlineBucketHelper.js";
+import { describe, it, expect } from "vitest";
 
 describe("headlineBucketHelper", () => {
     function createReferencePoint(

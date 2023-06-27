@@ -10,6 +10,7 @@ import { defaultDateFilterConfig } from "../../dateFilterConfig/defaultConfig.js
 import { TestFilterContext, TestFilterContextWithInvalidParents } from "./dashboardFilterContext.fixture.js";
 import { uriRef } from "@gooddata/sdk-model";
 import { SimpleDashboardWithReferences } from "../../../model/tests/fixtures/SimpleDashboard.fixtures.js";
+import { describe, it, expect } from "vitest";
 
 describe("dashboardFilterContextDefinition", () => {
     it("should return default filter context when dashboard does not have one", () => {

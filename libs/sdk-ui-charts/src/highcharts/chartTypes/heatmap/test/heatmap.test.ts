@@ -12,6 +12,7 @@ import range from "lodash/range.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { HEATMAP_BLUE_COLOR_PALETTE } from "../../_util/color.js";
 import { IColorPalette, ITheme } from "@gooddata/sdk-model";
+import { describe, it, expect } from "vitest";
 
 describe("HeatmapColorStrategy", () => {
     it("should return HeatmapColorStrategy strategy with 7 colors from default heatmap color palette", () => {

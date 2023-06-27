@@ -9,6 +9,7 @@ import { MeasureColorStrategy } from "../../_chartColoring/measure.js";
 import { recordedDataFacade } from "../../../../../__mocks__/recordings.js";
 import { getSeries } from "../chartSeries.js";
 import { getDrillableSeries } from "../chartDrilling.js";
+import { describe, it, expect } from "vitest";
 
 describe("getCategoriesForTwoAttributes", () => {
     const attributeDescriptor: IAttributeDescriptor["attributeHeader"] = {

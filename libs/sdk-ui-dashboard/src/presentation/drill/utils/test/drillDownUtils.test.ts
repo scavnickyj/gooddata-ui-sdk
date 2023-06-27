@@ -4,6 +4,7 @@ import { IDrillToAttributeUrl } from "@gooddata/sdk-model";
 import cloneDeep from "lodash/cloneDeep.js";
 import { IDrillDownDefinition } from "../../../../types.js";
 import { filterDrillFromAttributeByPriority } from "../drillDownUtils.js";
+import { describe, it, expect } from "vitest";
 
 describe("filterDrillFromAttributeByPriority", () => {
     const drillToAttributeUrl: IDrillToAttributeUrl = {

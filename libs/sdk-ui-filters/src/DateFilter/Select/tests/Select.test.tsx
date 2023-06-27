@@ -5,6 +5,7 @@ import { Select, ISelectProps } from "../Select.js";
 import { SelectMenu, ISelectMenuProps } from "../SelectMenu.js";
 import { ISelectItemOption, ISelectItemSeparator, ISelectItemHeading, ISelectItem } from "../types.js";
 import { getSelectableItems } from "../utils.js";
+import { describe, it, expect, vi } from "vitest";
 
 describe("Select", () => {
     const optionFirst: ISelectItemOption<string> = { type: "option", value: "first", label: "First" };

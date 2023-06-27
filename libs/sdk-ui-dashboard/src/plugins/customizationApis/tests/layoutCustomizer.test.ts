@@ -5,7 +5,7 @@ import { DefaultLayoutCustomizer } from "../layoutCustomizer.js";
 import { ExtendedDashboardWidget } from "../../../model/index.js";
 import { idRef, IDashboard } from "@gooddata/sdk-model";
 import { createCustomizerMutationsContext } from "../types.js";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 const EmptyDashboard: IDashboard<ExtendedDashboardWidget> = {
     type: "IDashboard",

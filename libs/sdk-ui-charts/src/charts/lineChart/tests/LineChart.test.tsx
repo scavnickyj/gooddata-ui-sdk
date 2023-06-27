@@ -6,7 +6,7 @@ import { newAttributeSort, newTwoDimensional, MeasureGroupIdentifier } from "@go
 import { CoreLineChart } from "../CoreLineChart.js";
 import { dummyBackend } from "@gooddata/sdk-backend-mockingbird";
 import { ReferenceMd } from "@gooddata/reference-workspace";
-import { vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
  * This mock enables us to test props as parameters of the called chart function
