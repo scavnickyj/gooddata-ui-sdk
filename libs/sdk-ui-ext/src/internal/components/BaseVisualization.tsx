@@ -11,7 +11,6 @@ import {
     IExecutionConfig,
 } from "@gooddata/sdk-model";
 import React from "react";
-import { render } from "react-dom";
 import { v4 as uuidv4 } from "uuid";
 import {
     ExplicitDrill,
@@ -40,6 +39,8 @@ import isEqual from "lodash/isEqual.js";
 import noop from "lodash/noop.js";
 import omit from "lodash/omit.js";
 import { ISortConfig } from "../interfaces/SortConfig.js";
+import { isReact18, render, createRoot, Root } from "../../reactRenderers.js";
+import { unmountComponentsAtNodes } from "../utils/domHelper.js";
 
 export interface IBaseVisualizationProps extends IVisCallbacks {
     backend: IAnalyticalBackend;
@@ -85,7 +86,6 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         | "isMdObjectValid"
         | "configPanelClassName"
         | "featureFlags"
-        | "renderer"
     > = {
         visualizationCatalog: FullVisualizationCatalog,
         newDerivedBucketItems: [],
@@ -95,13 +95,13 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         isMdObjectValid: true,
         configPanelClassName: ConfigPanelClassName,
         featureFlags: {},
-        renderer: render,
     };
 
     private visElementId: string;
     private visualization: IVisualization;
     private executionFactory: IExecutionFactory;
     private containerRef: React.RefObject<HTMLDivElement>;
+    private reactRootsMap: { [key: string]: Root } = {};
 
     constructor(props: IBaseVisualizationProps) {
         super(props);
@@ -113,6 +113,10 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
     public componentWillUnmount(): void {
         if (this.visualization) {
             this.visualization.unmount();
+        }
+        if (isReact18) {
+            // TODO: what about this timeout?
+            Object.values(this.reactRootsMap).map((root: Root) => setTimeout(() => root.unmount(), 0));
         }
     }
 
@@ -246,12 +250,36 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
                 },
                 featureFlags,
                 visualizationProperties: insightProperties(props.insight),
-                renderFun: renderer,
+                renderFun: renderer ?? this.getReactRenderFunction(),
+                // TODO: we also need some default unmount and enable user to provide it
+                unmountFun: this.getReactUnmountFunction(),
             };
 
             this.visualization = visFactory(constructorParams);
         }
     }
+
+    private getReactRenderFunction = () => {
+        if (isReact18) {
+            return (children: any, element: HTMLElement) => {
+                if (!this.reactRootsMap[element.id]) {
+                    this.reactRootsMap[element.id] = createRoot(element);
+                }
+                this.reactRootsMap[element.id].render(children);
+            };
+        } else {
+            return render;
+        }
+    };
+
+    private getReactUnmountFunction = () => {
+        if (isReact18) {
+            return () => Object.values(this.reactRootsMap).map((root: Root) => root.render(null));
+        } else {
+            return (elementsOrSelectors: (string | HTMLElement)[]) =>
+                unmountComponentsAtNodes(elementsOrSelectors);
+        }
+    };
 
     private updateVisualization() {
         if (!this.visualization) {

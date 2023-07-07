@@ -1,7 +1,6 @@
 // (C) 2020-2023 GoodData Corporation
 import React, { useCallback, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { render } from "react-dom";
 import noop from "lodash/noop.js";
 import isEqual from "lodash/isEqual.js";
 import compose from "lodash/flowRight.js";
@@ -36,6 +35,8 @@ import {
     ExecutionFactoryWithFixedFilters,
 } from "@gooddata/sdk-backend-base";
 import { withTheme } from "@gooddata/sdk-ui-theme-provider";
+import { unmountComponentsAtNodes } from "../internal/utils/domHelper.js";
+import { isReact18, render, createRoot, Root } from "../reactRenderers.js";
 
 /**
  * @internal
@@ -69,6 +70,7 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
     private elementId = getElementId();
     private visualization: IVisualization | undefined;
     private containerRef = React.createRef<HTMLDivElement>();
+    private reactRootsMap: { [key: string]: Root } = {};
 
     public static defaultProps: Pick<
         IInsightRendererProps,
@@ -173,8 +175,31 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
             projectId: this.props.workspace,
             visualizationProperties: insightProperties(this.props.insight),
             featureFlags: this.props.settings,
-            renderFun: render,
+            renderFun: this.getReactRenderFunction(),
+            unmountFun: this.getReactUnmountFunction(),
         });
+    };
+
+    private getReactRenderFunction = () => {
+        if (isReact18) {
+            return (children: any, element: HTMLElement) => {
+                if (!this.reactRootsMap[element.id]) {
+                    this.reactRootsMap[element.id] = createRoot(element);
+                }
+                this.reactRootsMap[element.id].render(children);
+            };
+        } else {
+            return render;
+        }
+    };
+
+    private getReactUnmountFunction = () => {
+        if (isReact18) {
+            return () => Object.values(this.reactRootsMap).map((root: Root) => root.render(null));
+        } else {
+            return (elementsOrSelectors: (string | HTMLElement)[]) =>
+                unmountComponentsAtNodes(elementsOrSelectors);
+        }
     };
 
     private onExportReadyDecorator = (exportFunction: IExportFunction): void => {
@@ -253,6 +278,10 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
 
     public componentWillUnmount() {
         this.unmountVisualization();
+        if (isReact18) {
+            // TODO: what about this timeout?
+            Object.values(this.reactRootsMap).map((root: Root) => setTimeout(() => root.unmount(), 0));
+        }
     }
 
     public render() {
