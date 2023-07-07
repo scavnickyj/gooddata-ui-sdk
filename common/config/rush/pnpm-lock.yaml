@@ -1578,6 +1578,7 @@ importers:
       '@types/react-lines-ellipsis': ^0.15.1
       '@types/react-measure': ^2.0.8
       '@types/react-transition-group': ^4.4.4
+      '@types/semver': ^7.3.9
       '@types/uuid': ^8.3.4
       '@typescript-eslint/eslint-plugin': ^5.57.1
       '@typescript-eslint/parser': ^5.57.1
@@ -1613,6 +1614,7 @@ importers:
       react-select: ^5.7.3
       react-transition-group: ^4.4.2
       sass: ^1.52.3
+      semver: ^7.3.5
       stylelint: ^13.8.0
       stylelint-checkstyle-formatter: ^0.1.2
       stylelint-config-prettier: ^8.0.2
@@ -1649,6 +1651,7 @@ importers:
       react-measure: 2.5.2_biqbaboplfbrettd7655fr4n2y
       react-select: 5.7.3_cis5wmpl6sllca25ejrqakjpau
       react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
+      semver: 7.5.1
       ts-invariant: 0.7.5
       tslib: 2.5.0
       uuid: 8.3.2
@@ -1672,6 +1675,7 @@ importers:
       '@types/react-lines-ellipsis': 0.15.1
       '@types/react-measure': 2.0.8
       '@types/react-transition-group': 4.4.5
+      '@types/semver': 7.3.13
       '@types/uuid': 8.3.4
       '@typescript-eslint/eslint-plugin': 5.59.0_j7zcdhslflxhyb4ielvkq3otfy
       '@typescript-eslint/parser': 5.59.0_gtjzorxa7eg3ns2qwm6k5om4ri
@@ -7784,7 +7788,7 @@ packages:
       process: 0.11.10
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      semver: 7.5.0
+      semver: 7.5.1
       style-loader: 3.3.2_webpack@5.79.0
       terser-webpack-plugin: 5.3.7_webpack@5.79.0
       ts-dedent: 2.2.0
@@ -7893,7 +7897,7 @@ packages:
       prompts: 2.4.2
       puppeteer-core: 2.1.1
       read-pkg-up: 7.0.1
-      semver: 7.5.0
+      semver: 7.5.1
       shelljs: 0.8.5
       simple-update-notifier: 1.1.0
       strip-json-comments: 3.1.1
@@ -12138,7 +12142,7 @@ packages:
       pretty-bytes: 5.6.0
       proxy-from-env: 1.0.0
       request-progress: 3.0.0
-      semver: 7.5.0
+      semver: 7.5.1
       supports-color: 8.1.1
       tmp: 0.2.1
       untildify: 4.0.0
@@ -15032,7 +15036,7 @@ packages:
       kleur: 4.1.5
       minimist: 1.2.8
       prompts: 2.4.2
-      semver: 7.5.0
+      semver: 7.5.1
     dev: false
 
   /html-webpack-plugin/5.5.1_webpack@5.79.0:
@@ -21431,7 +21435,7 @@ packages:
       enhanced-resolve: 4.5.0
       loader-utils: 2.0.4
       micromatch: 4.0.5
-      semver: 7.5.0
+      semver: 7.5.1
       typescript: 5.0.2
       webpack: 5.79.0_webpack-cli@4.10.0
     dev: true
@@ -21450,7 +21454,7 @@ packages:
       enhanced-resolve: 4.5.0
       loader-utils: 2.0.4
       micromatch: 4.0.5
-      semver: 7.5.0
+      semver: 7.5.1
       typescript: 5.0.2
     dev: false
 
