@@ -6,4 +6,4 @@ export { InsightView } from "./InsightView.js";
 export { IInsightErrorProps, InsightError } from "./InsightError.js";
 export { IInsightRendererProps, InsightRenderer } from "./InsightRenderer.js";
 
-export { IInsightViewProps, IInsightTitleProps } from "../internal/index.js";
+export { IInsightViewProps, IInsightTitleProps, RenderFunction, UnmountFunction } from "../internal/index.js";

@@ -36,6 +36,8 @@ import {
     ExecutionFactoryWithFixedFilters,
 } from "@gooddata/sdk-backend-base";
 import { withTheme } from "@gooddata/sdk-ui-theme-provider";
+import { unmountComponentsAtNodes } from "../internal/utils/domHelper.js";
+import { RenderFunction, UnmountFunction } from "../internal/interfaces/Visualization.js";
 
 /**
  * @internal
@@ -51,6 +53,8 @@ export interface IInsightRendererProps
     colorPalette: IColorPalette | undefined;
     onError?: OnError;
     theme?: ITheme;
+    renderer?: RenderFunction;
+    unmount?: UnmountFunction;
 }
 
 const getElementId = () => `gd-vis-${uuidv4()}`;
@@ -173,7 +177,8 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
             projectId: this.props.workspace,
             visualizationProperties: insightProperties(this.props.insight),
             featureFlags: this.props.settings,
-            renderFun: render,
+            renderFun: this.props.renderer ?? render,
+            unmountFun: this.props.unmount ?? unmountComponentsAtNodes,
         });
     };
 

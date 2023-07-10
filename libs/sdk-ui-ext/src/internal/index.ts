@@ -60,6 +60,8 @@ export {
     IDrillDownContext,
     IDrillDownDefinition,
     isDrillDownDefinition,
+    RenderFunction,
+    UnmountFunction,
 } from "./interfaces/Visualization.js";
 
 export {

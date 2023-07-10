@@ -2,6 +2,9 @@
 import React, { useMemo } from "react";
 import { BackendProvider, WorkspaceProvider } from "@gooddata/sdk-ui";
 import { createBackend } from "./createBackend.js";
+// import { DashboardExample } from "./playground/DashboardExample.js";
+import { InsightViewExample } from "./playground/InsightViewExample.js";
+// import { BaseVisualizationExample } from "./playground/BaseVisualizationExample.js";
 
 function hasCredentialsSetup(): boolean {
     if (BACKEND_TYPE === "tiger") {
@@ -20,6 +23,13 @@ const AppWithBackend: React.FC = () => {
         <BackendProvider backend={backend}>
             <WorkspaceProvider workspace={WORKSPACE}>
                 {/* Build your playground components under the playground directory.*/}
+                {/* <DashboardExample /> */}
+                <InsightViewExample />
+                {/* <BaseVisualizationExample
+                    backend={backend}
+                    projectId={WORKSPACE}
+                    insightUri={"edb41f54-7c7b-4d2f-b903-0cc18a305ffa"}
+                /> */}
             </WorkspaceProvider>
         </BackendProvider>
     );

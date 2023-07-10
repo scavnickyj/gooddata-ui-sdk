@@ -31,7 +31,15 @@ import {
 } from "@gooddata/sdk-ui";
 import { IAvailableSortsGroup, ISortConfig } from "./SortConfig.js";
 
+/**
+ * @public
+ */
 export type RenderFunction = (component: any, target: Element) => void;
+
+/**
+ * @public
+ */
+export type UnmountFunction = (elementsOrSelectors?: (string | HTMLElement)[]) => void;
 
 export type ElementSelectorFunction = () => HTMLElement | null;
 
@@ -49,6 +57,7 @@ export interface IVisConstruct {
     featureFlags?: ISettings;
     visualizationProperties: VisualizationProperties;
     renderFun: RenderFunction;
+    unmountFun: UnmountFunction;
 }
 
 export interface ICustomProps {

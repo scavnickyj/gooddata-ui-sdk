@@ -63,6 +63,9 @@ const InsightViewCore: React.FC<IInsightViewProps & WrappedComponentProps> = (pr
         ErrorComponent = DefaultError,
         LoadingComponent = DefaultLoading,
         TitleComponent = InsightTitle,
+
+        renderer,
+        unmount,
     } = props;
 
     const [state, setState] = useState<IInsightViewCoreState>({
@@ -242,6 +245,8 @@ const InsightViewCore: React.FC<IInsightViewProps & WrappedComponentProps> = (pr
                     onExportReady={onExportReady}
                     onLoadingChanged={handleLoadingChanged}
                     pushData={pushData}
+                    renderer={renderer}
+                    unmount={unmount}
                 />
             </div>
         </div>

@@ -32,6 +32,8 @@ import {
     IDrillDownContext,
     IVisProps,
     IExtendedReferencePoint,
+    RenderFunction,
+    UnmountFunction,
 } from "../interfaces/Visualization.js";
 import { PluggableVisualizationFactory } from "../interfaces/VisualizationDescriptor.js";
 import { FullVisualizationCatalog, IVisualizationCatalog } from "./VisualizationCatalog.js";
@@ -40,6 +42,7 @@ import isEqual from "lodash/isEqual.js";
 import noop from "lodash/noop.js";
 import omit from "lodash/omit.js";
 import { ISortConfig } from "../interfaces/SortConfig.js";
+import { unmountComponentsAtNodes } from "../utils/domHelper.js";
 
 export interface IBaseVisualizationProps extends IVisCallbacks {
     backend: IAnalyticalBackend;
@@ -71,7 +74,8 @@ export interface IBaseVisualizationProps extends IVisCallbacks {
 
     onNewDerivedBucketItemsPlaced?(): void;
 
-    renderer?(component: any, target: Element): void;
+    renderer?: RenderFunction;
+    unmount?: UnmountFunction;
 }
 
 export class BaseVisualization extends React.PureComponent<IBaseVisualizationProps> {
@@ -86,6 +90,7 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         | "configPanelClassName"
         | "featureFlags"
         | "renderer"
+        | "unmount"
     > = {
         visualizationCatalog: FullVisualizationCatalog,
         newDerivedBucketItems: [],
@@ -96,6 +101,7 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         configPanelClassName: ConfigPanelClassName,
         featureFlags: {},
         renderer: render,
+        unmount: unmountComponentsAtNodes,
     };
 
     private visElementId: string;
@@ -203,6 +209,7 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
             projectId,
             configPanelClassName,
             renderer,
+            unmount,
         } = props;
 
         if (this.visualization) {
@@ -247,6 +254,7 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
                 featureFlags,
                 visualizationProperties: insightProperties(props.insight),
                 renderFun: renderer,
+                unmountFun: unmount,
             };
 
             this.visualization = visFactory(constructorParams);

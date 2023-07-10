@@ -153,9 +153,13 @@ export interface IInsightRendererProps extends Omit<IInsightViewProps, "insight"
     // (undocumented)
     onError?: OnError;
     // (undocumented)
+    renderer?: RenderFunction;
+    // (undocumented)
     settings: IUserWorkspaceSettings | undefined;
     // (undocumented)
     theme?: ITheme;
+    // (undocumented)
+    unmount?: UnmountFunction;
 }
 
 // @public (undocumented)
@@ -178,8 +182,12 @@ export interface IInsightViewProps extends Partial<IVisualizationCallbacks> {
     LoadingComponent?: React_2.ComponentType<ILoadingProps>;
     locale?: ILocale;
     onInsightLoaded?: (insight: IInsight) => void;
+    // (undocumented)
+    renderer?: RenderFunction;
     showTitle?: boolean | string | ((insight: IInsight) => string | undefined);
     TitleComponent?: React_2.ComponentType<IInsightTitleProps>;
+    // (undocumented)
+    unmount?: UnmountFunction;
     workspace?: string;
 }
 
@@ -270,6 +278,12 @@ export const PluggableVisualizationErrorCodes: {
 
 // @alpha (undocumented)
 export type PluggableVisualizationErrorType = keyof typeof PluggableVisualizationErrorCodes;
+
+// @public (undocumented)
+export type RenderFunction = (component: any, target: Element) => void;
+
+// @public (undocumented)
+export type UnmountFunction = (elementsOrSelectors?: (string | HTMLElement)[]) => void;
 
 // @internal (undocumented)
 export const WIDGET_DROPZONE_SIZE_INFO_DEFAULT: IVisualizationDefaultSizeInfo;

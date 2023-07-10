@@ -13,6 +13,7 @@ import {
 import { IChartConfig } from "@gooddata/sdk-ui-charts";
 import { IGeoConfig } from "@gooddata/sdk-ui-geo";
 import { IPivotTableConfig } from "@gooddata/sdk-ui-pivot";
+import { RenderFunction, UnmountFunction } from "./Visualization.js";
 
 /**
  * @public
@@ -120,6 +121,10 @@ export interface IInsightViewProps extends Partial<IVisualizationCallbacks> {
      * Component to render insight title.
      */
     TitleComponent?: React.ComponentType<IInsightTitleProps>;
+
+    renderer?: RenderFunction;
+
+    unmount?: UnmountFunction;
 }
 
 /**
