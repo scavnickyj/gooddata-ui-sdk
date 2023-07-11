@@ -1,7 +1,7 @@
 // (C) 2020-2023 GoodData Corporation
 import React, { useCallback, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { render } from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import noop from "lodash/noop.js";
 import isEqual from "lodash/isEqual.js";
 import compose from "lodash/flowRight.js";
@@ -69,6 +69,7 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
     private elementId = getElementId();
     private visualization: IVisualization | undefined;
     private containerRef = React.createRef<HTMLDivElement>();
+    private reactRootsMap: { [key: string]: Root } = {};
 
     public static defaultProps: Pick<
         IInsightRendererProps,
@@ -173,8 +174,20 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
             projectId: this.props.workspace,
             visualizationProperties: insightProperties(this.props.insight),
             featureFlags: this.props.settings,
-            renderFun: render,
+            renderFun: this.renderFun,
+            unmountFun: this.unmountFun,
         });
+    };
+
+    private renderFun = (children: any, element: HTMLElement) => {
+        if (!this.reactRootsMap[element.id]) {
+            this.reactRootsMap[element.id] = createRoot(element);
+        }
+        this.reactRootsMap[element.id].render(children);
+    };
+
+    private unmountFun = () => {
+        Object.values(this.reactRootsMap).map((root: Root) => root.render(null));
     };
 
     private onExportReadyDecorator = (exportFunction: IExportFunction): void => {
@@ -253,6 +266,8 @@ class InsightRendererCore extends React.PureComponent<IInsightRendererProps & Wr
 
     public componentWillUnmount() {
         this.unmountVisualization();
+        // TODO: what about this timeout?
+        Object.values(this.reactRootsMap).map((root: Root) => setTimeout(() => root.unmount(), 0));
     }
 
     public render() {

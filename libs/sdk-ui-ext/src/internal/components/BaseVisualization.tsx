@@ -11,7 +11,7 @@ import {
     IExecutionConfig,
 } from "@gooddata/sdk-model";
 import React from "react";
-import { render } from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import { v4 as uuidv4 } from "uuid";
 import {
     ExplicitDrill,
@@ -72,6 +72,7 @@ export interface IBaseVisualizationProps extends IVisCallbacks {
     onNewDerivedBucketItemsPlaced?(): void;
 
     renderer?(component: any, target: Element): void;
+    unmount?(): void;
 }
 
 export class BaseVisualization extends React.PureComponent<IBaseVisualizationProps> {
@@ -85,7 +86,6 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         | "isMdObjectValid"
         | "configPanelClassName"
         | "featureFlags"
-        | "renderer"
     > = {
         visualizationCatalog: FullVisualizationCatalog,
         newDerivedBucketItems: [],
@@ -95,13 +95,13 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         isMdObjectValid: true,
         configPanelClassName: ConfigPanelClassName,
         featureFlags: {},
-        renderer: render,
     };
 
     private visElementId: string;
     private visualization: IVisualization;
     private executionFactory: IExecutionFactory;
     private containerRef: React.RefObject<HTMLDivElement>;
+    private reactRootsMap: { [key: string]: Root } = {};
 
     constructor(props: IBaseVisualizationProps) {
         super(props);
@@ -114,6 +114,8 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
         if (this.visualization) {
             this.visualization.unmount();
         }
+        // TODO: what about this timeout?
+        Object.values(this.reactRootsMap).map((root: Root) => setTimeout(() => root.unmount(), 0));
     }
 
     public UNSAFE_componentWillReceiveProps(nextProps: IBaseVisualizationProps): void {
@@ -203,6 +205,7 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
             projectId,
             configPanelClassName,
             renderer,
+            unmount,
         } = props;
 
         if (this.visualization) {
@@ -246,12 +249,24 @@ export class BaseVisualization extends React.PureComponent<IBaseVisualizationPro
                 },
                 featureFlags,
                 visualizationProperties: insightProperties(props.insight),
-                renderFun: renderer,
+                renderFun: renderer ?? this.renderFun,
+                unmountFun: unmount ?? this.unmountFun,
             };
 
             this.visualization = visFactory(constructorParams);
         }
     }
+
+    private renderFun = (children: any, element: HTMLElement) => {
+        if (!this.reactRootsMap[element.id]) {
+            this.reactRootsMap[element.id] = createRoot(element);
+        }
+        this.reactRootsMap[element.id].render(children);
+    };
+
+    private unmountFun = () => {
+        Object.values(this.reactRootsMap).map((root: Root) => root.render(null));
+    };
 
     private updateVisualization() {
         if (!this.visualization) {
