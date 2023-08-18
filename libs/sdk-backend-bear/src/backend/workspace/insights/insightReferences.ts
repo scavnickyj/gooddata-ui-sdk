@@ -37,6 +37,8 @@ const objectTypeToObjectCategory = (type: InsightReferenceTypes): ObjectCategory
             return "metric";
         case "variable":
             return "prompt";
+        case "attributeHierarchy":
+            return "attributeHierarchy";
         default:
             return type;
     }

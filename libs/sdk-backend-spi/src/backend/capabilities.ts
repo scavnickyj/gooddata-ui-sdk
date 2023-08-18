@@ -218,7 +218,7 @@ export interface IBackendCapabilities {
     canWorkspaceManagerSeeEverySharedObject?: boolean;
 
     /**
-     * Indicates whether dackend supports enumerating datetime attributes.
+     * Indicates whether backend supports enumerating datetime attributes.
      */
     supportsEnumeratingDatetimeAttributes?: boolean;
 

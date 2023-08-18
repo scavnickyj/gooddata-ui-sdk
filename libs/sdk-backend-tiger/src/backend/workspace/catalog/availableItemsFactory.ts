@@ -20,6 +20,7 @@ import {
     isCatalogAttribute,
     isCatalogFact,
     isCatalogMeasure,
+    isCatalogAttributeHierarchy,
 } from "@gooddata/sdk-model";
 import { AfmValidObjectsQuery, AfmValidObjectsQueryTypesEnum } from "@gooddata/api-client-tiger";
 import intersectionWith from "lodash/intersectionWith.js";
@@ -67,6 +68,8 @@ const catalogItemRefs = (item: CatalogItem): ObjRef[] => {
         ? [item.fact.ref]
         : isCatalogMeasure(item)
         ? [item.measure.ref]
+        : isCatalogAttributeHierarchy(item)
+        ? [item.attributeHierarchy.ref]
         : item.dateAttributes.map((attr) => attr.attribute.ref);
 };
 
@@ -77,7 +80,7 @@ export class TigerWorkspaceCatalogAvailableItemsFactory implements IWorkspaceCat
         private readonly groups: ICatalogGroup[],
         private readonly items: CatalogItem[],
         private readonly options: IWorkspaceCatalogWithAvailableItemsFactoryOptions = {
-            types: ["attribute", "measure", "fact", "dateDataset"],
+            types: ["attribute", "measure", "fact", "dateDataset"], // TODO: should we somehow include available attribute hierarchies?
             excludeTags: [],
             includeTags: [],
             loadGroups: true,

@@ -32,6 +32,8 @@ import {
     isMeasure,
     measurePopAttribute,
     modifyPopMeasure,
+    ICatalogAttributeHierarchy,
+    isCatalogAttributeHierarchy,
 } from "@gooddata/sdk-model";
 import {
     convertItemType,
@@ -53,6 +55,8 @@ const catalogItemUri = (catalogItem: CatalogItem): string => {
         return catalogItem.measure.uri;
     } else if (isCatalogFact(catalogItem)) {
         return catalogItem.fact.uri;
+    } else if (isCatalogAttributeHierarchy(catalogItem)) {
+        return catalogItem.attributeHierarchy.uri;
     }
 
     return catalogItem.dataSet.uri;
@@ -126,7 +130,13 @@ export class BearWorkspaceCatalogAvailableItemsFactory implements IWorkspaceCata
             this.loadAvailableDateDatasets(tempVisualizationObj),
         ]);
 
-        const allAvailableCatalogItems = [...availableCatalogItems, ...availableDateDatasets];
+        const availableAttributeHierarchies: ICatalogAttributeHierarchy[] = []; // TODO: construct out of catalogItems
+
+        const allAvailableCatalogItems = [
+            ...availableCatalogItems,
+            ...availableDateDatasets,
+            ...availableAttributeHierarchies,
+        ];
 
         return new BearWorkspaceCatalogWithAvailableItems(
             this.groups,

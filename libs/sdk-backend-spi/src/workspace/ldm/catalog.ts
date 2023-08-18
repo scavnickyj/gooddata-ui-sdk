@@ -10,6 +10,7 @@ import {
     ICatalogFact,
     ICatalogGroup,
     ICatalogMeasure,
+    ICatalogAttributeHierarchy,
 } from "@gooddata/sdk-model";
 
 /**
@@ -200,6 +201,13 @@ export interface IWorkspaceCatalogWithAvailableItems extends IWorkspaceCatalogMe
      * @returns array of available catalog date datasets
      */
     availableDateDatasets(): ICatalogDateDataset[];
+
+    /**
+     * Get all available catalog attribute hierarchies
+     *
+     * @returns array of available catalog attribute hierarchies
+     */
+    availableAttributeHierarchies(): ICatalogAttributeHierarchy[];
 }
 
 /**
@@ -305,4 +313,11 @@ export interface IWorkspaceCatalogMethods {
      * @returns array of catalog date datasets
      */
     dateDatasets(): ICatalogDateDataset[];
+
+    /**
+     * Get all catalog attribute hierarchies
+     *
+     * @returns array of catalog attribute hierarchies
+     */
+    attributeHierarchies(): ICatalogAttributeHierarchy[];
 }

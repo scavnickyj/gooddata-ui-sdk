@@ -94,6 +94,7 @@ import {
     IMeasureDefinitionType,
     IRelativeDateFilter,
     IAttributeElement,
+    ICatalogAttributeHierarchy,
 } from "@gooddata/sdk-model";
 import isEqual from "lodash/isEqual.js";
 import isEmpty from "lodash/isEmpty.js";
@@ -500,6 +501,10 @@ class DummyWorkspaceCatalog implements IWorkspaceCatalog {
     public measures(): ICatalogMeasure[] {
         return [];
     }
+
+    public attributeHierarchies(): ICatalogAttributeHierarchy[] {
+        return [];
+    }
 }
 
 class DummyWorkspaceCatalogAvailableItemsFactory implements IWorkspaceCatalogAvailableItemsFactory {
@@ -622,6 +627,14 @@ class DummyWorkspaceCatalogWithAvailableItems implements IWorkspaceCatalogWithAv
     }
 
     public measures(): ICatalogMeasure[] {
+        return [];
+    }
+
+    public attributeHierarchies(): ICatalogAttributeHierarchy[] {
+        return [];
+    }
+
+    public availableAttributeHierarchies(): ICatalogAttributeHierarchy[] {
         return [];
     }
 }

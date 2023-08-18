@@ -21,10 +21,11 @@ export function loadCatalog(ctx: DashboardContext): Promise<IWorkspaceCatalog> {
     const options: IWorkspaceCatalogFactoryOptions = {
         excludeTags: [],
         includeTags: [],
-        types: ["attribute", "fact", "measure", "dateDataset"],
+        types: ["attribute", "fact", "measure", "dateDataset", "attributeHierarchy"],
         includeDateGranularities: SupportedCatalogGranularity,
         loadGroups: false,
     };
 
+    // TODO: load catalog
     return backend.workspace(workspace).catalog().withOptions(options).load();
 }

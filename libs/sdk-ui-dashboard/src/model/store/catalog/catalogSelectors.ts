@@ -4,10 +4,14 @@ import flatMap from "lodash/flatMap.js";
 import {
     IAttributeDisplayFormMetadataObject,
     ICatalogAttribute,
+    ICatalogAttributeHierarchy,
     ICatalogDateAttribute,
     ICatalogDateDataset,
     ICatalogFact,
     ICatalogMeasure,
+    ObjRef,
+    areObjRefsEqual,
+    objRefToString,
 } from "@gooddata/sdk-model";
 
 import {
@@ -122,6 +126,14 @@ export const selectCatalogDateAttributes: DashboardSelector<ICatalogDateAttribut
 );
 
 /**
+ * @beta
+ */
+export const selectCatalogAttributeHierarchies: DashboardSelector<ICatalogAttributeHierarchy[]> =
+    createSelector(selectSelf, (state) => {
+        return state.attributeHierarchies ?? [];
+    });
+
+/**
  * @alpha
  */
 export const selectAttributesWithDrillDown: DashboardSelector<(ICatalogAttribute | ICatalogDateAttribute)[]> =
@@ -129,6 +141,47 @@ export const selectAttributesWithDrillDown: DashboardSelector<(ICatalogAttribute
         [selectCatalogAttributes, selectCatalogDateAttributes],
         (attributes = [], dateAttributes = []) => {
             return [...attributes, ...dateAttributes].filter((attr) => attr.attribute.drillDownStep);
+        },
+    );
+
+/**
+ * @beta
+ */
+export const selectAttributesWithHierarchyDescendants: DashboardSelector<Record<string, ObjRef[]>> =
+    createSelector(
+        [selectCatalogAttributes, selectCatalogDateAttributes, selectCatalogAttributeHierarchies],
+        (attributes = [], dateAttributes = [], attributeHierarchies = []) => {
+            const allAttributes = [...attributes, ...dateAttributes];
+            const descendants: Record<string, ObjRef[]> = {};
+
+            allAttributes.forEach((attribute) => {
+                const attributeRef = attribute.attribute.ref;
+                attributeHierarchies.forEach((hierarchy) => {
+                    const hierarchyAttributes = hierarchy.attributeHierarchy.attributes;
+                    const foundAttributeIndex = hierarchyAttributes.findIndex((ref) =>
+                        areObjRefsEqual(ref, attributeRef),
+                    );
+
+                    if (foundAttributeIndex < 0) {
+                        return;
+                    }
+
+                    const foundDescendant = hierarchyAttributes[foundAttributeIndex + 1];
+
+                    if (!foundDescendant) {
+                        return;
+                    }
+
+                    const attributeRefAsString = objRefToString(attributeRef);
+                    if (descendants[attributeRefAsString]) {
+                        descendants[attributeRefAsString].push(foundDescendant);
+                    } else {
+                        descendants[attributeRefAsString] = [foundDescendant];
+                    }
+                });
+            });
+
+            return descendants;
         },
     );
 

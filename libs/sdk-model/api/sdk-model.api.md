@@ -241,13 +241,13 @@ export function bucketTotals(bucket: IBucket): ITotal[];
 export const BuiltInWidgetTypes: string[];
 
 // @public
-export type CatalogItem = ICatalogAttribute | ICatalogMeasure | ICatalogFact | ICatalogDateDataset;
+export type CatalogItem = ICatalogAttribute | ICatalogMeasure | ICatalogFact | ICatalogDateDataset | ICatalogAttributeHierarchy;
 
 // @public
 export const catalogItemMetadataObject: (catalogItem: CatalogItem) => MetadataObject;
 
 // @public
-export type CatalogItemType = "attribute" | "measure" | "fact" | "dateDataset";
+export type CatalogItemType = "attribute" | "measure" | "fact" | "dateDataset" | "attributeHierarchy";
 
 // @public
 export function colorPaletteItemToRgb(item: IColorPaletteItem): string;
@@ -581,6 +581,14 @@ export interface IAttributeHeaderFormOf {
 }
 
 // @public
+export interface IAttributeHierarchyMetadataObject extends IMetadataObjectIdentity, IMetadataObjectBase {
+    // (undocumented)
+    attributes: ObjRef[];
+    // (undocumented)
+    type: "attributeHierarchy";
+}
+
+// @public
 export interface IAttributeLocatorItem {
     // (undocumented)
     attributeLocatorItem: IAttributeLocatorItemBody;
@@ -676,6 +684,14 @@ export interface ICatalogAttribute extends IGroupableCatalogItemBase {
     displayForms: IAttributeDisplayFormMetadataObject[];
     geoPinDisplayForms: IAttributeDisplayFormMetadataObject[];
     type: "attribute";
+}
+
+// @public
+export interface ICatalogAttributeHierarchy {
+    // (undocumented)
+    attributeHierarchy: IAttributeHierarchyMetadataObject;
+    // (undocumented)
+    type: "attributeHierarchy";
 }
 
 // @public
@@ -2097,6 +2113,9 @@ export function isBucket(obj: unknown): obj is IBucket;
 export function isCatalogAttribute(obj: unknown): obj is ICatalogAttribute;
 
 // @public
+export function isCatalogAttributeHierarchy(obj: unknown): obj is ICatalogAttributeHierarchy;
+
+// @public
 export function isCatalogDateDataset(obj: unknown): obj is ICatalogDateDataset;
 
 // @public
@@ -3128,7 +3147,7 @@ export function measureValueFilterOperator(filter: IMeasureValueFilter): Compari
 export function mergeFilters(originalFilters: IFilter[], addedFilters: INullableFilter[] | undefined): IFilter[];
 
 // @public
-export type MetadataObject = IAttributeMetadataObject | IAttributeDisplayFormMetadataObject | IFactMetadataObject | IMeasureMetadataObject | IDataSetMetadataObject | IVariableMetadataObject | IDashboardMetadataObject;
+export type MetadataObject = IAttributeMetadataObject | IAttributeDisplayFormMetadataObject | IFactMetadataObject | IMeasureMetadataObject | IDataSetMetadataObject | IVariableMetadataObject | IDashboardMetadataObject | IAttributeHierarchyMetadataObject;
 
 // @public
 export const metadataObjectId: (metadataObject: MetadataObject) => string;
@@ -3248,7 +3267,7 @@ export function newTwoDimensional(dim1Input: DimensionItem[], dim2Input: Dimensi
 export function newVirtualArithmeticMeasure(measuresOrIds: ReadonlyArray<MeasureOrLocalId>, operator: ArithmeticMeasureOperator, modifications?: MeasureModifications<VirtualArithmeticMeasureBuilder>): IMeasure<IVirtualArithmeticMeasureDefinition>;
 
 // @public
-export type ObjectType = "measure" | "fact" | "attribute" | "displayForm" | "dataSet" | "tag" | "insight" | "variable" | "analyticalDashboard" | "theme" | "colorPalette" | "filterContext" | "dashboardPlugin";
+export type ObjectType = "measure" | "fact" | "attribute" | "displayForm" | "dataSet" | "tag" | "insight" | "variable" | "analyticalDashboard" | "theme" | "colorPalette" | "filterContext" | "dashboardPlugin" | "attributeHierarchy";
 
 // @public
 export type ObjRef = UriRef | IdentifierRef;

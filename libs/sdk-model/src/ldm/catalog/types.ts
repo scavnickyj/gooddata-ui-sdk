@@ -5,7 +5,7 @@
  *
  * @public
  */
-export type CatalogItemType = "attribute" | "measure" | "fact" | "dateDataset";
+export type CatalogItemType = "attribute" | "measure" | "fact" | "dateDataset" | "attributeHierarchy";
 
 /**
  * Properties contained in each catalog item

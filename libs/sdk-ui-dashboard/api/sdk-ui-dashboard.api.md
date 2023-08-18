@@ -133,6 +133,7 @@ import { IAvailableDrillTargets } from '@gooddata/sdk-ui';
 import { IBackendCapabilities } from '@gooddata/sdk-backend-spi';
 import { IBaseWidget } from '@gooddata/sdk-model';
 import { ICatalogAttribute } from '@gooddata/sdk-model';
+import { ICatalogAttributeHierarchy } from '@gooddata/sdk-model';
 import { ICatalogDateAttribute } from '@gooddata/sdk-model';
 import { ICatalogDateDataset } from '@gooddata/sdk-model';
 import { ICatalogFact } from '@gooddata/sdk-model';
@@ -472,6 +473,8 @@ export function cancelEditRenderMode(correlationId?: string): ChangeRenderMode;
 
 // @public (undocumented)
 export interface CatalogState {
+    // @beta (undocumented)
+    attributeHierarchies?: ICatalogAttributeHierarchy[];
     // @beta (undocumented)
     attributes?: ICatalogAttribute[];
     // @beta (undocumented)
@@ -3755,6 +3758,7 @@ export interface IDrillDownContext {
 
 // @beta
 export interface IDrillDownDefinition {
+    description?: string;
     origin: LocalIdRef;
     target: ObjRef;
     // (undocumented)

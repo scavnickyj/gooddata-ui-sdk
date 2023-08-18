@@ -54,6 +54,7 @@ const bearItemTypeByCatalogItemType: {
     attribute: "attribute",
     fact: "fact",
     measure: "metric",
+    attributeHierarchy: "attributeHierarchy",
 };
 
 export const convertItemType = (type: CompatibleCatalogItemType): BearCatalogItemType =>
