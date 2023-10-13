@@ -64,7 +64,7 @@ const CAPABILITIES: IBackendCapabilities = {
     supportsCsvUploader: false,
     supportsRankingFilter: true,
     supportsRankingFilterWithMeasureValueFilter: false,
-    supportsElementsQueryParentFiltering: false,
+    supportsElementsQueryParentFiltering: true,
     supportsKpiWidget: false,
     supportsWidgetEntity: false,
     supportsHyperlinkAttributeLabels: true,
@@ -88,6 +88,10 @@ const CAPABILITIES: IBackendCapabilities = {
     supportsSeparateLatitudeLongitudeLabels: true,
     supportsEnumeratingDatetimeAttributes: false,
     supportsHiddenAndLockedFiltersOnUI: true,
+    supportsKeepingDependentFiltersSelection: true,
+    supportsCircularDependencyInFilters: true,
+    supportsMultipleConnectingAttributes: false,
+    supportsShowFilteredElementsInFilters: true,
 };
 
 /**

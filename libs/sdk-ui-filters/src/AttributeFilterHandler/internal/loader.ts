@@ -178,14 +178,14 @@ export class AttributeFilterLoader implements IAttributeFilterLoader {
 
     // Initial elements page
 
-    loadInitialElementsPage = (correlation: Correlation = uuid()): void => {
+    loadInitialElementsPage = (correlation: Correlation = uuid(), excludeLimitingFilters = false): void => {
         invariant(
             this.bridge.getInitStatus() === "success",
             "Cannot call loadInitialElementsPage() before successful initialization.",
         );
         this.validateStaticElementsLoad();
 
-        this.bridge.loadInitialElementsPage(correlation);
+        this.bridge.loadInitialElementsPage(correlation, excludeLimitingFilters);
     };
 
     cancelInitialElementsPageLoad(): void {
@@ -385,4 +385,16 @@ export class AttributeFilterLoader implements IAttributeFilterLoader {
     onUpdate: CallbackRegistration<void> = (cb) => {
         return this.bridge.onUpdate(cb);
     };
+
+    getLimitingFiltersChanged(): boolean {
+        return this.bridge.getLimitingFiltersChanged();
+    }
+
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void {
+        this.bridge.setLimitingFiltersChanged(limitingFiltersChanged);
+    }
+
+    getIrrelevantElementTitles(): string[] {
+        return this.bridge.getIrrelevantElementTitles();
+    }
 }

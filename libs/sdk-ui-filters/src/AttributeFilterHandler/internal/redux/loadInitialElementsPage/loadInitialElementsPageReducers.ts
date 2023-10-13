@@ -7,8 +7,9 @@ import { Correlation, ILoadElementsResult } from "../../../types/index.js";
 import { getElementCacheKey } from "../common/selectors.js";
 import { AttributeFilterReducer } from "../store/state.js";
 
-const loadInitialElementsPageRequest: AttributeFilterReducer<PayloadAction<{ correlation: Correlation }>> =
-    identity;
+const loadInitialElementsPageRequest: AttributeFilterReducer<
+    PayloadAction<{ correlation: Correlation; excludeLimitingFilters: boolean }>
+> = identity;
 
 const loadInitialElementsPageStart: AttributeFilterReducer<PayloadAction<{ correlation: Correlation }>> = (
     state,
@@ -17,6 +18,7 @@ const loadInitialElementsPageStart: AttributeFilterReducer<PayloadAction<{ corre
     state.elements.initialPageLoad.error = undefined;
     state.elements.currentOptions.offset = 0;
     state.elements.lastLoadedOptions.offset = 0;
+    state.elements.irrelevantElementTitles = [];
     state.elements.data = [];
 };
 
@@ -37,6 +39,9 @@ const loadInitialElementsPageSuccess: AttributeFilterReducer<
     });
     state.elements.data = action.payload.elements.map((el) => getElementCacheKey(state, el));
     state.elements.lastLoadedOptions = action.payload.options;
+    if (action.payload.irrelevantElementTitles) {
+        state.elements.irrelevantElementTitles = action.payload.irrelevantElementTitles;
+    }
 };
 
 const loadInitialElementsPageError: AttributeFilterReducer<

@@ -12,17 +12,23 @@ import { ParentFilterOverAttributeType } from "../types.js";
 export const useResolveParentFiltersInput = (
     parentFilters?: AttributeFiltersOrPlaceholders,
     overAttribute?: ParentFilterOverAttributeType,
+    allowEmptyParentFilter?: boolean,
 ) => {
     const resolvedParentFilters = useResolveValueWithPlaceholders(parentFilters);
 
     return useMemo(() => {
-        return getParentFiltersWithOverAttribute(resolvedParentFilters, overAttribute);
-    }, [resolvedParentFilters, overAttribute]);
+        return getParentFiltersWithOverAttribute(
+            resolvedParentFilters,
+            overAttribute,
+            allowEmptyParentFilter,
+        );
+    }, [resolvedParentFilters, overAttribute, allowEmptyParentFilter]);
 };
 
 const getParentFiltersWithOverAttribute = (
     parentFilters: IAttributeFilter[],
     overAttribute: ObjRef | ((parentFilter: IAttributeFilter, index: number) => ObjRef),
+    allowEmptyParentFilter = false,
 ): IElementsQueryAttributeFilter[] => {
     if (!parentFilters || !overAttribute) {
         return [];
@@ -30,14 +36,14 @@ const getParentFiltersWithOverAttribute = (
 
     const overAttributeGetter = isFunction(overAttribute) ? overAttribute : () => overAttribute;
 
-    return parentFilters
-        .map((attributeFilter, index) => {
-            return {
-                attributeFilter,
-                overAttribute: overAttributeGetter(attributeFilter, index),
-            };
-        })
-        .filter((item) => {
-            return !filterIsEmpty(item.attributeFilter);
-        });
+    const mappedParentFilters = parentFilters.map((attributeFilter, index) => ({
+        attributeFilter,
+        overAttribute: overAttributeGetter(attributeFilter, index),
+    }));
+
+    if (!allowEmptyParentFilter) {
+        return mappedParentFilters.filter((item) => !filterIsEmpty(item.attributeFilter));
+    }
+
+    return mappedParentFilters;
 };

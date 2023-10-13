@@ -28,6 +28,7 @@ export interface ILoadElementsResult {
     elements: IAttributeElement[];
     totalCount: number;
     options: ILoadElementsOptions;
+    irrelevantElementTitles?: string[];
 }
 
 /**
@@ -72,7 +73,7 @@ export interface IAttributeElementLoader {
      *
      * @param correlation - correlation that will be included in all callbacks fired by this method
      */
-    loadInitialElementsPage(correlation?: Correlation): void;
+    loadInitialElementsPage(correlation?: Correlation, excludeLimitingFilters?: boolean): void;
 
     /**
      * Cancels the running initial elements page load, if any.
@@ -453,6 +454,21 @@ export interface IAttributeElementLoader {
      * @param callback - callback to run
      */
     onLoadCustomElementsCancel: CallbackRegistration<OnLoadCustomElementsCancelCallbackPayload>;
+
+    /**
+     * Sets flag for keeping the information whether limiting filters changed and elements should be reinitialized.
+     */
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void;
+
+    /**
+     * Returns the information whether limiting filters have changed.
+     */
+    getLimitingFiltersChanged(): boolean;
+
+    /**
+     * Returns a list of irrelevant element titles in selection.
+     */
+    getIrrelevantElementTitles(): string[];
 }
 
 /**

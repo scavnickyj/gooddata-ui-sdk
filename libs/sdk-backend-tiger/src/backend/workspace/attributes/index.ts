@@ -14,6 +14,8 @@ import {
     IAttributeMetadataObject,
     IDataSetMetadataObject,
     IdentifierRef,
+    IAttribute,
+    objRefToString,
 } from "@gooddata/sdk-model";
 import { TigerAuthenticatedCallGuard } from "../../../types/index.js";
 import { TigerWorkspaceElements } from "./elements/index.js";
@@ -24,6 +26,7 @@ import {
     JsonApiDatasetOutWithLinks,
     JsonApiDatasetOutWithLinksTypeEnum,
     EntitiesApiGetAllEntitiesAttributesRequest,
+    AfmValidObjectsQuery,
 } from "@gooddata/api-client-tiger";
 import flatMap from "lodash/flatMap.js";
 import { invariant } from "ts-invariant";
@@ -35,6 +38,9 @@ import {
 } from "../../../convertors/fromBackend/MetadataConverter.js";
 import { DateFormatter } from "../../../convertors/fromBackend/dateFormatting/types.js";
 import { getIdOrigin } from "../../../convertors/fromBackend/ObjectInheritance.js";
+import { unzip } from "lodash/fp.js";
+import { convertAttribute } from "../../../convertors/toBackend/afm/AttributeConverter.js";
+import { jsonApiIdToObjRef } from "../../../convertors/fromBackend/ObjRefConverter.js";
 
 export class TigerWorkspaceAttributes implements IWorkspaceAttributesService {
     constructor(
@@ -77,12 +83,64 @@ export class TigerWorkspaceAttributes implements IWorkspaceAttributesService {
         });
     }
 
-    getCommonAttributes(): Promise<ObjRef[]> {
-        throw new NotSupported("not supported");
+    // TODO: is this ok?
+    async getCommonAttributes(attributeRefs: ObjRef[]): Promise<ObjRef[]> {
+        const batchResult = await this.getCommonAttributesBatch([attributeRefs]);
+        return batchResult[0];
     }
 
-    getCommonAttributesBatch(): Promise<ObjRef[][]> {
-        throw new NotSupported("not supported");
+    async getCommonAttributesBatch(attributesRefBatch: ObjRef[][]): Promise<ObjRef[][]> {
+        if (attributesRefBatch.length === 0) {
+            return [[]];
+        }
+
+        // the first item of every inner array is candidate child
+        // the second item of every inner array is candidate parent
+        const [children, candidateParents] = unzip(attributesRefBatch);
+        const uniqueChildren = new Set(children);
+
+        // TODO: make this better
+        if (uniqueChildren.size > 1) {
+            throw new NotSupported("Backend does not support multiple children in common attributes batch");
+        }
+
+        const candidateChild = children[0];
+        const candidateChildAttribute: IAttribute = {
+            attribute: {
+                localIdentifier: objRefToString(candidateChild),
+                displayForm: candidateChild,
+            },
+        };
+        const convertedAttributeItem = convertAttribute(candidateChildAttribute, 0);
+
+        const afmValidObjectsQuery: AfmValidObjectsQuery = {
+            types: ["attributes"],
+            afm: {
+                attributes: [convertedAttributeItem],
+                measures: [],
+                filters: [],
+            },
+        };
+
+        const availableAttributesResponse = await this.authCall((client) =>
+            client.validObjects.computeValidObjects({
+                workspaceId: this.workspace,
+                afmValidObjectsQuery,
+            }),
+        );
+        const availableAttributesObjRefs = availableAttributesResponse.data.items.map(jsonApiIdToObjRef);
+
+        return candidateParents.map((candidateParent) => {
+            const matchingAttribute = availableAttributesObjRefs.find((availableAttribute) =>
+                areObjRefsEqual(availableAttribute, candidateParent),
+            );
+
+            if (matchingAttribute) {
+                return [candidateChild];
+            } else {
+                return [];
+            }
+        });
     }
 
     getAttributeDatasetMeta(ref: ObjRef): Promise<IMetadataObject> {

@@ -39,6 +39,9 @@ export async function validateAttributeFilterParents(
         return "EXTRANEOUS_PARENT";
     }
 
+    const supportsMultipleConnectingAttributes =
+        !!ctx.backend.capabilities.supportsMultipleConnectingAttributes;
+
     // then validate that the connecting attributes are valid
     const parentValidationData = parents.map((parent) => {
         const parentFilter = allExceptValidated.find(
@@ -46,9 +49,15 @@ export async function validateAttributeFilterParents(
         )!; // the ! is cool here, we validated that the parents are available in the code above
 
         const parentAttribute = displayFormsMap.get(parentFilter.attributeFilter.displayForm)?.attribute;
-        const dashboardFilterAttribute = displayFormsMap.get(
-            dashboardFilter.attributeFilter.displayForm,
-        )?.attribute;
+
+        /**
+         * First element of every inner array is child display form and the second is parent display form.
+         * When backend does not support multiple connecting attributes, only the parent display form
+         * is converted to attribute, for validation purposes. Child display form should stay as is.
+         */
+        const dashboardFilterAttribute = supportsMultipleConnectingAttributes
+            ? displayFormsMap.get(dashboardFilter.attributeFilter.displayForm)?.attribute
+            : dashboardFilter.attributeFilter.displayForm;
 
         if (!parentAttribute || !dashboardFilterAttribute) {
             return undefined;

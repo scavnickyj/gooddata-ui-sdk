@@ -198,3 +198,19 @@ export const selectLastLoadedElementsOptions: FilterSelector<ILoadElementsOption
  */
 export const selectLimitingAttributeFiltersAttributes: FilterSelector<IAttributeMetadataObject[]> =
     createSelector(selectState, (state) => state.elements.limitingAttributeFiltersAttributes);
+
+/**
+ * @internal
+ */
+export const selectLimitingFiltersChanged: FilterSelector<boolean> = createSelector(
+    selectState,
+    (state) => state.elements.limitingFiltersChanged,
+);
+
+/**
+ * @internal
+ */
+export const selectIrrelevantElementTitles: FilterSelector<string[]> = createSelector(
+    selectState,
+    (state) => state.elements.irrelevantElementTitles,
+);

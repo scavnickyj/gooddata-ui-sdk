@@ -45,8 +45,11 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
         error,
 
         isFilteredByParentFilters,
+        showAllOption,
+        onShowAllClick,
 
         parentFilterTitles,
+        irrelevantElementTitles,
     } = props;
 
     const intl = useIntl();
@@ -134,6 +137,9 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
                             selectedItems={selectedItems}
                             totalElementsCountWithCurrentSettings={totalItemsCountWithCurrentSettings}
                             selectedItemsLimit={selectedItemsLimit}
+                            showAllOption={showAllOption}
+                            onShowAllClick={onShowAllClick}
+                            irrelevantElementTitles={irrelevantElementTitles}
                         />
                     );
                 }}

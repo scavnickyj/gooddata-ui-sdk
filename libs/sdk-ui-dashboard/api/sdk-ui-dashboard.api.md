@@ -6455,6 +6455,9 @@ export const selectStash: DashboardSelector<LayoutStash>;
 // @internal
 export const selectSupportsAccessControlCapability: DashboardSelector<boolean>;
 
+// @internal
+export const selectSupportsCircularDependencyInFilters: DashboardSelector<boolean>;
+
 // @public
 export const selectSupportsElementsQueryParentFiltering: DashboardSelector<boolean>;
 

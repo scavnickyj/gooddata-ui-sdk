@@ -51,6 +51,7 @@ export interface IUseAttributeFilterHandlerStateResult {
             limitingMeasures?: IMeasure[];
             limitingDateFilters?: IRelativeDateFilter[];
         };
+        irrelevantElementTitles: string[];
     };
     selection: {
         committed: {
@@ -114,6 +115,7 @@ export const useAttributeFilterHandlerState = (
                 limitingMeasures: handler.getLimitingMeasures(),
                 order: handler.getOrder(),
             },
+            irrelevantElementTitles: handler.getIrrelevantElementTitles(),
         },
         selection: {
             committed: {

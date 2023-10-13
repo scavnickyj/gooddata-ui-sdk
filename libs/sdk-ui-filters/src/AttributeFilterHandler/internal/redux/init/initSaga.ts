@@ -1,6 +1,6 @@
 // (C) 2022 GoodData Corporation
 import { SagaIterator } from "redux-saga";
-import { all, call, cancelled, put, select, takeLatest } from "redux-saga/effects";
+import { SagaReturnType, all, call, cancelled, put, select, takeLatest } from "redux-saga/effects";
 
 import { actions } from "../store/slice.js";
 import { selectHiddenElements } from "../filter/filterSelectors.js";
@@ -10,6 +10,7 @@ import { initAttributeElementsPageSaga } from "./initElementsPageSaga.js";
 import { initTotalCountSaga } from "./initTotalCount.js";
 import { selectLimitingAttributeFilters } from "../elements/elementsSelectors.js";
 import { isLimitingAttributeFiltersEmpty } from "../../../utils.js";
+import { getAttributeFilterContext } from "../common/sagas.js";
 
 /**
  * @internal
@@ -30,9 +31,16 @@ function* initSaga(action: ReturnType<typeof actions.init>): SagaIterator<void> 
         const limitingFilters: ReturnType<typeof selectLimitingAttributeFilters> = yield select(
             selectLimitingAttributeFilters,
         );
+        const context: SagaReturnType<typeof getAttributeFilterContext> = yield call(
+            getAttributeFilterContext,
+        );
+        const supportsKeepingDependentFiltersSelection =
+            !!context.backend.capabilities.supportsKeepingDependentFiltersSelection;
 
-        const loadTotal = !isLimitingAttributeFiltersEmpty(limitingFilters);
-
+        const loadTotal = !isLimitingAttributeFiltersEmpty(
+            limitingFilters,
+            supportsKeepingDependentFiltersSelection,
+        );
         const sagas = [initSelectionSaga, initAttributeElementsPageSaga];
         if (hiddenElements?.length > 0) {
             // the rest need the attribute already loaded for the hiddenElements to work

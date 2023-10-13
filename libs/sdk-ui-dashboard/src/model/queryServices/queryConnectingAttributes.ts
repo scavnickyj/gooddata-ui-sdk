@@ -55,14 +55,25 @@ async function loadConnectingAttributesMeta(
     });
 }
 
-function* mapDisplayFormsToAttributes(refs: ObjRef[][]) {
+/**
+ * First element of every inner array is child display form and the second is parent display form.
+ * When backend does not support multiple connecting attributes, only the parent display form
+ * is converted to attribute, for validation purposes. Child display form should stay as is.
+ */
+function* mapDisplayFormsToAttributes(refs: ObjRef[][], supportsMultipleConnectingAttributes: boolean) {
     const attributeDisplayFormsMap: ReturnType<typeof selectAttributeFilterDisplayFormsMap> = yield select(
         selectAttributeFilterDisplayFormsMap,
     );
 
-    return refs.map((displayFormRefsEntry) =>
-        displayFormRefsEntry.map((displayFormRef) => attributeDisplayFormsMap.get(displayFormRef)?.attribute),
-    );
+    return refs.map((displayFormRefsEntry) => {
+        return displayFormRefsEntry.map((displayFormRef, index) => {
+            if (!supportsMultipleConnectingAttributes && index === 0) {
+                return displayFormRef;
+            }
+
+            return attributeDisplayFormsMap.get(displayFormRef)?.attribute;
+        });
+    });
 }
 
 function* queryService(
@@ -74,9 +85,12 @@ function* queryService(
         correlationId,
     } = query;
 
+    const supportsMultipleConnectingAttributes =
+        !!ctx.backend.capabilities.supportsMultipleConnectingAttributes;
     const attributeRefs: SagaReturnType<typeof mapDisplayFormsToAttributes> = yield call(
         mapDisplayFormsToAttributes,
         refs,
+        supportsMultipleConnectingAttributes,
     );
     const nonEmptyAttributesRef = compact(attributeRefs.map((refsEntry) => compact(refsEntry)));
 

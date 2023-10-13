@@ -40,6 +40,8 @@ export interface AttributeFilterState {
         lastLoadedOptions?: ILoadElementsOptions;
         currentOptions: ILoadElementsOptions;
         limitingAttributeFiltersAttributes: IAttributeMetadataObject[];
+        limitingFiltersChanged: boolean;
+        irrelevantElementTitles: string[];
     };
     selection: {
         commited: {
@@ -88,6 +90,8 @@ export const initialState: Omit<AttributeFilterState, "displayFormRef" | "elemen
         totalCountInitialization: {
             status: "pending",
         },
+        limitingFiltersChanged: false,
+        irrelevantElementTitles: [], // TODO: maybe store whole elements here and get titles later
     },
     config: {},
     selection: {

@@ -2,6 +2,7 @@
 import { SagaIterator } from "redux-saga";
 import { put, call, takeLatest, select, cancelled, SagaReturnType } from "redux-saga/effects";
 import { CancelableOptions } from "@gooddata/sdk-backend-spi";
+import difference from "lodash/difference.js";
 
 import { getAttributeFilterContext } from "../common/sagas.js";
 import { selectElementsForm } from "../common/selectors.js";
@@ -11,6 +12,7 @@ import { selectLoadElementsOptions } from "../elements/elementsSelectors.js";
 import { actions } from "../store/slice.js";
 import { loadLimitingAttributeFiltersAttributes } from "./loadLimitingAttributeFiltersAttributes.js";
 import { ILoadElementsOptions } from "../../../types/index.js";
+import { selectCommittedSelection } from "../selection/selectionSelectors.js";
 
 /**
  * @internal
@@ -39,7 +41,7 @@ export function* loadInitialElementsPageSaga(
     const abortController = new AbortController();
 
     const {
-        payload: { correlation },
+        payload: { correlation, excludeLimitingFilters },
     } = action;
 
     try {
@@ -51,27 +53,57 @@ export function* loadInitialElementsPageSaga(
 
         const elementsForm: ReturnType<typeof selectElementsForm> = yield select(selectElementsForm);
 
+        const limitingAttributeFiltersObj = excludeLimitingFilters ? { limitingAttributeFilters: [] } : {};
         const loadOptionsWithExcludePrimaryLabel: ILoadElementsOptions & CancelableOptions = {
             ...loadOptions,
             signal: abortController.signal,
             excludePrimaryLabel:
                 !context.backend.capabilities.supportsElementUris && elementsForm === "values",
+            ...limitingAttributeFiltersObj,
         };
 
         const result: SagaReturnType<typeof elementsSaga> = yield call(
             elementsSaga,
             loadOptionsWithExcludePrimaryLabel,
         );
-        const limitingAttributeFiltersAttributes = yield call(
-            loadLimitingAttributeFiltersAttributes,
-            context,
-            loadOptions.limitingAttributeFilters ?? [],
-        );
 
-        yield put(
-            actions.setLimitingAttributeFiltersAttributes({ attributes: limitingAttributeFiltersAttributes }),
+        const { limitingAttributeFilters } = loadOptions;
+        const filterSelection: SagaReturnType<typeof selectCommittedSelection> = yield select(
+            selectCommittedSelection,
         );
-        yield put(actions.loadInitialElementsPageSuccess({ ...result, correlation }));
+        const shouldLoadIrrelevantElements =
+            !excludeLimitingFilters && limitingAttributeFilters.length > 0 && filterSelection.length > 0;
+        let irrelevantElementTitles: string[] = [];
+        if (shouldLoadIrrelevantElements) {
+            const optionsWithElements = {
+                ...loadOptionsWithExcludePrimaryLabel,
+                search: "",
+                elements: elementsForm === "values" ? { values: filterSelection } : { uris: filterSelection },
+            };
+            const relevantElementsResult: SagaReturnType<typeof elementsSaga> = yield call(
+                elementsSaga,
+                optionsWithElements,
+            );
+            const relevantElementTitles = relevantElementsResult.elements.map((elem) => elem.title);
+            irrelevantElementTitles = difference(filterSelection, relevantElementTitles);
+        }
+
+        if (!excludeLimitingFilters) {
+            const limitingAttributeFiltersAttributes = yield call(
+                loadLimitingAttributeFiltersAttributes,
+                context,
+                loadOptions.limitingAttributeFilters ?? [],
+            );
+
+            yield put(
+                actions.setLimitingAttributeFiltersAttributes({
+                    attributes: limitingAttributeFiltersAttributes,
+                }),
+            );
+        }
+        yield put(
+            actions.loadInitialElementsPageSuccess({ ...result, irrelevantElementTitles, correlation }),
+        );
     } catch (error) {
         yield put(
             actions.loadInitialElementsPageError({

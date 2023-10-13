@@ -231,6 +231,26 @@ export interface IBackendCapabilities {
     supportsHiddenAndLockedFiltersOnUI?: boolean;
 
     /**
+     * Indicates whether backend supports to keep selection of dependent child filters.
+     */
+    supportsKeepingDependentFiltersSelection?: boolean;
+
+    /**
+     * Indicates whether backend supports setting up circular dependencies in dependent filters.
+     */
+    supportsCircularDependencyInFilters?: boolean;
+
+    /**
+     * Indicates whether backend supports multiple connecting attributes in dependent filters.
+     */
+    supportsMultipleConnectingAttributes?: boolean;
+
+    /**
+     * Indicates whether backend supports showing filtered out elements in filters.
+     */
+    supportsShowFilteredElementsInFilters?: boolean;
+
+    /**
      * Catchall for additional capabilities
      */
     [key: string]: undefined | boolean | number | string;

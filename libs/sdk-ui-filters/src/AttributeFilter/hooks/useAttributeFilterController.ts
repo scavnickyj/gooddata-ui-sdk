@@ -75,10 +75,16 @@ export const useAttributeFilterController = (
 
     const backend = useBackendStrict(backendInput, "AttributeFilter");
     const workspace = useWorkspaceStrict(workspaceInput, "AttributeFilter");
+    const supportsKeepingDependentFilterSelection =
+        !!backend.capabilities.supportsKeepingDependentFiltersSelection;
 
     const { filter, setConnectedPlaceholderValue } = useResolveFilterInput(filterInput, connectToPlaceholder);
 
-    const limitingAttributeFilters = useResolveParentFiltersInput(parentFilters, parentFilterOverAttribute);
+    const limitingAttributeFilters = useResolveParentFiltersInput(
+        parentFilters,
+        parentFilterOverAttribute,
+        supportsKeepingDependentFilterSelection,
+    );
 
     const handler = useAttributeFilterHandler({
         backend,
@@ -94,16 +100,24 @@ export const useAttributeFilterController = (
         : { initError: new UnexpectedSdkError() };
 
     useOnError(handler, { onError });
-    useInitOrReload(handler, {
-        filter,
-        limitingAttributeFilters,
-        limit: elementsOptions?.limit,
-        onApply,
-        setConnectedPlaceholderValue,
-        resetOnParentFilterChange,
-        selectionMode,
-    });
-    const callbacks = useCallbacks(handler, { onApply, setConnectedPlaceholderValue, selectionMode });
+    useInitOrReload(
+        handler,
+        {
+            filter,
+            limitingAttributeFilters,
+            limit: elementsOptions?.limit,
+            onApply,
+            setConnectedPlaceholderValue,
+            resetOnParentFilterChange,
+            selectionMode,
+        },
+        supportsKeepingDependentFilterSelection,
+    );
+    const callbacks = useCallbacks(
+        handler,
+        { onApply, setConnectedPlaceholderValue, selectionMode },
+        supportsKeepingDependentFilterSelection,
+    );
 
     useSingleSelectModeHandler(handler, {
         selectFirst,
@@ -160,6 +174,7 @@ function useInitOrReload(
         resetOnParentFilterChange: boolean;
         selectionMode: DashboardAttributeFilterSelectionMode;
     },
+    supportsKeepingDependentFilterSelection: boolean,
 ) {
     const {
         filter,
@@ -191,6 +206,8 @@ function useInitOrReload(
             handler.getLimitingAttributeFilters(),
         );
         const filterChanged = !isEqual(filter, handler.getFilter());
+        const hasNumberOfLimitingAttributesChanged =
+            handler.getLimitingAttributeFilters().length !== limitingAttributeFilters.length;
 
         const props: UpdateFilterProps = {
             filter,
@@ -200,12 +217,19 @@ function useInitOrReload(
             setConnectedPlaceholderValue,
             onApply,
             selectionMode,
+            resetValues: !supportsKeepingDependentFilterSelection,
         };
 
         const change = resetOnParentFilterChange
             ? updateAutomaticResettingFilter(handler, props)
             : updateNonResettingFilter(handler, props);
-        refreshByType(handler, change);
+
+        // Do not refresh when backend supports keeping selection,
+        // unless number of limiting filters changed
+        // (e.g. parent filter was added or removed)
+        if (!supportsKeepingDependentFilterSelection || hasNumberOfLimitingAttributesChanged) {
+            refreshByType(handler, change);
+        }
     }, [
         filter,
         limitingAttributeFilters,
@@ -214,6 +238,7 @@ function useInitOrReload(
         onApply,
         setConnectedPlaceholderValue,
         selectionMode,
+        supportsKeepingDependentFilterSelection,
     ]);
 }
 
@@ -225,6 +250,7 @@ type UpdateFilterProps = {
     setConnectedPlaceholderValue: (filter: IAttributeFilter) => void;
     onApply: OnApplyCallbackType;
     selectionMode: DashboardAttributeFilterSelectionMode;
+    resetValues: boolean;
 };
 
 type UpdateFilterType = "init-parent" | "init-self" | undefined;
@@ -237,27 +263,35 @@ function updateNonResettingFilter(
         limitingAttributesChanged,
         filterChanged,
         setConnectedPlaceholderValue,
+        resetValues,
     }: UpdateFilterProps,
 ): UpdateFilterType {
-    if (limitingAttributesChanged || filterChanged) {
-        const elements = filterAttributeElements(filter);
-        const keys = isAttributeElementsByValue(elements) ? elements.values : elements.uris;
-        const isInverted = isNegativeAttributeFilter(filter);
-
-        handler.changeSelection({ keys, isInverted });
-        handler.setLimitingAttributeFilters(limitingAttributeFilters);
-        handler.commitSelection();
-
-        const nextFilter = handler.getFilter();
-        setConnectedPlaceholderValue(nextFilter);
-
-        if (limitingAttributesChanged) {
-            return "init-parent";
-        }
-        return "init-self";
+    if (!limitingAttributesChanged && !filterChanged) {
+        return undefined;
     }
 
-    return undefined;
+    const elements = filterAttributeElements(filter);
+    const keys = isAttributeElementsByValue(elements) ? elements.values : elements.uris;
+    const isInverted = isNegativeAttributeFilter(filter);
+    const hasSelectionChanged = !isEqual(handler.getCommittedSelection().keys, keys);
+
+    // We only reset selection when allowed or when commited selection is different from passed filter values
+    // (e.g. changing view mode to edit mode with different element selection)
+    if (resetValues || hasSelectionChanged) {
+        handler.changeSelection({ keys, isInverted });
+        handler.commitSelection();
+    }
+    handler.setLimitingAttributeFilters(limitingAttributeFilters);
+
+    const nextFilter = handler.getFilter();
+    setConnectedPlaceholderValue(nextFilter);
+
+    if (limitingAttributesChanged) {
+        handler.setLimitingFiltersChanged(true);
+        return "init-parent";
+    }
+
+    return "init-self";
 }
 
 function updateAutomaticResettingFilter(
@@ -326,6 +360,7 @@ function useCallbacks(
         onApply: OnApplyCallbackType;
         selectionMode: DashboardAttributeFilterSelectionMode;
     },
+    supportsKeepingDependentFilterSelection: boolean,
 ) {
     const { onApply: onApplyInput, setConnectedPlaceholderValue, selectionMode } = props;
     const onSelect = useCallback(
@@ -373,12 +408,30 @@ function useCallbacks(
         onApplyInput?.(nextFilter, isInverted, selectionMode);
     }, [onApplyInput, setConnectedPlaceholderValue, handler, selectionMode]);
 
+    const onOpen = useCallback(() => {
+        if (!supportsKeepingDependentFilterSelection) {
+            return;
+        }
+
+        // Reset when limiting filters changed
+        if (handler.getLimitingAttributeFilters().length > 0 && handler.getLimitingFiltersChanged()) {
+            handler.loadInitialElementsPage(RESET_CORRELATION);
+            handler.setLimitingFiltersChanged(false);
+        }
+    }, [handler, supportsKeepingDependentFilterSelection]);
+
+    const onShowAll = useCallback(() => {
+        handler.loadInitialElementsPage(RESET_CORRELATION, true);
+    }, [handler]);
+
     return {
         onApply,
         onLoadNextElementsPage,
         onSearch,
         onSelect,
         onReset,
+        onOpen,
+        onShowAll,
     };
 }
 

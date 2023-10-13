@@ -238,6 +238,7 @@ export interface IBackendCapabilities {
     maxDimensions?: number;
     supportsAccessControl?: boolean;
     supportsBootstrapResource?: boolean;
+    supportsCircularDependencyInFilters?: boolean;
     supportsCsvUploader?: boolean;
     supportsCustomColorPalettes?: boolean;
     supportsElementsQueryParentFiltering?: boolean;
@@ -251,8 +252,10 @@ export interface IBackendCapabilities {
     supportsHierarchicalWorkspaces?: boolean;
     supportsHyperlinkAttributeLabels?: boolean;
     supportsInlineMeasures?: boolean;
+    supportsKeepingDependentFiltersSelection?: boolean;
     supportsKpiWidget?: boolean;
     supportsMetadataObjectLocking?: boolean;
+    supportsMultipleConnectingAttributes?: boolean;
     supportsNonProductionDatasets?: boolean;
     supportsObjectUris?: boolean;
     supportsOrganizationSettings?: boolean;
@@ -261,6 +264,7 @@ export interface IBackendCapabilities {
     supportsRankingFilterWithMeasureValueFilter?: boolean;
     supportsSeparateLatitudeLongitudeLabels?: boolean;
     supportsShowAllAttributeValues?: boolean;
+    supportsShowFilteredElementsInFilters?: boolean;
     supportsTimeGranularities?: boolean;
     supportsWidgetEntity?: boolean;
     usesStrictAccessControl?: boolean;

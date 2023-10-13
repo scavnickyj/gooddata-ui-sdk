@@ -90,6 +90,8 @@ export type AttributeFilterControllerCallbacks = {
     onSearch: (search: string) => void;
     onSelect: (selectedItems: IAttributeElement[], isInverted: boolean) => void;
     onReset: () => void;
+    onOpen: () => void;
+    onShowAll: () => void;
 };
 
 // @public
@@ -118,6 +120,8 @@ export type AttributeFilterControllerData = {
     parentFilterAttributes: IAttributeMetadataObject[];
     displayForms: IAttributeDisplayFormMetadataObject[];
     currentDisplayFormRef: ObjRef;
+    showAllOption: boolean;
+    irrelevantElementTitles: string[];
 };
 
 // @internal (undocumented)
@@ -293,10 +297,12 @@ export interface IAttributeElementLoader {
     getInitialElementsPageStatus(): AsyncOperationStatus;
     getInitTotalCountError(): GoodDataSdkError | undefined;
     getInitTotalCountStatus(): AsyncOperationStatus;
+    getIrrelevantElementTitles(): string[];
     getLimit(): number;
     getLimitingAttributeFilters(): IElementsQueryAttributeFilter[];
     getLimitingAttributeFiltersAttributes(): IAttributeMetadataObject[];
     getLimitingDateFilters(): IRelativeDateFilter[];
+    getLimitingFiltersChanged(): boolean;
     getLimitingMeasures(): IMeasure[];
     getNextElementsPageError(): GoodDataSdkError | undefined;
     getNextElementsPageStatus(): AsyncOperationStatus;
@@ -307,7 +313,7 @@ export interface IAttributeElementLoader {
     getTotalElementsCountWithCurrentSettings(): number;
     initTotalCount(correlation?: Correlation): void;
     loadCustomElements(options: ILoadElementsOptions, correlation?: Correlation): void;
-    loadInitialElementsPage(correlation?: Correlation): void;
+    loadInitialElementsPage(correlation?: Correlation, excludeLimitingFilters?: boolean): void;
     loadNextElementsPage(correlation?: Correlation): void;
     onInitTotalCountCancel: CallbackRegistration<OnInitTotalCountCancelCallbackPayload>;
     onInitTotalCountError: CallbackRegistration<OnInitTotalCountErrorCallbackPayload>;
@@ -328,6 +334,7 @@ export interface IAttributeElementLoader {
     setLimit(limit: number): void;
     setLimitingAttributeFilters(filters: IElementsQueryAttributeFilter[]): void;
     setLimitingDateFilters(filters: IRelativeDateFilter[]): void;
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void;
     setLimitingMeasures(measures: IMeasure[]): void;
     setOrder(order: SortDirection): void;
     setSearch(search: string): void;
@@ -487,6 +494,7 @@ export interface IAttributeFilterElementsSelectLoadingProps {
 // @beta
 export interface IAttributeFilterElementsSelectProps {
     error?: GoodDataSdkError;
+    irrelevantElementTitles: string[];
     isFilteredByParentFilters: boolean;
     isInverted: boolean;
     isLoading: boolean;
@@ -496,9 +504,11 @@ export interface IAttributeFilterElementsSelectProps {
     onLoadNextPage: () => void;
     onSearch: (searchString: string) => void;
     onSelect: (selectedItems: IAttributeElement[], isInverted: boolean) => void;
+    onShowAllClick: () => void;
     parentFilterTitles: string[];
     searchString: string;
     selectedItems: IAttributeElement[];
+    showAllOption: boolean;
     totalItemsCount: number;
     totalItemsCountWithCurrentSettings: number;
 }
@@ -574,11 +584,14 @@ export interface IAttributeFilterSelectionStatusProps {
 // @beta
 export interface IAttributeFilterStatusBarProps {
     getItemTitle: (item: IAttributeElement) => string;
+    irrelevantElementTitles: string[];
     isFilteredByParentFilters: boolean;
     isInverted: boolean;
+    onShowAllClick: () => void;
     parentFilterTitles: string[];
     selectedItems: IAttributeElement[];
     selectedItemsLimit: number;
+    showAllOption: boolean;
     totalElementsCountWithCurrentSettings: number;
 }
 
@@ -747,6 +760,8 @@ export interface ILoadElementsOptions {
 export interface ILoadElementsResult {
     // (undocumented)
     elements: IAttributeElement[];
+    // (undocumented)
+    irrelevantElementTitles?: string[];
     // (undocumented)
     options: ILoadElementsOptions;
     // (undocumented)

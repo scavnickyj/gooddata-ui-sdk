@@ -27,7 +27,7 @@ export const DefaultUiSettings: ISettings = {
     enableAdCatalogRefresh: true,
     enableAdRankingFilter: true,
     enableDomainHomepage: true,
-    enableKPIDashboardDependentFilters: false,
+    enableKPIDashboardDependentFilters: false, // is this even used?
     enableKDWidgetCustomHeight: true,
     enableSectionHeaders: true,
     enableKPIDashboardSaveAsNew: true,

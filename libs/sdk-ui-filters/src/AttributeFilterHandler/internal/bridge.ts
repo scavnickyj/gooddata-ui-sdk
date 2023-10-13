@@ -81,6 +81,8 @@ import {
     selectLimitingAttributeFiltersAttributes,
     selectInitTotalCountStatus,
     selectInitTotalCountError,
+    selectLimitingFiltersChanged,
+    selectIrrelevantElementTitles,
 } from "./redux/index.js";
 import { newAttributeFilterCallbacks } from "./callbacks.js";
 import { AttributeFilterHandlerConfig } from "./types.js";
@@ -223,8 +225,10 @@ export class AttributeFilterReduxBridge {
     // Initial elements page
     //
 
-    loadInitialElementsPage = (correlation: Correlation): void => {
-        this.redux.dispatch(actions.loadInitialElementsPageRequest({ correlation: correlation }));
+    loadInitialElementsPage = (correlation: Correlation, excludeLimitingFilters: boolean): void => {
+        this.redux.dispatch(
+            actions.loadInitialElementsPageRequest({ correlation: correlation, excludeLimitingFilters }),
+        );
     };
 
     cancelInitialElementsPageLoad = (): void => {
@@ -392,6 +396,14 @@ export class AttributeFilterReduxBridge {
         return this.redux.select(selectLimitingDateFilters);
     };
 
+    getLimitingFiltersChanged = (): boolean => {
+        return this.redux.select(selectLimitingFiltersChanged);
+    };
+
+    setLimitingFiltersChanged = (limitingFiltersChanged: boolean): void => {
+        this.redux.dispatch(actions.setLimitingFiltersChanged({ limitingFiltersChanged }));
+    };
+
     //
     // Elements
     //
@@ -415,6 +427,10 @@ export class AttributeFilterReduxBridge {
 
     getLimitingAttributeFiltersAttributes = (): IAttributeMetadataObject[] => {
         return this.redux.select(selectLimitingAttributeFiltersAttributes);
+    };
+
+    getIrrelevantElementTitles = (): string[] => {
+        return this.redux.select(selectIrrelevantElementTitles);
     };
 
     //

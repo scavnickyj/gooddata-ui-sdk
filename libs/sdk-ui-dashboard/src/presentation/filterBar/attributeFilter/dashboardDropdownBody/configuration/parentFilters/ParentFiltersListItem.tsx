@@ -11,6 +11,7 @@ import {
     IDashboardAttributeFilterParentItem,
     selectIsCircularDependency,
     IConnectingAttribute,
+    selectSupportsCircularDependencyInFilters,
 } from "../../../../../../model/index.js";
 import { ConnectingAttributeDropdown } from "../connectingAttribute/ConnectingAttributeDropdown.js";
 
@@ -41,11 +42,13 @@ export const ParentFiltersListItem: React.FC<IConfigurationParentItemProps> = (p
         disabled,
     } = props;
 
+    const supportsCircularDependencies = useDashboardSelector(selectSupportsCircularDependencyInFilters);
     const isCircularDependency = useDashboardSelector(
         selectIsCircularDependency(currentFilterLocalId, localIdentifier),
     );
 
-    const isDisabled = isCircularDependency || !connectingAttributes.length;
+    const isDisabled =
+        (!supportsCircularDependencies && isCircularDependency) || !connectingAttributes.length;
     const showConnectingAttributeSelect = isSelected && connectingAttributes.length > 1;
 
     const activeItemClasses = useMemo(() => {

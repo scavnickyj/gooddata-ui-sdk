@@ -114,6 +114,25 @@ export interface IAttributeFilterElementsSelectProps {
      * @beta
      */
     error?: GoodDataSdkError;
+
+    /**
+     * Show option to list all items when items are filtered
+     *
+     * @beta
+     */
+    showAllOption: boolean;
+
+    /**
+     * Show all click callback
+     *
+     * @beta
+     */
+    onShowAllClick: () => void;
+
+    /**
+     * List of irrelevant element titles in selection
+     */
+    irrelevantElementTitles: string[];
 }
 
 /**

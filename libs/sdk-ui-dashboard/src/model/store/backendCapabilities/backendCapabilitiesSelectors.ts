@@ -102,3 +102,13 @@ export const selectSupportsObjectUris: DashboardSelector<boolean> = createSelect
     selectBackendCapabilities,
     (capabilities) => capabilities.supportsObjectUris ?? false,
 );
+
+/**
+ * Selector for {@link @gooddata/sdk-backend-spi#IBackendCapabilities.supportsCircularDependencyInFilters}
+ *
+ * @internal
+ */
+export const selectSupportsCircularDependencyInFilters: DashboardSelector<boolean> = createSelector(
+    selectBackendCapabilities,
+    (capabilities) => capabilities.supportsCircularDependencyInFilters ?? false,
+);

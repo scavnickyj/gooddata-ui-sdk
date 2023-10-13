@@ -11,7 +11,10 @@ import { actions } from "../store/slice.js";
  * @internal
  */
 export function* initAttributeElementsPageSaga(correlation: Correlation): SagaIterator<void> {
-    yield fork(loadInitialElementsPageSaga, actions.loadInitialElementsPageRequest({ correlation }));
+    yield fork(
+        loadInitialElementsPageSaga,
+        actions.loadInitialElementsPageRequest({ correlation, excludeLimitingFilters: false }),
+    );
 
     const {
         error,
