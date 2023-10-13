@@ -876,6 +876,12 @@ export interface ElementsRequest {
      */
     exactFilter?: Array<string>;
     /**
+     * Return only items, whose are not filtered out by the parent filters.
+     * @type {Array<ParentFilter>}
+     * @memberof ElementsRequest
+     */
+    parentFilters?: Array<ParentFilter>;
+    /**
      * Specifies percentage of source table data scanned during the computation. This field is deprecated and is no longer used during the elements computation.
      * @type {number}
      * @memberof ElementsRequest
@@ -1370,6 +1376,31 @@ export interface Paging {
      * @memberof Paging
      */
     next?: string;
+}
+/**
+ *
+ * @export
+ * @interface ParentFilter
+ */
+export interface ParentFilter {
+    /**
+     * TBD
+     * @type {string}
+     * @memberof ParentFilter
+     */
+    primaryLabel: string;
+    /**
+     * TBD
+     * @type {Array<string>}
+     * @memberof ParentFilter
+     */
+    values: Array<string>;
+    /**
+     * TBD
+     * @type {boolean}
+     * @memberof ParentFilter
+     */
+    complementFilter?: boolean;
 }
 /**
  *

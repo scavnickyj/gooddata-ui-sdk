@@ -635,6 +635,13 @@
                             "nullable": true
                         }
                     },
+                    "parentFilters": {
+                        "type": "array",
+                        "description": "Return only items, whose are not filtered out by the parent filters.",
+                        "items": {
+                            "$ref": "#/components/schemas/ParentFilter"
+                        }
+                    },
                     "dataSamplingPercentage": {
                         "type": "number",
                         "description": "Specifies percentage of source table data scanned during the computation. This field is deprecated and is no longer used during the elements computation.",
@@ -655,6 +662,32 @@
                     }
                 },
                 "description": "Specifies what is used for filtering."
+            },
+            "ParentFilter": {
+                "required": ["primaryLabel", "values"],
+                "type": "object",
+                "properties": {
+                    "primaryLabel": {
+                        "type": "string",
+                        "description": "TBD",
+                        "default": "null"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "TBD",
+                        "items": {
+                            "type": "string",
+                            "description": "TBD",
+                            "default": "null"
+                        }
+                    },
+                    "complementFilter": {
+                        "type": "boolean",
+                        "description": "TBD",
+                        "default": false
+                    }
+                },
+                "nullable": true
             },
             "AFM": {
                 "required": ["attributes", "filters", "measures"],

@@ -168,6 +168,7 @@ export {
     ActionsApiComputeValidDescendantsRequest,
     AfmValidDescendantsQuery,
     AfmValidDescendantsResponse,
+    ParentFilter,
 } from "./generated/afm-rest-api/api.js";
 export {
     ActionsApiFactory as AuthActionsApiFactory,
