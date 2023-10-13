@@ -81,8 +81,8 @@ export class TigerWorkspaceAttributes implements IWorkspaceAttributesService {
         throw new NotSupported("not supported");
     }
 
-    getCommonAttributesBatch(): Promise<ObjRef[][]> {
-        throw new NotSupported("not supported");
+    getCommonAttributesBatch(attributesRefBatch: ObjRef[][]): Promise<ObjRef[][]> {
+        return Promise.resolve(attributesRefBatch); // TODO: use drill cross path endpoint to check and return zero or one attribute dfs
     }
 
     getAttributeDatasetMeta(ref: ObjRef): Promise<IMetadataObject> {

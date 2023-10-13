@@ -251,6 +251,7 @@ export interface IBackendCapabilities {
     supportsHierarchicalWorkspaces?: boolean;
     supportsHyperlinkAttributeLabels?: boolean;
     supportsInlineMeasures?: boolean;
+    supportsKeepingDependentFiltersSelection?: boolean;
     supportsKpiWidget?: boolean;
     supportsMetadataObjectLocking?: boolean;
     supportsNonProductionDatasets?: boolean;
