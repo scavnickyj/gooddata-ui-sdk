@@ -89,6 +89,7 @@ const CAPABILITIES: IBackendCapabilities = {
     supportsEnumeratingDatetimeAttributes: false,
     supportsHiddenAndLockedFiltersOnUI: true,
     supportsKeepingDependentFiltersSelection: true,
+    supportsCircularDependencyInFilters: true,
 };
 
 /**

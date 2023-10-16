@@ -236,6 +236,11 @@ export interface IBackendCapabilities {
     supportsKeepingDependentFiltersSelection?: boolean;
 
     /**
+     * Indicates whether backend supports setting up circular dependencies in dependent filters.
+     */
+    supportsCircularDependencyInFilters?: boolean;
+
+    /**
      * Catchall for additional capabilities
      */
     [key: string]: undefined | boolean | number | string;

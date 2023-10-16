@@ -24,10 +24,7 @@ export function useConnectingAttributes(
     currentFilterDisplayForm: ObjRef,
     neighborFiltersDisplayForms: ObjRef[],
 ): IUseConnectingAttributesResult {
-    // const backend = useBackend();
     const isDependentFiltersEnabled = useDashboardSelector(selectSupportsElementsQueryParentFiltering);
-    // const supportsKeepingDependentFilterSelection =
-    //     backend?.capabilities.supportsKeepingDependentFiltersSelection ?? false;
 
     const pairs = useMemo<[ObjRef, ObjRef][]>(
         () =>
@@ -70,15 +67,6 @@ export function useConnectingAttributes(
             connectingAttributesLoading: false,
         };
     }
-
-    // // TODO: we should implement validation, istead of empty arrays
-    // if (supportsKeepingDependentFilterSelection) {
-    //     return {
-    //         connectingAttributes: Array(neighborFiltersDisplayForms.length).fill([""]),
-    //         connectingAttributesError: undefined,
-    //         connectingAttributesLoading: false,
-    //     };
-    // }
 
     return {
         connectingAttributes,

@@ -14,6 +14,7 @@ export {
     selectSupportsAccessControlCapability,
     selectSupportsHierarchicalWorkspacesCapability,
     selectSupportsObjectUris,
+    selectSupportsCircularDependencyInFilters,
 } from "./backendCapabilities/backendCapabilitiesSelectors.js";
 export { ConfigState } from "./config/configState.js";
 export {
