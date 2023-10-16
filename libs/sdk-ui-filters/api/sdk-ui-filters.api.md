@@ -90,6 +90,7 @@ export type AttributeFilterControllerCallbacks = {
     onSearch: (search: string) => void;
     onSelect: (selectedItems: IAttributeElement[], isInverted: boolean) => void;
     onReset: () => void;
+    onOpen: () => void;
 };
 
 // @public
@@ -297,6 +298,7 @@ export interface IAttributeElementLoader {
     getLimitingAttributeFilters(): IElementsQueryAttributeFilter[];
     getLimitingAttributeFiltersAttributes(): IAttributeMetadataObject[];
     getLimitingDateFilters(): IRelativeDateFilter[];
+    getLimitingFiltersChanged(): boolean;
     getLimitingMeasures(): IMeasure[];
     getNextElementsPageError(): GoodDataSdkError | undefined;
     getNextElementsPageStatus(): AsyncOperationStatus;
@@ -328,6 +330,7 @@ export interface IAttributeElementLoader {
     setLimit(limit: number): void;
     setLimitingAttributeFilters(filters: IElementsQueryAttributeFilter[]): void;
     setLimitingDateFilters(filters: IRelativeDateFilter[]): void;
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void;
     setLimitingMeasures(measures: IMeasure[]): void;
     setOrder(order: SortDirection): void;
     setSearch(search: string): void;

@@ -453,6 +453,16 @@ export interface IAttributeElementLoader {
      * @param callback - callback to run
      */
     onLoadCustomElementsCancel: CallbackRegistration<OnLoadCustomElementsCancelCallbackPayload>;
+
+    /**
+     * Sets flag for keeping the information whether limiting filters changed and elements should be reinitialized.
+     */
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void;
+
+    /**
+     * Returns the information whether limiting filters have changed.
+     */
+    getLimitingFiltersChanged(): boolean;
 }
 
 /**

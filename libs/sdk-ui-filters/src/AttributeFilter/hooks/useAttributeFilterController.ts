@@ -202,6 +202,8 @@ function useInitOrReload(
             handler.getLimitingAttributeFilters(),
         );
         const filterChanged = !isEqual(filter, handler.getFilter());
+        const hasNumberOfLimitingAttributesChanged =
+            handler.getLimitingAttributeFilters().length !== limitingAttributeFilters.length;
 
         const props: UpdateFilterProps = {
             filter,
@@ -218,12 +220,10 @@ function useInitOrReload(
             ? updateAutomaticResettingFilter(handler, props)
             : updateNonResettingFilter(handler, props);
 
-        // Keep selection and do not reload filter on parent change
-        if (supportsKeepingDependentFilterSelection) {
-            if (limitingAttributesChanged) {
-                refreshByType(handler, change);
-            }
-        } else {
+        // Do not refresh when backend supports keeping selection,
+        // unless number of limiting filters changed
+        // (e.g. parent filter was added or removed)
+        if (!supportsKeepingDependentFilterSelection || hasNumberOfLimitingAttributesChanged) {
             refreshByType(handler, change);
         }
     }, [
@@ -262,26 +262,32 @@ function updateNonResettingFilter(
         resetValues,
     }: UpdateFilterProps,
 ): UpdateFilterType {
-    if (limitingAttributesChanged || filterChanged) {
-        if (resetValues) {
-            const elements = filterAttributeElements(filter);
-            const keys = isAttributeElementsByValue(elements) ? elements.values : elements.uris;
-            const isInverted = isNegativeAttributeFilter(filter);
-            handler.changeSelection({ keys, isInverted });
-            handler.commitSelection();
-        }
-        handler.setLimitingAttributeFilters(limitingAttributeFilters);
-
-        const nextFilter = handler.getFilter();
-        setConnectedPlaceholderValue(nextFilter);
-
-        if (limitingAttributesChanged) {
-            return "init-parent";
-        }
-        return "init-self";
+    if (!limitingAttributesChanged && !filterChanged) {
+        return undefined;
     }
 
-    return undefined;
+    const elements = filterAttributeElements(filter);
+    const keys = isAttributeElementsByValue(elements) ? elements.values : elements.uris;
+    const isInverted = isNegativeAttributeFilter(filter);
+    const hasSelectionChanged = !isEqual(handler.getCommittedSelection().keys, keys);
+
+    // We only reset selection when allowed or when commited selection is different from passed filter values
+    // (e.g. changing view mode to edit mode with different element selection)
+    if (resetValues || hasSelectionChanged) {
+        handler.changeSelection({ keys, isInverted });
+        handler.commitSelection();
+    }
+    handler.setLimitingAttributeFilters(limitingAttributeFilters);
+
+    const nextFilter = handler.getFilter();
+    setConnectedPlaceholderValue(nextFilter);
+
+    if (limitingAttributesChanged) {
+        handler.setLimitingFiltersChanged(true);
+        return "init-parent";
+    }
+
+    return "init-self";
 }
 
 function updateAutomaticResettingFilter(
@@ -398,17 +404,15 @@ function useCallbacks(
         onApplyInput?.(nextFilter, isInverted, selectionMode);
     }, [onApplyInput, setConnectedPlaceholderValue, handler, selectionMode]);
 
-    // Reset elements on open because parent may have changed
     const onOpen = useCallback(() => {
         if (!supportsKeepingDependentFilterSelection) {
             return;
         }
 
-        const hasParentAttributeFilters = handler.getLimitingAttributeFilters().length > 0;
-        if (hasParentAttributeFilters) {
-            // eslint-disable-next-line no-console
-            console.log("reloading elements because of parent filters");
+        // Reset when limiting filters changed
+        if (handler.getLimitingAttributeFilters().length > 0 && handler.getLimitingFiltersChanged()) {
             handler.loadInitialElementsPage(RESET_CORRELATION);
+            handler.setLimitingFiltersChanged(false);
         }
     }, [handler, supportsKeepingDependentFilterSelection]);
 

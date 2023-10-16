@@ -40,6 +40,7 @@ export interface AttributeFilterState {
         lastLoadedOptions?: ILoadElementsOptions;
         currentOptions: ILoadElementsOptions;
         limitingAttributeFiltersAttributes: IAttributeMetadataObject[];
+        limitingFiltersChanged: boolean;
     };
     selection: {
         commited: {
@@ -88,6 +89,7 @@ export const initialState: Omit<AttributeFilterState, "displayFormRef" | "elemen
         totalCountInitialization: {
             status: "pending",
         },
+        limitingFiltersChanged: false,
     },
     config: {},
     selection: {

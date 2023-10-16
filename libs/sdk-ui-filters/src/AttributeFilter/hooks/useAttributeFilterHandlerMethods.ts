@@ -51,6 +51,7 @@ export const useAttributeFilterHandlerMethods = (handler: IMultiSelectAttributeF
         setLimitingAttributeFilters: handler.setLimitingAttributeFilters,
         setLimitingDateFilters: handler.setLimitingDateFilters,
         setLimitingMeasures: handler.setLimitingMeasures,
+        setLimitingFiltersChanged: handler.setLimitingFiltersChanged,
 
         changeSelection: handler.changeSelection,
         clearSelection: handler.clearSelection,

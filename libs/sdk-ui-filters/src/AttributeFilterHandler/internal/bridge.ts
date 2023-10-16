@@ -81,6 +81,7 @@ import {
     selectLimitingAttributeFiltersAttributes,
     selectInitTotalCountStatus,
     selectInitTotalCountError,
+    selectLimitingFiltersChanged,
 } from "./redux/index.js";
 import { newAttributeFilterCallbacks } from "./callbacks.js";
 import { AttributeFilterHandlerConfig } from "./types.js";
@@ -390,6 +391,14 @@ export class AttributeFilterReduxBridge {
 
     getLimitingDateFilters = (): IRelativeDateFilter[] => {
         return this.redux.select(selectLimitingDateFilters);
+    };
+
+    getLimitingFiltersChanged = (): boolean => {
+        return this.redux.select(selectLimitingFiltersChanged);
+    };
+
+    setLimitingFiltersChanged = (limitingFiltersChanged: boolean): void => {
+        this.redux.dispatch(actions.setLimitingFiltersChanged({ limitingFiltersChanged }));
     };
 
     //

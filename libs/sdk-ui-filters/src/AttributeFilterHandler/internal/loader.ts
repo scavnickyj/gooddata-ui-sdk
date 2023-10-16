@@ -385,4 +385,12 @@ export class AttributeFilterLoader implements IAttributeFilterLoader {
     onUpdate: CallbackRegistration<void> = (cb) => {
         return this.bridge.onUpdate(cb);
     };
+
+    getLimitingFiltersChanged(): boolean {
+        return this.bridge.getLimitingFiltersChanged();
+    }
+
+    setLimitingFiltersChanged(limitingFiltersChanged: boolean): void {
+        this.bridge.setLimitingFiltersChanged(limitingFiltersChanged);
+    }
 }
