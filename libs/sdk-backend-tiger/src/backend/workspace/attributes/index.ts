@@ -16,7 +16,6 @@ import {
     IdentifierRef,
     IAttribute,
     objRefToString,
-    idRef,
 } from "@gooddata/sdk-model";
 import { TigerAuthenticatedCallGuard } from "../../../types/index.js";
 import { TigerWorkspaceElements } from "./elements/index.js";
@@ -105,7 +104,7 @@ export class TigerWorkspaceAttributes implements IWorkspaceAttributesService {
         const candidateChildAttribute: IAttribute = {
             attribute: {
                 localIdentifier: objRefToString(candidateChild),
-                displayForm: idRef(objRefToString(candidateChild)), // need to ditch the "type" of objRef here as it will be converted to label
+                displayForm: candidateChild,
             },
         };
         const convertedAttributeItem = convertAttribute(candidateChildAttribute, 0);

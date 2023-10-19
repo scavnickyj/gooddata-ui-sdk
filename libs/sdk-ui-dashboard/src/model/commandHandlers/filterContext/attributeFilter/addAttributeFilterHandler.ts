@@ -113,7 +113,11 @@ export function* addAttributeFilterHandler(
     yield call(dispatchFilterContextChanged, ctx, cmd);
 }
 
-export function* getConnectingAttributes(
+// TODO: this is probably not used at all
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function* getConnectingAttributes(
     ctx: DashboardContext,
     addedFilterAttribute: ObjRef,
     neighborFilter: IDashboardAttributeFilter,

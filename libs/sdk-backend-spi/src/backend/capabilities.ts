@@ -241,6 +241,11 @@ export interface IBackendCapabilities {
     supportsCircularDependencyInFilters?: boolean;
 
     /**
+     * Indicates whether backend supports multiple connecting attributes in dependent filters.
+     */
+    supportsMultipleConnectingAttributes?: boolean;
+
+    /**
      * Indicates whether backend supports showing filtered out elements in filters.
      */
     supportsShowFilteredElementsInFilters?: boolean;
