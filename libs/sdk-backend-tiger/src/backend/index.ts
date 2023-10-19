@@ -90,6 +90,7 @@ const CAPABILITIES: IBackendCapabilities = {
     supportsHiddenAndLockedFiltersOnUI: true,
     supportsKeepingDependentFiltersSelection: true,
     supportsCircularDependencyInFilters: true,
+    supportsShowFilteredElementsInFilters: true,
 };
 
 /**

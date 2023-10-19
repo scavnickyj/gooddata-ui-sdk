@@ -224,8 +224,10 @@ export class AttributeFilterReduxBridge {
     // Initial elements page
     //
 
-    loadInitialElementsPage = (correlation: Correlation): void => {
-        this.redux.dispatch(actions.loadInitialElementsPageRequest({ correlation: correlation }));
+    loadInitialElementsPage = (correlation: Correlation, excludeLimitingFilters: boolean): void => {
+        this.redux.dispatch(
+            actions.loadInitialElementsPageRequest({ correlation: correlation, excludeLimitingFilters }),
+        );
     };
 
     cancelInitialElementsPageLoad = (): void => {

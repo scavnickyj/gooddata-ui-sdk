@@ -133,6 +133,11 @@ export type AttributeFilterControllerData = {
      * Current attribute filter display form {@link @gooddata/sdk-model#ObjRef}.
      */
     currentDisplayFormRef: ObjRef;
+
+    /**
+     * Show option to list all items when items are filtered.
+     */
+    showAllOption: boolean;
 };
 
 /**
@@ -170,6 +175,11 @@ export type AttributeFilterControllerCallbacks = {
      * Filter open callback.
      */
     onOpen: () => void;
+
+    /**
+     * Show all callback.
+     */
+    onShowAll: () => void;
 };
 
 /**

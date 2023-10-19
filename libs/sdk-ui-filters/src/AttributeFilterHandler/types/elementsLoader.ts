@@ -72,7 +72,7 @@ export interface IAttributeElementLoader {
      *
      * @param correlation - correlation that will be included in all callbacks fired by this method
      */
-    loadInitialElementsPage(correlation?: Correlation): void;
+    loadInitialElementsPage(correlation?: Correlation, excludeLimitingFilters?: boolean): void;
 
     /**
      * Cancels the running initial elements page load, if any.

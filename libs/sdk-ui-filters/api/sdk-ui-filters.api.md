@@ -91,6 +91,7 @@ export type AttributeFilterControllerCallbacks = {
     onSelect: (selectedItems: IAttributeElement[], isInverted: boolean) => void;
     onReset: () => void;
     onOpen: () => void;
+    onShowAll: () => void;
 };
 
 // @public
@@ -119,6 +120,7 @@ export type AttributeFilterControllerData = {
     parentFilterAttributes: IAttributeMetadataObject[];
     displayForms: IAttributeDisplayFormMetadataObject[];
     currentDisplayFormRef: ObjRef;
+    showAllOption: boolean;
 };
 
 // @internal (undocumented)
@@ -309,7 +311,7 @@ export interface IAttributeElementLoader {
     getTotalElementsCountWithCurrentSettings(): number;
     initTotalCount(correlation?: Correlation): void;
     loadCustomElements(options: ILoadElementsOptions, correlation?: Correlation): void;
-    loadInitialElementsPage(correlation?: Correlation): void;
+    loadInitialElementsPage(correlation?: Correlation, excludeLimitingFilters?: boolean): void;
     loadNextElementsPage(correlation?: Correlation): void;
     onInitTotalCountCancel: CallbackRegistration<OnInitTotalCountCancelCallbackPayload>;
     onInitTotalCountError: CallbackRegistration<OnInitTotalCountErrorCallbackPayload>;
@@ -499,9 +501,11 @@ export interface IAttributeFilterElementsSelectProps {
     onLoadNextPage: () => void;
     onSearch: (searchString: string) => void;
     onSelect: (selectedItems: IAttributeElement[], isInverted: boolean) => void;
+    onShowAllClick: () => void;
     parentFilterTitles: string[];
     searchString: string;
     selectedItems: IAttributeElement[];
+    showAllOption: boolean;
     totalItemsCount: number;
     totalItemsCountWithCurrentSettings: number;
 }
@@ -579,9 +583,11 @@ export interface IAttributeFilterStatusBarProps {
     getItemTitle: (item: IAttributeElement) => string;
     isFilteredByParentFilters: boolean;
     isInverted: boolean;
+    onShowAllClick: () => void;
     parentFilterTitles: string[];
     selectedItems: IAttributeElement[];
     selectedItemsLimit: number;
+    showAllOption: boolean;
     totalElementsCountWithCurrentSettings: number;
 }
 

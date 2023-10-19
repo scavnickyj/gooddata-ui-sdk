@@ -1,5 +1,6 @@
 // (C) 2022 GoodData Corporation
 import { useState, useEffect } from "react";
+import { useBackend } from "@gooddata/sdk-ui";
 import {
     IMultiSelectAttributeFilterHandler,
     isLimitingAttributeFiltersEmpty,
@@ -17,6 +18,7 @@ export function useAttributeFilterControllerData(
     handler: IMultiSelectAttributeFilterHandler,
 ): AttributeFilterControllerData {
     const handlerState = useAttributeFilterHandlerState(handler);
+    const backend = useBackend();
 
     const initStatus = handlerState.initialization.status;
     const initError = handlerState.initialization.error;
@@ -71,6 +73,14 @@ export function useAttributeFilterControllerData(
 
     const offset = handlerState.elements.options.offset;
 
+    // "show all" option and "filtered by parent filters" are mutually exclusive from UI perspective
+    const supportsShowAllOption = backend.capabilities.supportsShowFilteredElementsInFilters;
+    const showAllOption =
+        supportsShowAllOption &&
+        isFilteredByParentFilters &&
+        totalElementsCount > totalElementsCountWithCurrentSettings;
+    const showFilteredByParentFilters = !supportsShowAllOption && isFilteredByParentFilters;
+
     return {
         attribute,
 
@@ -103,7 +113,8 @@ export function useAttributeFilterControllerData(
 
         searchString,
 
-        isFilteredByParentFilters,
+        isFilteredByParentFilters: showFilteredByParentFilters,
+        showAllOption,
 
         parentFilterAttributes,
 

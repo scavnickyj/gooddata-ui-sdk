@@ -3,6 +3,7 @@ import { IAttributeElement } from "@gooddata/sdk-model";
 import React from "react";
 import { AttributeFilterFilteredStatus } from "./AttributeFilterFilteredStatus.js";
 import { AttributeFilterSelectionStatus } from "./AttributeFilterSelectionStatus.js";
+import { AttributeFilterShowAll } from "./AttributeFilterShowAll.js";
 
 /**
  * It represents component that display status of current selection.
@@ -52,6 +53,20 @@ export interface IAttributeFilterStatusBarProps {
      * @beta
      */
     selectedItemsLimit: number;
+
+    /**
+     * Show option to list all items when items are filtered
+     *
+     * @beta
+     */
+    showAllOption: boolean;
+
+    /**
+     * Show all click callback
+     *
+     * @beta
+     */
+    onShowAllClick: () => void;
 }
 
 /**
@@ -68,10 +83,14 @@ export const AttributeFilterStatusBar: React.FC<IAttributeFilterStatusBarProps> 
         isInverted,
         selectedItems,
         selectedItemsLimit,
+        showAllOption,
+        onShowAllClick,
     } = props;
 
     return (
         <div className="gd-attribute-filter-status-bar__next">
+            {/* eslint-disable-next-line no-console */}
+            {showAllOption ? <AttributeFilterShowAll onClick={onShowAllClick} /> : null}
             <AttributeFilterSelectionStatus
                 isInverted={isInverted}
                 getItemTitle={getItemTitle}

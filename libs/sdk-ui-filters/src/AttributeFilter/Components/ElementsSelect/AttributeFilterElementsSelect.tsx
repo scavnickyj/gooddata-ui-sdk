@@ -45,6 +45,8 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
         error,
 
         isFilteredByParentFilters,
+        showAllOption,
+        onShowAllClick,
 
         parentFilterTitles,
     } = props;
@@ -134,6 +136,8 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
                             selectedItems={selectedItems}
                             totalElementsCountWithCurrentSettings={totalItemsCountWithCurrentSettings}
                             selectedItemsLimit={selectedItemsLimit}
+                            showAllOption={showAllOption}
+                            onShowAllClick={onShowAllClick}
                         />
                     );
                 }}

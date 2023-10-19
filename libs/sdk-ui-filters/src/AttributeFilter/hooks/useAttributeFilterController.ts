@@ -416,6 +416,10 @@ function useCallbacks(
         }
     }, [handler, supportsKeepingDependentFilterSelection]);
 
+    const onShowAll = useCallback(() => {
+        handler.loadInitialElementsPage(RESET_CORRELATION, true);
+    }, [handler]);
+
     return {
         onApply,
         onLoadNextElementsPage,
@@ -423,6 +427,7 @@ function useCallbacks(
         onSelect,
         onReset,
         onOpen,
+        onShowAll,
     };
 }
 

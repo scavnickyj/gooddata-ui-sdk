@@ -7,8 +7,9 @@ import { Correlation, ILoadElementsResult } from "../../../types/index.js";
 import { getElementCacheKey } from "../common/selectors.js";
 import { AttributeFilterReducer } from "../store/state.js";
 
-const loadInitialElementsPageRequest: AttributeFilterReducer<PayloadAction<{ correlation: Correlation }>> =
-    identity;
+const loadInitialElementsPageRequest: AttributeFilterReducer<
+    PayloadAction<{ correlation: Correlation; excludeLimitingFilters: boolean }>
+> = identity;
 
 const loadInitialElementsPageStart: AttributeFilterReducer<PayloadAction<{ correlation: Correlation }>> = (
     state,

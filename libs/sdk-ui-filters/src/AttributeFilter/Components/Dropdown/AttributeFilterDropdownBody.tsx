@@ -42,6 +42,8 @@ export const AttributeFilterDropdownBody: React.FC<IAttributeFilterDropdownBodyP
         isFilteredByParentFilters,
         fullscreenOnMobile,
         selectionMode,
+        showAllOption,
+        onShowAll,
     } = useAttributeFilterContext();
 
     const parentFilterTitles = useMemo(() => {
@@ -79,6 +81,8 @@ export const AttributeFilterDropdownBody: React.FC<IAttributeFilterDropdownBodyP
                 parentFilterTitles={parentFilterTitles}
                 isFilteredByParentFilters={isFilteredByParentFilters}
                 error={initialElementsPageError ?? nextElementsPageError}
+                showAllOption={showAllOption}
+                onShowAllClick={onShowAll}
             />
             <DropdownActionsComponent
                 onApplyButtonClick={onApplyButtonClick}

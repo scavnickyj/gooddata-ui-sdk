@@ -263,6 +263,7 @@ export interface IBackendCapabilities {
     supportsRankingFilterWithMeasureValueFilter?: boolean;
     supportsSeparateLatitudeLongitudeLabels?: boolean;
     supportsShowAllAttributeValues?: boolean;
+    supportsShowFilteredElementsInFilters?: boolean;
     supportsTimeGranularities?: boolean;
     supportsWidgetEntity?: boolean;
     usesStrictAccessControl?: boolean;

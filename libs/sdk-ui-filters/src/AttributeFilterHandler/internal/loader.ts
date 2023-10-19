@@ -178,14 +178,14 @@ export class AttributeFilterLoader implements IAttributeFilterLoader {
 
     // Initial elements page
 
-    loadInitialElementsPage = (correlation: Correlation = uuid()): void => {
+    loadInitialElementsPage = (correlation: Correlation = uuid(), excludeLimitingFilters = false): void => {
         invariant(
             this.bridge.getInitStatus() === "success",
             "Cannot call loadInitialElementsPage() before successful initialization.",
         );
         this.validateStaticElementsLoad();
 
-        this.bridge.loadInitialElementsPage(correlation);
+        this.bridge.loadInitialElementsPage(correlation, excludeLimitingFilters);
     };
 
     cancelInitialElementsPageLoad(): void {

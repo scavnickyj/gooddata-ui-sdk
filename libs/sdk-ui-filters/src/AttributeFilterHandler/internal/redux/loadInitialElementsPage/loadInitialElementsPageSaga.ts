@@ -39,7 +39,7 @@ export function* loadInitialElementsPageSaga(
     const abortController = new AbortController();
 
     const {
-        payload: { correlation },
+        payload: { correlation, excludeLimitingFilters },
     } = action;
 
     try {
@@ -51,26 +51,33 @@ export function* loadInitialElementsPageSaga(
 
         const elementsForm: ReturnType<typeof selectElementsForm> = yield select(selectElementsForm);
 
+        const limitingAttributeFilters = excludeLimitingFilters ? { limitingAttributeFilters: [] } : {};
         const loadOptionsWithExcludePrimaryLabel: ILoadElementsOptions & CancelableOptions = {
             ...loadOptions,
             signal: abortController.signal,
             excludePrimaryLabel:
                 !context.backend.capabilities.supportsElementUris && elementsForm === "values",
+            ...limitingAttributeFilters,
         };
 
         const result: SagaReturnType<typeof elementsSaga> = yield call(
             elementsSaga,
             loadOptionsWithExcludePrimaryLabel,
         );
-        const limitingAttributeFiltersAttributes = yield call(
-            loadLimitingAttributeFiltersAttributes,
-            context,
-            loadOptions.limitingAttributeFilters ?? [],
-        );
 
-        yield put(
-            actions.setLimitingAttributeFiltersAttributes({ attributes: limitingAttributeFiltersAttributes }),
-        );
+        if (!excludeLimitingFilters) {
+            const limitingAttributeFiltersAttributes = yield call(
+                loadLimitingAttributeFiltersAttributes,
+                context,
+                loadOptions.limitingAttributeFilters ?? [],
+            );
+
+            yield put(
+                actions.setLimitingAttributeFiltersAttributes({
+                    attributes: limitingAttributeFiltersAttributes,
+                }),
+            );
+        }
         yield put(actions.loadInitialElementsPageSuccess({ ...result, correlation }));
     } catch (error) {
         yield put(
