@@ -11,9 +11,18 @@ import {
 /**
  * @internal
  */
-export function isLimitingAttributeFiltersEmpty(limitingAttributeFilters: IElementsQueryAttributeFilter[]) {
+export function isLimitingAttributeFiltersEmpty(
+    limitingAttributeFilters: IElementsQueryAttributeFilter[],
+    allowEmptyParentFilter = false,
+) {
+    const limitingFiltersExist = isEmpty(limitingAttributeFilters);
+
+    if (allowEmptyParentFilter) {
+        return limitingFiltersExist;
+    }
+
     return (
-        isEmpty(limitingAttributeFilters) ||
+        limitingFiltersExist ||
         limitingAttributeFilters.every((limitingAttributeFilter) =>
             isNegativeAttributeFilter(limitingAttributeFilter.attributeFilter)
                 ? attributeElementsIsEmpty(filterAttributeElements(limitingAttributeFilter.attributeFilter))
