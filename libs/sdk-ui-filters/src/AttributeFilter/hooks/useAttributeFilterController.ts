@@ -76,11 +76,15 @@ export const useAttributeFilterController = (
     const backend = useBackendStrict(backendInput, "AttributeFilter");
     const workspace = useWorkspaceStrict(workspaceInput, "AttributeFilter");
     const supportsKeepingDependentFilterSelection =
-        backend.capabilities.supportsKeepingDependentFiltersSelection ?? false;
+        !!backend.capabilities.supportsKeepingDependentFiltersSelection;
 
     const { filter, setConnectedPlaceholderValue } = useResolveFilterInput(filterInput, connectToPlaceholder);
 
-    const limitingAttributeFilters = useResolveParentFiltersInput(parentFilters, parentFilterOverAttribute);
+    const limitingAttributeFilters = useResolveParentFiltersInput(
+        parentFilters,
+        parentFilterOverAttribute,
+        supportsKeepingDependentFilterSelection,
+    );
 
     const handler = useAttributeFilterHandler({
         backend,

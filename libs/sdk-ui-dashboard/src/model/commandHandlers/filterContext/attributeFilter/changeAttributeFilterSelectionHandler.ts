@@ -42,7 +42,9 @@ export function* changeAttributeFilterSelectionHandler(
 
     invariant(changedFilter, "Inconsistent state in attributeFilterChangeSelectionCommandHandler");
 
-    if (!ctx.backend.capabilities.supportsKeepingDependentFiltersSelection) {
+    const supportsKeepingDependentFiltersSelection =
+        !!ctx.backend.capabilities.supportsKeepingDependentFiltersSelection;
+    if (supportsKeepingDependentFiltersSelection) {
         const childFiltersIds: ReturnType<ReturnType<typeof selectAttributeFilterDescendants>> = yield select(
             selectAttributeFilterDescendants(changedFilter.attributeFilter.localIdentifier!),
         );
