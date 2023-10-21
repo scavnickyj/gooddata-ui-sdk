@@ -18,6 +18,7 @@ const loadInitialElementsPageStart: AttributeFilterReducer<PayloadAction<{ corre
     state.elements.initialPageLoad.error = undefined;
     state.elements.currentOptions.offset = 0;
     state.elements.lastLoadedOptions.offset = 0;
+    state.elements.irrelevantElementTitles = [];
     state.elements.data = [];
 };
 
@@ -38,6 +39,9 @@ const loadInitialElementsPageSuccess: AttributeFilterReducer<
     });
     state.elements.data = action.payload.elements.map((el) => getElementCacheKey(state, el));
     state.elements.lastLoadedOptions = action.payload.options;
+    if (action.payload.irrelevantElementTitles) {
+        state.elements.irrelevantElementTitles = action.payload.irrelevantElementTitles;
+    }
 };
 
 const loadInitialElementsPageError: AttributeFilterReducer<

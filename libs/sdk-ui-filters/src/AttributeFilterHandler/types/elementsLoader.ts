@@ -28,6 +28,7 @@ export interface ILoadElementsResult {
     elements: IAttributeElement[];
     totalCount: number;
     options: ILoadElementsOptions;
+    irrelevantElementTitles?: string[];
 }
 
 /**
@@ -463,6 +464,11 @@ export interface IAttributeElementLoader {
      * Returns the information whether limiting filters have changed.
      */
     getLimitingFiltersChanged(): boolean;
+
+    /**
+     * Returns a list of irrelevant element titles in selection.
+     */
+    getIrrelevantElementTitles(): string[];
 }
 
 /**

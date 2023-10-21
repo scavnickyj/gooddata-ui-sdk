@@ -128,6 +128,11 @@ export interface IAttributeFilterElementsSelectProps {
      * @beta
      */
     onShowAllClick: () => void;
+
+    /**
+     * List of irrelevant element titles in selection
+     */
+    irrelevantElementTitles: string[];
 }
 
 /**

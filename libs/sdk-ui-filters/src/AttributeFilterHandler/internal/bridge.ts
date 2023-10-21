@@ -82,6 +82,7 @@ import {
     selectInitTotalCountStatus,
     selectInitTotalCountError,
     selectLimitingFiltersChanged,
+    selectIrrelevantElementTitles,
 } from "./redux/index.js";
 import { newAttributeFilterCallbacks } from "./callbacks.js";
 import { AttributeFilterHandlerConfig } from "./types.js";
@@ -426,6 +427,10 @@ export class AttributeFilterReduxBridge {
 
     getLimitingAttributeFiltersAttributes = (): IAttributeMetadataObject[] => {
         return this.redux.select(selectLimitingAttributeFiltersAttributes);
+    };
+
+    getIrrelevantElementTitles = (): string[] => {
+        return this.redux.select(selectIrrelevantElementTitles);
     };
 
     //

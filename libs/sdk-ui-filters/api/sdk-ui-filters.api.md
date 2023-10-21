@@ -121,6 +121,7 @@ export type AttributeFilterControllerData = {
     displayForms: IAttributeDisplayFormMetadataObject[];
     currentDisplayFormRef: ObjRef;
     showAllOption: boolean;
+    irrelevantElementTitles: string[];
 };
 
 // @internal (undocumented)
@@ -296,6 +297,7 @@ export interface IAttributeElementLoader {
     getInitialElementsPageStatus(): AsyncOperationStatus;
     getInitTotalCountError(): GoodDataSdkError | undefined;
     getInitTotalCountStatus(): AsyncOperationStatus;
+    getIrrelevantElementTitles(): string[];
     getLimit(): number;
     getLimitingAttributeFilters(): IElementsQueryAttributeFilter[];
     getLimitingAttributeFiltersAttributes(): IAttributeMetadataObject[];
@@ -492,6 +494,7 @@ export interface IAttributeFilterElementsSelectLoadingProps {
 // @beta
 export interface IAttributeFilterElementsSelectProps {
     error?: GoodDataSdkError;
+    irrelevantElementTitles: string[];
     isFilteredByParentFilters: boolean;
     isInverted: boolean;
     isLoading: boolean;
@@ -581,6 +584,7 @@ export interface IAttributeFilterSelectionStatusProps {
 // @beta
 export interface IAttributeFilterStatusBarProps {
     getItemTitle: (item: IAttributeElement) => string;
+    irrelevantElementTitles: string[];
     isFilteredByParentFilters: boolean;
     isInverted: boolean;
     onShowAllClick: () => void;
@@ -756,6 +760,8 @@ export interface ILoadElementsOptions {
 export interface ILoadElementsResult {
     // (undocumented)
     elements: IAttributeElement[];
+    // (undocumented)
+    irrelevantElementTitles?: string[];
     // (undocumented)
     options: ILoadElementsOptions;
     // (undocumented)

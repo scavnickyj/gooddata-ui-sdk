@@ -44,6 +44,7 @@ export const AttributeFilterDropdownBody: React.FC<IAttributeFilterDropdownBodyP
         selectionMode,
         showAllOption,
         onShowAll,
+        irrelevantElementTitles,
     } = useAttributeFilterContext();
 
     const parentFilterTitles = useMemo(() => {
@@ -83,6 +84,7 @@ export const AttributeFilterDropdownBody: React.FC<IAttributeFilterDropdownBodyP
                 error={initialElementsPageError ?? nextElementsPageError}
                 showAllOption={showAllOption}
                 onShowAllClick={onShowAll}
+                irrelevantElementTitles={irrelevantElementTitles}
             />
             <DropdownActionsComponent
                 onApplyButtonClick={onApplyButtonClick}

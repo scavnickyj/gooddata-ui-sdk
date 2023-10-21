@@ -1,5 +1,6 @@
 // (C) 2021-2022 GoodData Corporation
 import { IAttributeElement } from "@gooddata/sdk-model";
+import { Message } from "@gooddata/sdk-ui-kit";
 import React from "react";
 import { AttributeFilterFilteredStatus } from "./AttributeFilterFilteredStatus.js";
 import { AttributeFilterSelectionStatus } from "./AttributeFilterSelectionStatus.js";
@@ -26,6 +27,13 @@ export interface IAttributeFilterStatusBarProps {
      * @beta
      */
     parentFilterTitles: string[];
+
+    /**
+     * List of irrelevant element titles in selection.
+     *
+     * @beta
+     */
+    irrelevantElementTitles: string[];
 
     /**
      * Indicate that current filter is inverted {@link @gooddata/sdk-model#INegativeAttributeFilter} or not {@link @gooddata/sdk-model#IPositiveAttributeFilter}
@@ -78,6 +86,7 @@ export const AttributeFilterStatusBar: React.FC<IAttributeFilterStatusBarProps> 
     const {
         isFilteredByParentFilters,
         parentFilterTitles,
+        irrelevantElementTitles,
         totalElementsCountWithCurrentSettings,
         getItemTitle,
         isInverted,
@@ -97,6 +106,11 @@ export const AttributeFilterStatusBar: React.FC<IAttributeFilterStatusBarProps> 
                 selectedItems={selectedItems}
                 selectedItemsLimit={selectedItemsLimit}
             />
+            {irrelevantElementTitles.length ? (
+                <Message className="gd-attribute-filter-status-irrelevant-message" type="warning">
+                    Irrelevant value in selection.&nbsp;<span className="gd-action-clear">Clear</span>
+                </Message>
+            ) : null}
             {isFilteredByParentFilters && totalElementsCountWithCurrentSettings > 0 ? (
                 <AttributeFilterFilteredStatus parentFilterTitles={parentFilterTitles} />
             ) : null}

@@ -138,6 +138,11 @@ export type AttributeFilterControllerData = {
      * Show option to list all items when items are filtered.
      */
     showAllOption: boolean;
+
+    /**
+     * List of irrelevant element titles in selection.
+     */
+    irrelevantElementTitles: string[];
 };
 
 /**

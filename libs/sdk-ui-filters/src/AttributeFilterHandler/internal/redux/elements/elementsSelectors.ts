@@ -206,3 +206,11 @@ export const selectLimitingFiltersChanged: FilterSelector<boolean> = createSelec
     selectState,
     (state) => state.elements.limitingFiltersChanged,
 );
+
+/**
+ * @internal
+ */
+export const selectIrrelevantElementTitles: FilterSelector<string[]> = createSelector(
+    selectState,
+    (state) => state.elements.irrelevantElementTitles,
+);

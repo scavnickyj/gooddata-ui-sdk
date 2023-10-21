@@ -86,6 +86,7 @@ export function useAttributeFilterControllerData(
         isFilteredByParentFilters &&
         totalElementsCount > totalElementsCountWithCurrentSettings;
     const showFilteredByParentFilters = !supportsShowAllOption && isFilteredByParentFilters;
+    const irrelevantElementTitles = handlerState.elements.irrelevantElementTitles;
 
     return {
         attribute,
@@ -123,6 +124,7 @@ export function useAttributeFilterControllerData(
         showAllOption,
 
         parentFilterAttributes,
+        irrelevantElementTitles,
 
         displayForms,
         currentDisplayFormRef,

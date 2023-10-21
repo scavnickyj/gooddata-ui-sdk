@@ -36,7 +36,7 @@
     width: 100%;
 }
 
-.gd-attribute-filter-status-show-all__next {
+.gd-attribute-filter-status-show-all {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -57,6 +57,25 @@
 
         &:hover {
             color: variables.$gd-palette-primary-base;
+        }
+    }
+}
+
+.gd-attribute-filter-status-irrelevant-message {
+    width: 100%;
+    margin: 0px 10px 10px;
+
+    .gd-message-text {
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    .gd-action-clear {
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: 700;
         }
     }
 }

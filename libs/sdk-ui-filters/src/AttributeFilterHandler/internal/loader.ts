@@ -393,4 +393,8 @@ export class AttributeFilterLoader implements IAttributeFilterLoader {
     setLimitingFiltersChanged(limitingFiltersChanged: boolean): void {
         this.bridge.setLimitingFiltersChanged(limitingFiltersChanged);
     }
+
+    getIrrelevantElementTitles(): string[] {
+        return this.bridge.getIrrelevantElementTitles();
+    }
 }

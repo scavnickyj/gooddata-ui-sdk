@@ -49,6 +49,7 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
         onShowAllClick,
 
         parentFilterTitles,
+        irrelevantElementTitles,
     } = props;
 
     const intl = useIntl();
@@ -138,6 +139,7 @@ export const AttributeFilterElementsSelect: React.FC<IAttributeFilterElementsSel
                             selectedItemsLimit={selectedItemsLimit}
                             showAllOption={showAllOption}
                             onShowAllClick={onShowAllClick}
+                            irrelevantElementTitles={irrelevantElementTitles}
                         />
                     );
                 }}

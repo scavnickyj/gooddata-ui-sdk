@@ -255,6 +255,7 @@ export interface IBackendCapabilities {
     supportsKeepingDependentFiltersSelection?: boolean;
     supportsKpiWidget?: boolean;
     supportsMetadataObjectLocking?: boolean;
+    supportsMultipleConnectingAttributes?: boolean;
     supportsNonProductionDatasets?: boolean;
     supportsObjectUris?: boolean;
     supportsOrganizationSettings?: boolean;
