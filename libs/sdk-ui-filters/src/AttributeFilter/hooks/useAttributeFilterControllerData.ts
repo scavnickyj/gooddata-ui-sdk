@@ -61,7 +61,13 @@ export function useAttributeFilterControllerData(
         !isWorkingSelectionChanged ||
         (!isWorkingSelectionInverted && isWorkingSelectionEmpty);
 
-    const isParentFiltersEmpty = isLimitingAttributeFiltersEmpty(limitingAttributeFilters);
+    const supportsKeepingDependentFiltersSelection =
+        backend.capabilities.supportsKeepingDependentFiltersSelection;
+
+    const isParentFiltersEmpty = isLimitingAttributeFiltersEmpty(
+        limitingAttributeFilters,
+        supportsKeepingDependentFiltersSelection,
+    );
 
     const isFilteredByParentFilters = initialElementsPageStatus === "success" && !isParentFiltersEmpty;
 
