@@ -90,6 +90,10 @@ export class TigerWorkspaceAttributes implements IWorkspaceAttributesService {
     }
 
     async getCommonAttributesBatch(attributesRefBatch: ObjRef[][]): Promise<ObjRef[][]> {
+        if (attributesRefBatch.length === 0) {
+            return [[]];
+        }
+
         // the first item of every inner array is candidate child
         // the second item of every inner array is candidate parent
         const [children, candidateParents] = unzip(attributesRefBatch);
