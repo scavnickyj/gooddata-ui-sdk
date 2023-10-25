@@ -275,9 +275,22 @@ export const selectAttributeFilterDescendants: (localId: string) => DashboardSel
         createSelector(selectFilterContextAttributeFilters, (attributeFilters) => {
             const toCheck = compact([localId]);
             const result = new Set<string>();
+            const visited = new Set<string>();
 
-            while (toCheck.length) {
+            while (toCheck.length > 0) {
                 const current = toCheck.pop();
+
+                if (!current) {
+                    continue;
+                }
+
+                // avoid infinite loops
+                if (visited.has(current)) {
+                    continue;
+                }
+
+                visited.add(current);
+
                 const children = attributeFilters.filter((f) =>
                     f.attributeFilter.filterElementsBy?.some(
                         (parent) => parent.filterLocalIdentifier === current,
