@@ -1,7 +1,30 @@
-// (C) 2019-2023 GoodData Corporation
+// (C) 2019-2024 GoodData Corporation
 import React, { useMemo } from "react";
 import { BackendProvider, WorkspaceProvider } from "@gooddata/sdk-ui";
 import { createBackend } from "./createBackend.js";
+import { MyApp } from "./playground/MyApp.js";
+import { ThemeProvider } from "@gooddata/sdk-ui-theme-provider";
+import { ITheme } from "@gooddata/sdk-model";
+
+const useTheme: any = false;
+const customTheme: ITheme = useTheme
+    ? {
+          palette: {
+              complementary: {
+                  c0: "#292727",
+                  c1: "#323232",
+                  c2: "#424242",
+                  c3: "#4E4E4E",
+                  c4: "#5F5F5F",
+                  c5: "#7B7B7B",
+                  c6: "#A0A0A0",
+                  c7: "#B9B9B9",
+                  c8: "#D6D6D6",
+                  c9: "#EAEAEA",
+              },
+          },
+      }
+    : {};
 
 function hasCredentialsSetup(): boolean {
     if (BACKEND_TYPE === "tiger") {
@@ -17,11 +40,14 @@ const AppWithBackend: React.FC = () => {
     }, []);
 
     return (
-        <BackendProvider backend={backend}>
-            <WorkspaceProvider workspace={WORKSPACE}>
-                {/* Build your playground components under the playground directory.*/}
-            </WorkspaceProvider>
-        </BackendProvider>
+        <ThemeProvider theme={customTheme}>
+            <BackendProvider backend={backend}>
+                <WorkspaceProvider workspace={WORKSPACE}>
+                    {/* Build your playground components under the playground directory.*/}
+                    <MyApp />
+                </WorkspaceProvider>
+            </BackendProvider>
+        </ThemeProvider>
     );
 };
 
