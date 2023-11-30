@@ -325,6 +325,11 @@ export interface ISettings {
      */
     enableKDDependentFilters?: boolean;
 
+    /**
+     * Enable multiple date filters.
+     */
+    enableMultipleDateFilters?: boolean;
+
     [key: string]: number | boolean | string | object | undefined;
 }
 
