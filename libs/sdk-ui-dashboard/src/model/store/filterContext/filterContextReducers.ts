@@ -478,6 +478,40 @@ const changeSelectionMode: FilterContextReducer<PayloadAction<IChangeAttributeSe
     (findFilter as IDashboardAttributeFilter).attributeFilter.selectionMode = selectionMode;
 };
 
+export interface IAddDateFilterPayload {
+    readonly index: number;
+}
+
+const addDateFilter: FilterContextReducer<PayloadAction<IAddDateFilterPayload>> = (state, _action) => {
+    invariant(state.filterContextDefinition, "Attempt to edit uninitialized filter context");
+
+    // TODO:
+
+    // const { index } = action.payload;
+
+    // const filter: IDashboardAttributeFilter = {
+    //     attributeFilter: {
+    //         attributeElements: initialSelection ?? { uris: [] },
+    //         displayForm,
+    //         negativeSelection: isNegative,
+    //         localIdentifier: generateFilterLocalIdentifier(),
+    //         filterElementsBy: parentFilters ? [...parentFilters] : undefined,
+    //         ...(selectionMode !== undefined ? { selectionMode } : {}),
+    //     },
+    // };
+
+    // // Filters are indexed just for attribute filters, if DateFilter is present should be always first item
+    // const isDateFilterPresent = state.filterContextDefinition.filters.findIndex(isDashboardDateFilter) >= 0;
+
+    // if (index === -1) {
+    //     state.filterContextDefinition.filters.push(filter);
+    // } else {
+    //     // If DateFilter is present we have to move index by 1 because index of filter is calculated just for AttributeFilers array
+    //     const attributeFilterIndex = isDateFilterPresent ? index + 1 : index;
+    //     state.filterContextDefinition.filters.splice(attributeFilterIndex, 0, filter);
+    // }
+};
+
 //
 //
 //
@@ -490,6 +524,7 @@ export const filterContextReducers = {
     addAttributeFilter,
     removeAttributeFilter,
     moveAttributeFilter,
+    addDateFilter,
     updateAttributeFilterSelection,
     setAttributeFilterParents,
     clearAttributeFiltersSelection,

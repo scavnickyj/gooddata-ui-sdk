@@ -76,6 +76,7 @@ import { setDashboardDateFilterConfigModeHandler } from "./dashboard/dateFilterC
 import { changeAttributeFilterModeHandler } from "./dashboard/changeAttributeFilterModeHandler.js";
 import { removeDrillDownForInsightWidgetHandler } from "./widgets/removeDrillDownForInsightWidgetHandler.js";
 import { addDrillDownForInsightWidgetHandler } from "./widgets/addDrillDownForInsightWidgetHandler.js";
+import { addDateFilterHandler } from "./filterContext/dateFilter/addDateFilterHandler.js";
 
 function* notImplementedCommand(ctx: DashboardContext, cmd: IDashboardCommand): SagaIterator<void> {
     yield dispatchDashboardEvent(commandRejected(ctx, cmd.correlationId));
@@ -105,6 +106,7 @@ export const DefaultCommandHandlers: {
     "GDC.DASH/CMD.FILTER_CONTEXT.ATTRIBUTE_FILTER.SET_DISPLAY_FORM": changeAttributeDisplayFormHandler,
     "GDC.DASH/CMD.FILTER_CONTEXT.ATTRIBUTE_FILTER.SET_TITLE": changeAttributeTitleHandler,
     "GDC.DASH/CMD.FILTER_CONTEXT.ATTRIBUTE_FILTER.SET_SELECTION_MODE": changeAttributeSelectionModeHandler,
+    "GDC.DASH/CMD.FILTER_CONTEXT.DATE_FILTER.ADD": addDateFilterHandler,
     "GDC.DASH/CMD.ATTRIBUTE_FILTER_CONFIG.SET_MODE": changeAttributeFilterModeHandler,
     "GDC.DASH/CMD.DATE_FILTER_CONFIG.SET_MODE": setDashboardDateFilterConfigModeHandler,
     "GDC.DASH/CMD.FLUID_LAYOUT.ADD_SECTION": addLayoutSectionHandler,

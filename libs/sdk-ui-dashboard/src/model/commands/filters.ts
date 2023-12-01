@@ -822,3 +822,40 @@ export function setAttributeFilterSelectionMode(
         },
     };
 }
+
+/**
+ * Payload of the {@link AddDateFilter} command.
+ *
+ * @alpha
+ */
+export interface AddDateFilterPayload {
+    readonly index: number;
+}
+
+/**
+ * TODO: doc
+ *
+ * @alpha
+ */
+export interface AddDateFilter extends IDashboardCommand {
+    readonly type: "GDC.DASH/CMD.FILTER_CONTEXT.DATE_FILTER.ADD";
+    readonly payload: AddDateFilterPayload;
+}
+
+/**
+ * TODO: doc
+ *
+ * @alpha
+ * @param filterLocalId - TODO: doc
+ * @param correlationId - TODO: doc
+ * @returns
+ */
+export function addDateFilter(index: number, correlationId?: string): AddDateFilter {
+    return {
+        type: "GDC.DASH/CMD.FILTER_CONTEXT.DATE_FILTER.ADD",
+        correlationId,
+        payload: {
+            index,
+        },
+    };
+}
