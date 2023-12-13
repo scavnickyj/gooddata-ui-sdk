@@ -4054,6 +4054,7 @@ export interface IInsightBodyProps extends Partial<IVisualizationCallbacks> {
         separators?: ISeparators;
         forceDisableDrillOnAxes?: boolean;
         isExportMode?: boolean;
+        selectedPoints?: (string | null)[];
     };
     drillableItems: ExplicitDrill[] | undefined;
     ErrorComponent: React.ComponentType<IErrorProps>;
@@ -6280,6 +6281,9 @@ export const selectCrossFilteringFiltersLocalIdentifiersByWidgetRef: (ref: ObjRe
 
 // @beta (undocumented)
 export const selectCrossFilteringItems: DashboardSelector<ICrossFilteringItem[]>;
+
+// @beta (undocumented)
+export const selectCrossFilteringSelectedPointsByWidgetRef: (ref: ObjRef | undefined) => DashboardSelector<(string | null)[]>;
 
 // @public
 export const selectCurrentUser: DashboardSelector<IUser>;

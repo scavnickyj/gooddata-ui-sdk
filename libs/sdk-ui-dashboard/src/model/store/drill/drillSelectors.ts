@@ -3,8 +3,10 @@ import { createSelector } from "@reduxjs/toolkit";
 import { ExplicitDrill } from "@gooddata/sdk-ui";
 import { DashboardSelector, DashboardState } from "../types.js";
 import { ICrossFilteringItem } from "./types.js";
-import { ObjRef, areObjRefsEqual } from "@gooddata/sdk-model";
+import { ObjRef, areObjRefsEqual, isAttributeElementsByRef } from "@gooddata/sdk-model";
 import { createMemoizedSelector } from "../_infra/selectors.js";
+import { selectFilterContextAttributeFilters } from "../index.js";
+import compact from "lodash/compact.js";
 
 const selectSelf = createSelector(
     (state: DashboardState) => state,
@@ -48,5 +50,32 @@ export const selectCrossFilteringFiltersLocalIdentifiersByWidgetRef: (
     createSelector(
         selectCrossFilteringItems,
         (items) => items.find((item) => areObjRefsEqual(ref, item.widgetRef))?.filterLocalIdentifiers,
+    ),
+);
+
+/**
+ * @beta
+ */
+export const selectCrossFilteringSelectedPointsByWidgetRef: (
+    ref: ObjRef | undefined,
+) => DashboardSelector<(string | null)[]> = createMemoizedSelector((ref: ObjRef | undefined) =>
+    createSelector(
+        selectCrossFilteringFiltersLocalIdentifiersByWidgetRef(ref),
+        selectFilterContextAttributeFilters,
+        (crossFiltersLocalIdentifiers, filterContextAttributeFilters) => {
+            const effectiveFilters = compact(
+                crossFiltersLocalIdentifiers?.map((localIdentifier) => {
+                    return filterContextAttributeFilters.find(
+                        (filter) => filter.attributeFilter.localIdentifier === localIdentifier,
+                    );
+                }),
+            );
+
+            return effectiveFilters.flatMap((filter) => {
+                return isAttributeElementsByRef(filter.attributeFilter.attributeElements)
+                    ? filter.attributeFilter.attributeElements.uris
+                    : filter.attributeFilter.attributeElements.values;
+            });
+        },
     ),
 );

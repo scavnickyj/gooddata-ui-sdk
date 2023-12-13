@@ -36,7 +36,40 @@ const BAR_TEMPLATE = {
 };
 
 export function getBarConfiguration(config: IChartConfig): HighchartsOptions {
-    const barConfiguration = cloneDeep(BAR_TEMPLATE);
+    const clonedConfiguration = cloneDeep(BAR_TEMPLATE);
+    const crossFilteringClassNameObj = config.selectedPoints?.length
+        ? { className: "cross-filtering-highlighting highcharts-series-hover" }
+        : {};
+
+    const barConfiguration = {
+        ...clonedConfiguration,
+        chart: {
+            ...clonedConfiguration.chart,
+            events: {
+                load() {
+                    console.log("[bar] on load event");
+                    if (config.selectedPoints?.length) {
+                        console.log("[bar] selecting points:", config.selectedPoints, this.series);
+                        config.selectedPoints.forEach((selectedPoint) => {
+                            this.series[0].points.forEach((point: any) => {
+                                if (point.category.name === selectedPoint) {
+                                    point.update({ className: "highcharts-point-highlighted" });
+                                }
+                            });
+                        });
+                    }
+                    console.log("_________________");
+                },
+            },
+        },
+        plotOptions: {
+            ...clonedConfiguration.plotOptions,
+            series: {
+                ...clonedConfiguration.plotOptions?.series,
+                ...crossFilteringClassNameObj,
+            },
+        },
+    };
 
     if (config?.enableCompactSize && !config?.zoomInsight) {
         const reversed = true;

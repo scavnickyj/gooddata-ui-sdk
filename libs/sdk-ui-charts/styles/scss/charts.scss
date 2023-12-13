@@ -95,3 +95,17 @@
 .gd-contrast-label text {
     fill: var(--gd-palette-complementary-9, "#000");
 }
+
+.cross-filtering-highlighting {
+    .highcharts-point {
+        opacity: 0.2;
+    }
+
+    .highcharts-point-hover {
+        opacity: 1;
+    }
+
+    .highcharts-point-highlighted {
+        opacity: 1;
+    }
+}

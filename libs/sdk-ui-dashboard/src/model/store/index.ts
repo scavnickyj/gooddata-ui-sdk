@@ -221,6 +221,7 @@ export {
     selectCrossFilteringItems,
     selectCrossFilteringFiltersLocalIdentifiers,
     selectCrossFilteringFiltersLocalIdentifiersByWidgetRef,
+    selectCrossFilteringSelectedPointsByWidgetRef,
 } from "./drill/drillSelectors.js";
 export { DrillState } from "./drill/drillState.js";
 export { ICrossFilteringItem } from "./drill/types.js";

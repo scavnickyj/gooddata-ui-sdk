@@ -286,6 +286,8 @@ export interface IChartConfig {
     secondary_xaxis?: IAxisConfig;
     secondary_yaxis?: IAxisConfig;
     secondaryChartType?: "line" | "column" | "area";
+    // @internal
+    selectedPoints?: (string | null)[];
     separators?: ISeparators;
     // @internal
     stacking?: boolean;

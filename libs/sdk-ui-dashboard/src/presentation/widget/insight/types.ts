@@ -200,6 +200,7 @@ export interface IInsightBodyProps extends Partial<IVisualizationCallbacks> {
         separators?: ISeparators;
         forceDisableDrillOnAxes?: boolean;
         isExportMode?: boolean;
+        selectedPoints?: (string | null)[];
     };
 
     /**

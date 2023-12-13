@@ -295,6 +295,12 @@ export interface IChartConfig {
      * @internal
      */
     useGenericInteractionTooltip?: boolean;
+
+    /**
+     * Selected points to be highlighted
+     * @internal
+     */
+    selectedPoints?: (string | null)[];
 }
 
 /**
