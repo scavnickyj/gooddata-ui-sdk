@@ -48,6 +48,8 @@ importers:
       eslint-plugin-sonarjs: ^0.16.0
       eslint-plugin-tsdoc: ^0.2.14
       fork-ts-checker-webpack-plugin: ^9.0.2
+      highcharts: 9.3.0
+      highcharts-react-official: 3.2.1
       html-webpack-plugin: ^5.3.1
       lodash: ^4.17.19
       npm-run-all: ^4.1.5
@@ -82,6 +84,8 @@ importers:
       '@gooddata/sdk-ui-loaders': link:../../libs/sdk-ui-loaders
       '@gooddata/sdk-ui-pivot': link:../../libs/sdk-ui-pivot
       '@gooddata/sdk-ui-theme-provider': link:../../libs/sdk-ui-theme-provider
+      highcharts: 9.3.0
+      highcharts-react-official: 3.2.1_pfudujrlmivslf3wcinkje6q6q
       lodash: 4.17.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -6935,7 +6939,7 @@ packages:
       json-stable-stringify: 1.1.0
       loud-rejection: 2.2.0
       tslib: 2.6.2
-      typescript: 5.0.2
+      typescript: 5.3.3
     transitivePeerDependencies:
       - ts-jest
     dev: false
@@ -7014,7 +7018,7 @@ packages:
       chalk: 4.1.2
       json-stable-stringify: 1.1.0
       tslib: 2.6.2
-      typescript: 5.0.2
+      typescript: 5.3.3
     dev: false
 
   /@gooddata/api-client-bear/8.12.3:
@@ -8100,6 +8104,7 @@ packages:
   /@oclif/screen/3.0.8:
     resolution: {integrity: sha512-yx6KAqlt3TAHBduS2fMQtJDL2ufIHnDRArrJEOoTTuizxqmjLT+psGYOHpmMl3gvQpFJ11Hs76guUUktzAF9Bg==}
     engines: {node: '>=12.0.0'}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dev: true
 
   /@openapitools/openapi-generator-cli/2.7.0:
@@ -23390,12 +23395,6 @@ packages:
     resolution: {integrity: sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==}
     dependencies:
       typescript-compare: 0.0.2
-    dev: false
-
-  /typescript/5.0.2:
-    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
-    engines: {node: '>=12.20'}
-    hasBin: true
     dev: false
 
   /typescript/5.0.4:

@@ -22,7 +22,7 @@ const playgroundDefinitions = {
     reference: ["https://secure.gooddata.com", "l32xdyl4bjuzgf9kkqr2avl55gtuyjwf", "bear"],
     "tiger-stg": [
         "https://staging.dev-latest.stg11.panther.intgdc.com/",
-        "21c5af7305fe46eea807c4e2d5a5f407",
+        "cebbbf9b001a48ca89fa3f9c407cf8af",
         "tiger",
     ],
     "tiger-local": ["http://localhost:3000", "demo", "tiger"],

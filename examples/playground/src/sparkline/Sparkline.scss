@@ -1,0 +1,15 @@
+// (C) 2024 GoodData Corporation
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    // max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
