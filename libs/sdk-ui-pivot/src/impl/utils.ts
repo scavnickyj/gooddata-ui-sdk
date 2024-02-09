@@ -1,10 +1,12 @@
-// (C) 2007-2022 GoodData Corporation
+// (C) 2007-2024 GoodData Corporation
 import once from "lodash/once.js";
 import {
     bucketsFind,
     bucketTotals,
+    DataValue,
     IAttributeDescriptor,
     IExecutionDefinition,
+    isMeasureGroupDescriptor,
     ISortItem,
     ITotal,
     sanitizeBucketTotals,
@@ -18,6 +20,7 @@ import {
     isMixedValuesColumnWidthItem,
     isSliceMeasureColumnWidthItem,
 } from "../columnWidths.js";
+import { IDataView, IExecutionResult } from "@gooddata/sdk-backend-spi";
 
 function getScrollbarWidthBody(): number {
     const outer = document.createElement("div");
@@ -110,3 +113,32 @@ export const getDataViewSeriesDescriptors = (dv: DataViewFacade) =>
             (descriptor, index, self) =>
                 self.findIndex((s) => s.measureDescriptor === descriptor.measureDescriptor) === index,
         );
+
+export const transformDataView = (dataView: IDataView, result: IExecutionResult): IDataView => {
+    // eslint-disable-next-line no-console
+    console.log("original data view", dataView);
+    const measureHeadersInfo =
+        result.dimensions[1].headers.find(isMeasureGroupDescriptor)?.measureGroupHeader.items ?? [];
+    const numberOfMeasures = measureHeadersInfo.length;
+
+    const transformedData = dataView.data.map((row) => {
+        return [...Array(numberOfMeasures)].map((_, i) => {
+            return pickEveryNthElement(row as DataValue[], numberOfMeasures, i);
+        });
+    });
+
+    const transformedDataView = {
+        ...dataView,
+        data: transformedData as any, // TODO: this is a type issue as we cannot use [][][]
+        count: [dataView.count[0], transformedData[0].length],
+    };
+
+    // eslint-disable-next-line no-console
+    console.log("transformed data view", transformedDataView);
+
+    return transformedDataView;
+};
+
+function pickEveryNthElement<T>(arr: T[], n: number, offset: number = 0): T[] {
+    return arr.filter((_, index) => (index - offset) % n === 0);
+}

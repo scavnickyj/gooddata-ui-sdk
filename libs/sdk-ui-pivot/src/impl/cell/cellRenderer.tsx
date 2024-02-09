@@ -1,4 +1,4 @@
-// (C) 2007-2022 GoodData Corporation
+// (C) 2007-2024 GoodData Corporation
 import React from "react";
 import { ITotal, IMeasureDescriptorItem } from "@gooddata/sdk-model";
 import { ICellRendererParams } from "@ag-grid-community/all-modules";
@@ -12,6 +12,7 @@ import { IMenuAggregationClickConfig } from "../privateTypes.js";
 import { LoadingComponent } from "@gooddata/sdk-ui";
 import cx from "classnames";
 import { TableDescriptor } from "../structure/tableDescriptor.js";
+import { VisualisationCell } from "./VisualisationCell.js";
 
 function hasTotalForCurrentColumn(params: ICellRendererParams): boolean {
     const row = params.data as IGridTotalsRow;
@@ -83,6 +84,10 @@ export function createCellRenderer(
             isRowTotalOrSubtotal && !isActiveRowTotal && !params.value
                 ? "" // inactive row total cells should be really empty (no "-") when they have no value (RAIL-1525)
                 : params.formatValue!(params.value);
+
+        if (Array.isArray(params.value)) {
+            return <VisualisationCell data={params.value} />;
+        }
 
         if (shouldShowAggregationsMenu(params)) {
             const HeaderComponent = params.colDef?.headerComponent;

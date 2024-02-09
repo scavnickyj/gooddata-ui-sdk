@@ -1,4 +1,4 @@
-// (C) 2007-2022 GoodData Corporation
+// (C) 2007-2024 GoodData Corporation
 import { IntlShape } from "react-intl";
 import { DataViewFacade, getTotalInfo } from "@gooddata/sdk-ui";
 import {
@@ -28,6 +28,9 @@ import {
 import { createColDefsFromTableDescriptor } from "./colDefFactory.js";
 import { IPivotTableConfig } from "../../publicTypes.js";
 import { getDataViewSeriesDescriptors } from "../utils.js";
+import compact from "lodash/compact.js";
+
+const isRepeater = true;
 
 type ColumnGroupLevel = {
     pkToGroup: Record<string, ScopeCol>;
@@ -238,25 +241,52 @@ function createColumnDescriptorsWhenNoMeasuresInColumns(
 }
 
 function createColumnDescriptorsFromDataSeries(dv: DataViewFacade): GroupingOperationResult {
-    const leafColumns: SeriesCol[] = dv
-        .data()
-        .series()
-        .toArray()
-        .map((series, idx) => {
-            return {
-                type: "seriesCol",
-                id: `c_${idx}`,
-                index: idx,
-                seriesId: series.id,
-                seriesDescriptor: series.descriptor,
-                children: [],
-                fullIndexPathToHere: [idx],
-            };
-        });
+    let leafColumns: SeriesCol[] = [];
+    if (isRepeater) {
+        const numberOfMeasures = dv.data().series().fromMeasures.length;
+        let index = 0;
+        const columns = dv
+            .data()
+            .series()
+            .toArray()
+            .map((series) => {
+                if (series.descriptor.isTotal === true || index < numberOfMeasures) {
+                    index++;
+                    return {
+                        type: "seriesCol",
+                        id: `c_${index}`,
+                        index: index,
+                        seriesId: series.id,
+                        seriesDescriptor: series.descriptor,
+                        children: [],
+                        fullIndexPathToHere: [index],
+                    } as SeriesCol;
+                } else {
+                    return undefined;
+                }
+            });
+        leafColumns = compact(columns);
+    } else {
+        leafColumns = dv
+            .data()
+            .series()
+            .toArray()
+            .map((series, idx) => {
+                return {
+                    type: "seriesCol",
+                    id: `c_${idx}`,
+                    index: idx,
+                    seriesId: series.id,
+                    seriesDescriptor: series.descriptor,
+                    children: [],
+                    fullIndexPathToHere: [idx],
+                };
+            });
+    }
 
     const scopingAttributes = dv.data().series().scopingAttributes ?? [];
 
-    if (scopingAttributes.length === 0) {
+    if (scopingAttributes.length === 0 || isRepeater) {
         return {
             groupingAttributes: [],
             leafColumns,

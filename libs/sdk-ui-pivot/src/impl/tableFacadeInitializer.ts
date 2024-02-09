@@ -1,4 +1,4 @@
-// (C) 2007-2021 GoodData Corporation
+// (C) 2007-2024 GoodData Corporation
 import { TableConfigAccessors, TableDataCallbacks, TableLegacyCallbacks } from "./privateTypes.js";
 import {
     IDataView,
@@ -13,6 +13,7 @@ import { convertError, DataViewFacade } from "@gooddata/sdk-ui";
 import { ICorePivotTableProps } from "../publicTypes.js";
 import { invariant } from "ts-invariant";
 import { TableFacade } from "./tableFacade.js";
+import { transformDataView } from "./utils.js";
 
 export type InitializerResult = {
     initializer: TableFacadeInitializer;
@@ -77,13 +78,14 @@ export class TableFacadeInitializer {
                             return undefined;
                         }
 
-                        const table: TableFacade = this.createTableFacade(result, dataView);
+                        const tranformedDataView = transformDataView(dataView, result);
+                        const table: TableFacade = this.createTableFacade(result, tranformedDataView);
 
                         tableMethods.onLoadingChanged({ isLoading: false });
                         tableMethods.onExportReady(table.createExportFunction(this.props.exportTitle));
 
                         const availableDrillTargets = table.getAvailableDrillTargets();
-                        tableMethods.pushData({ dataView, availableDrillTargets });
+                        tableMethods.pushData({ dataView: tranformedDataView, availableDrillTargets });
 
                         return {
                             initializer: this,

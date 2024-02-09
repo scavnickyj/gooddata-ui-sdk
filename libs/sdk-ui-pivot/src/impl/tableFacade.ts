@@ -1,4 +1,4 @@
-// (C) 2007-2022 GoodData Corporation
+// (C) 2007-2024 GoodData Corporation
 import { TableDescriptor } from "./structure/tableDescriptor.js";
 import { IDataView, IExecutionResult, IPreparedExecution } from "@gooddata/sdk-backend-spi";
 import {
@@ -31,11 +31,10 @@ import { IntlShape } from "react-intl";
 import { setColumnMaxWidth, setColumnMaxWidthIf } from "./base/agColumnWrapper.js";
 import { agColIds, isMeasureColumn, isMeasureOrAnyColumnTotal } from "./base/agUtils.js";
 import { agColId } from "./structure/tableDescriptorTypes.js";
-import { sleep } from "./utils.js";
+import { sleep, transformDataView } from "./utils.js";
 import { DEFAULT_AUTOSIZE_PADDING, DEFAULT_ROW_HEIGHT } from "./base/constants.js";
 import { getAvailableDrillTargets } from "./drilling/drillTargets.js";
 import { IGroupingProvider } from "./data/rowGroupingProvider.js";
-import identity from "lodash/identity.js";
 import ApiWrapper from "./base/agApiWrapper.js";
 import {
     initializeStickyRow,
@@ -260,7 +259,7 @@ export class TableFacade {
                 onPageLoaded: this.onPageLoaded,
                 onExecutionTransformed: this.onExecutionTransformed,
                 onTransformedExecutionFailed: this.onTransformedExecutionFailed,
-                dataViewTransform: identity,
+                dataViewTransform: (dv: IDataView) => transformDataView(dv, this.currentResult),
             },
             this.visibleData,
             this.gridApiGuard,
