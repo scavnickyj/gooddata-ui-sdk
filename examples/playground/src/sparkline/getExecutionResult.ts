@@ -32,7 +32,7 @@ export const getExecutionResult = async (
         measure3chart,
     } = buckets;
 
-    const totalMeasure2 = newTotal("sum", measure2, visualizationAttribute);
+    // const totalMeasure2 = newTotal("sum", measure2, visualizationAttribute);
 
     try {
         const execution = await backend
@@ -48,9 +48,9 @@ export const getExecutionResult = async (
             ])
             .withDimensions(
                 ...newTwoDimensional(
-                    [rowAttribute, rowAttributeWithDifferentLabel],
+                    [rowAttribute, rowAttributeWithDifferentLabel, MeasureGroupIdentifier],
                     // order matters here!
-                    [visualizationAttribute, totalMeasure2, MeasureGroupIdentifier],
+                    [visualizationAttribute],
                 ),
             )
             .execute();

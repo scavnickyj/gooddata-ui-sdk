@@ -5,15 +5,30 @@ import React, { useEffect, useState } from "react";
 import * as Md from "../md/full.js";
 import { getExecutionResult } from "./getExecutionResult.js";
 import { ISparklineData, transformExecutionResult } from "./transformExecutionResult.js";
-import { DataValue, isTotal } from "@gooddata/sdk-model";
+import {
+    DataValue,
+    InlineMeasureBuilder,
+    // MeasureBuilder,
+    isTotal,
+    objRefToString,
+} from "@gooddata/sdk-model";
 import { SparklineChart } from "./SparklineChart.js";
 import "./Sparkline.scss";
 
 const rowAttribute = Md.City.Name; // main attribute to define repeating rows
 const rowAttributeWithDifferentLabel = Md.City.ShortName; // main attribute with different label
 const visualizationAttribute = Md.DateDatasets.Activity.ActivityYear.Default; // second attribute that is used for slicing of all visualizations
-const measure1chart = Md.NrOfActivities; // first measure - chart
+// const measure1chart = Md.NrOfActivities; // first measure - chart
+const measureId = (Md.NrOfActivities.measure.definition.measureDefinition.item as any).identifier;
+// const measureId = objRefToString(measureRef);
+const attributeId = objRefToString(rowAttribute.attribute.displayForm);
+
+const customMeasure1 = new InlineMeasureBuilder(
+    `SELECT {metric/${measureId}} BY ALL OTHER EXCEPT {label/${attributeId}}`,
+).build();
+
 const measure2 = Md.ActivityDate.Sum; // second measure - number ?
+
 const measure3chart = Md.ActivityDate.Avg; // third measure - chart
 
 export const Sparkline = () => {
@@ -27,12 +42,14 @@ export const Sparkline = () => {
                 rowAttribute,
                 rowAttributeWithDifferentLabel,
                 visualizationAttribute,
-                measure1chart,
+                measure1chart: customMeasure1,
                 measure2,
                 measure3chart,
             });
 
             const transformedResult = transformExecutionResult(executionResult);
+            console.log("🚀 ~ getData ~ transformedResult:", transformedResult);
+            console.log("🚀 ~ getData ~ executionResult:", executionResult);
 
             if (transformedResult) {
                 const { data, headers } = transformedResult;
