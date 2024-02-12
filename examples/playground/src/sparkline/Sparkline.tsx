@@ -4,32 +4,19 @@ import { useBackend, useWorkspace } from "@gooddata/sdk-ui";
 import React, { useEffect, useState } from "react";
 import * as Md from "../md/full.js";
 import { getExecutionResult } from "./getExecutionResult.js";
-import { ISparklineData, transformExecutionResult } from "./transformExecutionResult.js";
-import {
-    DataValue,
-    InlineMeasureBuilder,
-    // MeasureBuilder,
-    isTotal,
-    objRefToString,
-} from "@gooddata/sdk-model";
+import { ISparklineData, Row, transformExecutionResult } from "./transformExecutionResult.js";
+import { isTotal } from "@gooddata/sdk-model";
 import { SparklineChart } from "./SparklineChart.js";
 import "./Sparkline.scss";
+import { Buckets } from "./types.js";
+import { prepareBuckets } from "./prepareBuckets.js";
 
-const rowAttribute = Md.City.Name; // main attribute to define repeating rows
-const rowAttributeWithDifferentLabel = Md.City.ShortName; // main attribute with different label
-const visualizationAttribute = Md.DateDatasets.Activity.ActivityYear.Default; // second attribute that is used for slicing of all visualizations
-// const measure1chart = Md.NrOfActivities; // first measure - chart
-const measureId = (Md.NrOfActivities.measure.definition.measureDefinition.item as any).identifier;
-// const measureId = objRefToString(measureRef);
-const attributeId = objRefToString(rowAttribute.attribute.displayForm);
-
-const customMeasure1 = new InlineMeasureBuilder(
-    `SELECT {metric/${measureId}} BY ALL OTHER EXCEPT {label/${attributeId}}`,
-).build();
-
-const measure2 = Md.ActivityDate.Sum; // second measure - number ?
-
-const measure3chart = Md.ActivityDate.Avg; // third measure - chart
+const buckets: Buckets = {
+    rowAttributes: [Md.City.Name, Md.City.ShortName],
+    visualizationAttribute: Md.DateDatasets.Activity.ActivityYear.Default,
+    chartMeasures: [Md.ActivityDate.Sum, Md.ActivityDate.Avg],
+    standaloneMeasures: [Md.NrOfActivities],
+};
 
 export const Sparkline = () => {
     const backend = useBackend();
@@ -38,32 +25,26 @@ export const Sparkline = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const executionResult = await getExecutionResult(backend!, workspace!, {
-                rowAttribute,
-                rowAttributeWithDifferentLabel,
-                visualizationAttribute,
-                measure1chart: customMeasure1,
-                measure2,
-                measure3chart,
-            });
+            const preparedBuckets = prepareBuckets(buckets);
+            // eslint-disable-next-line no-console
+            console.log("🚀 ~ getData ~ preparedBuckets:", preparedBuckets);
 
-            const transformedResult = transformExecutionResult(executionResult);
-            console.log("🚀 ~ getData ~ transformedResult:", transformedResult);
+            const executionResult = await getExecutionResult(backend!, workspace!, preparedBuckets);
+            // eslint-disable-next-line no-console
             console.log("🚀 ~ getData ~ executionResult:", executionResult);
 
+            const transformedResult = transformExecutionResult(executionResult, preparedBuckets);
+            // eslint-disable-next-line no-console
+            console.log("🚀 ~ getData ~ transformedResult:", transformedResult);
+
             if (transformedResult) {
-                const { data, headers } = transformedResult;
-                setData({ data, headers });
+                const { data, header, categories } = transformedResult;
+                setData({ data, header, categories });
             }
         };
 
         getData();
     }, [backend, workspace]);
-
-    useEffect(() => {
-        // eslint-disable-next-line no-console
-        // console.log(data);
-    }, [data]);
 
     if (!data) {
         return <div>Loading...</div>;
@@ -73,7 +54,7 @@ export const Sparkline = () => {
         return (
             <thead>
                 <tr>
-                    {data.headers.map((header, index: number) => {
+                    {data.header.map((header, index: number) => {
                         if (isTotal(header)) {
                             return <th key={index}>{header.type}</th>;
                         }
@@ -95,14 +76,14 @@ export const Sparkline = () => {
         );
     };
 
-    const renderRows = (rows: (DataValue | DataValue[])[]) => {
+    const renderRows = (rows: Row) => {
         return (
             <>
                 {rows.map((row, index: number) => {
                     if (Array.isArray(row)) {
                         return (
                             <td key={index}>
-                                <SparklineChart data={row} />
+                                <SparklineChart data={row} categories={data.categories} />
                             </td>
                         );
                     }

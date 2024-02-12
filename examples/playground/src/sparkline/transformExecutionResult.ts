@@ -3,94 +3,99 @@
 import { IDataView } from "@gooddata/sdk-backend-spi";
 import {
     DataValue,
-    ITotal,
     isAttributeDescriptor,
     isMeasureGroupDescriptor,
+    isResultAttributeHeader,
     resultHeaderName,
 } from "@gooddata/sdk-model";
-
-function pickEveryNthElement<T>(arr: T[], n: number, offset: number = 0): T[] {
-    return arr.filter((_, index) => (index - offset) % n === 0);
-}
+import { Buckets } from "./types.js";
 
 function isMultidimensional(data: DataValue[] | DataValue[][]): data is DataValue[][] {
     return Array.isArray(data[0]);
 }
 
+export type Row = (DataValue | DataValue[])[];
+type Data = Row[];
+
 export interface ISparklineData {
-    data: (DataValue | DataValue[])[][];
-    headers: (string | ITotal)[];
+    data: Data;
+    header: string[];
+    categories: (string | null)[];
 }
 
-export const transformExecutionResult = (executionResult: IDataView): ISparklineData | undefined => {
+export const transformExecutionResult = (
+    executionResult: IDataView,
+    buckets: Buckets,
+): ISparklineData | undefined => {
     const {
         headerItems,
-        totals = [],
         data,
         count,
+        definition: { measures },
         result: { dimensions },
     } = executionResult;
-    // eslint-disable-next-line no-console
-    // console.log("🚀 ~ transformExecutionResult ~ executionResult:", executionResult);
+    const { rowAttributes, chartMeasures } = buckets;
 
     // Data should always be multidimensional in this case
     if (!isMultidimensional(data)) {
         return undefined;
     }
 
-    const totalNumberOfRows = count[0];
-    const rowAttributes = headerItems[0];
-    const rowAttributeHeadersInfo = dimensions[0].headers.filter(isAttributeDescriptor);
-    const numberOfRowAttributes = rowAttributeHeadersInfo.length;
-    const measureHeadersInfo =
-        dimensions[1].headers.find(isMeasureGroupDescriptor)?.measureGroupHeader.items ?? [];
-    const numberOfMeasures = measureHeadersInfo.length;
-    const columnTotals = totals[1];
-    const numberOfStandaloneMeasures = columnTotals[0].length;
+    const numberOfAttributes = rowAttributes.length;
+    const numberOfMeasures = measures.length;
+    const numberOfMeasuresForVisualisations = chartMeasures.length;
+    const totalNumberOfTableRows = count[0] / numberOfMeasures;
 
-    let shouldCollectHeaderInfo = true;
-    const transformedHeaders: (string | ITotal)[] = [];
-    const transformedData: (DataValue | DataValue[])[][] = [];
-    for (let rowIndex = 0; rowIndex < totalNumberOfRows; rowIndex++) {
-        const row: (DataValue | DataValue[])[] = [];
+    const rowAttributeItemHeaders = headerItems[0];
+    const columnAttributeItemHeaders = headerItems[1];
 
-        // attribute values (main row attribute and its display forms)
-        for (let attributeIndex = 0; attributeIndex < numberOfRowAttributes; attributeIndex++) {
-            row.push(resultHeaderName(rowAttributes[attributeIndex][rowIndex]));
+    const attributeColumnHeaders = dimensions[0].headers.filter(isAttributeDescriptor);
+    const measuresColumnHeaders =
+        dimensions[0].headers.filter(isMeasureGroupDescriptor)[0].measureGroupHeader.items;
+    const visualisationAttributeHeader = dimensions[1].headers.filter(isAttributeDescriptor)[0]; // there is always only one
 
-            // attribute header
-            if (shouldCollectHeaderInfo) {
-                transformedHeaders.push(rowAttributeHeadersInfo[attributeIndex].attributeHeader.name);
-            }
-        }
+    const transformedHeader: string[] = [];
+    const transformedData: Data = [];
 
-        // measure data (data for charts)
-        for (let measureIndex = 0; measureIndex < numberOfMeasures; measureIndex++) {
-            row.push(pickEveryNthElement(data[rowIndex], numberOfMeasures, measureIndex));
-
-            // TODO: construct correct names for facts
-            // measure headers
-            if (shouldCollectHeaderInfo) {
-                transformedHeaders.push(measureHeadersInfo[measureIndex].measureHeaderItem.name);
-            }
-        }
-
-        // totals (standalone measures)
-        for (let totalIndex = 0; totalIndex < numberOfStandaloneMeasures; totalIndex++) {
-            row.push(columnTotals[rowIndex][totalIndex]);
-
-            // TODO: construct correct names for totals
-            // total headers (standalone measures)
-            if (shouldCollectHeaderInfo) {
-                executionResult.definition.dimensions[1].totals?.forEach((total) => {
-                    transformedHeaders.push(`${total.type} of ${total.measureIdentifier}`);
-                });
-            }
-        }
-
-        shouldCollectHeaderInfo = false;
-        transformedData.push(row);
+    // HEADER
+    for (let attributeIndex = 0; attributeIndex < numberOfAttributes; attributeIndex++) {
+        const attributeHeader = attributeColumnHeaders[attributeIndex];
+        transformedHeader.push(attributeHeader.attributeHeader.name);
     }
 
-    return { data: transformedData, headers: transformedHeaders };
+    for (let measureIndex = 0; measureIndex < numberOfMeasures; measureIndex++) {
+        const measureHeader = measuresColumnHeaders[measureIndex];
+        transformedHeader.push(measureHeader.measureHeaderItem.name);
+    }
+
+    const visualisationAttributeHeaderName = visualisationAttributeHeader.attributeHeader.name;
+    // eslint-disable-next-line no-console
+    console.log("🚀 ~ visualisationAttributeHeaderName:", visualisationAttributeHeaderName);
+    const visualisationLabels = columnAttributeItemHeaders[0]
+        .filter(isResultAttributeHeader)
+        .map((item) => item.attributeHeaderItem.name);
+
+    // ROWS
+    let offset = 0;
+    for (let rowIndex = 0; rowIndex < totalNumberOfTableRows; rowIndex++) {
+        const row: Row = [];
+
+        for (let attributeIndex = 0; attributeIndex < numberOfAttributes; attributeIndex++) {
+            row.push(resultHeaderName(rowAttributeItemHeaders[attributeIndex][offset]));
+        }
+
+        for (let measureIndex = 0; measureIndex < numberOfMeasures; measureIndex++) {
+            const dataRow = data[offset + measureIndex];
+            if (measureIndex < numberOfMeasuresForVisualisations) {
+                row.push(dataRow);
+            } else {
+                row.push(dataRow[0]); // total row where all values are the same
+            }
+        }
+
+        transformedData.push(row);
+        offset = offset + numberOfMeasures;
+    }
+
+    return { data: transformedData, categories: visualisationLabels, header: transformedHeader };
 };

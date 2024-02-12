@@ -1,57 +1,23 @@
 // (C) 2024 GoodData Corporation
 
 import { IAnalyticalBackend } from "@gooddata/sdk-backend-spi";
-import {
-    IAttribute,
-    IMeasure,
-    MeasureGroupIdentifier,
-    newTotal,
-    newTwoDimensional,
-} from "@gooddata/sdk-model";
-
-interface Buckets {
-    rowAttribute: IAttribute;
-    rowAttributeWithDifferentLabel: IAttribute;
-    visualizationAttribute: IAttribute;
-    measure1chart: IMeasure;
-    measure2: IMeasure;
-    measure3chart: IMeasure;
-}
+import { MeasureGroupIdentifier, newTwoDimensional } from "@gooddata/sdk-model";
+import { Buckets } from "./types.js";
 
 export const getExecutionResult = async (
     backend: IAnalyticalBackend,
     workspace: string,
     buckets: Buckets,
 ) => {
-    const {
-        rowAttribute,
-        rowAttributeWithDifferentLabel,
-        visualizationAttribute,
-        measure1chart,
-        measure2,
-        measure3chart,
-    } = buckets;
-
-    // const totalMeasure2 = newTotal("sum", measure2, visualizationAttribute);
+    const { rowAttributes, visualizationAttribute, chartMeasures, standaloneMeasures = [] } = buckets;
 
     try {
         const execution = await backend
             .workspace(workspace)
             .execution()
-            .forItems([
-                rowAttribute,
-                rowAttributeWithDifferentLabel,
-                visualizationAttribute,
-                measure1chart,
-                measure2,
-                measure3chart,
-            ])
+            .forItems([...rowAttributes, visualizationAttribute, ...chartMeasures, ...standaloneMeasures])
             .withDimensions(
-                ...newTwoDimensional(
-                    [rowAttribute, rowAttributeWithDifferentLabel, MeasureGroupIdentifier],
-                    // order matters here!
-                    [visualizationAttribute],
-                ),
+                ...newTwoDimensional([...rowAttributes, MeasureGroupIdentifier], [visualizationAttribute]),
             )
             .execute();
 
@@ -60,25 +26,3 @@ export const getExecutionResult = async (
         throw new Error("Unable to get execution result", e);
     }
 };
-
-/*
- * EXECUTION WHERE EVERYTHING IS IN ROWS AND NO COLUMNS ARE DEFINED
- */
-// const execution = await backend
-// .workspace(workspace)
-// .execution()
-// .forItems([
-//     rowAttribute,
-//     rowAttributeWithDifferentLabel,
-//     visualizationAttribute,
-//     measure1chart,
-//     measure2,
-//     measure3chart,
-// ])
-// .withDimensions(
-//     ...newTwoDimensional(
-//         [rowAttribute, rowAttributeWithDifferentLabel, visualizationAttribute, totalMeasure2],
-//         [MeasureGroupIdentifier], // this ensures the dimension must contain all measures
-//     ),
-// )
-// .execute();
